@@ -3,7 +3,7 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin, MessageSquare, Clock } from 'lucide-react';
+import { Mail, Phone, Github } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -27,7 +27,7 @@ const Contact = () => {
         <div className="text-center max-w-3xl mx-auto animate-fade-in">
           <h1 className="heading-lg mb-6">Get in Touch</h1>
           <p className="text-xl text-muted-foreground mb-8">
-            Have questions about my SEO services? Ready to improve your search rankings? Let's talk.
+            Have questions about my SEO or app building services? Ready to improve your search rankings or build your next application? Let's talk.
           </p>
         </div>
       </section>
@@ -103,6 +103,9 @@ const Contact = () => {
                       <option value="Local SEO">Local SEO</option>
                       <option value="SEO Audit">SEO Audit</option>
                       <option value="Content Strategy">Content Strategy</option>
+                      <option value="n8n Automation">n8n Automation</option>
+                      <option value="React Development">React Development</option>
+                      <option value="MCP Solutions">MCP Solutions</option>
                       <option value="Custom Package">Custom Package</option>
                     </select>
                   </div>
@@ -113,7 +116,7 @@ const Contact = () => {
                     </label>
                     <Textarea
                       id="message"
-                      placeholder="Tell me about your project and your SEO goals..."
+                      placeholder="Tell me about your project and your goals..."
                       rows={6}
                       required
                     />
@@ -142,8 +145,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="font-medium">Email Address</p>
-                      <a href="mailto:hello@seoexpert.com" className="text-muted-foreground hover:text-primary transition-colors">
-                        hello@seoexpert.com
+                      <a href="mailto:hello@mardenseo.com" className="text-muted-foreground hover:text-primary transition-colors">
+                        hello@mardenseo.com
                       </a>
                     </div>
                   </div>
@@ -154,48 +157,21 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="font-medium">Phone Number</p>
-                      <a href="tel:+11234567890" className="text-muted-foreground hover:text-primary transition-colors">
-                        +1 (123) 456-7890
+                      <a href="tel:+821077741401" className="text-muted-foreground hover:text-primary transition-colors">
+                        +821077741401
                       </a>
                     </div>
                   </div>
                   
                   <div className="flex items-start">
                     <div className="flex items-center justify-center h-10 w-10 rounded-full bg-primary/10 text-primary mr-4">
-                      <MapPin className="h-5 w-5" />
+                      <Github className="h-5 w-5" />
                     </div>
                     <div>
-                      <p className="font-medium">Location</p>
-                      <p className="text-muted-foreground">
-                        San Francisco, California<br />
-                        United States
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="flex items-center justify-center h-10 w-10 rounded-full bg-primary/10 text-primary mr-4">
-                      <MessageSquare className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <p className="font-medium">Social Media</p>
-                      <div className="flex space-x-3 mt-1">
-                        <a href="https://linkedin.com" className="text-muted-foreground hover:text-primary transition-colors">LinkedIn</a>
-                        <a href="https://twitter.com" className="text-muted-foreground hover:text-primary transition-colors">Twitter</a>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="flex items-center justify-center h-10 w-10 rounded-full bg-primary/10 text-primary mr-4">
-                      <Clock className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <p className="font-medium">Business Hours</p>
-                      <p className="text-muted-foreground">
-                        Monday - Friday<br />
-                        9:00 AM - 5:00 PM PST
-                      </p>
+                      <p className="font-medium">GitHub</p>
+                      <a href="https://github.com/Kr8thor" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                        github.com/Kr8thor
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -205,11 +181,11 @@ const Contact = () => {
               <div className="bg-card border border-border rounded-lg p-8 mt-8">
                 <h3 className="font-heading text-xl mb-4">Book a Quick Call</h3>
                 <p className="text-muted-foreground mb-6">
-                  Prefer a quick chat? Schedule a 15-minute call to discuss your SEO needs.
+                  Prefer a quick chat? Send an email to schedule a call to discuss your needs.
                 </p>
                 <Button asChild className="w-full">
-                  <a href="https://calendly.com" target="_blank" rel="noopener noreferrer">
-                    Schedule a Call
+                  <a href="mailto:hello@mardenseo.com">
+                    Email to Schedule
                   </a>
                 </Button>
               </div>
@@ -234,24 +210,24 @@ const Contact = () => {
               answer: "SEO is a long-term strategy. While some improvements can be seen within the first few months (especially from technical fixes), significant results typically take 4-6 months to materialize. The timeline can vary based on your industry competition, website history, and the strategies implemented."
             },
             {
-              question: "How much do your SEO services cost?",
-              answer: "My SEO services start at $1,200/month for small businesses and scale based on the scope of work and your specific needs. I offer customized packages to ensure you're getting exactly what your business needs. Contact me for a personalized quote."
+              question: "What app development services do you offer?",
+              answer: "I specialize in building custom applications using n8n automation, React, MCPs, and similar technologies. Services include workflow automation, data integration, custom web applications, and full-stack development tailored to your specific business needs."
             },
             {
               question: "Do you guarantee first-page rankings?",
               answer: "No legitimate SEO professional can guarantee specific rankings as search algorithms are complex and constantly changing. What I do guarantee is implementing proven strategies, transparent reporting, and continuous optimization based on performance data."
             },
             {
-              question: "What makes your SEO services different?",
-              answer: "My approach combines technical expertise with strategic content development and a focus on user experience. I stay updated with algorithm changes, provide transparent reporting, and prioritize sustainable, white-hat techniques that build long-term success."
+              question: "What makes your services different?",
+              answer: "My approach combines technical expertise with strategic content development and a focus on user experience. I stay updated with the latest technologies and algorithm changes, providing tailored solutions that address your specific business goals."
             },
             {
               question: "Do you require long-term contracts?",
-              answer: "While SEO works best as a long-term strategy, I typically offer month-to-month agreements after an initial 3-month commitment. This gives us enough time to implement strategies and start measuring results."
+              answer: "While SEO works best as a long-term strategy, I typically offer month-to-month agreements after an initial 3-month commitment. For app development projects, we'll define the scope and timeline based on your specific requirements."
             },
             {
               question: "What information do you need to get started?",
-              answer: "To prepare a proposal, I'll need your website URL, business goals, target audience information, and access to any existing analytics. For the full SEO engagement, I'll need various levels of access to your website, analytics platforms, and search console."
+              answer: "To prepare a proposal for SEO, I'll need your website URL, business goals, target audience information, and access to any existing analytics. For app development projects, we'll need to discuss your requirements, existing systems, and desired functionality."
             }
           ].map((faq, index) => (
             <div key={index} className="bg-card border border-border rounded-lg p-6">
@@ -265,9 +241,9 @@ const Contact = () => {
       {/* CTA Section */}
       <section className="bg-primary text-primary-foreground py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-8 text-center">
-          <h2 className="heading-md mb-6">Ready to Boost Your Search Rankings?</h2>
+          <h2 className="heading-md mb-6">Ready to Boost Your Online Presence?</h2>
           <p className="text-xl mb-10 max-w-3xl mx-auto opacity-90">
-            Take the first step toward improving your online visibility and growing your business through strategic SEO.
+            Take the first step toward improving your visibility and growing your business through strategic SEO and custom application development.
           </p>
           <Button asChild size="lg" variant="secondary">
             <a href="#top">Contact Me Today</a>

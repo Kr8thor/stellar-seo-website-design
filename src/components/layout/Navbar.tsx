@@ -33,7 +33,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
         <Link to="/" className="font-heading text-2xl font-medium">
-          SEO Expert
+          Marden SEO
         </Link>
 
         {/* Desktop Navigation */}
@@ -43,6 +43,7 @@ const Navbar = () => {
           <Link to="/services" className="hover-underline text-sm uppercase tracking-wider">Services</Link>
           <Link to="/portfolio" className="hover-underline text-sm uppercase tracking-wider">Portfolio</Link>
           <Link to="/blog" className="hover-underline text-sm uppercase tracking-wider">Blog</Link>
+          <Link to="/app-building" className="hover-underline text-sm uppercase tracking-wider">App Building</Link>
           <Link to="/contact" className="hover-underline text-sm uppercase tracking-wider">Contact</Link>
         </nav>
 
@@ -57,7 +58,7 @@ const Navbar = () => {
           <div className="container mx-auto px-4 py-4 flex flex-col h-full">
             <div className="flex justify-between items-center">
               <Link to="/" className="font-heading text-2xl font-medium" onClick={() => setIsMenuOpen(false)}>
-                SEO Expert
+                Marden SEO
               </Link>
               <Button variant="ghost" size="icon" onClick={toggleMenu}>
                 <X className="h-6 w-6" />
@@ -69,6 +70,7 @@ const Navbar = () => {
               <Link to="/services" className="font-heading text-2xl" onClick={() => setIsMenuOpen(false)}>Services</Link>
               <Link to="/portfolio" className="font-heading text-2xl" onClick={() => setIsMenuOpen(false)}>Portfolio</Link>
               <Link to="/blog" className="font-heading text-2xl" onClick={() => setIsMenuOpen(false)}>Blog</Link>
+              <Link to="/app-building" className="font-heading text-2xl" onClick={() => setIsMenuOpen(false)}>App Building</Link>
               <Link to="/contact" className="font-heading text-2xl" onClick={() => setIsMenuOpen(false)}>Contact</Link>
             </nav>
           </div>
