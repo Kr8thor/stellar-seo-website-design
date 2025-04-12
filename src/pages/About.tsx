@@ -29,9 +29,9 @@ const About = () => {
           </div>
           <div className="lg:w-1/2">
             <img 
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2" 
+              src="/lovable-uploads/a103d7ea-fa9e-4582-9d36-828eb4472ece.png" 
               alt="SEO Specialist" 
-              className="w-full h-auto rounded-lg object-cover aspect-[4/5]" 
+              className="w-full h-auto rounded-lg object-cover" 
             />
           </div>
         </div>

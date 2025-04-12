@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { Github, Code, Database, Server, Box, Settings } from 'lucide-react';
+import { Github, Code, Database, Server, Box, Settings, Cloud } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const AppBuilding = () => {
@@ -12,7 +12,7 @@ const AppBuilding = () => {
         <div className="text-center max-w-3xl mx-auto animate-fade-in">
           <h1 className="heading-lg mb-6">App Building Services</h1>
           <p className="text-xl text-muted-foreground mb-8">
-            Custom application development with modern tools and technologies
+            Custom SaaS application development with modern tools and technologies
           </p>
         </div>
       </section>
@@ -37,7 +37,7 @@ const AppBuilding = () => {
               </div>
               <h3 className="font-heading text-xl mb-4">MCP Solutions</h3>
               <p className="text-muted-foreground">
-                Custom Microsoft Certified Professional solutions tailored to your business needs with seamless integration into your existing infrastructure.
+                Custom Model Context Protocol solutions integrated with builders like Claude and Cursor, tailored to enhance your AI-powered applications.
               </p>
             </div>
             
@@ -47,7 +47,7 @@ const AppBuilding = () => {
               </div>
               <h3 className="font-heading text-xl mb-4">React Development</h3>
               <p className="text-muted-foreground">
-                Modern, responsive web applications built with React and related technologies, focusing on performance and user experience.
+                Modern, responsive SaaS web applications built with React and related technologies, focusing on performance and user experience.
               </p>
             </div>
 
@@ -57,17 +57,17 @@ const AppBuilding = () => {
               </div>
               <h3 className="font-heading text-xl mb-4">API Development</h3>
               <p className="text-muted-foreground">
-                Custom API solutions that connect your applications and services, enabling seamless data flow and integration.
+                Custom API solutions that connect your SaaS applications and services, enabling seamless data flow and integration.
               </p>
             </div>
             
             <div className="bg-card border border-border rounded-lg p-8 transition-all hover:shadow-md">
               <div className="flex items-center justify-center h-12 w-12 rounded-md bg-primary/10 text-primary mb-6">
-                <Box className="h-6 w-6" />
+                <Cloud className="h-6 w-6" />
               </div>
-              <h3 className="font-heading text-xl mb-4">Full-stack Solutions</h3>
+              <h3 className="font-heading text-xl mb-4">SaaS Solutions</h3>
               <p className="text-muted-foreground">
-                End-to-end application development covering frontend, backend, database, and deployment needs.
+                End-to-end SaaS application development with subscription management, multi-tenancy architecture, and scalable infrastructure.
               </p>
             </div>
           </div>
