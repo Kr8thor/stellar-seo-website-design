@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, Cpu, Robot, Workflow, Code, Database, Zap } from 'lucide-react';
 
 const About = () => {
   return (
@@ -43,45 +43,64 @@ const About = () => {
           <div className="text-center mb-16">
             <h2 className="heading-md mb-4">My Expertise</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              With half a decade of experience and continuous learning in SEO and AI technologies, I bring specialized knowledge across multiple cutting-edge areas.
+              With half a decade of experience and continuous learning in AI technologies and SEO, I bring specialized knowledge across multiple cutting-edge areas.
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
             {[
               {
-                title: "AI-Enhanced SEO",
-                description: "Implementing advanced AI models to analyze search patterns, optimize content, and boost rankings through machine learning insights."
+                title: "AI Workflow Automation",
+                description: "Building custom AI workflows that automate repetitive tasks, enhance decision-making, and create scalable business solutions with minimal human intervention.",
+                icon: <Workflow className="h-8 w-8 mb-3 text-primary" />
               },
               {
-                title: "Technical SEO",
-                description: "Site architecture, speed optimization, mobile-friendliness, structured data implementation, and crawlability improvements."
-              },
-              {
-                title: "Content Strategy",
-                description: "AI-powered keyword research, content gap analysis, topic clustering, and creating search-optimized content that converts."
+                title: "Custom AI Solutions",
+                description: "Developing tailored artificial intelligence applications that solve specific business challenges and create competitive advantages unique to your organization.",
+                icon: <Robot className="h-8 w-8 mb-3 text-primary" />
               },
               {
                 title: "AI Integration",
-                description: "Custom AI solutions to enhance your business workflows, automate processes, and gain competitive insights from your data."
+                description: "Seamlessly integrating AI models like Claude and GPT with existing business systems through Cursor and other AI builders to enhance productivity and insights.",
+                icon: <Cpu className="h-8 w-8 mb-3 text-primary" />
               },
               {
-                title: "Analytics & Reporting",
-                description: "AI-powered dashboard creation, predictive analytics, conversion tracking, and actionable insights for continuous improvement."
+                title: "AI-Enhanced SEO",
+                description: "Implementing advanced AI models to analyze search patterns, optimize content, and boost rankings through machine learning insights.",
+                icon: <Zap className="h-8 w-8 mb-3 text-primary" />
               },
               {
-                title: "E-E-A-T Optimization",
-                description: "Enhancing your site's Experience, Expertise, Authoritativeness, and Trustworthiness signals using data-driven AI techniques."
+                title: "Technical SEO",
+                description: "Site architecture, speed optimization, mobile-friendliness, structured data implementation, and crawlability improvements.",
+                icon: <Code className="h-8 w-8 mb-3 text-primary" />
+              },
+              {
+                title: "Data-Driven Strategy",
+                description: "AI-powered dashboard creation, predictive analytics, conversion tracking, and actionable insights for continuous improvement.",
+                icon: <Database className="h-8 w-8 mb-3 text-primary" />
               }
             ].map((expertise, index) => (
               <div 
                 key={index} 
                 className="bg-card p-8 rounded-lg border border-border hover:border-primary/30 transition-all duration-300"
               >
+                {expertise.icon}
                 <h3 className="font-heading text-xl mb-3">{expertise.title}</h3>
                 <p className="text-muted-foreground">{expertise.description}</p>
               </div>
             ))}
+          </div>
+          
+          {/* New Workflow Image */}
+          <div className="mt-16">
+            <img 
+              src="/lovable-uploads/cc7235a6-db85-4f70-9150-b94aa9d837de.png" 
+              alt="AI Workflow Automation Example" 
+              className="w-full h-auto rounded-lg shadow-lg" 
+            />
+            <p className="text-center text-sm text-muted-foreground mt-3">
+              Example of a custom AI workflow automation solution built for business process optimization
+            </p>
           </div>
         </div>
       </section>
@@ -92,16 +111,13 @@ const About = () => {
           <div className="lg:w-1/2">
             <h2 className="heading-md mb-6">My Story</h2>
             <p className="mb-4">
-              My journey in SEO and AI began five years ago with a fascination for how these technologies could dramatically impact business visibility and efficiency in the digital landscape.
+              My journey began five years ago building websites for small businesses, which naturally led me into the world of SEO and PPC as clients needed more visibility online.
             </p>
             <p className="mb-4">
-              After mastering the fundamentals, I specialized in combining technical SEO with advanced AI solutions, working with clients across various industries to transform their digital presence.
-            </p>
-            <p className="mb-4">
-              I'm passionate about staying at the cutting edge of AI advancements, continuously testing and implementing new technologies like large language models, predictive analytics, and automation tools to give my clients the competitive edge.
+              After mastering the fundamentals, the opportunity and scope of AI grabbed my attention. While everyone else was making pictures of action figures, I was focusing on how to build automated workflows that will benefit small and medium enterprises.
             </p>
             <p>
-              Today, I work with select clients who are serious about leveraging both SEO and artificial intelligence to drive sustainable organic growth through innovative, future-proof strategies.
+              Today, I work with clients who are serious about getting ahead of the pack and using AI to drive sustainable organic growth through innovative, future-proof strategies.
             </p>
           </div>
           <div className="lg:w-1/2">
@@ -152,16 +168,16 @@ const About = () => {
                   <p className="text-muted-foreground">Years of Expertise</p>
                 </div>
                 <div className="bg-card p-6 rounded-lg border border-border">
-                  <p className="text-3xl font-heading font-medium">99%</p>
-                  <p className="text-muted-foreground">Client Satisfaction</p>
-                </div>
-                <div className="bg-card p-6 rounded-lg border border-border">
                   <p className="text-3xl font-heading font-medium">200+</p>
                   <p className="text-muted-foreground">Projects Completed</p>
                 </div>
                 <div className="bg-card p-6 rounded-lg border border-border">
                   <p className="text-3xl font-heading font-medium">85%</p>
                   <p className="text-muted-foreground">Results Above Target</p>
+                </div>
+                <div className="bg-card p-6 rounded-lg border border-border">
+                  <p className="text-3xl font-heading font-medium">24/7</p>
+                  <p className="text-muted-foreground">AI Automation</p>
                 </div>
               </div>
             </div>
