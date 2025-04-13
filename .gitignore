@@ -7,8 +7,8 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
+# node_modules - uncommenting to include
+# dist - uncommenting to include
 dist-ssr
 *.local
 
