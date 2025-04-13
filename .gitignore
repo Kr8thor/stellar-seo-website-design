@@ -7,7 +7,11 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+<<<<<<< HEAD
 # node_modules - uncommenting to include
+=======
+node_modules
+>>>>>>> aa83e4c295f1aa0075b66ef340a0fc47b8b022d3
 # dist - uncommenting to include
 dist-ssr
 *.local
