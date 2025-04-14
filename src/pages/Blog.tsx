@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
@@ -61,6 +62,43 @@ const Blog = () => {
           content="Expert tips, strategies, and insights to help you improve your search visibility and stay ahead of the competition." 
         />
       </Helmet>
+      
+      {/* Featured Post */}
+      {featuredPost && (
+        <section className="bg-accent/30 py-16 md:py-24">
+          <div className="container mx-auto px-4 md:px-8">
+            <div className="flex flex-col lg:flex-row gap-12">
+              <div className="lg:w-1/2">
+                <img 
+                  src={featuredPost.image} 
+                  alt={featuredPost.title} 
+                  className="rounded-lg w-full h-auto shadow-lg" 
+                />
+              </div>
+              
+              <div className="lg:w-1/2 flex flex-col justify-center">
+                <span className="text-sm bg-accent/70 text-accent-foreground px-3 py-1 rounded inline-block mb-4 w-fit">
+                  Featured Article
+                </span>
+                <h2 className="font-heading text-3xl mb-4">
+                  {featuredPost.title}
+                </h2>
+                <p className="text-muted-foreground mb-3">
+                  {featuredPost.date} · {featuredPost.readTime}
+                </p>
+                <p className="mb-6">
+                  Search engines are increasingly prioritizing content that demonstrates Experience, Expertise, Authoritativeness, and Trustworthiness. In this comprehensive guide, we break down each component of E-E-A-T and provide actionable strategies to improve your site's quality signals.
+                </p>
+                <Button asChild>
+                  <Link to={`/blog/${featuredPost.id}`}>
+                    Read Full Article <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
       
       {/* Hero Section */}
       <section className="section-container">
@@ -152,43 +190,6 @@ const Blog = () => {
         )}
       </section>
       
-      {/* Featured Post */}
-      {featuredPost && (
-        <section className="bg-accent/30 py-16 md:py-24">
-          <div className="container mx-auto px-4 md:px-8">
-            <div className="flex flex-col lg:flex-row gap-12">
-              <div className="lg:w-1/2">
-                <img 
-                  src={featuredPost.image} 
-                  alt={featuredPost.title} 
-                  className="rounded-lg w-full h-auto shadow-lg" 
-                />
-              </div>
-              
-              <div className="lg:w-1/2 flex flex-col justify-center">
-                <span className="text-sm bg-accent/70 text-accent-foreground px-3 py-1 rounded inline-block mb-4 w-fit">
-                  Featured Article
-                </span>
-                <h2 className="font-heading text-3xl mb-4">
-                  {featuredPost.title}
-                </h2>
-                <p className="text-muted-foreground mb-3">
-                  {featuredPost.date} · {featuredPost.readTime}
-                </p>
-                <p className="mb-6">
-                  Search engines are increasingly prioritizing content that demonstrates Experience, Expertise, Authoritativeness, and Trustworthiness. In this comprehensive guide, we break down each component of E-E-A-T and provide actionable strategies to improve your site's quality signals.
-                </p>
-                <Button asChild>
-                  <Link to={`/blog/${featuredPost.id}`}>
-                    Read Full Article <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-      
       {/* Subscribe Section */}
       <section className="section-container">
         <div className="bg-card border border-border rounded-lg p-8 md:p-12 text-center max-w-3xl mx-auto">
@@ -214,3 +215,4 @@ const Blog = () => {
 };
 
 export default Blog;
+
