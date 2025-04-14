@@ -150,11 +150,11 @@ export const blogPosts: BlogPostProps[] = [
           <h3 className="font-semibold text-gray-800 mb-4">About the Author</h3>
           <div className="flex items-center">
             <div className="h-16 w-16 rounded-full bg-purple-100 flex items-center justify-center text-xl font-medium text-purple-700 mr-4">
-              AM
+              LC
             </div>
             <div>
-              <p className="font-medium">Alex Marden</p>
-              <p className="text-sm text-gray-600">SEO Consultant with 10+ years of experience helping businesses navigate Google's evolving algorithms. Has survived multiple core updates without throwing a keyboard out the window.</p>
+              <p className="font-medium">Leo Corbett</p>
+              <p className="text-sm text-gray-600">An AI-first automation specialist and SEO expert who builds high-performance systems that scale businesses while eliminating inefficiencies.</p>
             </div>
           </div>
         </div>
