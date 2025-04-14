@@ -1,7 +1,6 @@
 import React from 'react';
 import { BlogPostProps } from '@/components/blog/BlogPost';
 
-// Complete blog posts data with full content
 export const blogPosts: BlogPostProps[] = [
   {
     id: 'featured',
@@ -10,7 +9,7 @@ export const blogPosts: BlogPostProps[] = [
     image: "https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     date: "April 10, 2025",
     readTime: "10 min read",
-    author: "Alex Marden",
+    author: "Leo Corbett",
     excerpt: "A comprehensive guide to Google's E-E-A-T principles and how they impact your SEO strategy in 2025 and beyond.",
     content: (
       <>
