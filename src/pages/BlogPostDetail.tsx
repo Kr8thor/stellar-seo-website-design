@@ -8,8 +8,12 @@ import { Helmet } from 'react-helmet';
 const BlogPostDetail = () => {
   const { id } = useParams<{ id: string }>();
   
-  // Find the blog post with the matching ID
-  const post = blogPosts.find(post => post.id.toString() === id);
+  // Find the blog post with the matching ID (handling both number and string IDs)
+  const post = blogPosts.find(post => 
+    typeof post.id === 'number' 
+      ? post.id.toString() === id 
+      : post.id === id
+  );
   
   // Scroll to top when post changes
   useEffect(() => {

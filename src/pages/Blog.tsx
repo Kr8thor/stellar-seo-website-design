@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
@@ -26,7 +25,7 @@ const Blog = () => {
   
   // Filter blog posts based on active filter and search term
   const filteredPosts = blogPosts
-    .filter(post => post.id !== 'featured') // Exclude featured post from regular grid
+    .filter(post => post.id !== "featured") // Exclude featured post from regular grid
     .filter(post => 
       (activeFilter === "All" || post.category === activeFilter) &&
       (searchTerm === "" || 
@@ -35,7 +34,7 @@ const Blog = () => {
     );
   
   // Get featured post
-  const featuredPost = blogPosts.find(post => post.id === 'featured');
+  const featuredPost = blogPosts.find(post => post.id === "featured");
   
   // Pagination
   const indexOfLastPost = currentPage * postsPerPage;

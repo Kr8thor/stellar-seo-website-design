@@ -6,7 +6,7 @@ import { ArrowLeft, Calendar, Clock, Tag } from 'lucide-react';
 import { Helmet } from 'react-helmet';
 
 export type BlogPostProps = {
-  id: number;
+  id: number | string;
   title: string;
   category: string;
   image: string;
@@ -14,6 +14,7 @@ export type BlogPostProps = {
   date: string;
   readTime: string;
   author?: string;
+  excerpt?: string;
 };
 
 const BlogPost = ({ post }: { post: BlogPostProps }) => {
