@@ -126,4 +126,46 @@
   .subtle-animation {
     @apply transition-all duration-300 ease-in-out;
   }
+  
+  /* Enhanced Blog Styling */
+  .featured-post-page {
+    @apply min-h-screen;
+  }
+  
+  .featured-content {
+    @apply text-lg leading-relaxed;
+  }
+  
+  .featured-content h2 {
+    @apply font-heading text-2xl md:text-3xl font-medium mt-12 mb-6 text-slate-800;
+  }
+  
+  .featured-content h3 {
+    @apply font-heading text-xl md:text-2xl font-medium mt-8 mb-4 text-slate-700;
+  }
+  
+  .featured-content p {
+    @apply mb-6 text-slate-700;
+  }
+  
+  .featured-content ul {
+    @apply my-6 space-y-2;
+  }
+  
+  .featured-content ul li {
+    @apply pl-6 relative;
+  }
+  
+  .featured-content ul li::before {
+    content: "";
+    @apply absolute left-0 top-[0.6rem] w-2 h-2 rounded-full bg-purple-500;
+  }
+  
+  .featured-content img {
+    @apply my-10 rounded-lg shadow-md mx-auto;
+  }
+  
+  .featured-content blockquote {
+    @apply pl-6 py-2 border-l-4 border-purple-500 bg-purple-50 italic my-8 rounded-r;
+  }
 }
