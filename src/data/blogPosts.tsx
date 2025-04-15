@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BlogPostProps } from '@/components/blog/BlogPost';
 
@@ -162,88 +163,184 @@ export const blogPosts: BlogPostProps[] = [
   },
   {
     id: 1,
-    title: "10 On-Page SEO Tactics That Still Work in 2025",
+    title: "10 On-Page SEO Tactics That Still Work in 2025 (And Actually Matter)",
     category: "SEO Tips",
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     date: "April 05, 2025",
     readTime: "8 min read",
-    author: "Alex Marden",
+    author: "Leo Corbett",
     content: (
       <>
-        <p>
-          Search engines are constantly evolving, but certain on-page SEO fundamentals continue to deliver results 
-          even in 2025. While AI-driven search has changed the landscape, these tactics remain effective when 
-          implemented correctly.
+        <p className="text-xl leading-relaxed mb-8">
+          If you've ever screamed into a Google Doc, "What even works anymore?!"—this one's for you. SEO's been dragged through AI upheavals, algorithm shakeups, and enough SERP drama to fuel a Netflix docuseries. But guess what? Some on-page tactics still hold the line.
         </p>
         
-        <h2>1. Optimize for Search Intent</h2>
-        <p>
-          Understanding what users are actually looking for when they type a query has become more important than 
-          ever. With semantic search capabilities, search engines now prioritize content that best addresses user 
-          intent rather than just matching keywords.
+        <p className="mb-6">
+          These are the old-school fundamentals with fresh-school relevance. The techniques Google still rewards because—spoiler alert—they're actually helpful to users. So put down your AI content spinner and let's get into the real stuff.
         </p>
+
+        <div className="bg-amber-50 border-l-4 border-amber-500 p-4 my-8 rounded-r-md">
+          <p className="italic text-amber-800">
+            "SEO in 2025 isn't about gaming the system—it's about showing up like a professional with content that helps, structure that guides, and performance that respects the user's time."
+          </p>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4">1. 🔍 Search Intent: The Only Keyword That Matters Is Why</h2>
+        <p className="mb-6">
+          You can stuff your page with keywords like a piñata full of synonyms, but if you're not matching the reason behind the search, Google will ghost you. In 2025, intent is the algorithm's North Star. People aren't just searching "best protein powder"—they're trying to lose weight, gain muscle, or avoid burping up chalk dust.
+        </p>
+
+        <p className="font-medium mb-6">How to win:</p>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Answer the real question.</li>
+          <li>Anticipate follow-ups.</li>
+          <li>Align your tone to the reader's mood (panicked, researching, comparison-shopping, etc.).</li>
+        </ul>
+
+        <p className="font-medium mb-8">Google doesn't want "content"—it wants solutions.</p>
         
-        <h2>2. Structured Data Markup</h2>
-        <p>
-          Implementing schema markup helps search engines understand your content better and can lead to enhanced 
-          search results with rich snippets, which significantly improve click-through rates.
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4">2. 💬 Schema Markup: Talking to Google in Its Love Language</h2>
+        <p className="mb-6">
+          Structured data is like putting subtitles on your website. You're not just saying "Here's a recipe." You're saying, "This is a gluten-free lasagna with 1,000 five-star reviews, prep time of 15 mins, and no one cried making it."
         </p>
-        
-        <h2>3. Content Depth and Comprehensiveness</h2>
-        <p>
-          Superficial content no longer ranks well. Search engines reward pages that thoroughly address a topic 
-          from multiple angles, answering all possible questions a user might have.
+
+        <p className="font-medium mb-4">Use it for:</p>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Reviews, events, FAQs, products</li>
+          <li>Article type, author, and publish dates</li>
+          <li>Your ego (via "sameAs" and "author" tags)</li>
+        </ul>
+
+        <p className="mb-8">Result? Rich snippets. Enhanced SERPs. And maybe even your face showing up in Google's fancy answers box.</p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-purple-700 mb-3">3. 📚 Content Depth: Go Long or Go Home</h3>
+            <p>We're not talking word count inflation here. Depth means giving a topic the attention it deserves—covering angles your competitors missed, answering the follow-up questions before they're even asked.</p>
+            <div className="mt-4 p-3 bg-gray-50 rounded">
+              <p className="text-gray-700 font-medium">Quick test:</p>
+              <p>If a user still needs to Google after reading your post, you've failed.</p>
+            </div>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-green-700 mb-3">4. 🧠 Internal Linking: The Secret Sauce</h3>
+            <p>Google's like a curious toddler—it follows links to understand context. Internal linking isn't just about "SEO juice" anymore. It's about building semantic relationships between your ideas.</p>
+            <div className="mt-4 p-3 bg-gray-50 rounded">
+              <p className="text-gray-700 font-medium">Do this:</p>
+              <p>Build a web of ideas, not a maze of confusion.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4">5. ⚡ Core Web Vitals: Google's Fitness Tracker for Your Site</h2>
+        <p className="mb-6">
+          Still important. Still annoying. Still worth doing.
         </p>
-        
-        <h2>4. Page Experience Optimization</h2>
-        <p>
-          Core Web Vitals continue to influence rankings. Fast loading times, interactivity, and visual stability 
-          create a positive user experience that search engines reward.
+
+        <p className="mb-6">
+          You want your site fast, stable, and responsive because—shocker—people don't like broken or sluggish pages. And Google knows this.
         </p>
-        
-        <h2>5. Optimized Internal Linking</h2>
-        <p>
-          Strategic internal linking distributes page authority, helps search engines understand your site 
-          structure, and improves user navigation, all contributing to better rankings.
+
+        <div className="bg-green-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-green-800 mb-4">Focus on:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-green-800">
+            <li><span className="font-bold">LCP:</span> Make that big hero image load fast</li>
+            <li><span className="font-bold">CLS:</span> Stop layout shifts that make people rage-click</li>
+            <li><span className="font-bold">INP:</span> Keep interaction smooth (especially on mobile)</li>
+          </ul>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Person using laptop for SEO work" className="rounded-lg shadow-md my-8 w-full" />
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4">6. 🔁 Update Your Evergreen Content</h2>
+        <p className="mb-6">
+          The "set it and forget it" strategy is now "set it and regret it." Your 2021 guide to TikTok ads needs CPR. And Google can smell stale info from a mile away.
         </p>
-        
-        <h2>6. Updated Evergreen Content</h2>
-        <p>
-          Regularly refreshing and expanding your cornerstone content maintains its relevance and signals to 
-          search engines that your site provides current information.
+
+        <p className="font-medium mb-4">How to resuscitate content:</p>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Add new insights</li>
+          <li>Refresh stats</li>
+          <li>Replace outdated screenshots</li>
+          <li>Re-promote like it's brand new</li>
+        </ul>
+
+        <p className="italic mb-8">Old content is like wine—only the good stuff gets better with age. The rest turns into vinegar.</p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-blue-700 mb-3">7. 🧠 Entity-Based Optimization</h3>
+            <p>Keywords? Still relevant. But 2025 SEO is about entities—people, places, concepts, and how they all relate.</p>
+            <div className="mt-4 p-3 bg-gray-50 rounded">
+              <p className="text-gray-700 font-medium">Think:</p>
+              <p>"Elon Musk" is an entity. "CEO of Tesla and Twitter chaos coordinator" is context. Google understands both.</p>
+            </div>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-amber-700 mb-3">8. 🖼️ Media Optimization</h3>
+            <p>A beautiful hero image is great—until it takes 6 seconds to load and your bounce rate turns into a bounce rave.</p>
+            <div className="mt-4 p-3 bg-gray-50 rounded">
+              <p className="text-gray-700 font-medium">Fix it:</p>
+              <p>Compress images, use lazy loading, add descriptive alt text, and transcript your videos.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4">9. 📱 Mobile-First or You're Last</h2>
+        <p className="mb-6">
+          Google's been mobile-first for years. But now it's mobile-everything. Your beautifully responsive site on desktop doesn't matter if it feels like a Craigslist forum on phones.
         </p>
-        
-        <h2>7. Media Optimization</h2>
-        <p>
-          Images, videos, and interactive elements enhance user engagement, but must be optimized for fast 
-          loading and accessibility with proper alt text, transcripts, and responsive design.
+
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-8 rounded-r-md">
+          <p className="italic text-blue-800">
+            "You don't design for mobile anymore. You design on mobile."
+          </p>
+        </div>
+
+        <p className="font-medium mb-4">Your checklist:</p>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Large, tap-friendly buttons</li>
+          <li>No desktop-style popups</li>
+          <li>Font sizes that don't require squinting</li>
+          <li>Fast mobile performance</li>
+        </ul>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4">10. 🤖 AI-Optimized Structure: Write for Readers, Organize for Robots</h2>
+        <p className="mb-6">
+          AI-assisted search (hello, SGE) now reads your page like a structured document. You need crystal-clear headings, digestible sections, and logic that even a chatbot can follow.
         </p>
-        
-        <h2>8. Entity-Based Optimization</h2>
-        <p>
-          Modern SEO requires thinking beyond keywords to focus on entities – people, places, concepts, and 
-          things – and establishing connections between them that search engines understand.
-        </p>
-        
-        <h2>9. Mobile-First Indexing</h2>
-        <p>
-          With mobile searches continuing to dominate, ensuring your site is fully optimized for mobile devices 
-          remains crucial for SEO success.
-        </p>
-        
-        <h2>10. AI-Ready Content Structure</h2>
-        <p>
-          Creating content that's easily parsed by AI systems with clear headings, concise paragraphs, and logical 
-          structure helps search engines better understand and rank your content.
-        </p>
-        
-        <h2>The Bottom Line</h2>
-        <p>
-          While search algorithms continue to evolve, these fundamental on-page SEO tactics remain effective 
-          because they align with what both users and search engines value: relevant, high-quality content 
-          delivered through an excellent user experience. By mastering these fundamentals, you'll build a solid 
-          foundation for your SEO strategy in 2025 and beyond.
-        </p>
+
+        <p className="font-medium mb-4">Best practices:</p>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Use H1 → H2 → H3 hierarchy properly</li>
+          <li>Front-load value in every paragraph</li>
+          <li>Use bullet points like this one</li>
+          <li>Make your page skimmable, scrollable, and screenshot-worthy</li>
+        </ul>
+
+        <p className="mb-6">AI doesn't "read"—it parses. Give it clean input, and you'll get clean rankings.</p>
+
+        <div className="bg-gray-100 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">Final Thought: SEO That's Worth Clicking</h3>
+          <p className="mb-4">On-page SEO in 2025 isn't about "gaming the system." It's about showing up like a professional—with content that helps, structure that guides, and performance that respects the user's time.</p>
+          <p className="font-medium">Google is getting smarter. Your content should too.</p>
+          <p className="mt-4 italic">Now go update your site like it's your digital résumé—because in Google's eyes, it kinda is.</p>
+        </div>
+
+        <div className="bg-gray-100 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">About the Author</h3>
+          <div className="flex items-center">
+            <div className="h-16 w-16 rounded-full bg-purple-100 flex items-center justify-center text-xl font-medium text-purple-700 mr-4">
+              LC
+            </div>
+            <div>
+              <p className="font-medium">Leo Corbett</p>
+              <p className="text-sm text-gray-600">An AI-first automation specialist and SEO expert who builds high-performance systems that scale businesses while eliminating inefficiencies.</p>
+            </div>
+          </div>
+        </div>
       </>
     ),
   },
