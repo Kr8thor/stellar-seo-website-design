@@ -1,23 +1,86 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, Github } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
+import { 
+  Form, 
+  FormControl, 
+  FormField, 
+  FormItem, 
+  FormLabel, 
+  FormMessage 
+} from "@/components/ui/form";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+// Form validation schema
+const formSchema = z.object({
+  name: z.string().min(2, { message: "Name must be at least 2 characters" }),
+  email: z.string().email({ message: "Please enter a valid email address" }),
+  phone: z.string().optional(),
+  website: z.string().url({ message: "Please enter a valid URL" }),
+  service: z.string().min(1, { message: "Please select a service" }),
+  message: z.string().min(10, { message: "Message must be at least 10 characters" })
+});
+
+type FormValues = z.infer<typeof formSchema>;
 
 const Contact = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      website: "",
+      service: "",
+      message: ""
+    }
+  });
+  
+  const onSubmit = async (data: FormValues) => {
+    setIsSubmitting(true);
     
-    // Form submission would go here
-    
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your inquiry. I'll get back to you within 24 hours.",
-    });
+    try {
+      // Create email content
+      const emailContent = `
+        Name: ${data.name}
+        Email: ${data.email}
+        Phone: ${data.phone || 'Not provided'}
+        Website: ${data.website}
+        Service: ${data.service}
+        Message: ${data.message}
+      `;
+      
+      // Using mailto link as a simple solution
+      const mailtoLink = `mailto:hello@mardenseo.com?subject=Contact Form Submission from ${data.name}&body=${encodeURIComponent(emailContent)}`;
+      window.location.href = mailtoLink;
+      
+      // Show success message
+      toast({
+        title: "Message Ready to Send!",
+        description: "Your email client will open with the message. Please send it to complete.",
+      });
+      
+      // Reset form
+      form.reset();
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast({
+        title: "Error",
+        description: "There was an error preparing your message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   
   return (
@@ -40,96 +103,124 @@ const Contact = () => {
             <div className="lg:w-2/3">
               <div className="bg-card border border-border rounded-lg p-8 md:p-12">
                 <h2 className="font-heading text-2xl mb-6">Send a Message</h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium">
-                        Full Name
-                      </label>
-                      <Input
-                        id="name"
-                        placeholder="John Doe"
-                        required
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <FormField
+                        control={form.control}
+                        name="name"
+                        render={({ field }) => (
+                          <FormItem className="space-y-2">
+                            <FormLabel>Full Name</FormLabel>
+                            <FormControl>
+                              <Input placeholder="John Doe" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem className="space-y-2">
+                            <FormLabel>Email Address</FormLabel>
+                            <FormControl>
+                              <Input type="email" placeholder="john@example.com" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
                       />
                     </div>
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-medium">
-                        Email Address
-                      </label>
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="john@example.com"
-                        required
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                          <FormItem className="space-y-2">
+                            <FormLabel>Phone Number (Optional)</FormLabel>
+                            <FormControl>
+                              <Input placeholder="+1 (123) 456-7890" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={form.control}
+                        name="website"
+                        render={({ field }) => (
+                          <FormItem className="space-y-2">
+                            <FormLabel>Website URL</FormLabel>
+                            <FormControl>
+                              <Input placeholder="https://yourwebsite.com" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
                       />
                     </div>
-                  </div>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label htmlFor="phone" className="text-sm font-medium">
-                        Phone Number (Optional)
-                      </label>
-                      <Input
-                        id="phone"
-                        placeholder="+1 (123) 456-7890"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="website" className="text-sm font-medium">
-                        Website URL
-                      </label>
-                      <Input
-                        id="website"
-                        placeholder="https://yourwebsite.com"
-                        required
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <label htmlFor="service" className="text-sm font-medium">
-                      Service You're Interested In
-                    </label>
-                    <select
-                      id="service"
-                      className="w-full px-3 py-2 rounded-md border border-border bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-primary/20"
-                      required
-                    >
-                      <option value="">Select a Service</option>
-                      <option value="On-Page SEO">On-Page SEO</option>
-                      <option value="Off-Page SEO">Off-Page SEO</option>
-                      <option value="Technical SEO">Technical SEO</option>
-                      <option value="Local SEO">Local SEO</option>
-                      <option value="SEO Audit">SEO Audit</option>
-                      <option value="Content Strategy">Content Strategy</option>
-                      <option value="n8n Automation">n8n Automation</option>
-                      <option value="React Development">React Development</option>
-                      <option value="MCP Solutions">MCP Solutions</option>
-                      <option value="Custom Package">Custom Package</option>
-                    </select>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium">
-                      Message
-                    </label>
-                    <Textarea
-                      id="message"
-                      placeholder="Tell me about your project and your goals..."
-                      rows={6}
-                      required
+                    
+                    <FormField
+                      control={form.control}
+                      name="service"
+                      render={({ field }) => (
+                        <FormItem className="space-y-2">
+                          <FormLabel>Service You're Interested In</FormLabel>
+                          <FormControl>
+                            <select
+                              className="w-full px-3 py-2 rounded-md border border-border bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-primary/20"
+                              {...field}
+                            >
+                              <option value="">Select a Service</option>
+                              <option value="On-Page SEO">On-Page SEO</option>
+                              <option value="Off-Page SEO">Off-Page SEO</option>
+                              <option value="Technical SEO">Technical SEO</option>
+                              <option value="Local SEO">Local SEO</option>
+                              <option value="SEO Audit">SEO Audit</option>
+                              <option value="Content Strategy">Content Strategy</option>
+                              <option value="n8n Automation">n8n Automation</option>
+                              <option value="React Development">React Development</option>
+                              <option value="MCP Solutions">MCP Solutions</option>
+                              <option value="Custom Package">Custom Package</option>
+                            </select>
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
                     />
-                  </div>
-                  
-                  <Button type="submit" className="w-full">
-                    Send Message
-                  </Button>
-                  
-                  <p className="text-xs text-muted-foreground text-center">
-                    By submitting this form, you agree to our privacy policy. Your information will never be shared with third parties.
-                  </p>
-                </form>
+                    
+                    <FormField
+                      control={form.control}
+                      name="message"
+                      render={({ field }) => (
+                        <FormItem className="space-y-2">
+                          <FormLabel>Message</FormLabel>
+                          <FormControl>
+                            <Textarea
+                              placeholder="Tell me about your project and your goals..."
+                              rows={6}
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    
+                    <Button type="submit" className="w-full" disabled={isSubmitting}>
+                      {isSubmitting ? "Sending..." : "Send Message"}
+                    </Button>
+                    
+                    <p className="text-xs text-muted-foreground text-center">
+                      By submitting this form, you agree to our privacy policy. Your information will never be shared with third parties.
+                    </p>
+                  </form>
+                </Form>
               </div>
             </div>
             
