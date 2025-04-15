@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BlogPostProps } from '@/components/blog/BlogPost';
 
@@ -483,4 +484,244 @@ export const blogPosts: BlogPostProps[] = [
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-          <div className="bg-white p-6 rounded
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-green-700 mb-3">📉 24% Lower Bounce Rate</h3>
+            <p>People stick around when your site doesn't suck. They browse more pages and actually read your content.</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-blue-700 mb-3">🕒 35% Longer Sessions</h3>
+            <p>More scrolling, more clicking, more chances to convert. Every second counts.</p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-purple-700 mb-3">💸 18% Higher Conversions</h3>
+            <p>Because no one buys from a site that feels like a tech demo from 2003.</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-amber-700 mb-3">🔝 Ranking Lifts</h3>
+            <p>Especially for competitive, high-CPC keywords where everyone else is already optimizing.</p>
+          </div>
+        </div>
+
+        <p className="font-medium text-xl text-center my-8">That's not "nice." That's revenue.</p>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">🧪 How to Measure Without Losing Your Mind</h2>
+        <p className="mb-6">
+          Want to know how your site's performing before the rankings drop kick you in the ego?
+        </p>
+
+        <div className="bg-green-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-green-800 mb-4">Use these tools like a grown-up:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-green-800">
+            <li><strong>Google Search Console</strong> – The source of truth. Check the Core Web Vitals report.</li>
+            <li><strong>PageSpeed Insights</strong> – Quick, clean diagnostics with tips that don't require a PhD.</li>
+            <li><strong>Lighthouse</strong> – For devs who want granular control and techy bragging rights.</li>
+            <li><strong>CrUX (Chrome User Experience Report)</strong> – Real user data, not lab simulations.</li>
+            <li><strong>Web Vitals JS Library</strong> – For nerds who want custom tracking baked into the site.</li>
+          </ul>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">🔚 Final Word: Core Web Vitals Aren't Optional. They're Fundamental.</h2>
+        <p className="mb-6">
+          Optimizing Core Web Vitals isn't just about pleasing Google. It's about respecting your users' time, attention, and thumbs.
+        </p>
+
+        <p className="mb-6">
+          It's also one of the few SEO tactics that has zero downside. Faster pages, smoother experiences, happier users. Oh, and higher rankings.
+        </p>
+
+        <p className="text-xl font-medium mb-8">
+          So yeah, fix your LCP, FID, and CLS. Or don't. Just know someone else will—and they'll rank above you while your site loads like it's on dial-up.
+        </p>
+
+        <div className="bg-gray-100 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">About the Author</h3>
+          <div className="flex items-center">
+            <div className="h-16 w-16 rounded-full bg-purple-100 flex items-center justify-center text-xl font-medium text-purple-700 mr-4">
+              LC
+            </div>
+            <div>
+              <p className="font-medium">Leo Corbett</p>
+              <p className="text-sm text-gray-600">An AI-first automation specialist and SEO expert who builds high-performance systems that scale businesses while eliminating inefficiencies.</p>
+            </div>
+          </div>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: 3,
+    title: "Building an E-Commerce Content Strategy That Actually Sells (Not Just Sits There)",
+    category: "Content Strategy",
+    image: "https://images.unsplash.com/photo-1586880244406-556ebe35f282?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    date: "March 15, 2025",
+    readTime: "9 min read",
+    author: "Leo Corbett",
+    excerpt: "Transform your e-commerce content from passive product listings to an active sales engine with these proven content strategy techniques.",
+    content: (
+      <>
+        <p className="text-xl leading-relaxed mb-8">
+          If your e-commerce strategy is "list product, wait for magic," congrats—you've just described a garage sale. In 2025, content is your real salesforce. Not those blurry photos or that half-hearted product description copied from the manufacturer's site.
+        </p>
+
+        <p className="mb-6">
+          This isn't about blogging for blogging's sake. It's about building an actual content machine that pulls customers through the funnel so smoothly they forget they're being marketed to.
+        </p>
+
+        <div className="bg-amber-50 border-l-4 border-amber-500 p-4 my-8 rounded-r-md">
+          <p className="italic text-amber-800">
+            "Let's make your website sell like it's staffed by charismatic experts—and not just a lonely 'Buy Now' button."
+          </p>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4">🎯 Step 1: Content Mapping—Or, Stop Shouting Into the Void</h2>
+        <p className="mb-6">
+          Customers don't wake up thinking, "Today I shall buy a cast-iron skillet from a Shopify store I've never heard of." You've got to meet them where they are—curious, confused, comparing, and finally, committed.
+        </p>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-4">Awareness Stage: "What Even Is This?"</h3>
+        <p className="mb-4">
+          This is your educational, curiosity-sparking content. No sales pitch. Just value.
+        </p>
+
+        <ul className="list-disc pl-6 mb-6 space-y-2">
+          <li>🔍 Blog posts like "Top 5 Mistakes First-Time Home Chefs Make"</li>
+          <li>📊 Infographics with fun stats like "The Average Pan Handles 9.3 Emotional Breakdowns"</li>
+          <li>💡 Thought leadership pieces that prove you're not just reselling stuff—you understand the space</li>
+        </ul>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-4">Consideration Stage: "Okay, I'm Listening…"</h3>
+        <p className="mb-4">
+          Now they're weighing options. You're the helpful guide, not the pushy salesperson.
+        </p>
+
+        <ul className="list-disc pl-6 mb-6 space-y-2">
+          <li>📚 Buying guides ("Carbon Steel vs. Cast Iron: Which One Matches Your Vibe?")</li>
+          <li>📽️ Product videos that show off the goods in action</li>
+          <li>📖 FAQ pages that answer, "Will this explode in the dishwasher?"</li>
+        </ul>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-4">Decision Stage: "Shut Up and Take My Money"</h3>
+        <p className="mb-4">
+          This is the finish line. Help them feel the purchase is smart.
+        </p>
+
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>🧠 Reviews from people who sound like them</li>
+          <li>📸 Real-life photos and UGC (user-generated content)</li>
+          <li>🎯 Clear, benefit-driven product copy that says, "This solves your problem"</li>
+        </ul>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-purple-700 mb-3">📝 Product Descriptions That Don't Feel Like IKEA Assembly Manuals</h3>
+            <p className="mb-4">The bar for product descriptions is on the floor. So step over it.</p>
+            <div className="bg-gray-50 p-4 rounded-md">
+              <p className="font-medium mb-2">Make Yours:</p>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>🔥 <span className="font-medium">Benefit-driven</span> – "Double-stitched" is nice. "Won't fall apart after one wash" is better.</li>
+                <li>👃 <span className="font-medium">Sensory</span> – Let them smell the leather, hear the crunch, feel the thread count.</li>
+                <li>🔍 <span className="font-medium">Specific</span> – "High-quality" is meaningless. "Tested for 10,000 hours without fading" is not.</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-green-700 mb-3">📆 Content Calendar: Not "Post When You Feel Like It"</h3>
+            <p className="mb-4">Consistency wins. Randomness confuses. Build a calendar that syncs with:</p>
+            <div className="bg-gray-50 p-4 rounded-md">
+              <ul className="list-disc pl-5 space-y-2">
+                <li>🛍️ <span className="font-medium">Seasonal trends</span> ("Spring Cleaning Essentials")</li>
+                <li>🚀 <span className="font-medium">Product launches</span> ("New Drop: The Sleepwear You Deserve")</li>
+                <li>🎉 <span className="font-medium">Events and holidays</span> (yes, National Avocado Day is a thing)</li>
+                <li>📚 <span className="font-medium">Evergreen themes</span> ("How to Choose the Right Size" — still relevant in 2035)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">📸 UGC: Let the Customers Do the Selling for You</h2>
+        <p className="mb-6">
+          User-generated content is like a friend's recommendation—except scalable. And free-ish.
+        </p>
+
+        <div className="bg-blue-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-blue-800 mb-4">Goldmine content includes:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-blue-800">
+            <li>⭐ Real customer reviews (video > text > silence)</li>
+            <li>📷 Instagram posts from happy buyers</li>
+            <li>💬 Community Q&A on your product pages</li>
+            <li>🎥 Customer-submitted demos and unboxings</li>
+          </ul>
+        </div>
+
+        <p className="italic mb-8">
+          Bonus: UGC makes your brand look like a living, breathing ecosystem—not a digital vending machine.
+        </p>
+
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Person looking at laptop with social media content" className="rounded-lg shadow-md my-8 w-full" />
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">📣 Don't Just Create Content. Distribute It Like You Mean It.</h2>
+        <p className="mb-6">
+          If content is king, distribution is the royal hype squad. No one reads your masterpiece if it's stuck on page 14 of your blog archive.
+        </p>
+
+        <p className="font-medium mb-4">Go where your people are:</p>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>✉️ Email marketing with segments that say, "We get you"</li>
+          <li>📱 Social media campaigns that aren't just product shots with #blessed</li>
+          <li>🤝 Strategic collabs with complementary brands ("Buy our yoga mat, get 10% off your matcha fix")</li>
+          <li>🧑‍🎤 Influencer campaigns that don't feel forced</li>
+          <li>🔁 Retargeting ads that say, "Hey, you left your cart. We miss you."</li>
+        </ul>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">📊 Measuring What Matters (Spoiler: It's Not Just Traffic)</h2>
+        <p className="mb-6">
+          If your metrics are just "pageviews," congrats—you're measuring vanity, not value.
+        </p>
+
+        <div className="bg-purple-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-purple-800 mb-4">Track what moves the needle:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-purple-800">
+            <li>💰 Conversion rate by content type (Does your blog actually sell?)</li>
+            <li>🧭 Time on page and bounce rate (Are people engaged or lost?)</li>
+            <li>💬 Customer feedback ("Your guide helped me choose" > "Meh.")</li>
+            <li>🛒 Impact on cart size and repeat purchases</li>
+          </ul>
+        </div>
+
+        <p className="font-medium text-xl text-center my-8">The goal isn't content. It's commerce.</p>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Final Word: Content Is the Engine. Strategy Is the Fuel.</h2>
+        <p className="mb-6">
+          Your e-commerce store is more than a checkout button. It's a brand, a story, a guide. The right content doesn't just attract traffic—it builds trust, moves hearts, and makes credit cards sing.
+        </p>
+
+        <p className="mb-6">
+          So stop pumping out generic blog posts and start building content that pulls people in, shows them why they should care, and makes buying feel inevitable.
+        </p>
+
+        <p className="text-xl font-medium mb-8">
+          Your store deserves more than just listings. Give it a voice. Give it a plan. And maybe, just maybe, give it a little Leo Corbett swagger while you're at it.
+        </p>
+
+        <div className="bg-gray-100 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">About the Author</h3>
+          <div className="flex items-center">
+            <div className="h-16 w-16 rounded-full bg-purple-100 flex items-center justify-center text-xl font-medium text-purple-700 mr-4">
+              LC
+            </div>
+            <div>
+              <p className="font-medium">Leo Corbett</p>
+              <p className="text-sm text-gray-600">An AI-first automation specialist and SEO expert who builds high-performance systems that scale businesses while eliminating inefficiencies.</p>
+            </div>
+          </div>
+        </div>
+      </>
+    ),
+  },
+];
