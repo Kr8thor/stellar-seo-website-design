@@ -25,15 +25,13 @@ const BlogPostDetail = () => {
     return <Navigate to="/blog" />;
   }
   
-  const isFeatured = id === 'featured';
-  
   return (
-    <main className={`pt-24 pb-16 px-4 md:px-8 ${isFeatured ? 'featured-post-page bg-gradient-to-b from-white to-slate-50' : ''}`}>
+    <main className="pt-24 pb-16 px-4 md:px-8 bg-gradient-to-b from-white to-slate-50">
       <Helmet>
         <title>{post.title} | Marden SEO</title>
         <style>
           {`
-            .featured-content h2 {
+            .blog-content h2 {
               color: #4a5568;
               font-size: 1.75rem;
               margin-top: 2.5rem;
@@ -43,7 +41,7 @@ const BlogPostDetail = () => {
               padding-bottom: 0.5rem;
             }
             
-            .featured-content h3 {
+            .blog-content h3 {
               color: #4a5568;
               font-size: 1.25rem;
               margin-top: 1.75rem;
@@ -51,23 +49,23 @@ const BlogPostDetail = () => {
               font-weight: 600;
             }
             
-            .featured-content p {
+            .blog-content p {
               margin-bottom: 1.5rem;
               line-height: 1.8;
             }
             
-            .featured-content ul {
+            .blog-content ul {
               margin-left: 1.5rem;
               margin-bottom: 1.5rem;
             }
             
-            .featured-content ul li {
+            .blog-content ul li {
               margin-bottom: 0.5rem;
               position: relative;
               padding-left: 1.5rem;
             }
             
-            .featured-content ul li::before {
+            .blog-content ul li::before {
               content: "•";
               color: #8b5cf6;
               font-weight: bold;
@@ -76,22 +74,12 @@ const BlogPostDetail = () => {
               top: 0;
             }
             
-            .featured-content strong {
+            .blog-content strong {
               color: #4a5568;
               font-weight: 600;
             }
             
-            @media (max-width: 640px) {
-              .featured-content h2 {
-                font-size: 1.5rem;
-              }
-              
-              .featured-content h3 {
-                font-size: 1.25rem;
-              }
-            }
-            
-            .featured-article blockquote {
+            .blog-post-article blockquote {
               border-left: 4px solid #8b5cf6;
               padding-left: 1rem;
               font-style: italic;
@@ -100,6 +88,16 @@ const BlogPostDetail = () => {
               background-color: #f8f7ff;
               padding: 1rem;
               border-radius: 0 0.375rem 0.375rem 0;
+            }
+
+            @media (max-width: 640px) {
+              .blog-content h2 {
+                font-size: 1.5rem;
+              }
+              
+              .blog-content h3 {
+                font-size: 1.25rem;
+              }
             }
           `}
         </style>

@@ -21,7 +21,7 @@ const BlogPost = ({ post }: { post: BlogPostProps }) => {
   const isFeaturedArticle = post.id === 'featured';
   
   return (
-    <article className={`max-w-4xl mx-auto ${isFeaturedArticle ? 'featured-article' : ''}`}>
+    <article className="max-w-4xl mx-auto blog-post-article">
       <Helmet>
         <title>{post.title} | Marden SEO Blog</title>
         <meta name="description" content={typeof post.excerpt === 'string' ? post.excerpt.substring(0, 160) : 'Blog post by Marden SEO'} />
@@ -77,12 +77,12 @@ const BlogPost = ({ post }: { post: BlogPostProps }) => {
         <img 
           src={post.image} 
           alt={post.title} 
-          className={`w-full h-auto rounded-lg shadow-md object-cover aspect-video ${isFeaturedArticle ? 'max-h-[500px]' : ''}`}
+          className="w-full h-auto rounded-lg shadow-md object-cover aspect-video max-h-[500px]"
         />
       </div>
       
       {/* Post Content */}
-      <div className={`prose prose-lg max-w-none ${isFeaturedArticle ? 'featured-content' : ''}`}>
+      <div className="prose prose-lg max-w-none blog-content">
         {post.content}
       </div>
     </article>

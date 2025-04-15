@@ -346,102 +346,212 @@ export const blogPosts: BlogPostProps[] = [
   },
   {
     id: 2,
-    title: "How Core Web Vitals Impact Your SEO Performance",
+    title: "Why Core Web Vitals Are Still Running Your SEO Life in 2025",
     category: "Technical SEO",
     image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
     date: "March 22, 2025",
     readTime: "12 min read",
-    author: "Alex Marden",
+    author: "Leo Corbett",
+    excerpt: "Core Web Vitals have evolved from nice-to-have metrics to essential ranking factors. Learn how to master them for better SEO performance in 2025.",
     content: (
       <>
-        <p>
-          Core Web Vitals have become crucial ranking signals since their introduction. In 2025, they're more 
-          important than ever for achieving top search positions and providing an excellent user experience.
+        <p className="text-xl leading-relaxed mb-8">
+          If Google were your gym trainer, Core Web Vitals would be its way of screaming, "No more junk food and janky websites!" In 2025, these three little metrics have gone from "nice-to-have" to non-negotiable. They're the difference between page one glory and page seven purgatory—where even your mom won't find you.
         </p>
-        
-        <h2>Understanding Core Web Vitals</h2>
-        <p>
-          Core Web Vitals measure three key aspects of user experience: loading performance, interactivity, 
-          and visual stability. These metrics directly impact how users perceive your site's performance 
-          and usability.
+
+        <p className="mb-6">
+          This isn't a technical rant. It's a survival guide for modern web performance. Let's break it down.
         </p>
-        
-        <h2>Largest Contentful Paint (LCP)</h2>
-        <p>
-          LCP measures loading performance by timing how long it takes for the largest content element 
-          to become visible. In 2025, Google expects this to happen within 2.5 seconds for a good user experience.
+
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-8 rounded-r-md">
+          <p className="italic text-blue-800">
+            "Core Web Vitals are Google's UX report card. They measure how fast, responsive, and stable your site feels when a real, impatient human visits it on a 4G connection while juggling coffee and car keys."
+          </p>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4">What the Heck Are Core Web Vitals, Anyway?</h2>
+        <p className="mb-6">
+          Core Web Vitals are Google's UX report card. They measure how fast, responsive, and stable your site feels when a real, impatient human visits it on a 4G connection while juggling coffee and car keys.
         </p>
-        
-        <h3>How to Improve LCP</h3>
-        <ul>
-          <li>Optimize and compress images</li>
-          <li>Implement efficient caching strategies</li>
-          <li>Use content delivery networks (CDNs)</li>
-          <li>Remove unnecessary third-party scripts</li>
-          <li>Optimize critical rendering paths</li>
+
+        <p className="font-medium mb-4">The trio:</p>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li><strong>LCP (Largest Contentful Paint)</strong> – "How fast does the important stuff show up?"</li>
+          <li><strong>FID (First Input Delay)</strong> – "How fast can I click something without crying?"</li>
+          <li><strong>CLS (Cumulative Layout Shift)</strong> – "Why did the button move just as I tapped it?!"</li>
         </ul>
-        
-        <h2>First Input Delay (FID)</h2>
-        <p>
-          FID measures interactivity by quantifying the time between a user's first interaction and the browser's 
-          response. The target is less than 100 milliseconds to ensure a responsive feel.
+
+        <p className="italic mb-8">
+          Fail these, and Google assumes your site feels like trying to shop on a fax machine.
         </p>
-        
-        <h3>How to Improve FID</h3>
-        <ul>
-          <li>Minimize JavaScript execution time</li>
-          <li>Break up long tasks into smaller ones</li>
-          <li>Optimize event handlers</li>
-          <li>Use web workers for complex operations</li>
-          <li>Implement lazy loading for non-critical resources</li>
-        </ul>
-        
-        <h2>Cumulative Layout Shift (CLS)</h2>
-        <p>
-          CLS measures visual stability by quantifying unexpected layout shifts during page loading. 
-          A score below 0.1 is considered good and prevents the frustrating experience of elements 
-          moving around as a page loads.
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-blue-700 mb-3">LCP</h3>
+            <p className="text-gray-700">Largest Contentful Paint</p>
+            <p className="mt-2">How fast your main content loads</p>
+            <div className="mt-4 p-3 bg-blue-50 rounded text-center">
+              <p className="text-blue-800 font-bold">Target: &lt; 2.5s</p>
+            </div>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-purple-700 mb-3">FID</h3>
+            <p className="text-gray-700">First Input Delay</p>
+            <p className="mt-2">How fast your page responds</p>
+            <div className="mt-4 p-3 bg-purple-50 rounded text-center">
+              <p className="text-purple-800 font-bold">Target: &lt; 100ms</p>
+            </div>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-amber-700 mb-3">CLS</h3>
+            <p className="text-gray-700">Cumulative Layout Shift</p>
+            <p className="mt-2">How stable your page is</p>
+            <div className="mt-4 p-3 bg-amber-50 rounded text-center">
+              <p className="text-amber-800 font-bold">Target: &lt; 0.1</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">🚀 LCP: Show Me the Good Stuff—Fast</h2>
+        <p className="mb-6">
+          LCP measures how long it takes for the biggest visual part of your page to load. Google wants this under 2.5 seconds.
         </p>
-        
-        <h3>How to Improve CLS</h3>
-        <ul>
-          <li>Always specify dimensions for images and videos</li>
-          <li>Reserve space for ads and embeds</li>
-          <li>Avoid inserting content above existing content</li>
-          <li>Use transform animations instead of animations that trigger layout changes</li>
-          <li>Properly implement web fonts to prevent text shifting</li>
-        </ul>
-        
-        <h2>The SEO Impact of Core Web Vitals</h2>
-        <p>
-          Our research shows that websites meeting all Core Web Vitals thresholds experience:
+
+        <p className="mb-6">
+          Because guess what? Nobody cares how clever your headline is if your hero image takes longer to load than a microwave burrito.
         </p>
-        <ul>
-          <li>24% lower bounce rates</li>
-          <li>35% increase in average session duration</li>
-          <li>18% higher conversion rates</li>
-          <li>Significant ranking improvements for competitive keywords</li>
-        </ul>
-        
-        <h2>Measuring and Monitoring Core Web Vitals</h2>
-        <p>
-          To stay competitive, implement regular monitoring using:
+
+        <div className="bg-blue-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-blue-800 mb-4">✅ How to Fix Your LCP Without Crying:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-blue-800">
+            <li>Compress your images like you're paying for pixels.</li>
+            <li>Cache smart—use the browser's memory like a steel trap.</li>
+            <li>Use CDNs. Your server in Ohio isn't gonna cut it for users in Dubai.</li>
+            <li>Ditch the script circus. If you're running 19 tracking pixels, rethink your life.</li>
+            <li>Prioritize the critical path. Show useful stuff first; load party tricks later.</li>
+          </ul>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="Developer optimizing website code" className="rounded-lg shadow-md my-8 w-full" />
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">🖱️ FID: Don't Make Me Wait to Click</h2>
+        <p className="mb-6">
+          FID is about how responsive your site feels. It's the time between someone clicking something and your site responding.
         </p>
-        <ul>
-          <li>Google Search Console's Core Web Vitals report</li>
-          <li>PageSpeed Insights for detailed performance analysis</li>
-          <li>Lighthouse for development testing</li>
-          <li>Chrome User Experience Report (CrUX) for real-world user data</li>
-          <li>Web Vitals JavaScript library for custom performance tracking</li>
-        </ul>
-        
-        <h2>Conclusion</h2>
-        <p>
-          Core Web Vitals are not just technical metrics but direct indicators of user experience quality. 
-          Optimizing these metrics improves both search rankings and user satisfaction, creating a virtuous 
-          cycle that benefits your entire digital presence. In today's competitive landscape, Core Web Vitals 
-          optimization should be a cornerstone of your technical SEO strategy.
+
+        <p className="mb-6">
+          If there's a delay, it feels like your site just ghosted them. FID over 100ms? That's the SEO equivalent of left on read.
         </p>
+
+        <div className="bg-purple-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-purple-800 mb-4">✅ FID Optimization Cheat Sheet:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-purple-800">
+            <li>Minimize JavaScript like you're being charged by the kilobyte.</li>
+            <li>Break long tasks into short bursts. We're not here for a TED Talk.</li>
+            <li>Clean up your event handlers—don't make users wait for bloated code to think things through.</li>
+            <li>Offload heavy lifting to web workers. They're like interns for your browser.</li>
+            <li>Lazy load anything that doesn't scream "I need to be here right now."</li>
+          </ul>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">🧩 CLS: Stop the Page from Jumping Like a Nervous Chihuahua</h2>
+        <p className="mb-6">
+          CLS is all about visual stability. If your text shifts right as someone's about to click "Buy Now"—and they hit "Delete Account" instead—that's a problem.
+        </p>
+
+        <p className="mb-6">
+          Your CLS score should be under 0.1. Otherwise, your site looks like it's powered by caffeine and chaos.
+        </p>
+
+        <div className="bg-amber-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-amber-800 mb-4">✅ CLS Fixes That Actually Work:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-amber-800">
+            <li>Always define image and video dimensions. No surprises.</li>
+            <li>Reserve space for ads. Don't let them photobomb the layout.</li>
+            <li>Never insert content at the top of the page after load. That's betrayal.</li>
+            <li>Use transform, not layout-shifting animations. They're smooth and don't ruin lives.</li>
+            <li>Preload fonts so your text doesn't do a costume change mid-read.</li>
+          </ul>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f" alt="Fast loading website on laptop" className="rounded-lg shadow-md my-8 w-full" />
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">💥 The Real-World Impact (Because You Like Numbers)</h2>
+        <p className="mb-6">
+          When you nail Core Web Vitals, the results aren't just "theoretical improvements"—they're cold, hard performance gains:
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-green-500">
+            <h3 className="text-lg font-semibold text-green-700 mb-3">📉 24% lower bounce rate</h3>
+            <p>People stick around when your site doesn't suck.</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500">
+            <h3 className="text-lg font-semibold text-blue-700 mb-3">🕒 35% longer sessions</h3>
+            <p>More scrolling, more clicking, more chances to convert.</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-purple-500">
+            <h3 className="text-lg font-semibold text-purple-700 mb-3">💸 18% higher conversions</h3>
+            <p>Because no one buys from a site that feels like a tech demo from 2003.</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-amber-500">
+            <h3 className="text-lg font-semibold text-amber-700 mb-3">🔝 Ranking lifts</h3>
+            <p>Especially for competitive, high-CPC keywords.</p>
+          </div>
+        </div>
+
+        <p className="text-xl font-medium mb-8">
+          That's not "nice." That's revenue.
+        </p>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">🧪 How to Measure Without Losing Your Mind</h2>
+        <p className="mb-6">
+          Want to know how your site's performing before the rankings drop kick you in the ego?
+        </p>
+
+        <div className="bg-gray-100 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">Use these tools like a grown-up:</h3>
+          <ul className="list-disc pl-6 space-y-3">
+            <li><strong>Google Search Console</strong> – The source of truth. Check the Core Web Vitals report.</li>
+            <li><strong>PageSpeed Insights</strong> – Quick, clean diagnostics with tips that don't require a PhD.</li>
+            <li><strong>Lighthouse</strong> – For devs who want granular control and techy bragging rights.</li>
+            <li><strong>CrUX (Chrome User Experience Report)</strong> – Real user data, not lab simulations.</li>
+            <li><strong>Web Vitals JS Library</strong> – For nerds who want custom tracking baked into the site.</li>
+          </ul>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">🔚 Final Word: Core Web Vitals Aren't Optional. They're Fundamental.</h2>
+        <p className="mb-6">
+          Optimizing Core Web Vitals isn't just about pleasing Google. It's about respecting your users' time, attention, and thumbs.
+        </p>
+
+        <p className="mb-6">
+          It's also one of the few SEO tactics that has zero downside. Faster pages, smoother experiences, happier users. Oh, and higher rankings.
+        </p>
+
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-8 rounded-r-md">
+          <p className="italic text-blue-800">
+            "So yeah, fix your LCP, FID, and CLS. Or don't. Just know someone else will—and they'll rank above you while your site loads like it's on dial-up."
+          </p>
+        </div>
+
+        <div className="bg-gray-100 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">About the Author</h3>
+          <div className="flex items-center">
+            <div className="h-16 w-16 rounded-full bg-purple-100 flex items-center justify-center text-xl font-medium text-purple-700 mr-4">
+              LC
+            </div>
+            <div>
+              <p className="font-medium">Leo Corbett</p>
+              <p className="text-sm text-gray-600">An AI-first automation specialist and SEO expert who builds high-performance systems that scale businesses while eliminating inefficiencies.</p>
+            </div>
+          </div>
+        </div>
       </>
     ),
   },
