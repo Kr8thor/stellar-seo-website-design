@@ -390,7 +390,7 @@ export const blogPosts: BlogPostProps[] = [
             <p className="text-gray-700">Largest Contentful Paint</p>
             <p className="mt-2">How fast your main content loads</p>
             <div className="mt-4 p-3 bg-blue-50 rounded text-center">
-              <p className="text-blue-800 font-bold">Target: &lt; 2.5s</p>
+              <p className="text-blue-800 font-bold">Target: {'<'} 2.5s</p>
             </div>
           </div>
           
@@ -399,7 +399,7 @@ export const blogPosts: BlogPostProps[] = [
             <p className="text-gray-700">First Input Delay</p>
             <p className="mt-2">How fast your page responds</p>
             <div className="mt-4 p-3 bg-purple-50 rounded text-center">
-              <p className="text-purple-800 font-bold">Target: &lt; 100ms</p>
+              <p className="text-purple-800 font-bold">Target: {'<'} 100ms</p>
             </div>
           </div>
           
@@ -408,7 +408,7 @@ export const blogPosts: BlogPostProps[] = [
             <p className="text-gray-700">Cumulative Layout Shift</p>
             <p className="mt-2">How stable your page is</p>
             <div className="mt-4 p-3 bg-amber-50 rounded text-center">
-              <p className="text-amber-800 font-bold">Target: &lt; 0.1</p>
+              <p className="text-amber-800 font-bold">Target: {'<'} 0.1</p>
             </div>
           </div>
         </div>

@@ -226,47 +226,6 @@ const Portfolio = () => {
         </div>
       </section>
       
-      {/* Testimonials */}
-      <section className="section-container">
-        <div className="text-center mb-16">
-          <h2 className="heading-md mb-4">Client Success Stories</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Don't just take my word for it. Here's what clients have to say about working with me.
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {[
-            {
-              quote: "Working together has transformed our online presence completely. Our organic traffic has grown by 300% and we're now ranking for keywords we never thought possible.",
-              name: "Michael Chen",
-              title: "Marketing Director, TechFlow Solutions"
-            },
-            {
-              quote: "The strategic approach to SEO and the depth of knowledge is impressive. We've seen our e-commerce revenue increase significantly since implementing the recommended strategies.",
-              name: "Sarah Williams",
-              title: "E-commerce Manager, StyleHub"
-            }
-          ].map((testimonial, index) => (
-            <div 
-              key={index} 
-              className="bg-card p-8 rounded-lg border border-border/50"
-            >
-              <div className="mb-6 text-accent-foreground">
-                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15 12H8.1C7.0401 12 6 13.0401 6 14.1V21C6 22.0599 7.0401 23.1 8.1 23.1H12.9C14.0057 23.1 14.9 24.0486 14.9 25.2C14.9 26.3514 14.0057 27.3 12.9 27.3H12M30 12H23.1C22.0401 12 21 13.0401 21 14.1V21C21 22.0599 22.0401 23.1 23.1 23.1H27.9C29.0057 23.1 29.9 24.0486 29.9 25.2C29.9 26.3514 29.0057 27.3 27.9 27.3H27" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <p className="text-lg mb-8 italic">{testimonial.quote}</p>
-              <div>
-                <p className="font-medium">{testimonial.name}</p>
-                <p className="text-muted-foreground text-sm">{testimonial.title}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-      
       {/* CTA Section */}
       <section className="bg-primary text-primary-foreground py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-8 text-center">
