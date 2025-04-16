@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ExternalLink, BarChart3 } from 'lucide-react';
+import { ArrowRight, ExternalLink } from 'lucide-react';
 
 // Portfolio filter categories
 const categories = ["All", "E-commerce", "SaaS", "Local Business", "B2B"];
@@ -164,13 +164,6 @@ const Portfolio = () => {
       
       <section className="bg-accent/30 py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="text-center mb-16">
-            <h2 className="heading-md mb-4">Featured Case Study</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              An in-depth look at how strategic SEO transformed results for a SaaS company in a competitive industry.
-            </p>
-          </div>
-          
           <div className="flex flex-col lg:flex-row gap-12">
             <div className="lg:w-1/2">
               <img 
