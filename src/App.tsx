@@ -1,8 +1,9 @@
+
 // src/App.js or src/App.tsx
 
 // --- Imports ---
 import { ApolloProvider } from '@apollo/client';       // <-- Import ApolloProvider
-import { client } from './lib/apolloClient';         // <-- Import your configured client (adjust path if needed)
+import { client } from '../lib/apolloClient';         // <-- Fixed import path here
 import React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
