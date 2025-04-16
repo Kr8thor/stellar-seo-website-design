@@ -1,7 +1,8 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ExternalLink } from 'lucide-react';
+import { ArrowRight, ExternalLink, FileSearch, TrendingUp, CheckCircle } from 'lucide-react';
 
 // Portfolio filter categories
 const categories = ["All", "E-commerce", "SaaS", "Local Business", "B2B"];
@@ -162,36 +163,82 @@ const Portfolio = () => {
         </div>
       </section>
       
-      <section className="bg-accent/30 py-16 md:py-24">
+      {/* NEW SEO Audit Teaser Section */}
+      <section className="bg-gradient-to-br from-primary to-primary/80 text-primary-foreground py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="flex flex-col lg:flex-row gap-12">
-            <div className="lg:w-1/2">
-              <img 
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" 
-                alt="Featured case study" 
-                className="rounded-lg w-full h-auto shadow-lg" 
-              />
+          <div className="flex flex-col items-center text-center mb-12">
+            <div className="inline-flex items-center justify-center h-20 w-20 rounded-full bg-accent/20 mb-4">
+              <FileSearch className="h-10 w-10" />
+            </div>
+            <h2 className="heading-lg mb-4">Free SEO Audit Launch</h2>
+            <p className="text-xl max-w-3xl mx-auto opacity-90">
+              Starting May 1st, 2025 — Unlock your website's full potential with our complimentary in-depth SEO analysis
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20 hover:border-accent/50 transition-all hover:-translate-y-1 duration-300">
+              <div className="bg-accent/20 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-6">
+                <TrendingUp className="h-8 w-8" />
+              </div>
+              <h3 className="text-xl font-heading mb-3">Performance Insights</h3>
+              <p className="opacity-80 mb-6">
+                Get detailed metrics on your site's current performance and benchmark against competitors.
+              </p>
+              <ul className="space-y-2">
+                {["Speed analysis", "Mobile optimization", "Core Web Vitals"].map((item, idx) => (
+                  <li key={idx} className="flex items-center gap-2 text-sm">
+                    <CheckCircle className="h-4 w-4 text-accent" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
             
-            <div className="lg:w-1/2 flex flex-col justify-center">
-              <h3 className="font-heading text-2xl mb-4">
-                SaaS Company Increases Market Share Through Strategic SEO
-              </h3>
-              <p className="mb-6">
-                A rapidly growing SaaS company in the project management space was struggling to compete with established players despite having a superior product. Through comprehensive keyword research, technical optimization, and strategic content development, we helped them significantly improve their organic visibility.
-              </p>
-              
-              <div className="flex flex-wrap gap-4">
-                <Button asChild>
-                  <a href="#">
-                    Read Full Case Study <ExternalLink className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-                <Button asChild variant="outline">
-                  <Link to="/contact">Discuss Your Project</Link>
-                </Button>
+            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20 hover:border-accent/50 transition-all hover:-translate-y-1 duration-300">
+              <div className="bg-accent/20 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-6">
+                <FileSearch className="h-8 w-8" />
               </div>
+              <h3 className="text-xl font-heading mb-3">Content Analysis</h3>
+              <p className="opacity-80 mb-6">
+                Discover untapped opportunities and optimize your existing content for maximum impact.
+              </p>
+              <ul className="space-y-2">
+                {["Keyword opportunities", "Content gaps", "Semantic relevance"].map((item, idx) => (
+                  <li key={idx} className="flex items-center gap-2 text-sm">
+                    <CheckCircle className="h-4 w-4 text-accent" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
+            
+            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20 hover:border-accent/50 transition-all hover:-translate-y-1 duration-300">
+              <div className="bg-accent/20 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-6">
+                <ArrowRight className="h-8 w-8" />
+              </div>
+              <h3 className="text-xl font-heading mb-3">Action Plan</h3>
+              <p className="opacity-80 mb-6">
+                Receive a prioritized roadmap of improvements to boost your search visibility and traffic.
+              </p>
+              <ul className="space-y-2">
+                {["Prioritized tasks", "Implementation guide", "Expected outcomes"].map((item, idx) => (
+                  <li key={idx} className="flex items-center gap-2 text-sm">
+                    <CheckCircle className="h-4 w-4 text-accent" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          
+          <div className="flex flex-col items-center">
+            <div className="inline-block px-4 py-2 bg-accent/20 text-accent-foreground rounded-full text-sm font-medium mb-4 animate-pulse">
+              Limited Spots Available
+            </div>
+            <Button asChild size="lg" variant="secondary">
+              <Link to="/contact">Reserve Your Free SEO Audit</Link>
+            </Button>
           </div>
         </div>
       </section>
