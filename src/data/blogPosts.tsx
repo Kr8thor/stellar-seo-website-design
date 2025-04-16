@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BlogPostProps } from '@/components/blog/BlogPost';
 
@@ -483,4 +484,370 @@ export const blogPosts: BlogPostProps[] = [
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-          <div className="bg-white p-6 rounded
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-green-700 mb-3">Conversion Boost</h3>
+            <p>Sites that meet Core Web Vitals see up to 25% lower bounce rates and higher conversions.</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-blue-700 mb-3">SEO Advantage</h3>
+            <p>In tie-breaker situations, Google favors sites with better CWV scores. That's a ranking edge.</p>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Testing Tools You Actually Need</h2>
+        <p className="mb-6">
+          Stop flying blind. Use these to benchmark and monitor your vitals:
+        </p>
+
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Google PageSpeed Insights - Free, comprehensive, but sometimes harsh</li>
+          <li>Chrome DevTools - The Performance tab is your new best friend</li>
+          <li>Lighthouse - Automated audits that point out exactly what's wrong</li>
+          <li>Web Vitals Extension - Real-time feedback as you browse</li>
+        </ul>
+
+        <div className="bg-gray-100 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">Final Thought: The User Experience IS SEO</h3>
+          <p className="mb-4">Core Web Vitals aren't just technical metrics—they're how Google quantifies user experience. And in 2025, user experience IS SEO.</p>
+          <p>So stop treating performance like a nice-to-have. It's the backbone of modern search visibility.</p>
+          <p className="mt-4 italic">Your beautiful content means nothing if no one sticks around long enough to read it.</p>
+        </div>
+
+        <div className="bg-gray-100 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">About the Author</h3>
+          <div className="flex items-center">
+            <div className="h-16 w-16 rounded-full bg-purple-100 flex items-center justify-center text-xl font-medium text-purple-700 mr-4">
+              LC
+            </div>
+            <div>
+              <p className="font-medium">Leo Corbett</p>
+              <p className="text-sm text-gray-600">An AI-first automation specialist and SEO expert who builds high-performance systems that scale businesses while eliminating inefficiencies.</p>
+            </div>
+          </div>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: 3,
+    title: "Building an E-Commerce Content Strategy That Actually Sells (Not Just Sits There)",
+    category: "E-commerce",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    date: "March 15, 2025",
+    readTime: "9 min read",
+    author: "Leo Corbett",
+    excerpt: "Stop creating content that just sits on your e-commerce site. Learn how to build a strategy that actively drives conversions and revenue.",
+    content: (
+      <>
+        <p className="text-xl leading-relaxed mb-8">
+          If your e-commerce strategy is "list product, wait for magic," congrats—you've just described a garage sale. In 2025, content is your real salesforce. Not those blurry photos or that half-hearted product description copied from the manufacturer's site.
+        </p>
+
+        <p className="mb-6">
+          This isn't about blogging for blogging's sake. It's about building an actual content machine that pulls customers through the funnel so smoothly they forget they're being marketed to.
+        </p>
+
+        <div className="bg-amber-50 border-l-4 border-amber-500 p-4 my-8 rounded-r-md">
+          <p className="italic text-amber-800">
+            "Let's make your website sell like it's staffed by charismatic experts—and not just a lonely 'Buy Now' button."
+          </p>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4">🎯 Step 1: Content Mapping—Or, Stop Shouting Into the Void</h2>
+        <p className="mb-6">
+          Customers don't wake up thinking, "Today I shall buy a cast-iron skillet from a Shopify store I've never heard of." You've got to meet them where they are—curious, confused, comparing, and finally, committed.
+        </p>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">Awareness Stage: "What Even Is This?"</h3>
+        <p className="mb-4">
+          This is your educational, curiosity-sparking content. No sales pitch. Just value.
+        </p>
+        
+        <ul className="list-disc pl-6 mb-6 space-y-2">
+          <li>🔍 Blog posts like "Top 5 Mistakes First-Time Home Chefs Make"</li>
+          <li>📊 Infographics with fun stats like "The Average Pan Handles 9.3 Emotional Breakdowns"</li>
+          <li>💡 Thought leadership pieces that prove you're not just reselling stuff—you understand the space</li>
+        </ul>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">Consideration Stage: "Okay, I'm Listening…"</h3>
+        <p className="mb-4">
+          Now they're weighing options. You're the helpful guide, not the pushy salesperson.
+        </p>
+        
+        <ul className="list-disc pl-6 mb-6 space-y-2">
+          <li>📚 Buying guides ("Carbon Steel vs. Cast Iron: Which One Matches Your Vibe?")</li>
+          <li>📽️ Product videos that show off the goods in action</li>
+          <li>📖 FAQ pages that answer, "Will this explode in the dishwasher?"</li>
+        </ul>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">Decision Stage: "Shut Up and Take My Money"</h3>
+        <p className="mb-4">
+          This is the finish line. Help them feel the purchase is smart.
+        </p>
+        
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>🧠 Reviews from people who sound like them</li>
+          <li>📸 Real-life photos and UGC (user-generated content)</li>
+          <li>🎯 Clear, benefit-driven product copy that says, "This solves your problem"</li>
+        </ul>
+
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Digital marketing strategy on a laptop" className="rounded-lg shadow-md my-8 w-full" />
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">📝 Writing Product Descriptions That Don't Feel Like IKEA Assembly Manuals</h2>
+        <p className="mb-6">
+          The bar for product descriptions is on the floor. So step over it.
+        </p>
+
+        <div className="bg-blue-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-blue-800 mb-4">Make Yours:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-blue-800">
+            <li>🔥 Benefit-driven – Features are cool, but benefits sell. "Double-stitched" is nice. "Won't fall apart after one wash" is better.</li>
+            <li>👃 Sensory – Let them smell the leather, hear the crunch, feel the thread count.</li>
+            <li>🔍 Specific – "High-quality" is meaningless. "Tested for 10,000 hours of screen time without fading" is not.</li>
+            <li>🧠 Search-optimized – Yes, use keywords. No, don't sound like a chatbot lost in a thesaurus.</li>
+            <li>📎 Scannable – Bullet points. Subheadings. Make your copy breathable like a nice linen shirt.</li>
+          </ul>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">📆 Content Calendar: Because "Post When You Feel Like It" Is Not a Strategy</h2>
+        <p className="mb-6">
+          Consistency wins. Randomness confuses. Build a calendar that syncs with:
+        </p>
+
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>🛍️ Seasonal trends ("Spring Cleaning Essentials")</li>
+          <li>🚀 Product launches ("New Drop: The Sleepwear You Deserve")</li>
+          <li>🎉 Events and holidays (yes, National Avocado Day is a thing)</li>
+          <li>📚 Evergreen themes ("How to Choose the Right Size" — still relevant in 2035)</li>
+        </ul>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">📸 UGC: Let the Customers Do the Selling for You</h2>
+        <p className="mb-6">
+          User-generated content is like a friend's recommendation—except scalable. And free-ish.
+        </p>
+
+        <p className="font-medium mb-3">Goldmine content includes:</p>
+        <ul className="list-disc pl-6 mb-6 space-y-2">
+          <li>⭐ Real customer reviews (video > text > silence)</li>
+          <li>📷 Instagram posts from happy buyers</li>
+          <li>💬 Community Q&A on your product pages</li>
+          <li>🎥 Customer-submitted demos and unboxings</li>
+        </ul>
+
+        <p className="italic mb-8">
+          Bonus: UGC makes your brand look like a living, breathing ecosystem—not a digital vending machine.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-purple-700 mb-3">📣 Distribution Strategy</h3>
+            <p>If content is king, distribution is the royal hype squad. Go where your people are with email marketing, social campaigns, strategic collabs, and retargeting that says, "We miss you."</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-green-700 mb-3">📊 Measuring What Matters</h3>
+            <p>Track conversion rate by content type, time on page, customer feedback, and impact on cart size. The goal isn't content—it's commerce.</p>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Final Word: Content Is the Engine. Strategy Is the Fuel.</h2>
+        <p className="mb-6">
+          Your e-commerce store is more than a checkout button. It's a brand, a story, a guide. The right content doesn't just attract traffic—it builds trust, moves hearts, and makes credit cards sing.
+        </p>
+
+        <p className="mb-6">
+          So stop pumping out generic blog posts and start building content that pulls people in, shows them why they should care, and makes buying feel inevitable.
+        </p>
+
+        <p className="text-xl font-medium mb-8">
+          Your store deserves more than just listings. Give it a voice. Give it a plan. And maybe, just maybe, give it a little Leo Corbett swagger while you're at it.
+        </p>
+
+        <div className="bg-gray-100 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">About the Author</h3>
+          <div className="flex items-center">
+            <div className="h-16 w-16 rounded-full bg-purple-100 flex items-center justify-center text-xl font-medium text-purple-700 mr-4">
+              LC
+            </div>
+            <div>
+              <p className="font-medium">Leo Corbett</p>
+              <p className="text-sm text-gray-600">An AI-first automation specialist and SEO expert who builds high-performance systems that scale businesses while eliminating inefficiencies.</p>
+            </div>
+          </div>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: 4,
+    title: "Local SEO in 2025: How to Slap Your Competitors Out of the Map Pack",
+    category: "Local SEO",
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    date: "March 8, 2025",
+    readTime: "11 min read",
+    author: "Leo Corbett",
+    excerpt: "Dominate local search results with these proven strategies to outrank competitors on Google Maps and secure your spot in the coveted Map Pack.",
+    content: (
+      <>
+        <p className="text-xl leading-relaxed mb-8">
+          If you're still treating local SEO like an afterthought—like a Yelp sticker on your window and a dusty Google Business Profile—you might as well hand over your customers to the smoothie bar across the street.
+        </p>
+
+        <p className="mb-6">
+          In 2025, dominating the Map Pack isn't optional. It's survival. The top 3 spots on Google's local results are the modern storefront—where clicks become calls, and calls become money.
+        </p>
+
+        <div className="bg-green-50 border-l-4 border-green-500 p-4 my-8 rounded-r-md">
+          <p className="italic text-green-800">
+            "This isn't some 'set it and forget it' SEO checklist. This is hyper-local, hyper-tactical domination. You ready?"
+          </p>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4">🗺️ First, What the Hell Is the Map Pack?</h2>
+        <p className="mb-6">
+          It's that beautiful little box at the top of Google search with the map, the pins, and the top 3 local businesses. AKA: the holy trinity of local visibility.
+        </p>
+
+        <p className="mb-6">
+          It's above the fold. It's above organic. It's where your future customers look when they want something right now.
+        </p>
+
+        <p className="font-medium mb-8">
+          If your business isn't there, you're not losing traffic. You're losing revenue.
+        </p>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">📲 The Local SEO Landscape in 2025: Personal, Predictive, and Picky</h2>
+        <p className="mb-6">
+          Let's be clear: Local SEO has leveled up. It's no longer just "who's closest." It's who's trusted, relevant, and locally famous online.
+        </p>
+
+        <p className="mb-6">
+          Thanks to AI-driven search and hyper-personalized results, here's what's influencing the Map Pack in 2025:
+        </p>
+
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Voice search like, "best vegan pizza near me that's open now and doesn't judge me."</li>
+          <li>User behavior (what you've clicked, rated, or ignored before).</li>
+          <li>Mobile-first indexing (your site better load like lightning on a cracked iPhone).</li>
+        </ul>
+
+        <p className="font-medium mb-8">
+          Translation: if you're not tailoring your content and setup for real humans with real context, Google's not interested.
+        </p>
+
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="City map with location markers" className="rounded-lg shadow-md my-8 w-full" />
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">🧩 Step 1: Build a God-Tier Google Business Profile</h2>
+        <p className="mb-6">
+          Your Google Business Profile (formerly Google My Business, before the rebrand gods struck again) is your local SEO headquarters.
+        </p>
+
+        <div className="bg-blue-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-blue-800 mb-4">Here's your 2025 cheat sheet:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-blue-800">
+            <li>✅ Fill in every section. Half-finished profiles scream "forgot my password."</li>
+            <li>📂 Choose primary + secondary categories like your livelihood depends on it (it does).</li>
+            <li>📸 Upload fresh photos every month. Listings with regular pics get 35% more clicks. Do it. Now.</li>
+            <li>📝 Post weekly. Events, promos, or just "Look, we're alive." Google notices.</li>
+            <li>🕒 Keep hours updated. Especially for holidays. Nothing tanks trust like a closed sign during your posted "open" hours.</li>
+            <li>✨ Add attributes like "LGBTQ+ friendly" or "wheelchair accessible"—these help surface you in hyper-specific searches.</li>
+          </ul>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">🌟 Step 2: Review Management = Local Reputation on Steroids</h2>
+        <p className="mb-6">
+          Reviews are the street cred of the digital age. They impact rankings, trust, conversions—and your overall vibes.
+        </p>
+
+        <p className="font-medium mb-4">How to dominate review land:</p>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>📩 Ask every customer to leave a review. Every. Single. One.</li>
+          <li>💬 Respond to all reviews. The good ones, the bad ones, and the weird ones.</li>
+          <li>🎯 Use keywords naturally in your replies (but don't keyword-stuff like a Yelp-obsessed robot).</li>
+          <li>🧯 Handle negativity offline and gracefully. Review fights are SEO poison.</li>
+          <li>📊 Track sentiment over time—complaints might reveal product or service gaps you're too close to see.</li>
+        </ul>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-purple-700 mb-3">🏘️ Step 3: Local Content</h3>
+            <p>Create hyper-local, genuinely useful content like neighborhood guides, event recaps, and local interviews that make your site a community hub, not a billboard.</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-amber-700 mb-3">🧾 Step 4: Citations</h3>
+            <p>Keep your NAP (Name, Address, Phone) 100% consistent everywhere. Prioritize quality directories and industry-specific listings over random SEO spam farms.</p>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">🔗 Step 5: Build Local Links Without Being Weird</h2>
+        <p className="mb-6">
+          Local link-building is about real relationships, not cold emails to "high-DA dental blogs."
+        </p>
+
+        <p className="font-medium mb-4">How to earn those juicy backlinks:</p>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>🛍️ Partner with neighboring businesses ("Link to us, we'll shout you out in our newsletter")</li>
+          <li>🎓 Sponsor a school event, charity run, or pet costume contest. PR gold.</li>
+          <li>📰 Pitch stories to local media. Real journalism > backlinks from zombie blogs.</li>
+          <li>📢 Get featured by local influencers. Especially micro-influencers—they convert better anyway.</li>
+          <li>🤝 Join business associations. They usually have member pages = easy backlinks.</li>
+        </ul>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">⚙️ Step 6: Get Technical (Without Going Full Dev)</h2>
+        <p className="mb-6">
+          Technical local SEO is like putting the right engine in your content car. If it's not humming behind the scenes, you're gonna stall.
+        </p>
+
+        <p className="font-medium mb-4">Check these off:</p>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>💡 LocalBusiness schema on every location page</li>
+          <li>📱 Mobile-first, fast-loading site that works on grandma's phone</li>
+          <li>🎙️ Optimize for "near me" and voice queries ("Where can I get my bike fixed right now?")</li>
+          <li>🏷️ Location in title tags, H1s, meta descriptions, URLs</li>
+          <li>🔗 Clear internal linking to location pages and services</li>
+        </ul>
+
+        <div className="bg-amber-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-amber-800 mb-4">📈 Step 7: Measure the Stuff That Moves the Needle</h3>
+          <p className="mb-4 text-amber-800">You can't improve what you don't track. And "gut feelings" don't get you to the Map Pack.</p>
+          <p className="font-medium mb-2 text-amber-800">Track like a local boss:</p>
+          <ul className="list-disc pl-6 space-y-2 text-amber-800">
+            <li>📊 Google Business Profile Insights (calls, direction requests, website clicks)</li>
+            <li>🏁 Rankings for location-based keywords ("best tattoo shop in Cork")</li>
+            <li>📞 Phone calls and conversions from local search</li>
+            <li>🕵️ Competitor Map Pack spying (tools like BrightLocal are your BFFs)</li>
+            <li>🧪 A/B test your GBP posts, images, and CTAs</li>
+          </ul>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Final Word: The Map Pack Isn't a Mystery—It's a Muscle</h2>
+        <p className="mb-6">
+          The businesses dominating local search in 2025 aren't the ones with the biggest budgets. They're the ones doing the unsexy things consistently—updating their profiles, responding to reviews, creating actually good content, and staying connected to their communities.
+        </p>
+
+        <p className="mb-6">
+          So stop treating local SEO like a "maybe" and start treating it like the main revenue channel it is.
+        </p>
+
+        <p className="text-xl font-medium mb-8">
+          Google Maps is your homepage now. Make sure you show up like you own the place.
+        </p>
+
+        <div className="bg-gray-100 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">About the Author</h3>
+          <div className="flex items-center">
+            <div className="h-16 w-16 rounded-full bg-purple-100 flex items-center justify-center text-xl font-medium text-purple-700 mr-4">
+              LC
+            </div>
+            <div>
+              <p className="font-medium">Leo Corbett</p>
+              <p className="text-sm text-gray-600">An AI-first automation specialist and SEO expert who builds high-performance systems that scale businesses while eliminating inefficiencies.</p>
+            </div>
+          </div>
+        </div>
+      </>
+    ),
+  }
+];
