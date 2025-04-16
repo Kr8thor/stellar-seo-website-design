@@ -12,7 +12,7 @@ export const blogPosts: BlogPostProps[] = [
     author: "Leo Corbett",
     excerpt: "A comprehensive guide to Google's E-E-A-T principles and how they impact your SEO strategy in 2025 and beyond.",
     content: (
-      <>
+      <React.Fragment>
         <p className="text-xl leading-relaxed mb-8">
           Let's get one thing straight—if E-E-A-T were a real person, it'd be that coworker who drinks celery juice, runs a weekend startup, volunteers on Tuesdays, and files taxes in January. Google loves that guy. And whether you're a blogger, business, or someone yelling into the internet with a .com and a dream, you need to become him.
         </p>
@@ -157,7 +157,7 @@ export const blogPosts: BlogPostProps[] = [
             </div>
           </div>
         </div>
-      </>
+      </React.Fragment>
     ),
   },
   {
@@ -169,7 +169,7 @@ export const blogPosts: BlogPostProps[] = [
     readTime: "8 min read",
     author: "Leo Corbett",
     content: (
-      <>
+      <React.Fragment>
         <p className="text-xl leading-relaxed mb-8">
           If you've ever screamed into a Google Doc, "What even works anymore?!"—this one's for you. SEO's been dragged through AI upheavals, algorithm shakeups, and enough SERP drama to fuel a Netflix docuseries. But guess what? Some on-page tactics still hold the line.
         </p>
@@ -340,7 +340,7 @@ export const blogPosts: BlogPostProps[] = [
             </div>
           </div>
         </div>
-      </>
+      </React.Fragment>
     ),
   },
   {
@@ -353,7 +353,7 @@ export const blogPosts: BlogPostProps[] = [
     author: "Leo Corbett",
     excerpt: "Core Web Vitals have evolved from nice-to-have metrics to essential ranking factors. Learn how to master them for better SEO performance in 2025.",
     content: (
-      <>
+      <React.Fragment>
         <p className="text-xl leading-relaxed mb-8">
           If Google were your gym trainer, Core Web Vitals would be its way of screaming, "No more junk food and janky websites!" In 2025, these three little metrics have gone from "nice-to-have" to non-negotiable. They're the difference between page one glory and page seven purgatory—where even your mom won't find you.
         </p>
@@ -483,4 +483,316 @@ export const blogPosts: BlogPostProps[] = [
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-          <div className="bg-white p-6 rounded
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-green-700 mb-3">Conversion Boost</h3>
+            <p className="text-2xl font-bold">+35%</p>
+            <p className="text-gray-600 mt-1">Average conversion increase when LCP improves by 1 second</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-red-700 mb-3">Bounce Rate Drop</h3>
+            <p className="text-2xl font-bold">-42%</p>
+            <p className="text-gray-600 mt-1">Bounce rate decrease when CLS issues are fixed</p>
+          </div>
+        </div>
+
+        <p className="mb-8">
+          These aren't just vanity metrics. They're business outcomes.
+        </p>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">🔮 The Future of Core Web Vitals in 2025</h2>
+        <p className="mb-6">
+          Google isn't walking back on these metrics. In fact, they're doubling down with more nuanced measurements:
+        </p>
+
+        <ul className="list-disc pl-6 mb-8 space-y-4">
+          <li className="font-medium">INP (Interaction to Next Paint) has replaced FID as the responsiveness metric.</li>
+          <li className="font-medium">Mobile performance is weighted heavier than desktop.</li>
+          <li className="font-medium">Real User Metrics (RUM) now trump lab data.</li>
+        </ul>
+
+        <div className="bg-indigo-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-indigo-800 mb-4">What's Coming Next?</h3>
+          <p className="mb-4 text-indigo-800">All signs point to Google adding more metrics focused on:</p>
+          <ul className="list-disc pl-6 space-y-2 text-indigo-800">
+            <li>Visual stability during interactions, not just page load</li>
+            <li>Accessibility metrics as ranking factors</li>
+            <li>Resource usage efficiency (battery, CPU)</li>
+          </ul>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">🛠️ Tools to Save Your Core Web Vital Soul</h2>
+        <p className="mb-6">
+          Don't navigate this alone. Here are the tools the pros use:
+        </p>
+
+        <ul className="list-disc pl-6 mb-8 space-y-3">
+          <li><span className="font-medium">PageSpeed Insights:</span> Google's free audit tool. Start here.</li>
+          <li><span className="font-medium">Lighthouse:</span> More detailed version built into Chrome DevTools.</li>
+          <li><span className="font-medium">Search Console:</span> See how Google views your actual traffic data.</li>
+          <li><span className="font-medium">Chrome UX Report:</span> Real user data across millions of sites.</li>
+          <li><span className="font-medium">WebPageTest:</span> For when you need to get really nerdy about performance.</li>
+        </ul>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">The Harsh Truth</h2>
+        <p className="mb-6">
+          About 70% of websites in 2025 still fail Core Web Vitals checks. This is simultaneously depressing and a massive opportunity.
+        </p>
+
+        <p className="mb-6">
+          The bar isn't even that high. Google isn't asking for perfection—just competence. Outperforming 70% of your competitors shouldn't be a Herculean task.
+        </p>
+
+        <div className="bg-gray-100 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">TL;DR: What You Actually Need to Do</h3>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Optimize and properly size your images</li>
+            <li>Eliminate render-blocking resources</li>
+            <li>Implement proper caching strategies</li>
+            <li>Reserve space for dynamic elements</li>
+            <li>Move non-critical JavaScript off the main thread</li>
+            <li>And for crying out loud, stop adding 12 tracking scripts</li>
+          </ul>
+        </div>
+
+        <p className="text-xl font-medium mt-10 mb-6">
+          Core Web Vitals aren't just some SEO checkboxes. They're Google's way of aligning your incentives with user experience. Fix them, and you're not just helping your rankings—you're helping your users.
+        </p>
+
+        <p className="mb-10">
+          And in 2025, when user patience is measured in milliseconds, that's what really matters.
+        </p>
+
+        <div className="bg-gray-100 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">About the Author</h3>
+          <div className="flex items-center">
+            <div className="h-16 w-16 rounded-full bg-purple-100 flex items-center justify-center text-xl font-medium text-purple-700 mr-4">
+              LC
+            </div>
+            <div>
+              <p className="font-medium">Leo Corbett</p>
+              <p className="text-sm text-gray-600">An AI-first automation specialist and SEO expert who builds high-performance systems that scale businesses while eliminating inefficiencies.</p>
+            </div>
+          </div>
+        </div>
+      </React.Fragment>
+    ),
+  },
+  {
+    id: 3,
+    title: "Local SEO in 2025: How to Slap Your Competitors Out of the Map Pack",
+    category: "Local SEO",
+    image: "https://images.unsplash.com/photo-1569388330292-79cc1ec67270?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    date: "March 15, 2025",
+    readTime: "9 min read",
+    author: "Leo Corbett",
+    excerpt: "Learn how to dominate local search results and secure your spot in Google's Map Pack with these expert local SEO strategies for 2025.",
+    content: (
+      <React.Fragment>
+        <p className="text-xl leading-relaxed mb-8">
+          If you're still treating local SEO like an afterthought—like a Yelp sticker on your window and a dusty Google Business Profile—you might as well hand over your customers to the smoothie bar across the street.
+        </p>
+
+        <p className="mb-6">
+          In 2025, dominating the Map Pack isn't optional. It's survival. The top 3 spots on Google's local results are the modern storefront—where clicks become calls, and calls become money.
+        </p>
+
+        <p className="mb-6">
+          This isn't some "set it and forget it" SEO checklist. This is hyper-local, hyper-tactical domination. You ready?
+        </p>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4">🗺️ First, What the Hell Is the Map Pack?</h2>
+        <p className="mb-6">
+          It's that beautiful little box at the top of Google search with the map, the pins, and the top 3 local businesses. AKA: the holy trinity of local visibility.
+        </p>
+
+        <p className="mb-6">
+          It's above the fold. It's above organic. It's where your future customers look when they want something right now.
+        </p>
+
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-8 rounded-r-md">
+          <p className="italic text-blue-800">
+            "If your business isn't in the Map Pack, you're not losing traffic. You're losing revenue."
+          </p>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">📲 The Local SEO Landscape in 2025: Personal, Predictive, and Picky</h2>
+        <p className="mb-6">
+          Let's be clear: Local SEO has leveled up. It's no longer just "who's closest." It's who's trusted, relevant, and locally famous online.
+        </p>
+
+        <p className="mb-6">
+          Thanks to AI-driven search and hyper-personalized results, here's what's influencing the Map Pack in 2025:
+        </p>
+
+        <ul className="list-disc pl-6 mb-8 space-y-3">
+          <li>Voice search like, "best vegan pizza near me that's open now and doesn't judge me."</li>
+          <li>User behavior (what you've clicked, rated, or ignored before).</li>
+          <li>Mobile-first indexing (your site better load like lightning on a cracked iPhone).</li>
+        </ul>
+
+        <p className="italic mb-8">
+          Translation: if you're not tailoring your content and setup for real humans with real context, Google's not interested.
+        </p>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">🧩 Step 1: Build a God-Tier Google Business Profile</h2>
+        <p className="mb-6">
+          Your Google Business Profile (formerly Google My Business, before the rebrand gods struck again) is your local SEO headquarters.
+        </p>
+
+        <div className="bg-green-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-green-800 mb-4">Here's your 2025 cheat sheet:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-green-800">
+            <li>✅ Fill in every section. Half-finished profiles scream "forgot my password."</li>
+            <li>📂 Choose primary + secondary categories like your livelihood depends on it (it does).</li>
+            <li>📸 Upload fresh photos every month. Listings with regular pics get 35% more clicks. Do it. Now.</li>
+            <li>📝 Post weekly. Events, promos, or just "Look, we're alive." Google notices.</li>
+            <li>🕒 Keep hours updated. Especially for holidays. Nothing tanks trust like a closed sign during your posted "open" hours.</li>
+            <li>✨ Add attributes like "LGBTQ+ friendly" or "wheelchair accessible"—these help surface you in hyper-specific searches.</li>
+          </ul>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">🌟 Step 2: Review Management = Local Reputation on Steroids</h2>
+        <p className="mb-6">
+          Reviews are the street cred of the digital age. They impact rankings, trust, conversions—and your overall vibes.
+        </p>
+
+        <div className="bg-amber-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-amber-800 mb-4">How to dominate review land:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-amber-800">
+            <li>📩 Ask every customer to leave a review. Every. Single. One.</li>
+            <li>💬 Respond to all reviews. The good ones, the bad ones, and the weird ones.</li>
+            <li>🎯 Use keywords naturally in your replies (but don't keyword-stuff like a Yelp-obsessed robot).</li>
+            <li>🧯Handle negativity offline and gracefully. Review fights are SEO poison.</li>
+            <li>📊 Track sentiment over time—complaints might reveal product or service gaps you're too close to see.</li>
+          </ul>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">🏘️ Step 3: Local Content That Doesn't Bore People</h2>
+        <p className="mb-6">
+          Generic blog posts don't cut it. You need hyper-local, genuinely useful content that makes your site a community hub, not a billboard.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-purple-700 mb-3">Think:</h3>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>🗺️ Neighborhood guides ("Best spots for late-night sushi in Sligo")</li>
+              <li>🏟️ Event recaps, charity drives, or team cleanups at the park</li>
+              <li>🧑‍🍳 Interviews with local chefs, clients, influencers</li>
+            </ul>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-blue-700 mb-3">Also:</h3>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>🖼️ Images with geo-tagged filenames and local keyword alt text</li>
+              <li>📍 Service area pages that actually sound human</li>
+              <li>📱 Mobile-first, fast-loading pages that work on spotty connections</li>
+            </ul>
+          </div>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1534216511603-a0b6a651e5b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Local business storefront with customers" className="rounded-lg shadow-md my-8 w-full" />
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">🧾 Step 4: Citations Still Matter (But Don't Go Full Directory Bro)</h2>
+        <p className="mb-6">
+          Citations are like local ID cards. They tell search engines, "Yep, this business exists here, and they're consistent about it."
+        </p>
+
+        <div className="bg-purple-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-purple-800 mb-4">Best practices in 2025:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-purple-800">
+            <li>🧼 Keep your NAP (Name, Address, Phone) 100% consistent. Every. Single. Time.</li>
+            <li>🧠 Prioritize quality directories (Yelp, BBB, TripAdvisor) over random SEO spam farms.</li>
+            <li>🏷️ Industry-specific directories matter more than ever. Be where your competitors are.</li>
+            <li>🕵️ Audit regularly. Clean up duplicates like they're old Tinder profiles.</li>
+          </ul>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">🔗 Step 5: Build Local Links Without Being Weird</h2>
+        <p className="mb-6">
+          Local link-building is about real relationships, not cold emails to "high-DA dental blogs."
+        </p>
+
+        <div className="bg-blue-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-blue-800 mb-4">How to earn those juicy backlinks:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-blue-800">
+            <li>🛍️ Partner with neighboring businesses ("Link to us, we'll shout you out in our newsletter")</li>
+            <li>🎓 Sponsor a school event, charity run, or pet costume contest. PR gold.</li>
+            <li>📰 Pitch stories to local media. Real journalism > backlinks from zombie blogs.</li>
+            <li>📢 Get featured by local influencers. Especially micro-influencers—they convert better anyway.</li>
+            <li>🤝 Join business associations. They usually have member pages = easy backlinks.</li>
+          </ul>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">⚙️ Step 6: Get Technical (Without Going Full Dev)</h2>
+        <p className="mb-6">
+          Technical local SEO is like putting the right engine in your content car. If it's not humming behind the scenes, you're gonna stall.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-green-700 mb-3">Check these off:</h3>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>💡 LocalBusiness schema on every location page</li>
+              <li>📱 Mobile-first, fast-loading site that works on grandma's phone</li>
+              <li>🎙️ Optimize for "near me" and voice queries</li>
+            </ul>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-green-700 mb-3">Also important:</h3>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>🏷️ Location in title tags, H1s, meta descriptions, URLs</li>
+              <li>🔗 Clear internal linking to location pages and services</li>
+              <li>🔒 HTTPS + fast loading times (Core Web Vitals still matter)</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">📈 Step 7: Measure the Stuff That Moves the Needle</h2>
+        <p className="mb-6">
+          You can't improve what you don't track. And "gut feelings" don't get you to the Map Pack.
+        </p>
+
+        <div className="bg-indigo-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-indigo-800 mb-4">Track like a local boss:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-indigo-800">
+            <li>📊 Google Business Profile Insights (calls, direction requests, website clicks)</li>
+            <li>🏁 Rankings for location-based keywords ("best tattoo shop in Cork")</li>
+            <li>📞 Phone calls and conversions from local search</li>
+            <li>🕵️ Competitor Map Pack spying (tools like BrightLocal are your BFFs)</li>
+            <li>🧪 A/B test your GBP posts, images, and CTAs</li>
+          </ul>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Final Word: The Map Pack Isn't a Mystery—It's a Muscle</h2>
+        <p className="mb-6">
+          The businesses dominating local search in 2025 aren't the ones with the biggest budgets. They're the ones doing the unsexy things consistently—updating their profiles, responding to reviews, creating actually good content, and staying connected to their communities.
+        </p>
+
+        <p className="text-xl font-medium mb-8">
+          So stop treating local SEO like a "maybe" and start treating it like the main revenue channel it is.
+        </p>
+
+        <p className="text-xl italic mb-10">
+          Google Maps is your homepage now. Make sure you show up like you own the place.
+        </p>
+
+        <div className="bg-gray-100 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">About the Author</h3>
+          <div className="flex items-center">
+            <div className="h-16 w-16 rounded-full bg-purple-100 flex items-center justify-center text-xl font-medium text-purple-700 mr-4">
+              LC
+            </div>
+            <div>
+              <p className="font-medium">Leo Corbett</p>
+              <p className="text-sm text-gray-600">An AI-first automation specialist and SEO expert who builds high-performance systems that scale businesses while eliminating inefficiencies.</p>
+            </div>
+          </div>
+        </div>
+      </React.Fragment>
+    ),
+  }
+];
