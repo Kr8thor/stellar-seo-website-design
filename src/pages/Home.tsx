@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, BarChart3, Search, Zap, Award, Globe2, Users } from 'lucide-react';
@@ -127,20 +126,6 @@ const Home = () => {
               <p className="text-lg mb-6">
                 Discover how a targeted SEO strategy helped a B2B SaaS company triple their organic traffic in just 6 months, leading to a significant boost in qualified leads and conversions.
               </p>
-              <div className="flex flex-wrap gap-y-6 gap-x-12 mb-8">
-                <div>
-                  <p className="text-3xl font-heading font-medium">300%</p>
-                  <p className="text-muted-foreground">Traffic Increase</p>
-                </div>
-                <div>
-                  <p className="text-3xl font-heading font-medium">+205</p>
-                  <p className="text-muted-foreground">Keyword Rankings</p>
-                </div>
-                <div>
-                  <p className="text-3xl font-heading font-medium">4.5x</p>
-                  <p className="text-muted-foreground">ROI</p>
-                </div>
-              </div>
               <Button asChild>
                 <Link to="/portfolio">Read Case Study</Link>
               </Button>

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
@@ -91,14 +90,12 @@ const Portfolio = () => {
     }
   ];
   
-  // Filter case studies based on active filter
   const filteredCaseStudies = activeFilter === "All" 
     ? caseStudies 
     : caseStudies.filter(study => study.category === activeFilter);
   
   return (
     <main className="pt-24">
-      {/* Hero Section */}
       <section className="section-container">
         <div className="text-center max-w-3xl mx-auto animate-fade-in">
           <h1 className="heading-lg mb-6">Portfolio & Case Studies</h1>
@@ -108,7 +105,6 @@ const Portfolio = () => {
         </div>
       </section>
       
-      {/* Filter Categories */}
       <section className="py-8 bg-secondary">
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-wrap justify-center gap-4">
@@ -125,7 +121,6 @@ const Portfolio = () => {
         </div>
       </section>
       
-      {/* Case Studies */}
       <section className="section-container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredCaseStudies.map((study) => (
@@ -167,7 +162,6 @@ const Portfolio = () => {
         </div>
       </section>
       
-      {/* Featured Case Study */}
       <section className="bg-accent/30 py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
@@ -194,23 +188,6 @@ const Portfolio = () => {
                 A rapidly growing SaaS company in the project management space was struggling to compete with established players despite having a superior product. Through comprehensive keyword research, technical optimization, and strategic content development, we helped them significantly improve their organic visibility.
               </p>
               
-              <div className="grid grid-cols-2 gap-4 mb-8">
-                <div className="bg-card p-6 rounded-lg border border-border">
-                  <div className="flex items-center justify-center text-primary mb-3">
-                    <BarChart3 className="h-8 w-8" />
-                  </div>
-                  <p className="text-3xl font-heading font-medium text-center">+370%</p>
-                  <p className="text-center text-muted-foreground">Organic Traffic</p>
-                </div>
-                <div className="bg-card p-6 rounded-lg border border-border">
-                  <div className="flex items-center justify-center text-primary mb-3">
-                    <BarChart3 className="h-8 w-8" />
-                  </div>
-                  <p className="text-3xl font-heading font-medium text-center">+215%</p>
-                  <p className="text-center text-muted-foreground">Trial Signups</p>
-                </div>
-              </div>
-              
               <div className="flex flex-wrap gap-4">
                 <Button asChild>
                   <a href="#">
@@ -226,7 +203,6 @@ const Portfolio = () => {
         </div>
       </section>
       
-      {/* CTA Section */}
       <section className="bg-primary text-primary-foreground py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-8 text-center">
           <h2 className="heading-md mb-6">Ready to Achieve Similar Results?</h2>
