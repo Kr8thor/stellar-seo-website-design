@@ -1,8 +1,9 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, BarChart3, Search, Zap, Award, Globe2, Users, FileSearch, TrendingUp, CheckCircle } from 'lucide-react';
+import { ArrowRight, BarChart3, Search, Zap, Award, Globe2, Users, FileSearch, TrendingUp, CheckCircle, Calendar, Gift, Clock } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
 const Home = () => {
   return (
@@ -112,96 +113,152 @@ const Home = () => {
       </section>
       
       {/* Redesigned SEO Audit Teaser Section */}
-      <section className="bg-gradient-to-r from-primary/90 to-primary py-16 md:py-20 text-primary-foreground">
-        <div className="container mx-auto px-4 md:px-8">
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        {/* Colorful Background with Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-100 via-pink-50 to-amber-50">
+          <div className="absolute inset-0 opacity-20">
+            <svg className="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <defs>
+                <radialGradient id="radialGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                  <stop offset="0%" stopColor="rgba(124, 58, 237, 0.5)" />
+                  <stop offset="70%" stopColor="rgba(236, 72, 153, 0.3)" />
+                  <stop offset="100%" stopColor="rgba(245, 158, 11, 0.2)" />
+                </radialGradient>
+              </defs>
+              <path d="M0 0 Q50 100 100 0 L100 100 0 100" fill="url(#radialGradient)" />
+            </svg>
+          </div>
+          <div className="absolute top-0 left-0 w-full h-full bg-grid-pattern opacity-10"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 md:px-8 relative z-10">
+          <div className="text-center mb-10">
+            <span className="px-4 py-1.5 rounded-full text-sm font-medium bg-gradient-to-r from-purple-600 to-pink-600 text-white inline-block mb-4 animate-pulse">
+              Limited Time Opportunity
+            </span>
+            <h2 className="heading-lg font-bold text-gradient-purple mb-2">Free Complete SEO Audit</h2>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+              Discover what's holding your website back from ranking higher and converting better.
+            </p>
+          </div>
+          
           <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col md:flex-row items-center bg-card/10 backdrop-blur-sm border border-border/20 rounded-xl overflow-hidden shadow-2xl">
-              <div className="md:w-1/2 p-8 md:p-12">
-                <div className="inline-block bg-accent/20 text-accent-foreground px-4 py-1 rounded-full text-sm font-medium mb-4">
-                  Exclusive Offer
-                </div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Free Complete SEO Audit</h2>
-                <p className="text-lg md:text-xl mb-6 opacity-90">
-                  Discover exactly what's holding your website back from ranking higher and converting better.
-                </p>
-                
-                <div className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {[
-                    "Technical Analysis",
-                    "Keyword Opportunities",
-                    "Competitor Strategy",
-                    "Content Assessment",
-                    "Page Speed Insights",
-                    "Mobile Optimization"
-                  ].map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-accent flex-shrink-0" />
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
-                
-                <div className="bg-accent/20 p-4 rounded-lg mb-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="font-medium">Launch Date:</span>
-                    <span>May 1st, 2025</span>
-                  </div>
-                  <div className="animate-pulse text-center font-semibold">
-                    Limited Spots Available!
-                  </div>
-                </div>
-                
-                <Button asChild size="lg" variant="secondary" className="w-full">
-                  <a href="/contact#top">Reserve Your Free Audit Now</a>
-                </Button>
-              </div>
+            <Card className="border-0 shadow-xl bg-white/90 backdrop-blur-sm overflow-hidden relative transform hover:scale-[1.01] transition-all duration-300">
+              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500"></div>
               
-              <div className="md:w-1/2 bg-gradient-to-br from-primary-foreground/5 to-primary-foreground/20 p-8 md:p-12 relative">
-                <div className="absolute -top-6 -left-6 bg-accent/20 p-4 rounded-lg backdrop-blur-sm border border-accent/30 shadow-xl hidden md:block">
-                  <FileSearch className="h-10 w-10" />
-                </div>
-                <div className="absolute -bottom-6 -right-6 bg-accent/20 p-4 rounded-lg backdrop-blur-sm border border-accent/30 shadow-xl hidden md:block">
-                  <TrendingUp className="h-10 w-10" />
-                </div>
-                
-                <div className="bg-card/20 backdrop-blur-sm border border-border/30 p-6 rounded-lg shadow-lg">
-                  <h3 className="text-xl font-bold mb-4">What You'll Receive:</h3>
-                  <ul className="space-y-4">
-                    <li className="flex items-start gap-3">
-                      <div className="bg-accent/20 p-2 rounded-full mt-1">
-                        <Search className="h-5 w-5" />
+              <CardContent className="p-0">
+                <div className="flex flex-col lg:flex-row">
+                  {/* Left Column */}
+                  <div className="lg:w-1/2 p-8 md:p-12">
+                    <div className="flex items-center gap-4 mb-8">
+                      <div className="bg-gradient-to-br from-purple-600 to-pink-600 text-white p-3 rounded-xl shadow-lg">
+                        <Gift className="h-8 w-8" />
                       </div>
                       <div>
-                        <h4 className="font-medium">Comprehensive SEO Report</h4>
-                        <p className="text-sm opacity-80">A detailed analysis of your website's current SEO performance with actionable recommendations.</p>
+                        <h3 className="text-2xl font-bold text-gray-800">Exclusive Offer</h3>
+                        <p className="text-gray-600">For business owners serious about growth</p>
                       </div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="bg-accent/20 p-2 rounded-full mt-1">
-                        <BarChart3 className="h-5 w-5" />
+                    </div>
+                    
+                    <div className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {[
+                        "Technical Analysis",
+                        "Keyword Opportunities",
+                        "Competitor Strategy",
+                        "Content Assessment",
+                        "Page Speed Insights",
+                        "Mobile Optimization"
+                      ].map((item, idx) => (
+                        <div key={idx} className="flex items-center gap-2 group">
+                          <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-1 rounded-full group-hover:scale-110 transition-all duration-300">
+                            <CheckCircle className="h-5 w-5 text-white" />
+                          </div>
+                          <span className="text-gray-700 font-medium">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-5 rounded-lg mb-6 border border-purple-200">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="flex items-center gap-2">
+                          <Calendar className="h-5 w-5 text-purple-600" />
+                          <span className="font-medium text-gray-700">Launch Date:</span>
+                        </span>
+                        <span className="font-semibold text-purple-800">May 1st, 2025</span>
                       </div>
-                      <div>
-                        <h4 className="font-medium">Competitor Insights</h4>
-                        <p className="text-sm opacity-80">See what's working for your top competitors and how you can outperform them.</p>
+                      <div className="flex items-center justify-between">
+                        <span className="flex items-center gap-2">
+                          <Clock className="h-5 w-5 text-purple-600" />
+                          <span className="font-medium text-gray-700">Status:</span>
+                        </span>
+                        <span className="font-semibold animate-pulse text-pink-600">Only 5 Spots Left</span>
                       </div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="bg-accent/20 p-2 rounded-full mt-1">
-                        <Zap className="h-5 w-5" />
+                    </div>
+                    
+                    <Button 
+                      asChild 
+                      size="lg" 
+                      className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium py-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group"
+                    >
+                      <a href="/contact#top">
+                        Reserve Your Free Audit Now
+                        <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                      </a>
+                    </Button>
+                  </div>
+                  
+                  {/* Right Column */}
+                  <div className="lg:w-1/2 bg-gradient-to-br from-purple-50 to-pink-50 p-8 md:p-12 relative">
+                    <div className="absolute -top-6 -left-6 bg-gradient-to-br from-purple-600 to-pink-600 p-4 rounded-lg shadow-xl hidden md:flex text-white">
+                      <FileSearch className="h-8 w-8" />
+                    </div>
+                    <div className="absolute -bottom-6 -right-6 bg-gradient-to-br from-amber-500 to-pink-600 p-4 rounded-lg shadow-xl hidden md:flex text-white">
+                      <TrendingUp className="h-8 w-8" />
+                    </div>
+                    
+                    <div className="bg-white/70 backdrop-blur-sm border border-purple-100 p-6 rounded-lg shadow-lg">
+                      <h3 className="text-2xl font-bold mb-6 text-gray-800 border-b border-purple-100 pb-4">
+                        What You'll Receive:
+                      </h3>
+                      <ul className="space-y-6">
+                        <li className="flex items-start gap-4">
+                          <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-3 rounded-full flex-shrink-0 shadow-md">
+                            <Search className="h-5 w-5 text-white" />
+                          </div>
+                          <div>
+                            <h4 className="font-bold text-gray-800">Comprehensive SEO Report</h4>
+                            <p className="text-gray-600">A detailed analysis of your website's current SEO performance with specific, actionable recommendations.</p>
+                          </div>
+                        </li>
+                        <li className="flex items-start gap-4">
+                          <div className="bg-gradient-to-r from-pink-600 to-amber-500 p-3 rounded-full flex-shrink-0 shadow-md">
+                            <BarChart3 className="h-5 w-5 text-white" />
+                          </div>
+                          <div>
+                            <h4 className="font-bold text-gray-800">Competitor Insights</h4>
+                            <p className="text-gray-600">See what's working for your top competitors and how you can strategically outperform them.</p>
+                          </div>
+                        </li>
+                        <li className="flex items-start gap-4">
+                          <div className="bg-gradient-to-r from-amber-500 to-purple-600 p-3 rounded-full flex-shrink-0 shadow-md">
+                            <Zap className="h-5 w-5 text-white" />
+                          </div>
+                          <div>
+                            <h4 className="font-bold text-gray-800">30-Minute Strategy Call</h4>
+                            <p className="text-gray-600">Discuss your results and next steps with an SEO expert to maximize your growth potential.</p>
+                          </div>
+                        </li>
+                      </ul>
+                      
+                      <div className="mt-8 bg-gradient-to-r from-purple-50 to-pink-50 p-5 rounded-lg border border-purple-100">
+                        <p className="italic text-gray-700 text-center">"The insights from this audit completely transformed our approach to SEO. We've seen a 143% increase in organic traffic."</p>
+                        <p className="text-sm mt-2 font-medium text-right text-purple-700">— Alex Chen, TechStart Founder</p>
                       </div>
-                      <div>
-                        <h4 className="font-medium">30-Minute Strategy Call</h4>
-                        <p className="text-sm opacity-80">Discuss your results and next steps with an SEO expert to maximize your growth potential.</p>
-                      </div>
-                    </li>
-                  </ul>
-                  <div className="mt-6 text-center">
-                    <p className="italic">"The insights from this audit completely transformed our approach to SEO."</p>
-                    <p className="text-sm mt-2">— Previous Client</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
