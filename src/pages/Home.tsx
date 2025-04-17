@@ -111,89 +111,95 @@ const Home = () => {
         </div>
       </section>
       
-      {/* NEW SEO Audit Teaser Section */}
-      <section className="bg-gradient-to-r from-primary/90 to-primary py-16 md:py-24 text-primary-foreground">
+      {/* Redesigned SEO Audit Teaser Section */}
+      <section className="bg-gradient-to-r from-primary/90 to-primary py-16 md:py-20 text-primary-foreground">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="flex flex-col lg:flex-row items-center">
-            <div className="lg:w-1/2 mb-10 lg:mb-0">
-              <div className="relative">
-                <div className="absolute -top-8 -left-8 bg-accent/20 p-4 rounded-lg backdrop-blur-sm border border-accent/30 shadow-xl">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col md:flex-row items-center bg-card/10 backdrop-blur-sm border border-border/20 rounded-xl overflow-hidden shadow-2xl">
+              <div className="md:w-1/2 p-8 md:p-12">
+                <div className="inline-block bg-accent/20 text-accent-foreground px-4 py-1 rounded-full text-sm font-medium mb-4">
+                  Exclusive Offer
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Free Complete SEO Audit</h2>
+                <p className="text-lg md:text-xl mb-6 opacity-90">
+                  Discover exactly what's holding your website back from ranking higher and converting better.
+                </p>
+                
+                <div className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {[
+                    "Technical Analysis",
+                    "Keyword Opportunities",
+                    "Competitor Strategy",
+                    "Content Assessment",
+                    "Page Speed Insights",
+                    "Mobile Optimization"
+                  ].map((item, idx) => (
+                    <div key={idx} className="flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-accent flex-shrink-0" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="bg-accent/20 p-4 rounded-lg mb-6">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-medium">Launch Date:</span>
+                    <span>May 1st, 2025</span>
+                  </div>
+                  <div className="animate-pulse text-center font-semibold">
+                    Limited Spots Available!
+                  </div>
+                </div>
+                
+                <Button asChild size="lg" variant="secondary" className="w-full">
+                  <a href="/contact#top">Reserve Your Free Audit Now</a>
+                </Button>
+              </div>
+              
+              <div className="md:w-1/2 bg-gradient-to-br from-primary-foreground/5 to-primary-foreground/20 p-8 md:p-12 relative">
+                <div className="absolute -top-6 -left-6 bg-accent/20 p-4 rounded-lg backdrop-blur-sm border border-accent/30 shadow-xl hidden md:block">
                   <FileSearch className="h-10 w-10" />
                 </div>
-                <div className="absolute -bottom-8 -right-8 bg-accent/20 p-4 rounded-lg backdrop-blur-sm border border-accent/30 shadow-xl">
+                <div className="absolute -bottom-6 -right-6 bg-accent/20 p-4 rounded-lg backdrop-blur-sm border border-accent/30 shadow-xl hidden md:block">
                   <TrendingUp className="h-10 w-10" />
                 </div>
-                <div className="bg-card/10 backdrop-blur-sm border border-border/20 p-6 md:p-10 rounded-xl shadow-2xl">
-                  <h3 className="font-heading text-2xl md:text-4xl mb-4">Free SEO Audit</h3>
-                  <p className="text-lg md:text-xl mb-4 opacity-90">Launch Date: May 1st, 2025</p>
-                  <ul className="space-y-3 mb-6">
-                    {[
-                      "Comprehensive Technical Analysis",
-                      "Keyword Opportunity Insights",
-                      "Competitor Strategy Breakdown",
-                      "Page Speed Optimization Report",
-                      "Mobile-Friendly Assessment"
-                    ].map((item, idx) => (
-                      <li key={idx} className="flex items-center gap-2">
-                        <CheckCircle className="h-5 w-5 text-accent" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
+                
+                <div className="bg-card/20 backdrop-blur-sm border border-border/30 p-6 rounded-lg shadow-lg">
+                  <h3 className="text-xl font-bold mb-4">What You'll Receive:</h3>
+                  <ul className="space-y-4">
+                    <li className="flex items-start gap-3">
+                      <div className="bg-accent/20 p-2 rounded-full mt-1">
+                        <Search className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <h4 className="font-medium">Comprehensive SEO Report</h4>
+                        <p className="text-sm opacity-80">A detailed analysis of your website's current SEO performance with actionable recommendations.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="bg-accent/20 p-2 rounded-full mt-1">
+                        <BarChart3 className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <h4 className="font-medium">Competitor Insights</h4>
+                        <p className="text-sm opacity-80">See what's working for your top competitors and how you can outperform them.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="bg-accent/20 p-2 rounded-full mt-1">
+                        <Zap className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <h4 className="font-medium">30-Minute Strategy Call</h4>
+                        <p className="text-sm opacity-80">Discuss your results and next steps with an SEO expert to maximize your growth potential.</p>
+                      </div>
+                    </li>
                   </ul>
-                  <p className="text-lg italic mb-6">
-                    "Uncover hidden SEO opportunities that could transform your online presence"
-                  </p>
-                  <div className="bg-accent/20 p-3 rounded-lg text-center animate-pulse">
-                    <p className="font-semibold">Limited Availability - Reserve Your Spot Now!</p>
+                  <div className="mt-6 text-center">
+                    <p className="italic">"The insights from this audit completely transformed our approach to SEO."</p>
+                    <p className="text-sm mt-2">— Previous Client</p>
                   </div>
                 </div>
-              </div>
-            </div>
-            
-            <div className="lg:w-1/2 lg:pl-16 text-center lg:text-left">
-              <div className="inline-block bg-accent/20 text-accent-foreground px-4 py-1 rounded-full text-sm font-medium mb-4">
-                Coming Soon
-              </div>
-              <h2 className="heading-lg mb-6">Discover Your Website's Hidden Potential</h2>
-              <p className="text-lg md:text-xl mb-6 opacity-90">
-                Our comprehensive SEO audit will uncover exactly what's holding your website back from ranking higher and converting better. Get actionable insights delivered directly to your inbox.
-              </p>
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center gap-3">
-                  <div className="bg-accent/20 p-2 rounded-full">
-                    <Search className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-medium">Keyword Analysis</h4>
-                    <p className="text-sm opacity-80">Discover high-value keywords your competitors are missing</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="bg-accent/20 p-2 rounded-full">
-                    <BarChart3 className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-medium">Performance Metrics</h4>
-                    <p className="text-sm opacity-80">Get detailed insights on what's working and what needs fixing</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="bg-accent/20 p-2 rounded-full">
-                    <Zap className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-medium">Action Plan</h4>
-                    <p className="text-sm opacity-80">Receive a prioritized list of optimizations for maximum impact</p>
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-                <Button asChild size="lg" variant="secondary">
-                  <Link to="/contact">Reserve Your Free Audit</Link>
-                </Button>
-                <Button asChild variant="outline" size="lg" className="bg-transparent border-white/20 hover:bg-white/10">
-                  <Link to="/services">Learn More</Link>
-                </Button>
               </div>
             </div>
           </div>
@@ -232,7 +238,7 @@ const Home = () => {
             Let's work together to create an SEO strategy that drives real business results.
           </p>
           <Button asChild size="lg" variant="secondary">
-            <Link to="/contact">Get Your Free SEO Consultation</Link>
+            <a href="/contact#top">Get Your Free SEO Consultation</a>
           </Button>
         </div>
       </section>
