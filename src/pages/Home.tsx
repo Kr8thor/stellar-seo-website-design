@@ -1,22 +1,15 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, BarChart3, Search, Zap, Award, Globe2, Users, FileSearch, TrendingUp, CheckCircle, Calendar, Gift, Clock } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-
 const Home = () => {
-  return (
-    <main>
+  return <main>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" 
-            alt="SEO optimization workspace" 
-            className="w-full h-full object-cover opacity-20"
-          />
+          <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" alt="SEO optimization workspace" className="w-full h-full object-cover opacity-20" />
           <div className="absolute inset-0 bg-gradient-to-r from-background to-background/50"></div>
         </div>
         
@@ -56,53 +49,38 @@ const Home = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-          {[
-            {
-              icon: <Search className="h-10 w-10" />,
-              title: "On-Page SEO",
-              description: "Optimize your content, meta tags, URLs, and internal linking for maximum search engine visibility."
-            },
-            {
-              icon: <Globe2 className="h-10 w-10" />,
-              title: "Off-Page SEO",
-              description: "Build authoritative backlinks and enhance your online reputation through strategic outreach."
-            },
-            {
-              icon: <Zap className="h-10 w-10" />,
-              title: "Technical SEO",
-              description: "Ensure your website's technical foundation is solid for improved crawling and indexing."
-            },
-            {
-              icon: <BarChart3 className="h-10 w-10" />,
-              title: "SEO Audit & Analysis",
-              description: "Comprehensive assessment of your website's current SEO performance and areas for improvement."
-            },
-            {
-              icon: <Users className="h-10 w-10" />,
-              title: "Local SEO",
-              description: "Boost your local visibility to attract more customers from your geographic target areas."
-            },
-            {
-              icon: <Award className="h-10 w-10" />,
-              title: "Content Strategy",
-              description: "Develop SEO-optimized content that engages readers and ranks well in search results."
-            },
-          ].map((service, index) => (
-            <div 
-              key={index} 
-              className="bg-card p-8 rounded-lg border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-lg"
-            >
+          {[{
+          icon: <Search className="h-10 w-10" />,
+          title: "On-Page SEO",
+          description: "Optimize your content, meta tags, URLs, and internal linking for maximum search engine visibility."
+        }, {
+          icon: <Globe2 className="h-10 w-10" />,
+          title: "Off-Page SEO",
+          description: "Build authoritative backlinks and enhance your online reputation through strategic outreach."
+        }, {
+          icon: <Zap className="h-10 w-10" />,
+          title: "Technical SEO",
+          description: "Ensure your website's technical foundation is solid for improved crawling and indexing."
+        }, {
+          icon: <BarChart3 className="h-10 w-10" />,
+          title: "SEO Audit & Analysis",
+          description: "Comprehensive assessment of your website's current SEO performance and areas for improvement."
+        }, {
+          icon: <Users className="h-10 w-10" />,
+          title: "Local SEO",
+          description: "Boost your local visibility to attract more customers from your geographic target areas."
+        }, {
+          icon: <Award className="h-10 w-10" />,
+          title: "Content Strategy",
+          description: "Develop SEO-optimized content that engages readers and ranks well in search results."
+        }].map((service, index) => <div key={index} className="bg-card p-8 rounded-lg border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-lg">
               <div className="mb-6 text-primary">{service.icon}</div>
               <h3 className="font-heading text-xl mb-3">{service.title}</h3>
               <p className="text-muted-foreground mb-6">{service.description}</p>
-              <Link 
-                to="/services" 
-                className="inline-flex items-center text-sm font-medium hover-underline"
-              >
+              <Link to="/services" className="inline-flex items-center text-sm font-medium hover-underline">
                 Learn more <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
-            </div>
-          ))}
+            </div>)}
         </div>
         
         <div className="text-center mt-16">
@@ -144,7 +122,7 @@ const Home = () => {
           
           <div className="max-w-7xl mx-auto">
             <Card className="border-0 shadow-xl bg-white/90 backdrop-blur-sm overflow-hidden relative transform hover:scale-[1.01] transition-all duration-300">
-              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500"></div>
+              
               
               <CardContent className="p-0">
                 <div className="flex flex-col lg:flex-row">
@@ -161,21 +139,12 @@ const Home = () => {
                     </div>
                     
                     <div className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {[
-                        "Technical Analysis",
-                        "Keyword Opportunities",
-                        "Competitor Strategy",
-                        "Content Assessment",
-                        "Page Speed Insights",
-                        "Mobile Optimization"
-                      ].map((item, idx) => (
-                        <div key={idx} className="flex items-center gap-2 group">
+                      {["Technical Analysis", "Keyword Opportunities", "Competitor Strategy", "Content Assessment", "Page Speed Insights", "Mobile Optimization"].map((item, idx) => <div key={idx} className="flex items-center gap-2 group">
                           <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-1 rounded-full group-hover:scale-110 transition-all duration-300">
                             <CheckCircle className="h-5 w-5 text-white" />
                           </div>
                           <span className="text-gray-700 font-medium">{item}</span>
-                        </div>
-                      ))}
+                        </div>)}
                     </div>
                     
                     <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-5 rounded-lg mb-6 border border-purple-200">
@@ -191,15 +160,11 @@ const Home = () => {
                           <Clock className="h-5 w-5 text-purple-600" />
                           <span className="font-medium text-gray-700">Status:</span>
                         </span>
-                        <span className="font-semibold animate-pulse text-pink-600">Only 5 Spots Left</span>
+                        <span className="font-semibold animate-pulse text-pink-600">Only 50 Spots Left</span>
                       </div>
                     </div>
                     
-                    <Button 
-                      asChild 
-                      size="lg" 
-                      className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium py-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group"
-                    >
+                    <Button asChild size="lg" className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium py-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group">
                       <a href="/contact#top">
                         Reserve Your Free Audit Now
                         <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -209,12 +174,8 @@ const Home = () => {
                   
                   {/* Right Column */}
                   <div className="lg:w-1/2 bg-gradient-to-br from-purple-50 to-pink-50 p-8 md:p-12 relative">
-                    <div className="absolute -top-6 -left-6 bg-gradient-to-br from-purple-600 to-pink-600 p-4 rounded-lg shadow-xl hidden md:flex text-white">
-                      <FileSearch className="h-8 w-8" />
-                    </div>
-                    <div className="absolute -bottom-6 -right-6 bg-gradient-to-br from-amber-500 to-pink-600 p-4 rounded-lg shadow-xl hidden md:flex text-white">
-                      <TrendingUp className="h-8 w-8" />
-                    </div>
+                    
+                    
                     
                     <div className="bg-white/70 backdrop-blur-sm border border-purple-100 p-6 rounded-lg shadow-lg">
                       <h3 className="text-2xl font-bold mb-6 text-gray-800 border-b border-purple-100 pb-4">
@@ -244,16 +205,13 @@ const Home = () => {
                             <Zap className="h-5 w-5 text-white" />
                           </div>
                           <div>
-                            <h4 className="font-bold text-gray-800">30-Minute Strategy Call</h4>
-                            <p className="text-gray-600">Discuss your results and next steps with an SEO expert to maximize your growth potential.</p>
+                            <h4 className="font-bold text-gray-800">Action Plan</h4>
+                            <p className="text-gray-600">Detailed advice on what you need to do next. </p>
                           </div>
                         </li>
                       </ul>
                       
-                      <div className="mt-8 bg-gradient-to-r from-purple-50 to-pink-50 p-5 rounded-lg border border-purple-100">
-                        <p className="italic text-gray-700 text-center">"The insights from this audit completely transformed our approach to SEO. We've seen a 143% increase in organic traffic."</p>
-                        <p className="text-sm mt-2 font-medium text-right text-purple-700">— Alex Chen, TechStart Founder</p>
-                      </div>
+                      
                     </div>
                   </div>
                 </div>
@@ -268,11 +226,7 @@ const Home = () => {
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-col md:flex-row gap-12">
             <div className="md:w-1/2">
-              <img 
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f" 
-                alt="SEO case study results" 
-                className="w-full h-96 object-cover rounded-lg"
-              />
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f" alt="SEO case study results" className="w-full h-96 object-cover rounded-lg" />
             </div>
             <div className="md:w-1/2 flex flex-col justify-center">
               <h2 className="heading-lg mb-6">Case Study: 300% Traffic Growth</h2>
@@ -299,8 +253,6 @@ const Home = () => {
           </Button>
         </div>
       </section>
-    </main>
-  );
+    </main>;
 };
-
 export default Home;
