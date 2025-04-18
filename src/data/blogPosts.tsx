@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BlogPostProps } from '@/components/blog/BlogPost';
 
@@ -482,4 +483,19 @@ export const blogPosts: BlogPostProps[] = [
           When you nail Core Web Vitals, the results aren't just "theoretical improvements"—they're cold, hard performance gains:
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-green-700 mb-3">Lower Bounce Rates</h3>
+            <p>Improved LCP can reduce bounce rates by up to 24%. People don't leave what loads fast.</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-green-700 mb-3">Higher Conversions</h3>
+            <p>Stable pages (good CLS) can increase conversion rates by 15-20%. People buy when buttons don't move.</p>
+          </div>
+        </div>
+      </React.Fragment>
+    ),
+  },
+];
+
