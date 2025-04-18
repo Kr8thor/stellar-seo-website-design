@@ -2,10 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowRight, Search, Globe2, BarChart3, Zap, Users, FileText } from 'lucide-react';
-
 const Services = () => {
-  return (
-    <main className="pt-24">
+  return <main className="pt-24">
       {/* Hero Section */}
       <section className="section-container">
         <div className="text-center max-w-3xl mx-auto animate-fade-in">
@@ -34,31 +32,17 @@ const Services = () => {
                   Optimize your website's content and structure to improve relevance and visibility for your target keywords and provide a better user experience.
                 </p>
                 <ul className="space-y-3 mb-8">
-                  {[
-                    "Comprehensive keyword research and mapping",
-                    "Content optimization for target keywords",
-                    "Meta title and description optimization",
-                    "Heading structure improvements",
-                    "Internal linking strategy",
-                    "Image optimization with proper alt text",
-                    "Schema markup implementation"
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-start">
+                  {["Comprehensive keyword research and mapping", "Content optimization for target keywords", "Meta title and description optimization", "Heading structure improvements", "Internal linking strategy", "Image optimization with proper alt text", "Schema markup implementation"].map((item, index) => <li key={index} className="flex items-start">
                       <CheckCircle className="h-5 w-5 text-primary mr-2 flex-shrink-0" />
                       <span>{item}</span>
-                    </li>
-                  ))}
+                    </li>)}
                 </ul>
                 <Button asChild>
                   <Link to="/contact">Get Started <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
               </div>
               <div className="md:w-1/2">
-                <img 
-                  src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a" 
-                  alt="On-Page SEO" 
-                  className="rounded-lg w-full h-auto" 
-                />
+                <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a" alt="On-Page SEO" className="rounded-lg w-full h-auto" />
               </div>
             </div>
           </div>
@@ -75,31 +59,17 @@ const Services = () => {
                   Build your website's authority and reputation through strategic outreach and high-quality backlink acquisition.
                 </p>
                 <ul className="space-y-3 mb-8">
-                  {[
-                    "Competitor backlink analysis",
-                    "Strategic link building outreach",
-                    "Guest posting opportunities",
-                    "Brand mention monitoring",
-                    "Social media profile optimization",
-                    "Local citation building",
-                    "Online reputation management"
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-start">
+                  {["Competitor backlink analysis", "Strategic link building outreach", "Guest posting opportunities", "Brand mention monitoring", "Social media profile optimization", "Local citation building", "Online reputation management"].map((item, index) => <li key={index} className="flex items-start">
                       <CheckCircle className="h-5 w-5 text-primary mr-2 flex-shrink-0" />
                       <span>{item}</span>
-                    </li>
-                  ))}
+                    </li>)}
                 </ul>
                 <Button asChild>
                   <Link to="/contact">Get Started <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
               </div>
               <div className="md:w-1/2">
-                <img 
-                  src="https://images.unsplash.com/photo-1579389083078-4e7018379f7e" 
-                  alt="Off-Page SEO" 
-                  className="rounded-lg w-full h-auto" 
-                />
+                <img src="https://images.unsplash.com/photo-1579389083078-4e7018379f7e" alt="Off-Page SEO" className="rounded-lg w-full h-auto" />
               </div>
             </div>
           </div>
@@ -116,34 +86,17 @@ const Services = () => {
                   Ensure your website's technical foundation is solid to improve crawlability, indexation, and overall search performance.
                 </p>
                 <ul className="space-y-3 mb-8">
-                  {[
-                    "Comprehensive technical SEO audit",
-                    "Site architecture optimization",
-                    "Page speed improvements",
-                    "Mobile-friendliness enhancement",
-                    "XML sitemap optimization",
-                    "Robots.txt configuration",
-                    "Structured data implementation",
-                    "HTTP status code fixes",
-                    "Duplicate content resolution",
-                    "Canonical tag implementation"
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-start">
+                  {["Comprehensive technical SEO audit", "Site architecture optimization", "Page speed improvements", "Mobile-friendliness enhancement", "XML sitemap optimization", "Robots.txt configuration", "Structured data implementation", "HTTP status code fixes", "Duplicate content resolution", "Canonical tag implementation"].map((item, index) => <li key={index} className="flex items-start">
                       <CheckCircle className="h-5 w-5 text-primary mr-2 flex-shrink-0" />
                       <span>{item}</span>
-                    </li>
-                  ))}
+                    </li>)}
                 </ul>
                 <Button asChild>
                   <Link to="/contact">Get Started <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
               </div>
               <div className="md:w-1/2">
-                <img 
-                  src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31" 
-                  alt="Technical SEO" 
-                  className="rounded-lg w-full h-auto" 
-                />
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31" alt="Technical SEO" className="rounded-lg w-full h-auto" />
               </div>
             </div>
           </div>
@@ -160,18 +113,10 @@ const Services = () => {
                 Improve your local search visibility to attract more customers from your target geographic areas.
               </p>
               <ul className="space-y-2 mb-8">
-                {[
-                  "Google Business Profile optimization",
-                  "Local citation building and management",
-                  "Local keyword research and targeting",
-                  "Review acquisition strategy",
-                  "Local link building"
-                ].map((item, index) => (
-                  <li key={index} className="flex items-start text-sm">
+                {["Google Business Profile optimization", "Local citation building and management", "Local keyword research and targeting", "Review acquisition strategy", "Local link building"].map((item, index) => <li key={index} className="flex items-start text-sm">
                     <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
                     <span>{item}</span>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
               <Button asChild variant="outline" className="w-full">
                 <Link to="/contact">Learn More</Link>
@@ -188,18 +133,10 @@ const Services = () => {
                 Comprehensive assessment of your website's current SEO performance with actionable recommendations.
               </p>
               <ul className="space-y-2 mb-8">
-                {[
-                  "Full-site technical SEO audit",
-                  "Content quality assessment",
-                  "Backlink profile analysis",
-                  "Competitor analysis",
-                  "Detailed recommendations and priority list"
-                ].map((item, index) => (
-                  <li key={index} className="flex items-start text-sm">
+                {["Full-site technical SEO audit", "Content quality assessment", "Backlink profile analysis", "Competitor analysis", "Detailed recommendations and priority list"].map((item, index) => <li key={index} className="flex items-start text-sm">
                     <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
                     <span>{item}</span>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
               <Button asChild variant="outline" className="w-full">
                 <Link to="/contact">Learn More</Link>
@@ -216,18 +153,10 @@ const Services = () => {
                 Develop and implement a content strategy that attracts, engages, and converts your target audience.
               </p>
               <ul className="space-y-2 mb-8">
-                {[
-                  "Content gap analysis",
-                  "Topic cluster development",
-                  "Content calendar creation",
-                  "SEO content briefs",
-                  "Content performance tracking"
-                ].map((item, index) => (
-                  <li key={index} className="flex items-start text-sm">
+                {["Content gap analysis", "Topic cluster development", "Content calendar creation", "SEO content briefs", "Content performance tracking"].map((item, index) => <li key={index} className="flex items-start text-sm">
                     <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
                     <span>{item}</span>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
               <Button asChild variant="outline" className="w-full">
                 <Link to="/contact">Learn More</Link>
@@ -247,37 +176,27 @@ const Services = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            {
-              step: "01",
-              title: "Discovery & Analysis",
-              description: "Comprehensive audit of your website, competitors, and target audience to identify opportunities."
-            },
-            {
-              step: "02",
-              title: "Strategy Development",
-              description: "Creation of a customized SEO roadmap based on your specific goals and industry landscape."
-            },
-            {
-              step: "03",
-              title: "Implementation",
-              description: "Execution of on-page, off-page, and technical SEO tactics according to strategic priorities."
-            },
-            {
-              step: "04",
-              title: "Monitoring & Refinement",
-              description: "Continuous tracking, reporting, and optimization to ensure sustainable growth and ROI."
-            }
-          ].map((process, index) => (
-            <div 
-              key={index} 
-              className="bg-card p-8 rounded-lg border border-border/50 hover:border-primary/30 transition-all duration-300"
-            >
+          {[{
+          step: "01",
+          title: "Discovery & Analysis",
+          description: "Comprehensive audit of your website, competitors, and target audience to identify opportunities."
+        }, {
+          step: "02",
+          title: "Strategy Development",
+          description: "Creation of a customized SEO roadmap based on your specific goals and industry landscape."
+        }, {
+          step: "03",
+          title: "Implementation",
+          description: "Execution of on-page, off-page, and technical SEO tactics according to strategic priorities."
+        }, {
+          step: "04",
+          title: "Monitoring & Refinement",
+          description: "Continuous tracking, reporting, and optimization to ensure sustainable growth and ROI."
+        }].map((process, index) => <div key={index} className="bg-card p-8 rounded-lg border border-border/50 hover:border-primary/30 transition-all duration-300">
               <div className="text-accent-foreground font-heading text-5xl mb-4">{process.step}</div>
               <h3 className="font-heading text-xl mb-3">{process.title}</h3>
               <p className="text-muted-foreground">{process.description}</p>
-            </div>
-          ))}
+            </div>)}
         </div>
       </section>
       
@@ -304,23 +223,14 @@ const Services = () => {
                 </span>
                 <span className="text-muted-foreground">/month</span>
                 <div className="mt-2">
-                  <span className="font-['Caveat'] text-2xl text-primary">Only $245 until July 31st!</span>
+                  <span className="font-['Caveat'] text-4xl text-red-600">Only $245 until July 31st!</span>
                 </div>
               </div>
               <ul className="space-y-2 mb-8">
-                {[
-                  "Keyword research and optimization",
-                  "On-page SEO for up to 10 pages",
-                  "Basic technical SEO audit",
-                  "Google Business Profile optimization",
-                  "Monthly performance reporting",
-                  "One content piece per month"
-                ].map((item, index) => (
-                  <li key={index} className="flex items-start text-sm">
+                {["Keyword research and optimization", "On-page SEO for up to 10 pages", "Basic technical SEO audit", "Google Business Profile optimization", "Monthly performance reporting", "One content piece per month"].map((item, index) => <li key={index} className="flex items-start text-sm">
                     <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
                     <span>{item}</span>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
               <Button asChild className="w-full">
                 <Link to="/contact">Get Started</Link>
@@ -342,24 +252,14 @@ const Services = () => {
                 </span>
                 <span className="text-muted-foreground">/month</span>
                 <div className="mt-2">
-                  <span className="font-['Caveat'] text-2xl text-primary">Only $395 until July 31st!</span>
+                  <span className="font-['Caveat'] text-4xl text-red-600">Only $395 until July 31st!</span>
                 </div>
               </div>
               <ul className="space-y-2 mb-8">
-                {[
-                  "Everything in SEO Essentials plus:",
-                  "On-page SEO for up to 25 pages",
-                  "Comprehensive technical SEO",
-                  "Competitive backlink acquisition",
-                  "Content strategy development",
-                  "Three content pieces per month",
-                  "Conversion rate optimization"
-                ].map((item, index) => (
-                  <li key={index} className="flex items-start text-sm">
+                {["Everything in SEO Essentials plus:", "On-page SEO for up to 25 pages", "Comprehensive technical SEO", "Competitive backlink acquisition", "Content strategy development", "Three content pieces per month", "Conversion rate optimization"].map((item, index) => <li key={index} className="flex items-start text-sm">
                     <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
                     <span>{item}</span>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
               <Button asChild className="w-full">
                 <Link to="/contact">Get Started</Link>
@@ -375,21 +275,10 @@ const Services = () => {
                 <span className="text-muted-foreground"> pricing</span>
               </div>
               <ul className="space-y-2 mb-8">
-                {[
-                  "Everything in SEO Professional plus:",
-                  "Unlimited page optimization",
-                  "Advanced technical SEO",
-                  "International SEO strategy",
-                  "Enterprise-level link building",
-                  "Custom content strategy",
-                  "Dedicated SEO consultant",
-                  "Weekly reporting and strategy calls"
-                ].map((item, index) => (
-                  <li key={index} className="flex items-start text-sm">
+                {["Everything in SEO Professional plus:", "Unlimited page optimization", "Advanced technical SEO", "International SEO strategy", "Enterprise-level link building", "Custom content strategy", "Dedicated SEO consultant", "Weekly reporting and strategy calls"].map((item, index) => <li key={index} className="flex items-start text-sm">
                     <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
                     <span>{item}</span>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
               <Button asChild className="w-full" variant="outline">
                 <Link to="/contact">Contact for Quote</Link>
@@ -411,8 +300,6 @@ const Services = () => {
           </Button>
         </div>
       </section>
-    </main>
-  );
+    </main>;
 };
-
 export default Services;
