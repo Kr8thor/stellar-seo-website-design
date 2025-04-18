@@ -1,8 +1,9 @@
+
 import React, { useState, useEffect } from 'react';
-import { blogPosts } from '../data/blogPosts';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Search, Loader2 } from 'lucide-react';
+import { ArrowRight, Search } from 'lucide-react';
+import { blogPosts } from '@/data/blogPosts';
 import BlogListItem from '@/components/blog/BlogListItem';
 import { 
   Pagination, 
@@ -13,7 +14,9 @@ import {
   PaginationPrevious
 } from '@/components/ui/pagination';
 import { Helmet } from 'react-helmet';
-import { format } from 'date-fns';
+
+// Blog categories
+const categories = ["All", "SEO Tips", "Technical SEO", "Content Strategy", "Local SEO", "E-commerce SEO"];
 
 const Blog = () => {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -21,36 +24,24 @@ const Blog = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
   
-  // Process posts data
-  const processedPosts = React.useMemo(() => {
-    return blogPosts
-      .filter(post => post.id !== "featured")
-      .filter(post => 
-        searchTerm === "" || 
-        post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        post.category.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-      .filter(post => 
-        activeFilter === "All" || 
-        post.category === activeFilter
-      );
-  }, [searchTerm, activeFilter]);
+  // Filter blog posts based on active filter and search term
+  const filteredPosts = blogPosts
+    .filter(post => post.id !== "featured") // Exclude featured post from regular grid
+    .filter(post => 
+      (activeFilter === "All" || post.category === activeFilter) &&
+      (searchTerm === "" || 
+       post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+       post.category.toLowerCase().includes(searchTerm.toLowerCase()))
+    );
   
-  // Get categories for filter
-  const categories = React.useMemo(() => {
-    const defaultCategories = ["All"];
-    const postCategories = [...new Set(blogPosts.map(post => post.category))];
-    return [...defaultCategories, ...postCategories];
-  }, []);
-
   // Get featured post
   const featuredPost = blogPosts.find(post => post.id === "featured");
   
   // Pagination
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = processedPosts.slice(indexOfFirstPost, indexOfLastPost);
-  const totalPages = Math.ceil(processedPosts.length / postsPerPage);
+  const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+  const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
   
   // Reset to first page when filter or search changes
   useEffect(() => {
@@ -61,35 +52,6 @@ const Blog = () => {
     setCurrentPage(pageNumber);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
-  // Show loading state
-  const postsLoading = false;
-  const postsError = false;
-
-  if (postsLoading) {
-    return (
-      <main className="pt-24 flex flex-col items-center justify-center min-h-[60vh]">
-        <Loader2 className="h-8 w-8 animate-spin text-primary mb-4" />
-        <p className="text-lg text-muted-foreground">Loading blog posts...</p>
-      </main>
-    );
-  }
-
-  // Show error state
-  if (postsError) {
-    return (
-      <main className="pt-24 flex flex-col items-center justify-center min-h-[60vh]">
-        <p className="text-xl mb-4 text-destructive">Error loading blog posts</p>
-        <p className="text-muted-foreground mb-6">
-          We're having trouble connecting to our content management system. 
-          Please try again later.
-        </p>
-        <Button onClick={() => window.location.reload()}>
-          Try Again
-        </Button>
-      </main>
-    );
-  }
   
   return (
     <main className="pt-24">
@@ -179,7 +141,7 @@ const Blog = () => {
       
       {/* Blog Posts */}
       <section className="section-container">
-        {processedPosts.length > 0 ? (
+        {filteredPosts.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {currentPosts.map((post) => (
               <BlogListItem key={post.id} post={post} />
@@ -196,7 +158,7 @@ const Blog = () => {
         )}
         
         {/* Pagination */}
-        {processedPosts.length > postsPerPage && (
+        {filteredPosts.length > postsPerPage && (
           <div className="mt-16">
             <Pagination>
               <PaginationContent>
@@ -253,3 +215,4 @@ const Blog = () => {
 };
 
 export default Blog;
+
