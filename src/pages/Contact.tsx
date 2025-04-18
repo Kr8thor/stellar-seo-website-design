@@ -16,6 +16,7 @@ import {
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { supabase } from "@/integrations/supabase/client";
 
 // Form validation schema
 const formSchema = z.object({
@@ -49,24 +50,19 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Create email content
-      const emailContent = `
-        Name: ${data.name}
-        Email: ${data.email}
-        Phone: ${data.phone || 'Not provided'}
-        Website: ${data.website}
-        Service: ${data.service}
-        Message: ${data.message}
-      `;
+      // Send the form data to our edge function
+      const response = await supabase.functions.invoke('send-contact-email', {
+        body: data
+      });
       
-      // Using mailto link as a simple solution
-      const mailtoLink = `mailto:hello@mardenseo.com?subject=Contact Form Submission from ${data.name}&body=${encodeURIComponent(emailContent)}`;
-      window.location.href = mailtoLink;
+      if (response.error) {
+        throw new Error(response.error.message || 'Something went wrong');
+      }
       
       // Show success message
       toast({
-        title: "Message Ready to Send!",
-        description: "Your email client will open with the message. Please send it to complete.",
+        title: "Message Sent Successfully!",
+        description: "Thank you for reaching out. We'll get back to you soon.",
       });
       
       // Reset form
@@ -75,7 +71,7 @@ const Contact = () => {
       console.error("Error sending message:", error);
       toast({
         title: "Error",
-        description: "There was an error preparing your message. Please try again.",
+        description: "There was an error sending your message. Please try again or contact us directly.",
         variant: "destructive",
       });
     } finally {
@@ -84,7 +80,7 @@ const Contact = () => {
   };
   
   return (
-    <main className="pt-24">
+    <main className="pt-24" id="top">
       {/* Hero Section */}
       <section className="section-container">
         <div className="text-center max-w-3xl mx-auto animate-fade-in">
