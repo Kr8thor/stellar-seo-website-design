@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -59,10 +58,10 @@ const Contact = () => {
         throw new Error(response.error.message || 'Something went wrong');
       }
       
-      // Show success message
+      // Updated success message
       toast({
-        title: "Message Sent Successfully!",
-        description: "Thank you for reaching out. We'll get back to you soon.",
+        title: "Message Sent",
+        description: "We'll get back to you shortly.",
       });
       
       // Reset form
