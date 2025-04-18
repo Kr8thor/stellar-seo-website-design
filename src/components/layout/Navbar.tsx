@@ -51,11 +51,11 @@ const Navbar = () => {
           <Menu className="h-6 w-6" />
         </Button>
 
-        {/* Mobile Menu */}
-        <div className={`fixed inset-0 bg-white shadow-md z-50 transition-transform transform duration-300 ease-in-out ${
+        {/* Mobile Menu - ensuring solid white background regardless of scroll state */}
+        <div className={`fixed inset-0 bg-white z-50 transition-transform transform duration-300 ease-in-out ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         } md:hidden`}>
-          <div className="container mx-auto px-4 py-4 flex flex-col h-full">
+          <div className="container mx-auto px-4 py-4 flex flex-col h-full bg-white">
             <div className="flex justify-between items-center">
               <Link to="/" className="font-heading text-2xl font-medium" onClick={() => setIsMenuOpen(false)}>
                 Marden SEO
@@ -64,7 +64,7 @@ const Navbar = () => {
                 <X className="h-6 w-6" />
               </Button>
             </div>
-            <nav className="flex flex-col space-y-8 items-center justify-center flex-1">
+            <nav className="flex flex-col space-y-8 items-center justify-center flex-1 bg-white">
               <Link to="/" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>Home</Link>
               <Link to="/about" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>About</Link>
               <Link to="/services" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>Services</Link>
