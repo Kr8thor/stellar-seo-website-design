@@ -296,9 +296,16 @@ const Services = () => {
             <div className="bg-card p-8 rounded-lg border border-border hover:border-primary/30 transition-all duration-300">
               <h3 className="font-heading text-xl mb-2">SEO Essentials</h3>
               <p className="text-muted-foreground mb-6">Perfect for small businesses looking to improve their local visibility.</p>
-              <div className="mb-6">
-                <span className="font-heading text-4xl">$1,200</span>
+              <div className="mb-6 relative">
+                <span className="font-heading text-4xl relative">
+                  <span className="relative">
+                    <span className="line-through decoration-red-500 decoration-2">$1,200</span>
+                  </span>
+                </span>
                 <span className="text-muted-foreground">/month</span>
+                <div className="mt-2">
+                  <span className="font-['Caveat'] text-2xl text-primary">Only $245 until July 31st!</span>
+                </div>
               </div>
               <ul className="space-y-2 mb-8">
                 {[
@@ -327,9 +334,16 @@ const Services = () => {
               </div>
               <h3 className="font-heading text-xl mb-2">SEO Professional</h3>
               <p className="text-muted-foreground mb-6">Comprehensive SEO for growing businesses seeking significant improvement.</p>
-              <div className="mb-6">
-                <span className="font-heading text-4xl">$2,500</span>
+              <div className="mb-6 relative">
+                <span className="font-heading text-4xl relative">
+                  <span className="relative">
+                    <span className="line-through decoration-red-500 decoration-2">$2,500</span>
+                  </span>
+                </span>
                 <span className="text-muted-foreground">/month</span>
+                <div className="mt-2">
+                  <span className="font-['Caveat'] text-2xl text-primary">Only $395 until July 31st!</span>
+                </div>
               </div>
               <ul className="space-y-2 mb-8">
                 {[
