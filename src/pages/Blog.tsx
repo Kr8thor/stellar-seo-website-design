@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Search } from 'lucide-react';
-import { blogPosts } from '@/data/blogPosts';
 import BlogListItem from '@/components/blog/BlogListItem';
 import { 
   Pagination, 
@@ -14,28 +13,26 @@ import {
   PaginationPrevious
 } from '@/components/ui/pagination';
 import { Helmet } from 'react-helmet';
+import { useWordPress } from '@/providers/WordPressProvider';
 
 // Blog categories
 const categories = ["All", "SEO Tips", "Technical SEO", "Content Strategy", "Local SEO", "E-commerce SEO"];
 
 const Blog = () => {
+  const { posts, featuredPost, loading } = useWordPress();
   const [activeFilter, setActiveFilter] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
   
   // Filter blog posts based on active filter and search term
-  const filteredPosts = blogPosts
-    .filter(post => post.id !== "featured") // Exclude featured post from regular grid
+  const filteredPosts = posts
     .filter(post => 
       (activeFilter === "All" || post.category === activeFilter) &&
       (searchTerm === "" || 
        post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
        post.category.toLowerCase().includes(searchTerm.toLowerCase()))
     );
-  
-  // Get featured post
-  const featuredPost = blogPosts.find(post => post.id === "featured");
   
   // Pagination
   const indexOfLastPost = currentPage * postsPerPage;
@@ -67,35 +64,50 @@ const Blog = () => {
       {featuredPost && (
         <section className="bg-accent/30 py-16 md:py-24">
           <div className="container mx-auto px-4 md:px-8">
-            <div className="flex flex-col lg:flex-row gap-12">
-              <div className="lg:w-1/2">
-                <img 
-                  src={featuredPost.image} 
-                  alt={featuredPost.title} 
-                  className="rounded-lg w-full h-auto shadow-lg" 
-                />
+            {loading ? (
+              <div className="animate-pulse flex flex-col lg:flex-row gap-12">
+                <div className="lg:w-1/2 h-80 bg-slate-200 rounded-lg"></div>
+                <div className="lg:w-1/2">
+                  <div className="h-6 bg-slate-200 rounded w-24 mb-4"></div>
+                  <div className="h-10 bg-slate-200 rounded w-3/4 mb-4"></div>
+                  <div className="h-4 bg-slate-200 rounded w-1/3 mb-3"></div>
+                  <div className="h-4 bg-slate-200 rounded mb-2"></div>
+                  <div className="h-4 bg-slate-200 rounded mb-2"></div>
+                  <div className="h-4 bg-slate-200 rounded mb-6"></div>
+                  <div className="h-10 bg-slate-200 rounded w-40"></div>
+                </div>
               </div>
-              
-              <div className="lg:w-1/2 flex flex-col justify-center">
-                <span className="text-sm bg-accent/70 text-accent-foreground px-3 py-1 rounded inline-block mb-4 w-fit">
-                  Featured Article
-                </span>
-                <h2 className="font-heading text-3xl mb-4">
-                  {featuredPost.title}
-                </h2>
-                <p className="text-muted-foreground mb-3">
-                  {featuredPost.date} · {featuredPost.readTime}
-                </p>
-                <p className="mb-6">
-                  Search engines are increasingly prioritizing content that demonstrates Experience, Expertise, Authoritativeness, and Trustworthiness. In this comprehensive guide, we break down each component of E-E-A-T and provide actionable strategies to improve your site's quality signals.
-                </p>
-                <Button asChild>
-                  <Link to={`/blog/${featuredPost.id}`}>
-                    Read Full Article <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
+            ) : (
+              <div className="flex flex-col lg:flex-row gap-12">
+                <div className="lg:w-1/2">
+                  <img 
+                    src={featuredPost.image} 
+                    alt={featuredPost.title} 
+                    className="rounded-lg w-full h-auto shadow-lg" 
+                  />
+                </div>
+                
+                <div className="lg:w-1/2 flex flex-col justify-center">
+                  <span className="text-sm bg-accent/70 text-accent-foreground px-3 py-1 rounded inline-block mb-4 w-fit">
+                    Featured Article
+                  </span>
+                  <h2 className="font-heading text-3xl mb-4">
+                    {featuredPost.title}
+                  </h2>
+                  <p className="text-muted-foreground mb-3">
+                    {featuredPost.date} · {featuredPost.readTime}
+                  </p>
+                  <p className="mb-6">
+                    {featuredPost.excerpt}
+                  </p>
+                  <Button asChild>
+                    <Link to={`/blog/${featuredPost.id}`}>
+                      Read Full Article <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </section>
       )}
@@ -141,7 +153,23 @@ const Blog = () => {
       
       {/* Blog Posts */}
       <section className="section-container">
-        {filteredPosts.length > 0 ? (
+        {loading ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="animate-pulse bg-card rounded-lg border border-border p-6">
+                <div className="h-48 bg-slate-200 rounded mb-6"></div>
+                <div className="flex justify-between items-center mb-4">
+                  <div className="h-6 bg-slate-200 rounded w-16"></div>
+                  <div className="h-4 bg-slate-200 rounded w-24"></div>
+                </div>
+                <div className="h-8 bg-slate-200 rounded mb-3"></div>
+                <div className="h-4 bg-slate-200 rounded mb-2"></div>
+                <div className="h-4 bg-slate-200 rounded mb-6"></div>
+                <div className="h-8 bg-slate-200 rounded w-32"></div>
+              </div>
+            ))}
+          </div>
+        ) : filteredPosts.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {currentPosts.map((post) => (
               <BlogListItem key={post.id} post={post} />
@@ -215,4 +243,3 @@ const Blog = () => {
 };
 
 export default Blog;
-

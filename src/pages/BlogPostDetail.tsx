@@ -4,21 +4,68 @@ import { useParams, Navigate } from 'react-router-dom';
 import { blogPosts } from '@/data/blogPosts';
 import BlogPost from '@/components/blog/BlogPost';
 import { Helmet } from 'react-helmet';
+import { useWordPress } from '@/providers/WordPressProvider';
+import { useQuery } from '@apollo/client';
+import { GET_POST_BY_SLUG } from '@/graphql/queries';
+import { adaptPost } from '@/adapters/wordpressAdapter';
 
 const BlogPostDetail = () => {
   const { id } = useParams<{ id: string }>();
+  const { usingWordPress, getPostById, loading: wpLoading } = useWordPress();
   
-  // Find the blog post with the matching ID (handling both number and string IDs)
-  const post = blogPosts.find(post => 
-    typeof post.id === 'number' 
-      ? post.id.toString() === id 
-      : post.id === id
+  // If using WordPress and not in the provider's initial state, fetch the post by slug
+  const { data: wpPostData, loading: wpPostLoading } = useQuery(
+    GET_POST_BY_SLUG,
+    {
+      variables: { slug: id },
+      skip: !usingWordPress || !id
+    }
   );
+  
+  // Logic for handling posts from different sources
+  let post = null;
+  let loading = false;
+  
+  if (usingWordPress) {
+    loading = wpPostLoading || wpLoading;
+    
+    // First check if we have the post in the WordPress provider
+    post = getPostById(id || '');
+    
+    // If not found in provider but we have data from the direct query
+    if (!post && wpPostData?.post) {
+      post = adaptPost(wpPostData.post);
+    }
+  } else {
+    // Use static data logic
+    post = blogPosts.find(post => 
+      typeof post.id === 'number' 
+        ? post.id.toString() === id 
+        : post.id === id
+    );
+  }
   
   // Scroll to top when post changes
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
+  
+  // Show loading state
+  if (loading) {
+    return (
+      <main className="pt-24 pb-16 px-4 md:px-8 bg-gradient-to-b from-white to-slate-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="animate-pulse">
+            <div className="h-8 bg-slate-200 rounded w-3/4 mx-auto mb-8"></div>
+            <div className="h-64 bg-slate-200 rounded mb-8"></div>
+            <div className="h-4 bg-slate-200 rounded mb-4"></div>
+            <div className="h-4 bg-slate-200 rounded mb-4"></div>
+            <div className="h-4 bg-slate-200 rounded mb-4"></div>
+          </div>
+        </div>
+      </main>
+    );
+  }
   
   // If no post is found, redirect to the blog page
   if (!post) {
