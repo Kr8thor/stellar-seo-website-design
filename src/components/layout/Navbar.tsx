@@ -52,7 +52,7 @@ const Navbar = () => {
         </Button>
 
         {/* Mobile Menu */}
-        <div className={`fixed inset-0 bg-background/95 backdrop-blur-md z-50 transition-transform transform duration-300 ease-in-out ${
+        <div className={`fixed inset-0 bg-white shadow-md z-50 transition-transform transform duration-300 ease-in-out ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         } md:hidden`}>
           <div className="container mx-auto px-4 py-4 flex flex-col h-full">
@@ -65,13 +65,13 @@ const Navbar = () => {
               </Button>
             </div>
             <nav className="flex flex-col space-y-8 items-center justify-center flex-1">
-              <Link to="/" className="font-heading text-2xl" onClick={() => setIsMenuOpen(false)}>Home</Link>
-              <Link to="/about" className="font-heading text-2xl" onClick={() => setIsMenuOpen(false)}>About</Link>
-              <Link to="/services" className="font-heading text-2xl" onClick={() => setIsMenuOpen(false)}>Services</Link>
-              <Link to="/portfolio" className="font-heading text-2xl" onClick={() => setIsMenuOpen(false)}>Portfolio</Link>
-              <Link to="/blog" className="font-heading text-2xl" onClick={() => setIsMenuOpen(false)}>Blog</Link>
-              <Link to="/app-building" className="font-heading text-2xl" onClick={() => setIsMenuOpen(false)}>App Building</Link>
-              <Link to="/contact" className="font-heading text-2xl" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+              <Link to="/" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>Home</Link>
+              <Link to="/about" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>About</Link>
+              <Link to="/services" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>Services</Link>
+              <Link to="/portfolio" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>Portfolio</Link>
+              <Link to="/blog" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>Blog</Link>
+              <Link to="/app-building" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>App Building</Link>
+              <Link to="/contact" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>Contact</Link>
             </nav>
           </div>
         </div>
