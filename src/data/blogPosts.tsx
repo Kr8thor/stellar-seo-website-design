@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 export const blogPosts = [
@@ -782,4 +783,17 @@ export const blogPosts = [
         
         <h2>The Complete Mobile-First Checklist</h2>
         
-        <h3>
+        <h3>Content Parity</h3>
+        <p>
+          Ensure your mobile site contains the same content as your desktop site:
+        </p>
+        <ul>
+          <li>All important text content exists on mobile</li>
+          <li>Images and videos are available on mobile (properly sized)</li>
+          <li>Metadata (title tags, meta descriptions, structured data) is identical</li>
+          <li>Headings and important on-page elements are preserved</li>
+        </ul>
+      </React.Fragment>
+    )
+  }
+];

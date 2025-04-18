@@ -19,6 +19,15 @@ const BlogPostDetail = () => {
   // Find the post in our static data
   const post = blogPosts.find(post => post.id.toString() === id);
   
+  // Show loading state while content is being processed
+  if (!id) {
+    return (
+      <div className="pt-24 pb-16 px-4 md:px-8 flex items-center justify-center min-h-[60vh]">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+  
   // If no post is found, redirect to the blog page
   if (!post) {
     return <Navigate to="/blog" />;
