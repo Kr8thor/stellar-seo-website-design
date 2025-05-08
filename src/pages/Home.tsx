@@ -153,7 +153,7 @@ const Home = () => {
                           <Calendar className="h-5 w-5 text-purple-600" />
                           <span className="font-medium text-gray-700">Launch Date:</span>
                         </span>
-                        <span className="font-semibold text-purple-800">May 1st, 2025</span>
+                        <span className="font-semibold text-purple-800">June 1st, 2025</span>
                       </div>
                       <div className="flex items-center justify-between">
                         <span className="flex items-center gap-2">
