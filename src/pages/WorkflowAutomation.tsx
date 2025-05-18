@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, DollarSign, Users, Lightbulb, Workflow, CheckCircle, Calendar } from 'lucide-react';
@@ -8,6 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import ToolIconsFlow from '../components/workflow/ToolIconsFlow';
 import WorkflowContactForm from '../components/workflow/ContactForm';
+import WorkflowImage from '../components/workflow/WorkflowImage';
 
 const WorkflowAutomation = () => {
   return (
@@ -183,10 +183,9 @@ const WorkflowAutomation = () => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <img 
+                    <WorkflowImage 
                       src="/images/workflow-samples/crm-workflow.jpg" 
                       alt="n8n CRM workflow" 
-                      className="rounded-lg shadow-lg w-full h-64 object-cover object-center border border-gray-200" 
                     />
                   </div>
                 </div>
@@ -220,10 +219,9 @@ const WorkflowAutomation = () => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <img 
+                    <WorkflowImage 
                       src="/images/workflow-samples/invoice-workflow.jpg" 
                       alt="n8n invoice workflow" 
-                      className="rounded-lg shadow-lg w-full h-64 object-cover object-center border border-gray-200" 
                     />
                   </div>
                 </div>
@@ -257,10 +255,9 @@ const WorkflowAutomation = () => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <img 
+                    <WorkflowImage 
                       src="/images/workflow-samples/social-media-workflow.jpg" 
                       alt="n8n social media workflow" 
-                      className="rounded-lg shadow-lg w-full h-64 object-cover object-center border border-gray-200" 
                     />
                   </div>
                 </div>
@@ -294,10 +291,9 @@ const WorkflowAutomation = () => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <img 
+                    <WorkflowImage 
                       src="/images/workflow-samples/support-workflow.jpg" 
                       alt="n8n support workflow" 
-                      className="rounded-lg shadow-lg w-full h-64 object-cover object-center border border-gray-200" 
                     />
                   </div>
                 </div>
@@ -331,10 +327,9 @@ const WorkflowAutomation = () => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <img 
+                    <WorkflowImage 
                       src="/images/workflow-samples/inventory-workflow.jpg" 
                       alt="n8n inventory workflow" 
-                      className="rounded-lg shadow-lg w-full h-64 object-cover object-center border border-gray-200" 
                     />
                   </div>
                 </div>
@@ -368,10 +363,9 @@ const WorkflowAutomation = () => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <img 
+                    <WorkflowImage 
                       src="/images/workflow-samples/reporting-workflow.jpg" 
                       alt="n8n reporting workflow" 
-                      className="rounded-lg shadow-lg w-full h-64 object-cover object-center border border-gray-200" 
                     />
                   </div>
                 </div>

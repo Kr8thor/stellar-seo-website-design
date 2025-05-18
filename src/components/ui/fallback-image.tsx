@@ -7,7 +7,7 @@ interface FallbackImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 
 const FallbackImage: React.FC<FallbackImageProps> = ({
   src,
-  fallbackSrc = '/placeholder.svg',
+  fallbackSrc = '/images/workflow-placeholder.svg',
   alt,
   className,
   ...props
