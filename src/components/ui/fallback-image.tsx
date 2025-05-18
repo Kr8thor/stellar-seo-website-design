@@ -12,10 +12,11 @@ const FallbackImage: React.FC<FallbackImageProps> = ({
   className,
   ...props
 }) => {
-  const [imgSrc, setImgSrc] = useState(src);
-  const [hasError, setHasError] = useState(false);
+  const [imgSrc, setImgSrc] = useState<string>(src || '');
+  const [hasError, setHasError] = useState<boolean>(false);
 
   const handleError = () => {
+    console.error(`Image failed to load: ${src}`);
     if (!hasError) {
       setImgSrc(fallbackSrc);
       setHasError(true);
@@ -25,7 +26,7 @@ const FallbackImage: React.FC<FallbackImageProps> = ({
   return (
     <img
       src={imgSrc}
-      alt={alt}
+      alt={alt || 'Image'}
       className={className}
       onError={handleError}
       {...props}

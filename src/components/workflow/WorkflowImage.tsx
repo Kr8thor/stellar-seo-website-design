@@ -15,6 +15,7 @@ const WorkflowImage: React.FC<WorkflowImageProps> = ({ src, alt, className }) =>
       alt={alt}
       className={`rounded-lg shadow-lg w-full h-64 object-cover object-center border border-gray-200 ${className || ''}`}
       fallbackSrc="/images/workflow-placeholder.svg"
+      loading="lazy"
     />
   );
 };
