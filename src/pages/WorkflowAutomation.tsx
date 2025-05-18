@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, DollarSign, Users, Lightbulb, Workflow, CheckCircle, Calendar, MessageSquare } from 'lucide-react';
@@ -11,6 +10,17 @@ import WorkflowContactForm from '../components/workflow/ContactForm';
 import WorkflowImage from '../components/workflow/WorkflowImage';
 
 const WorkflowAutomation = () => {
+  // Define image paths for each workflow type to make them easy to update/maintain
+  const workflowImages = {
+    crm: "/images/workflow-samples/crm-workflow.jpg",
+    invoice: "/images/workflow-samples/invoice-workflow.jpg",
+    social: "/images/workflow-samples/social-media-workflow.jpg",
+    support: "/images/workflow-samples/support-workflow.jpg",
+    inventory: "/images/workflow-samples/inventory-workflow.jpg",
+    reporting: "/images/workflow-samples/reporting-workflow.jpg",
+    chatbot: "/images/workflow-samples/chatbot-workflow.jpg",
+  };
+
   return (
     <main className="pt-24">
       {/* Hero Section */}
@@ -186,8 +196,8 @@ const WorkflowAutomation = () => {
                   </div>
                   <div className="md:w-1/2">
                     <WorkflowImage 
-                      src="/images/workflow-samples/crm-workflow.jpg" 
-                      alt="n8n CRM workflow" 
+                      src={workflowImages.crm}
+                      alt="n8n CRM workflow for lead automation" 
                     />
                   </div>
                 </div>
@@ -222,8 +232,8 @@ const WorkflowAutomation = () => {
                   </div>
                   <div className="md:w-1/2">
                     <WorkflowImage 
-                      src="/images/workflow-samples/invoice-workflow.jpg" 
-                      alt="n8n invoice workflow" 
+                      src={workflowImages.invoice}
+                      alt="n8n invoice processing automation workflow" 
                     />
                   </div>
                 </div>
@@ -258,8 +268,8 @@ const WorkflowAutomation = () => {
                   </div>
                   <div className="md:w-1/2">
                     <WorkflowImage 
-                      src="/images/workflow-samples/social-media-workflow.jpg" 
-                      alt="n8n social media workflow" 
+                      src={workflowImages.social}
+                      alt="n8n social media scheduling and analytics workflow" 
                     />
                   </div>
                 </div>
@@ -294,8 +304,8 @@ const WorkflowAutomation = () => {
                   </div>
                   <div className="md:w-1/2">
                     <WorkflowImage 
-                      src="/images/workflow-samples/support-workflow.jpg" 
-                      alt="n8n support workflow" 
+                      src={workflowImages.support}
+                      alt="n8n support ticket routing and automation workflow" 
                     />
                   </div>
                 </div>
@@ -330,8 +340,8 @@ const WorkflowAutomation = () => {
                   </div>
                   <div className="md:w-1/2">
                     <WorkflowImage 
-                      src="/images/workflow-samples/inventory-workflow.jpg" 
-                      alt="n8n inventory workflow" 
+                      src={workflowImages.inventory}
+                      alt="n8n inventory management and reordering workflow" 
                     />
                   </div>
                 </div>
@@ -366,8 +376,8 @@ const WorkflowAutomation = () => {
                   </div>
                   <div className="md:w-1/2">
                     <WorkflowImage 
-                      src="/images/workflow-samples/reporting-workflow.jpg" 
-                      alt="n8n reporting workflow" 
+                      src={workflowImages.reporting}
+                      alt="n8n automated data reporting workflow" 
                     />
                   </div>
                 </div>
@@ -403,8 +413,8 @@ const WorkflowAutomation = () => {
                   </div>
                   <div className="md:w-1/2">
                     <WorkflowImage 
-                      src="/images/workflow-samples/chatbot-workflow.jpg" 
-                      alt="n8n chatbot workflow" 
+                      src={workflowImages.chatbot}
+                      alt="n8n AI chatbot integration workflow" 
                     />
                   </div>
                 </div>
