@@ -24,6 +24,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import AppBuilding from "./pages/AppBuilding";
 import CaseStudy from "./pages/CaseStudy";
+import WorkflowAutomation from "./pages/WorkflowAutomation";
 
 // --- Query Client Setup ---
 const queryClient = new QueryClient();
@@ -51,6 +52,7 @@ const App = () => (
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/app-building" element={<AppBuilding />} />
                     <Route path="/case-study/:id" element={<CaseStudy />} />
+                    <Route path="/workflow-automation" element={<WorkflowAutomation />} />
                     {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                     <Route path="*" element={<NotFound />} />
                   </Routes>

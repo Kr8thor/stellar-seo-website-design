@@ -1,8 +1,10 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, BarChart3, Search, Zap, Award, Globe2, Users, FileSearch, TrendingUp, CheckCircle, Calendar, Gift, Clock } from 'lucide-react';
+import { ArrowRight, BarChart3, Search, Zap, Award, Globe2, Users, FileSearch, TrendingUp, CheckCircle, Calendar, Gift, Clock, Workflow } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+
 const Home = () => {
   return <main>
       {/* Hero Section */}
@@ -28,6 +30,12 @@ const Home = () => {
               </Button>
               <Button asChild variant="outline" size="lg">
                 <Link to="/services">Explore Services</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 text-white border-none hover:opacity-90">
+                <Link to="/workflow-automation" className="flex items-center gap-2">
+                  <Workflow className="h-5 w-5" />
+                  <span>Automate Your Business with n8n</span>
+                </Link>
               </Button>
             </div>
           </div>

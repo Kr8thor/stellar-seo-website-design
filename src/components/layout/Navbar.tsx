@@ -41,6 +41,7 @@ const Navbar = () => {
           <Link to="/" className="hover-underline text-sm uppercase tracking-wider">Home</Link>
           <Link to="/about" className="hover-underline text-sm uppercase tracking-wider">About</Link>
           <Link to="/services" className="hover-underline text-sm uppercase tracking-wider">Services</Link>
+          <Link to="/workflow-automation" className="hover-underline text-sm uppercase tracking-wider">Workflow Automation</Link>
           <Link to="/portfolio" className="hover-underline text-sm uppercase tracking-wider">Portfolio</Link>
           <Link to="/blog" className="hover-underline text-sm uppercase tracking-wider">Blog</Link>
           <Link to="/app-building" className="hover-underline text-sm uppercase tracking-wider">App Building</Link>
@@ -68,6 +69,7 @@ const Navbar = () => {
               <Link to="/" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>Home</Link>
               <Link to="/about" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>About</Link>
               <Link to="/services" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>Services</Link>
+              <Link to="/workflow-automation" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>Workflow Automation</Link>
               <Link to="/portfolio" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>Portfolio</Link>
               <Link to="/blog" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>Blog</Link>
               <Link to="/app-building" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>App Building</Link>

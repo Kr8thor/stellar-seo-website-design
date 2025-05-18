@@ -9,6 +9,36 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      crawled_pages: {
+        Row: {
+          chunk_number: number
+          content: string
+          created_at: string
+          embedding: string | null
+          id: number
+          metadata: Json
+          url: string
+        }
+        Insert: {
+          chunk_number: number
+          content: string
+          created_at?: string
+          embedding?: string | null
+          id?: number
+          metadata?: Json
+          url: string
+        }
+        Update: {
+          chunk_number?: number
+          content?: string
+          created_at?: string
+          embedding?: string | null
+          id?: number
+          metadata?: Json
+          url?: string
+        }
+        Relationships: []
+      }
       documents: {
         Row: {
           content: string | null
@@ -129,6 +159,17 @@ export type Database = {
       l2_normalize: {
         Args: { "": string } | { "": unknown } | { "": unknown }
         Returns: unknown
+      }
+      match_crawled_pages: {
+        Args: { query_embedding: string; match_count?: number; filter?: Json }
+        Returns: {
+          id: number
+          url: string
+          chunk_number: number
+          content: string
+          metadata: Json
+          similarity: number
+        }[]
       }
       match_documents: {
         Args: { query_embedding: string; match_count?: number; filter?: Json }
