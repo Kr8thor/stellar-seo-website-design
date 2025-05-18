@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, DollarSign, Users, Lightbulb, Workflow, CheckCircle } from 'lucide-react';
+import { ArrowRight, DollarSign, Users, Lightbulb, Workflow, CheckCircle, CalendarClock } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardFooter, CardTitle, CardDescription } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
