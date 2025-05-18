@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, DollarSign, Users, Lightbulb, Workflow, CheckCircle, CalendarClock } from 'lucide-react';
+import { ArrowRight, DollarSign, Users, Lightbulb, Workflow, CheckCircle, Calendar } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardFooter, CardTitle, CardDescription } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -54,13 +55,13 @@ const WorkflowAutomation = () => {
         </div>
       </section>
       
-      {/* Technology Partners Section */}
+      {/* Technology Partners Section - REPLACED with the component from Home page */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-12">
-            <h2 className="heading-md mb-4">Powered by Industry-Leading Tools</h2>
+            <h2 className="heading-lg mb-4">Powered by Industry-Leading Tools</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We leverage cutting-edge automation platforms to create seamless, reliable workflows 
+              We leverage cutting-edge automation platforms to build seamless, reliable workflows 
               that integrate with your existing tech stack
             </p>
           </div>
@@ -737,7 +738,7 @@ const WorkflowAutomation = () => {
                 
                 <Button asChild size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10">
                   <a href="#" className="flex items-center gap-2">
-                    <CalendarClock className="h-5 w-5" />
+                    <Calendar className="h-5 w-5" />
                     Schedule a Demo
                   </a>
                 </Button>

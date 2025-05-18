@@ -1,10 +1,8 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, BarChart3, Search, Zap, Award, Globe2, Users, FileSearch, TrendingUp, CheckCircle, Calendar, Gift, Clock, Workflow } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import ToolIconsFlow from '../components/home/ToolIconsFlow';
 
 const Home = () => {
   return <main>
@@ -45,21 +43,6 @@ const Home = () => {
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <div className="h-8 w-8 border-b-2 border-r-2 border-primary rotate-45"></div>
-        </div>
-      </section>
-      
-      {/* Powered by Industry-Leading Tools */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4 md:px-8">
-          <div className="text-center mb-12 animate-fade-in">
-            <h2 className="heading-lg mb-4">Powered by Industry-Leading Tools</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We leverage cutting-edge automation platforms to build seamless, reliable workflows
-              that integrate with your existing tech stack.
-            </p>
-          </div>
-          
-          <ToolIconsFlow />
         </div>
       </section>
       
