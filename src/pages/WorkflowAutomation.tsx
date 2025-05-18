@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, DollarSign, Users, Lightbulb, Workflow, Settings, CalendarClock, CheckCircle } from 'lucide-react';
+import { ArrowRight, DollarSign, Users, Lightbulb, Workflow, CheckCircle } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardFooter, CardTitle, CardDescription } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import ToolIconsFlow from '../components/workflow/ToolIconsFlow';
+import WorkflowContactForm from '../components/workflow/ContactForm';
 
 const WorkflowAutomation = () => {
   return (
@@ -63,39 +65,9 @@ const WorkflowAutomation = () => {
             </p>
           </div>
           
-          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16 mb-12">
-            {/* n8n - Primary */}
-            <div className="w-48 h-24 flex items-center justify-center">
-              <img src="https://n8n.io/assets/logo.svg" alt="n8n" className="w-32" />
-            </div>
-            
-            {/* Other partners in grayscale */}
-            <div className="w-32 h-20 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
-              <img src="https://cdn.anthropic.com/claude-logo.svg" alt="Claude AI" className="w-24" />
-            </div>
-            
-            <div className="w-32 h-20 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
-              <img src="https://cursor.sh/brand/cursor-full-fixed.svg" alt="Cursor" className="w-24" />
-            </div>
-            
-            <div className="w-32 h-20 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
-              <img src="https://cdn.zapier.com/zapier/images/logos/zapier-logo.svg" alt="Zapier" className="w-24" />
-            </div>
-            
-            <div className="w-32 h-20 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
-              <img src="https://make.com/en/assets/main/make-logo.svg" alt="Make.com" className="w-24" />
-            </div>
-            
-            <div className="w-32 h-20 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
-              <img src="https://static.airtable.com/images/logo_full.png" alt="Airtable" className="w-24" />
-            </div>
-            
-            <div className="w-32 h-20 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
-              <img src="https://notion.so/front-static/shared/logos/notion-logo.png" alt="Notion" className="w-24" />
-            </div>
-          </div>
+          <ToolIconsFlow />
 
-          <p className="text-center text-gray-600 max-w-3xl mx-auto">
+          <p className="text-center text-gray-600 max-w-3xl mx-auto mt-8">
             As certified n8n Partners and automation specialists, we create custom workflows that connect your entire
             digital ecosystem — from Google Workspace and Microsoft 365 to CRMs, databases, and custom applications.
           </p>
@@ -211,9 +183,9 @@ const WorkflowAutomation = () => {
                   </div>
                   <div className="md:w-1/2">
                     <img 
-                      src="https://images.unsplash.com/photo-1607703703674-df96941cfa40" 
+                      src="/images/workflow-samples/crm-workflow.jpg" 
                       alt="n8n CRM workflow" 
-                      className="rounded-lg shadow-lg w-full h-auto border border-gray-200" 
+                      className="rounded-lg shadow-lg w-full h-64 object-cover object-center border border-gray-200" 
                     />
                   </div>
                 </div>
@@ -248,9 +220,9 @@ const WorkflowAutomation = () => {
                   </div>
                   <div className="md:w-1/2">
                     <img 
-                      src="https://images.unsplash.com/photo-1554224155-1696413565d3" 
+                      src="/images/workflow-samples/invoice-workflow.jpg" 
                       alt="n8n invoice workflow" 
-                      className="rounded-lg shadow-lg w-full h-auto border border-gray-200" 
+                      className="rounded-lg shadow-lg w-full h-64 object-cover object-center border border-gray-200" 
                     />
                   </div>
                 </div>
@@ -285,9 +257,9 @@ const WorkflowAutomation = () => {
                   </div>
                   <div className="md:w-1/2">
                     <img 
-                      src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7" 
+                      src="/images/workflow-samples/social-media-workflow.jpg" 
                       alt="n8n social media workflow" 
-                      className="rounded-lg shadow-lg w-full h-auto border border-gray-200" 
+                      className="rounded-lg shadow-lg w-full h-64 object-cover object-center border border-gray-200" 
                     />
                   </div>
                 </div>
@@ -322,9 +294,9 @@ const WorkflowAutomation = () => {
                   </div>
                   <div className="md:w-1/2">
                     <img 
-                      src="https://images.unsplash.com/photo-1573497019418-b400bb3ab074" 
+                      src="/images/workflow-samples/support-workflow.jpg" 
                       alt="n8n support workflow" 
-                      className="rounded-lg shadow-lg w-full h-auto border border-gray-200" 
+                      className="rounded-lg shadow-lg w-full h-64 object-cover object-center border border-gray-200" 
                     />
                   </div>
                 </div>
@@ -359,9 +331,9 @@ const WorkflowAutomation = () => {
                   </div>
                   <div className="md:w-1/2">
                     <img 
-                      src="https://images.unsplash.com/photo-1553413077-190dd305871c" 
+                      src="/images/workflow-samples/inventory-workflow.jpg" 
                       alt="n8n inventory workflow" 
-                      className="rounded-lg shadow-lg w-full h-auto border border-gray-200" 
+                      className="rounded-lg shadow-lg w-full h-64 object-cover object-center border border-gray-200" 
                     />
                   </div>
                 </div>
@@ -396,9 +368,9 @@ const WorkflowAutomation = () => {
                   </div>
                   <div className="md:w-1/2">
                     <img 
-                      src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" 
+                      src="/images/workflow-samples/reporting-workflow.jpg" 
                       alt="n8n reporting workflow" 
-                      className="rounded-lg shadow-lg w-full h-auto border border-gray-200" 
+                      className="rounded-lg shadow-lg w-full h-64 object-cover object-center border border-gray-200" 
                     />
                   </div>
                 </div>
@@ -797,58 +769,7 @@ const WorkflowAutomation = () => {
             <div className="lg:w-1/2 w-full">
               <div className="bg-white rounded-lg p-8 shadow-xl">
                 <h3 className="text-2xl font-bold mb-6 text-gray-800">Contact Us</h3>
-                
-                <form className="space-y-6">
-                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium text-gray-700">Name</label>
-                      <input
-                        id="name"
-                        type="text"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                        placeholder="Your name"
-                      />
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-medium text-gray-700">Email</label>
-                      <input
-                        id="email"
-                        type="email"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                        placeholder="Your email"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <label htmlFor="company" className="text-sm font-medium text-gray-700">Company</label>
-                    <input
-                      id="company"
-                      type="text"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                      placeholder="Your company name"
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <label htmlFor="requirements" className="text-sm font-medium text-gray-700">What would you like to automate?</label>
-                    <textarea
-                      id="requirements"
-                      rows={4}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                      placeholder="Describe the process you'd like to automate..."
-                    ></textarea>
-                  </div>
-                  
-                  <Button size="lg" className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700">
-                    Submit Request
-                  </Button>
-                  
-                  <p className="text-xs text-gray-500 text-center">
-                    We'll respond to your inquiry within 24 business hours.
-                  </p>
-                </form>
+                <WorkflowContactForm />
               </div>
             </div>
           </div>
