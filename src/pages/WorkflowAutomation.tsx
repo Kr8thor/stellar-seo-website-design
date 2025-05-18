@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, DollarSign, Users, Lightbulb, Workflow, CheckCircle, Calendar } from 'lucide-react';
+import { ArrowRight, DollarSign, Users, Lightbulb, Workflow, CheckCircle, Calendar, MessageSquare } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardFooter, CardTitle, CardDescription } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -145,13 +146,14 @@ const WorkflowAutomation = () => {
           </div>
           
           <Tabs defaultValue="crm" className="w-full">
-            <TabsList className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 max-w-4xl mx-auto mb-8">
+            <TabsList className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 max-w-5xl mx-auto mb-8">
               <TabsTrigger value="crm">CRM Integration</TabsTrigger>
               <TabsTrigger value="invoice">Invoice Processing</TabsTrigger>
               <TabsTrigger value="social">Social Media</TabsTrigger>
               <TabsTrigger value="support">Support Tickets</TabsTrigger>
               <TabsTrigger value="inventory">Inventory</TabsTrigger>
               <TabsTrigger value="reporting">Reporting</TabsTrigger>
+              <TabsTrigger value="chatbots">Chatbots</TabsTrigger>
             </TabsList>
             
             <div className="bg-accent/10 p-6 rounded-lg">
@@ -366,6 +368,43 @@ const WorkflowAutomation = () => {
                     <WorkflowImage 
                       src="/images/workflow-samples/reporting-workflow.jpg" 
                       alt="n8n reporting workflow" 
+                    />
+                  </div>
+                </div>
+              </TabsContent>
+              
+              {/* New Chatbots Section */}
+              <TabsContent value="chatbots" className="mt-0">
+                <div className="flex flex-col md:flex-row gap-8">
+                  <div className="md:w-1/2">
+                    <h3 className="text-xl font-bold mb-4">AI Chatbot Integration</h3>
+                    <p className="mb-4">
+                      This workflow creates intelligent chatbots that can handle customer inquiries,
+                      provide product recommendations, and escalate complex issues to human agents.
+                    </p>
+                    <ul className="space-y-2 mb-4">
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-1" />
+                        <span>Integrates with AI platforms for natural language processing</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-1" />
+                        <span>Connects to your knowledge base to provide accurate answers</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-1" />
+                        <span>Learns from interactions to continuously improve responses</span>
+                      </li>
+                    </ul>
+                    <div className="bg-purple-50 p-4 rounded-lg">
+                      <p className="font-medium text-purple-800">Business Impact:</p>
+                      <p>75% reduction in basic support queries with 24/7 customer service coverage</p>
+                    </div>
+                  </div>
+                  <div className="md:w-1/2">
+                    <WorkflowImage 
+                      src="/images/workflow-samples/chatbot-workflow.jpg" 
+                      alt="n8n chatbot workflow" 
                     />
                   </div>
                 </div>
