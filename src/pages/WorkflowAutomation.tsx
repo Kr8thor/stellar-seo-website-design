@@ -1,31 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, DollarSign, Users, Lightbulb, Workflow, CheckCircle, Calendar, MessageSquare } from 'lucide-react';
+import { ArrowRight, DollarSign, Users, Lightbulb, Workflow, Settings, CalendarClock, CheckCircle } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardFooter, CardTitle, CardDescription } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import ToolIconsFlow from '../components/workflow/ToolIconsFlow';
-import WorkflowContactForm from '../components/workflow/ContactForm';
-import WorkflowImage from '../components/workflow/WorkflowImage';
+
 const WorkflowAutomation = () => {
-  // Define image paths for each workflow type with meaningful stock images
-  const workflowImages = {
-    crm: "/images/workflow-samples/crm-workflow.jpg",
-    // CRM automation
-    invoice: "/images/workflow-samples/invoice-workflow.jpg",
-    // Invoice processing
-    social: "/images/workflow-samples/social-media-workflow.jpg",
-    // Social media management
-    support: "/images/workflow-samples/support-workflow.jpg",
-    // Support ticketing
-    inventory: "/images/workflow-samples/inventory-workflow.jpg",
-    // Inventory management
-    reporting: "/images/workflow-samples/reporting-workflow.jpg",
-    // Data reporting
-    chatbot: "/images/workflow-samples/chatbot-workflow.jpg" // AI chatbot integration
-  };
-  return <main className="pt-24">
+  return (
+    <main className="pt-24">
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden">
         {/* Background */}
@@ -69,20 +52,50 @@ const WorkflowAutomation = () => {
         </div>
       </section>
       
-      {/* Technology Partners Section - REPLACED with the component from Home page */}
+      {/* Technology Partners Section */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-12">
-            <h2 className="heading-lg mb-4">Powered by Industry-Leading Tools</h2>
+            <h2 className="heading-md mb-4">Powered by Industry-Leading Tools</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We leverage cutting-edge automation platforms to build seamless, reliable workflows 
+              We leverage cutting-edge automation platforms to create seamless, reliable workflows 
               that integrate with your existing tech stack
             </p>
           </div>
           
-          <ToolIconsFlow />
+          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16 mb-12">
+            {/* n8n - Primary */}
+            <div className="w-48 h-24 flex items-center justify-center">
+              <img src="https://n8n.io/assets/logo.svg" alt="n8n" className="w-32" />
+            </div>
+            
+            {/* Other partners in grayscale */}
+            <div className="w-32 h-20 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
+              <img src="https://cdn.anthropic.com/claude-logo.svg" alt="Claude AI" className="w-24" />
+            </div>
+            
+            <div className="w-32 h-20 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
+              <img src="https://cursor.sh/brand/cursor-full-fixed.svg" alt="Cursor" className="w-24" />
+            </div>
+            
+            <div className="w-32 h-20 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
+              <img src="https://cdn.zapier.com/zapier/images/logos/zapier-logo.svg" alt="Zapier" className="w-24" />
+            </div>
+            
+            <div className="w-32 h-20 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
+              <img src="https://make.com/en/assets/main/make-logo.svg" alt="Make.com" className="w-24" />
+            </div>
+            
+            <div className="w-32 h-20 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
+              <img src="https://static.airtable.com/images/logo_full.png" alt="Airtable" className="w-24" />
+            </div>
+            
+            <div className="w-32 h-20 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
+              <img src="https://notion.so/front-static/shared/logos/notion-logo.png" alt="Notion" className="w-24" />
+            </div>
+          </div>
 
-          <p className="text-center text-gray-600 max-w-3xl mx-auto mt-8">
+          <p className="text-center text-gray-600 max-w-3xl mx-auto">
             As certified n8n Partners and automation specialists, we create custom workflows that connect your entire
             digital ecosystem — from Google Workspace and Microsoft 365 to CRMs, databases, and custom applications.
           </p>
@@ -159,14 +172,13 @@ const WorkflowAutomation = () => {
           </div>
           
           <Tabs defaultValue="crm" className="w-full">
-            <TabsList className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 max-w-5xl mx-auto mb-8">
+            <TabsList className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 max-w-4xl mx-auto mb-8">
               <TabsTrigger value="crm">CRM Integration</TabsTrigger>
               <TabsTrigger value="invoice">Invoice Processing</TabsTrigger>
               <TabsTrigger value="social">Social Media</TabsTrigger>
               <TabsTrigger value="support">Support Tickets</TabsTrigger>
               <TabsTrigger value="inventory">Inventory</TabsTrigger>
               <TabsTrigger value="reporting">Reporting</TabsTrigger>
-              <TabsTrigger value="chatbots">Chatbots</TabsTrigger>
             </TabsList>
             
             <div className="bg-accent/10 p-6 rounded-lg">
@@ -198,7 +210,11 @@ const WorkflowAutomation = () => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <WorkflowImage src={workflowImages.crm} alt="n8n CRM workflow for lead automation" />
+                    <img 
+                      src="https://images.unsplash.com/photo-1607703703674-df96941cfa40" 
+                      alt="n8n CRM workflow" 
+                      className="rounded-lg shadow-lg w-full h-auto border border-gray-200" 
+                    />
                   </div>
                 </div>
               </TabsContent>
@@ -231,7 +247,11 @@ const WorkflowAutomation = () => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <WorkflowImage src={workflowImages.invoice} alt="n8n invoice processing automation workflow" />
+                    <img 
+                      src="https://images.unsplash.com/photo-1554224155-1696413565d3" 
+                      alt="n8n invoice workflow" 
+                      className="rounded-lg shadow-lg w-full h-auto border border-gray-200" 
+                    />
                   </div>
                 </div>
               </TabsContent>
@@ -264,7 +284,11 @@ const WorkflowAutomation = () => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <WorkflowImage src={workflowImages.social} alt="n8n social media scheduling and analytics workflow" />
+                    <img 
+                      src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7" 
+                      alt="n8n social media workflow" 
+                      className="rounded-lg shadow-lg w-full h-auto border border-gray-200" 
+                    />
                   </div>
                 </div>
               </TabsContent>
@@ -297,7 +321,11 @@ const WorkflowAutomation = () => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <WorkflowImage src={workflowImages.support} alt="n8n support ticket routing and automation workflow" />
+                    <img 
+                      src="https://images.unsplash.com/photo-1573497019418-b400bb3ab074" 
+                      alt="n8n support workflow" 
+                      className="rounded-lg shadow-lg w-full h-auto border border-gray-200" 
+                    />
                   </div>
                 </div>
               </TabsContent>
@@ -330,7 +358,11 @@ const WorkflowAutomation = () => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <WorkflowImage src={workflowImages.inventory} alt="n8n inventory management and reordering workflow" />
+                    <img 
+                      src="https://images.unsplash.com/photo-1553413077-190dd305871c" 
+                      alt="n8n inventory workflow" 
+                      className="rounded-lg shadow-lg w-full h-auto border border-gray-200" 
+                    />
                   </div>
                 </div>
               </TabsContent>
@@ -363,41 +395,11 @@ const WorkflowAutomation = () => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <WorkflowImage src={workflowImages.reporting} alt="n8n automated data reporting workflow" />
-                  </div>
-                </div>
-              </TabsContent>
-              
-              {/* New Chatbots Section */}
-              <TabsContent value="chatbots" className="mt-0">
-                <div className="flex flex-col md:flex-row gap-8">
-                  <div className="md:w-1/2">
-                    <h3 className="text-xl font-bold mb-4">AI Chatbot Integration</h3>
-                    <p className="mb-4">
-                      This workflow creates intelligent chatbots that can handle customer inquiries,
-                      provide product recommendations, and escalate complex issues to human agents.
-                    </p>
-                    <ul className="space-y-2 mb-4">
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-1" />
-                        <span>Integrates with AI platforms for natural language processing</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-1" />
-                        <span>Connects to your knowledge base to provide accurate answers</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-1" />
-                        <span>Learns from interactions to continuously improve responses</span>
-                      </li>
-                    </ul>
-                    <div className="bg-purple-50 p-4 rounded-lg">
-                      <p className="font-medium text-purple-800">Business Impact:</p>
-                      <p>75% reduction in basic support queries with 24/7 customer service coverage</p>
-                    </div>
-                  </div>
-                  <div className="md:w-1/2">
-                    <WorkflowImage src={workflowImages.chatbot} alt="n8n AI chatbot integration workflow" />
+                    <img 
+                      src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" 
+                      alt="n8n reporting workflow" 
+                      className="rounded-lg shadow-lg w-full h-auto border border-gray-200" 
+                    />
                   </div>
                 </div>
               </TabsContent>
@@ -425,7 +427,7 @@ const WorkflowAutomation = () => {
                 <CardDescription>Perfect for small businesses and startups</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-4xl font-bold">$99 </p>
+                <p className="text-4xl font-bold">$1,499</p>
                 <p className="text-sm text-muted-foreground">Starting price</p>
                 <ul className="space-y-2">
                   <li className="flex items-start">
@@ -464,7 +466,7 @@ const WorkflowAutomation = () => {
                 <CardDescription>For established businesses with complex needs</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-4xl font-bold">$249</p>
+                <p className="text-4xl font-bold">$3,499</p>
                 <p className="text-sm text-muted-foreground">Starting price</p>
                 <ul className="space-y-2">
                   <li className="flex items-start">
@@ -763,7 +765,7 @@ const WorkflowAutomation = () => {
                 
                 <Button asChild size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10">
                   <a href="#" className="flex items-center gap-2">
-                    <Calendar className="h-5 w-5" />
+                    <CalendarClock className="h-5 w-5" />
                     Schedule a Demo
                   </a>
                 </Button>
@@ -795,12 +797,65 @@ const WorkflowAutomation = () => {
             <div className="lg:w-1/2 w-full">
               <div className="bg-white rounded-lg p-8 shadow-xl">
                 <h3 className="text-2xl font-bold mb-6 text-gray-800">Contact Us</h3>
-                <WorkflowContactForm />
+                
+                <form className="space-y-6">
+                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                    <div className="space-y-2">
+                      <label htmlFor="name" className="text-sm font-medium text-gray-700">Name</label>
+                      <input
+                        id="name"
+                        type="text"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                        placeholder="Your name"
+                      />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <label htmlFor="email" className="text-sm font-medium text-gray-700">Email</label>
+                      <input
+                        id="email"
+                        type="email"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                        placeholder="Your email"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label htmlFor="company" className="text-sm font-medium text-gray-700">Company</label>
+                    <input
+                      id="company"
+                      type="text"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                      placeholder="Your company name"
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label htmlFor="requirements" className="text-sm font-medium text-gray-700">What would you like to automate?</label>
+                    <textarea
+                      id="requirements"
+                      rows={4}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                      placeholder="Describe the process you'd like to automate..."
+                    ></textarea>
+                  </div>
+                  
+                  <Button size="lg" className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700">
+                    Submit Request
+                  </Button>
+                  
+                  <p className="text-xs text-gray-500 text-center">
+                    We'll respond to your inquiry within 24 business hours.
+                  </p>
+                </form>
               </div>
             </div>
           </div>
         </div>
       </section>
-    </main>;
+    </main>
+  );
 };
+
 export default WorkflowAutomation;
