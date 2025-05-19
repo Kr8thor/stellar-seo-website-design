@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, DollarSign, Users, Lightbulb, Workflow, CheckCircle, Calendar, MessageSquare } from 'lucide-react';
@@ -9,21 +8,24 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import ToolIconsFlow from '../components/workflow/ToolIconsFlow';
 import WorkflowContactForm from '../components/workflow/ContactForm';
 import WorkflowImage from '../components/workflow/WorkflowImage';
-
 const WorkflowAutomation = () => {
   // Define image paths for each workflow type with meaningful stock images
   const workflowImages = {
-    crm: "/images/workflow-samples/crm-workflow.jpg", // CRM automation
-    invoice: "/images/workflow-samples/invoice-workflow.jpg", // Invoice processing
-    social: "/images/workflow-samples/social-media-workflow.jpg", // Social media management
-    support: "/images/workflow-samples/support-workflow.jpg", // Support ticketing
-    inventory: "/images/workflow-samples/inventory-workflow.jpg", // Inventory management
-    reporting: "/images/workflow-samples/reporting-workflow.jpg", // Data reporting
-    chatbot: "/images/workflow-samples/chatbot-workflow.jpg", // AI chatbot integration
+    crm: "/images/workflow-samples/crm-workflow.jpg",
+    // CRM automation
+    invoice: "/images/workflow-samples/invoice-workflow.jpg",
+    // Invoice processing
+    social: "/images/workflow-samples/social-media-workflow.jpg",
+    // Social media management
+    support: "/images/workflow-samples/support-workflow.jpg",
+    // Support ticketing
+    inventory: "/images/workflow-samples/inventory-workflow.jpg",
+    // Inventory management
+    reporting: "/images/workflow-samples/reporting-workflow.jpg",
+    // Data reporting
+    chatbot: "/images/workflow-samples/chatbot-workflow.jpg" // AI chatbot integration
   };
-
-  return (
-    <main className="pt-24">
+  return <main className="pt-24">
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden">
         {/* Background */}
@@ -196,10 +198,7 @@ const WorkflowAutomation = () => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <WorkflowImage 
-                      src={workflowImages.crm}
-                      alt="n8n CRM workflow for lead automation" 
-                    />
+                    <WorkflowImage src={workflowImages.crm} alt="n8n CRM workflow for lead automation" />
                   </div>
                 </div>
               </TabsContent>
@@ -232,10 +231,7 @@ const WorkflowAutomation = () => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <WorkflowImage 
-                      src={workflowImages.invoice}
-                      alt="n8n invoice processing automation workflow" 
-                    />
+                    <WorkflowImage src={workflowImages.invoice} alt="n8n invoice processing automation workflow" />
                   </div>
                 </div>
               </TabsContent>
@@ -268,10 +264,7 @@ const WorkflowAutomation = () => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <WorkflowImage 
-                      src={workflowImages.social}
-                      alt="n8n social media scheduling and analytics workflow" 
-                    />
+                    <WorkflowImage src={workflowImages.social} alt="n8n social media scheduling and analytics workflow" />
                   </div>
                 </div>
               </TabsContent>
@@ -304,10 +297,7 @@ const WorkflowAutomation = () => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <WorkflowImage 
-                      src={workflowImages.support}
-                      alt="n8n support ticket routing and automation workflow" 
-                    />
+                    <WorkflowImage src={workflowImages.support} alt="n8n support ticket routing and automation workflow" />
                   </div>
                 </div>
               </TabsContent>
@@ -340,10 +330,7 @@ const WorkflowAutomation = () => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <WorkflowImage 
-                      src={workflowImages.inventory}
-                      alt="n8n inventory management and reordering workflow" 
-                    />
+                    <WorkflowImage src={workflowImages.inventory} alt="n8n inventory management and reordering workflow" />
                   </div>
                 </div>
               </TabsContent>
@@ -376,10 +363,7 @@ const WorkflowAutomation = () => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <WorkflowImage 
-                      src={workflowImages.reporting}
-                      alt="n8n automated data reporting workflow" 
-                    />
+                    <WorkflowImage src={workflowImages.reporting} alt="n8n automated data reporting workflow" />
                   </div>
                 </div>
               </TabsContent>
@@ -413,10 +397,7 @@ const WorkflowAutomation = () => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <WorkflowImage 
-                      src={workflowImages.chatbot}
-                      alt="n8n AI chatbot integration workflow" 
-                    />
+                    <WorkflowImage src={workflowImages.chatbot} alt="n8n AI chatbot integration workflow" />
                   </div>
                 </div>
               </TabsContent>
@@ -444,7 +425,7 @@ const WorkflowAutomation = () => {
                 <CardDescription>Perfect for small businesses and startups</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-4xl font-bold">$1,499</p>
+                <p className="text-4xl font-bold">$99 </p>
                 <p className="text-sm text-muted-foreground">Starting price</p>
                 <ul className="space-y-2">
                   <li className="flex items-start">
@@ -483,7 +464,7 @@ const WorkflowAutomation = () => {
                 <CardDescription>For established businesses with complex needs</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-4xl font-bold">$3,499</p>
+                <p className="text-4xl font-bold">$249</p>
                 <p className="text-sm text-muted-foreground">Starting price</p>
                 <ul className="space-y-2">
                   <li className="flex items-start">
@@ -820,8 +801,6 @@ const WorkflowAutomation = () => {
           </div>
         </div>
       </section>
-    </main>
-  );
+    </main>;
 };
-
 export default WorkflowAutomation;
