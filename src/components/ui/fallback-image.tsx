@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface FallbackImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   fallbackSrc?: string;
@@ -12,12 +12,25 @@ const FallbackImage: React.FC<FallbackImageProps> = ({
   className,
   ...props
 }) => {
-  const [imgSrc, setImgSrc] = useState<string>(src || '');
-  const [hasError, setHasError] = useState<boolean>(false);
+  const [imgSrc, setImgSrc] = useState<string>(fallbackSrc);
+  const [hasError, setHasError] = useState<boolean>(true);
+
+  useEffect(() => {
+    // Reset error state when the source changes
+    setHasError(false);
+    
+    // Only attempt to load the image if it's a valid URL
+    if (src && !src.startsWith('http')) {
+      setImgSrc(src);
+    } else {
+      // Handle placeholder URLs by setting the fallback
+      setImgSrc(fallbackSrc);
+    }
+  }, [src, fallbackSrc]);
 
   const handleError = () => {
-    console.error(`Image failed to load: ${src}`);
     if (!hasError) {
+      console.error(`Image failed to load: ${src}`);
       setImgSrc(fallbackSrc);
       setHasError(true);
     }

@@ -9,27 +9,36 @@ interface WorkflowImageProps {
 }
 
 const WorkflowImage: React.FC<WorkflowImageProps> = ({ src, alt, className }) => {
-  // Determine if we're using the placeholder or a real image
-  const isPlaceholder = !src || src.includes('placeholder');
+  // Stock images mapping for each workflow type
+  const stockImageMap: Record<string, string> = {
+    'crm': '/images/workflow-samples/crm-workflow.jpg',
+    'invoice': '/images/workflow-samples/invoice-workflow.jpg',
+    'social': '/images/workflow-samples/social-media-workflow.jpg',
+    'support': '/images/workflow-samples/support-workflow.jpg',
+    'inventory': '/images/workflow-samples/inventory-workflow.jpg',
+    'reporting': '/images/workflow-samples/reporting-workflow.jpg',
+    'chatbot': '/images/workflow-samples/chatbot-workflow.jpg',
+  };
+  
+  // Extract workflow type from the src path if it exists
+  const getWorkflowType = (srcPath: string): string | null => {
+    const match = srcPath.match(/workflow-samples\/(\w+)-workflow\.jpg/);
+    return match ? match[1] : null;
+  };
+  
+  // Determine image source - use stock image paths
+  const workflowType = getWorkflowType(src);
+  const actualImagePath = workflowType ? stockImageMap[workflowType] : src;
   
   return (
-    <div className="relative w-full h-64 overflow-hidden">
+    <div className="relative w-full h-64 overflow-hidden rounded-lg shadow-lg">
       <FallbackImage 
-        src={src}
+        src={actualImagePath}
         alt={alt}
-        className={`rounded-lg shadow-lg w-full h-64 object-cover object-center border border-gray-200 ${className || ''}`}
+        className={`w-full h-64 object-cover object-center border border-gray-200 ${className || ''}`}
         fallbackSrc="/images/workflow-placeholder.svg"
         loading="lazy"
       />
-      
-      {/* Add an overlay with text when using placeholder */}
-      {isPlaceholder && (
-        <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-          <p className="text-white text-center px-4">
-            {alt} visualization would appear here
-          </p>
-        </div>
-      )}
     </div>
   );
 };

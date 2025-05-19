@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, DollarSign, Users, Lightbulb, Workflow, CheckCircle, Calendar, MessageSquare } from 'lucide-react';
@@ -10,15 +11,15 @@ import WorkflowContactForm from '../components/workflow/ContactForm';
 import WorkflowImage from '../components/workflow/WorkflowImage';
 
 const WorkflowAutomation = () => {
-  // Define image paths for each workflow type to make them easy to update/maintain
+  // Define image paths for each workflow type with meaningful stock images
   const workflowImages = {
-    crm: "/images/workflow-samples/crm-workflow.jpg",
-    invoice: "/images/workflow-samples/invoice-workflow.jpg",
-    social: "/images/workflow-samples/social-media-workflow.jpg",
-    support: "/images/workflow-samples/support-workflow.jpg",
-    inventory: "/images/workflow-samples/inventory-workflow.jpg",
-    reporting: "/images/workflow-samples/reporting-workflow.jpg",
-    chatbot: "/images/workflow-samples/chatbot-workflow.jpg",
+    crm: "/images/workflow-samples/crm-workflow.jpg", // CRM automation
+    invoice: "/images/workflow-samples/invoice-workflow.jpg", // Invoice processing
+    social: "/images/workflow-samples/social-media-workflow.jpg", // Social media management
+    support: "/images/workflow-samples/support-workflow.jpg", // Support ticketing
+    inventory: "/images/workflow-samples/inventory-workflow.jpg", // Inventory management
+    reporting: "/images/workflow-samples/reporting-workflow.jpg", // Data reporting
+    chatbot: "/images/workflow-samples/chatbot-workflow.jpg", // AI chatbot integration
   };
 
   return (
