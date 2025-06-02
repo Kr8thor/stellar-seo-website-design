@@ -1,341 +1,221 @@
 import React, { useState } from 'react';
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, Github } from 'lucide-react';
-import { useToast } from "@/hooks/use-toast";
-import { 
-  Form, 
-  FormControl, 
-  FormField, 
-  FormItem, 
-  FormLabel, 
-  FormMessage 
-} from "@/components/ui/form";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { supabase } from "@/integrations/supabase/client";
-
-// Form validation schema
-const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters" }),
-  email: z.string().email({ message: "Please enter a valid email address" }),
-  phone: z.string().optional(),
-  website: z.string().url({ message: "Please enter a valid URL" }),
-  service: z.string().min(1, { message: "Please select a service" }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters" })
-});
-
-type FormValues = z.infer<typeof formSchema>;
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { useToast } from '@/hooks/use-toast';
+import { validateContactForm, checkClientRateLimit } from '@/lib/security';
 
 const Contact = () => {
-  const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  
-  const form = useForm<FormValues>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      phone: "",
-      website: "",
-      service: "",
-      message: ""
-    }
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
   });
-  
-  const onSubmit = async (data: FormValues) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Client-side rate limiting
+    if (!checkClientRateLimit('contact-form', 3, 60000)) {
+      toast({
+        title: "Too many requests",
+        description: "Please wait a minute before submitting another message.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    // Validate and sanitize form data
+    const validation = validateContactForm(formData);
+    
+    if (!validation.isValid) {
+      toast({
+        title: "Validation Error",
+        description: validation.errors.join(', '),
+        variant: "destructive",
+      });
+      return;
+    }
+    
     setIsSubmitting(true);
     
     try {
-      // Send the form data to our edge function
-      const response = await supabase.functions.invoke('send-contact-email', {
-        body: data
+      const response = await fetch('/functions/v1/send-contact-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(validation.sanitizedData),
       });
       
-      if (response.error) {
-        throw new Error(response.error.message || 'Something went wrong');
+      const result = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(result.error || `HTTP error! status: ${response.status}`);
       }
       
-      // Updated success message
       toast({
-        title: "Message Sent",
-        description: "We'll get back to you shortly.",
+        title: "Message sent successfully!",
+        description: "Thank you for your message. I'll get back to you soon.",
       });
       
       // Reset form
-      form.reset();
+      setFormData({ name: '', email: '', message: '' });
+      
     } catch (error) {
-      console.error("Error sending message:", error);
+      console.error('Error sending message:', error);
+      
+      let errorMessage = "There was an error sending your message. Please try again.";
+      
+      if (error instanceof Error) {
+        if (error.message.includes('Rate limit')) {
+          errorMessage = "Too many requests. Please try again later.";
+        } else if (error.message.includes('Validation')) {
+          errorMessage = "Please check your form data and try again.";
+        }
+      }
+      
       toast({
         title: "Error",
-        description: "There was an error sending your message. Please try again or contact us directly.",
+        description: errorMessage,
         variant: "destructive",
       });
     } finally {
       setIsSubmitting(false);
     }
   };
-  
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
   return (
-    <main className="pt-24" id="top">
-      {/* Hero Section */}
-      <section className="section-container">
-        <div className="text-center max-w-3xl mx-auto animate-fade-in">
-          <h1 className="heading-lg mb-6">Get in Touch</h1>
-          <p className="text-xl text-muted-foreground mb-8">
-            Have questions about my SEO or app building services? Ready to improve your search rankings or build your next application? Let's talk.
+    <main className="pt-24 pb-16 px-4 md:px-8 bg-gradient-to-b from-white to-slate-50 min-h-screen">
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+            Get In Touch
+          </h1>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            Ready to transform your online presence? Let's discuss how we can help your business grow through strategic SEO and digital marketing.
           </p>
         </div>
-      </section>
-      
-      {/* Contact Form and Info */}
-      <section className="py-16 md:py-24 bg-secondary">
-        <div className="container mx-auto px-4 md:px-8">
-          <div className="flex flex-col lg:flex-row gap-16">
-            {/* Contact Form */}
-            <div className="lg:w-2/3">
-              <div className="bg-card border border-border rounded-lg p-8 md:p-12">
-                <h2 className="font-heading text-2xl mb-6">Send a Message</h2>
-                <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <FormField
-                        control={form.control}
-                        name="name"
-                        render={({ field }) => (
-                          <FormItem className="space-y-2">
-                            <FormLabel>Full Name</FormLabel>
-                            <FormControl>
-                              <Input placeholder="John Doe" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      
-                      <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem className="space-y-2">
-                            <FormLabel>Email Address</FormLabel>
-                            <FormControl>
-                              <Input type="email" placeholder="john@example.com" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <FormField
-                        control={form.control}
-                        name="phone"
-                        render={({ field }) => (
-                          <FormItem className="space-y-2">
-                            <FormLabel>Phone Number (Optional)</FormLabel>
-                            <FormControl>
-                              <Input placeholder="+1 (123) 456-7890" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      
-                      <FormField
-                        control={form.control}
-                        name="website"
-                        render={({ field }) => (
-                          <FormItem className="space-y-2">
-                            <FormLabel>Website URL</FormLabel>
-                            <FormControl>
-                              <Input placeholder="https://yourwebsite.com" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                    
-                    <FormField
-                      control={form.control}
-                      name="service"
-                      render={({ field }) => (
-                        <FormItem className="space-y-2">
-                          <FormLabel>Service You're Interested In</FormLabel>
-                          <FormControl>
-                            <select
-                              className="w-full px-3 py-2 rounded-md border border-border bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-primary/20"
-                              {...field}
-                            >
-                              <option value="">Select a Service</option>
-                              <option value="On-Page SEO">On-Page SEO</option>
-                              <option value="Off-Page SEO">Off-Page SEO</option>
-                              <option value="Technical SEO">Technical SEO</option>
-                              <option value="Local SEO">Local SEO</option>
-                              <option value="SEO Audit">SEO Audit</option>
-                              <option value="Content Strategy">Content Strategy</option>
-                              <option value="n8n Automation">n8n Automation</option>
-                              <option value="React Development">React Development</option>
-                              <option value="MCP Solutions">MCP Solutions</option>
-                              <option value="Custom Package">Custom Package</option>
-                            </select>
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    
-                    <FormField
-                      control={form.control}
-                      name="message"
-                      render={({ field }) => (
-                        <FormItem className="space-y-2">
-                          <FormLabel>Message</FormLabel>
-                          <FormControl>
-                            <Textarea
-                              placeholder="Tell me about your project and your goals..."
-                              rows={6}
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    
-                    <Button type="submit" className="w-full" disabled={isSubmitting}>
-                      {isSubmitting ? "Sending..." : "Send Message"}
-                    </Button>
-                    
-                    <p className="text-xs text-muted-foreground text-center">
-                      By submitting this form, you agree to our privacy policy. Your information will never be shared with third parties.
-                    </p>
-                  </form>
-                </Form>
-              </div>
+
+        <div className="grid md:grid-cols-2 gap-12">
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-2xl font-semibold text-slate-900 mb-4">Let's Start a Conversation</h2>
+              <p className="text-slate-600 mb-6">
+                Whether you're looking to improve your search rankings, increase website traffic, or develop a comprehensive digital strategy, I'm here to help.
+              </p>
             </div>
-            
-            {/* Contact Info */}
-            <div className="lg:w-1/3">
-              <div className="bg-card border border-border rounded-lg p-8">
-                <h2 className="font-heading text-2xl mb-6">Contact Information</h2>
-                
-                <div className="space-y-6">
-                  <div className="flex items-start">
-                    <div className="flex items-center justify-center h-10 w-10 rounded-full bg-primary/10 text-primary mr-4">
-                      <Mail className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <p className="font-medium">Email Address</p>
-                      <a href="mailto:hello@mardenseo.com" className="text-muted-foreground hover:text-primary transition-colors">
-                        hello@mardenseo.com
-                      </a>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="flex items-center justify-center h-10 w-10 rounded-full bg-primary/10 text-primary mr-4">
-                      <Phone className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <p className="font-medium">Phone Number</p>
-                      <a href="tel:+821077741401" className="text-muted-foreground hover:text-primary transition-colors">
-                        +821077741401
-                      </a>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="flex items-center justify-center h-10 w-10 rounded-full bg-primary/10 text-primary mr-4">
-                      <Github className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <p className="font-medium">GitHub</p>
-                      <a href="https://github.com/Kr8thor" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                        github.com/Kr8thor
-                      </a>
-                    </div>
-                  </div>
+
+            <div className="space-y-6">
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mt-1">
+                  <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-slate-900">Free Consultation</h3>
+                  <p className="text-slate-600">30-minute strategy session to discuss your goals</p>
                 </div>
               </div>
-              
-              {/* Quick Contact Form */}
-              <div className="bg-card border border-border rounded-lg p-8 mt-8">
-                <h3 className="font-heading text-xl mb-4">Book a Quick Call</h3>
-                <p className="text-muted-foreground mb-6">
-                  Prefer a quick chat? Send an email to schedule a call to discuss your needs.
-                </p>
-                <Button asChild className="w-full">
-                  <a href="mailto:hello@mardenseo.com">
-                    Email to Schedule
-                  </a>
-                </Button>
+
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mt-1">
+                  <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-slate-900">Custom Solutions</h3>
+                  <p className="text-slate-600">Tailored strategies for your specific industry and needs</p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mt-1">
+                  <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-slate-900">Quick Response</h3>
+                  <p className="text-slate-600">I'll get back to you within 24 hours</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-      
-      {/* FAQ Section */}
-      <section className="section-container">
-        <div className="text-center mb-16">
-          <h2 className="heading-md mb-4">Frequently Asked Questions</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Have questions before reaching out? Here are answers to some common questions.
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {[
-            {
-              question: "How long does it take to see SEO results?",
-              answer: "SEO is a long-term strategy. While some improvements can be seen within the first few months (especially from technical fixes), significant results typically take 4-6 months to materialize. The timeline can vary based on your industry competition, website history, and the strategies implemented."
-            },
-            {
-              question: "What app development services do you offer?",
-              answer: "I specialize in building custom applications using n8n automation, React, MCPs, and similar technologies. Services include workflow automation, data integration, custom web applications, and full-stack development tailored to your specific business needs."
-            },
-            {
-              question: "Do you guarantee first-page rankings?",
-              answer: "No legitimate SEO professional can guarantee specific rankings as search algorithms are complex and constantly changing. What I do guarantee is implementing proven strategies, transparent reporting, and continuous optimization based on performance data."
-            },
-            {
-              question: "What makes your services different?",
-              answer: "My approach combines technical expertise with strategic content development and a focus on user experience. I stay updated with the latest technologies and algorithm changes, providing tailored solutions that address your specific business goals."
-            },
-            {
-              question: "Do you require long-term contracts?",
-              answer: "While SEO works best as a long-term strategy, I typically offer month-to-month agreements after an initial 3-month commitment. For app development projects, we'll define the scope and timeline based on your specific requirements."
-            },
-            {
-              question: "What information do you need to get started?",
-              answer: "To prepare a proposal for SEO, I'll need your website URL, business goals, target audience information, and access to any existing analytics. For app development projects, we'll need to discuss your requirements, existing systems, and desired functionality."
-            }
-          ].map((faq, index) => (
-            <div key={index} className="bg-card border border-border rounded-lg p-6">
-              <h3 className="font-heading text-lg mb-3">{faq.question}</h3>
-              <p className="text-muted-foreground">{faq.answer}</p>
+
+          <div className="bg-white rounded-2xl p-8 shadow-xl border border-slate-200">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">
+                  Your Name *
+                </label>
+                <Input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                  maxLength={100}
+                  className="w-full"
+                  placeholder="Enter your full name"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
+                  Email Address *
+                </label>
+                <Input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full"
+                  placeholder="your.email@example.com"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
+                  Your Message *
+                </label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                  maxLength={5000}
+                  rows={6}
+                  className="w-full"
+                  placeholder="Tell me about your project, goals, and how I can help..."
+                />
+                <div className="text-sm text-slate-500 mt-1">
+                  {formData.message.length}/5000 characters
+                </div>
+              </div>
+
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors"
+              >
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+              </Button>
+            </form>
+
+            <div className="mt-6 text-center text-sm text-slate-500">
+              <p>Your information is secure and will never be shared.</p>
             </div>
-          ))}
+          </div>
         </div>
-      </section>
-      
-      {/* CTA Section */}
-      <section className="bg-primary text-primary-foreground py-16 md:py-24">
-        <div className="container mx-auto px-4 md:px-8 text-center">
-          <h2 className="heading-md mb-6">Ready to Boost Your Online Presence?</h2>
-          <p className="text-xl mb-10 max-w-3xl mx-auto opacity-90">
-            Take the first step toward improving your visibility and growing your business through strategic SEO and custom application development.
-          </p>
-          <Button asChild size="lg" variant="secondary">
-            <a href="#top">Contact Me Today</a>
-          </Button>
-        </div>
-      </section>
+      </div>
     </main>
   );
 };
