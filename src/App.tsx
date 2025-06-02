@@ -26,44 +26,96 @@ import AppBuilding from "./pages/AppBuilding";
 import CaseStudy from "./pages/CaseStudy";
 import WorkflowAutomation from "./pages/WorkflowAutomation";
 
+// Error Boundary Component
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error('App Error Boundary caught an error:', error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+          <div className="text-center p-8">
+            <h1 className="text-2xl font-bold text-gray-900 mb-4">
+              Something went wrong
+            </h1>
+            <p className="text-gray-600 mb-6">
+              We're experiencing technical difficulties. Please try refreshing the page.
+            </p>
+            <button
+              onClick={() => window.location.reload()}
+              className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/90"
+            >
+              Refresh Page
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
+
 // --- Query Client Setup ---
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000, // 5 minutes
+      cacheTime: 10 * 60 * 1000, // 10 minutes
+      refetchOnWindowFocus: false,
+      retry: 3,
+    },
+  },
+});
 
 // --- App Component ---
 const App = () => (
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <ApolloProvider client={client}> 
-        <WordPressProvider>
-          <TooltipProvider>
-            <Toaster />
-            <Sonner />
-            <BrowserRouter>
-              <div className="flex flex-col min-h-screen">
-                <Navbar />
-                <div className="flex-grow">
-                  <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/services" element={<Services />} />
-                    <Route path="/portfolio" element={<Portfolio />} />
-                    <Route path="/blog" element={<Blog />} />
-                    <Route path="/blog/:id" element={<BlogPostDetail />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="/app-building" element={<AppBuilding />} />
-                    <Route path="/case-study/:id" element={<CaseStudy />} />
-                    <Route path="/workflow-automation" element={<WorkflowAutomation />} />
-                    {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                    <Route path="*" element={<NotFound />} />
-                  </Routes>
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <ApolloProvider client={client}> 
+          <WordPressProvider>
+            <TooltipProvider>
+              <Toaster />
+              <Sonner />
+              <BrowserRouter>
+                <div className="flex flex-col min-h-screen">
+                  <Navbar />
+                  <div className="flex-grow">
+                    <Routes>
+                      <Route path="/" element={<Home />} />
+                      <Route path="/about" element={<About />} />
+                      <Route path="/services" element={<Services />} />
+                      <Route path="/portfolio" element={<Portfolio />} />
+                      <Route path="/blog" element={<Blog />} />
+                      <Route path="/blog/:id" element={<BlogPostDetail />} />
+                      <Route path="/contact" element={<Contact />} />
+                      <Route path="/app-building" element={<AppBuilding />} />
+                      <Route path="/case-study/:id" element={<CaseStudy />} />
+                      <Route path="/workflow-automation" element={<WorkflowAutomation />} />
+                      {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                      <Route path="*" element={<NotFound />} />
+                    </Routes>
+                  </div>
+                  <Footer />
                 </div>
-                <Footer />
-              </div>
-            </BrowserRouter>
-          </TooltipProvider>
-        </WordPressProvider>
-      </ApolloProvider>
-    </QueryClientProvider>
+              </BrowserRouter>
+            </TooltipProvider>
+          </WordPressProvider>
+        </ApolloProvider>
+      </QueryClientProvider>
+    </ErrorBoundary>
   </React.StrictMode>
 );
 
