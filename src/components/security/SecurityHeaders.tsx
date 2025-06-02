@@ -6,16 +6,19 @@ import { useEffect } from 'react';
  */
 const SecurityHeaders = () => {
   useEffect(() => {
-    // Enforce HTTPS in production
-    if (process.env.NODE_ENV === 'production' && window.location.protocol !== 'https:') {
+    // Only enforce HTTPS in production, not during development
+    if (process.env.NODE_ENV === 'production' && 
+        window.location.protocol !== 'https:' && 
+        !window.location.hostname.includes('localhost') &&
+        !window.location.hostname.includes('127.0.0.1')) {
       window.location.replace(window.location.href.replace('http:', 'https:'));
       return;
     }
 
-    // Set Content Security Policy via meta tag
+    // Set more permissive Content Security Policy for production
     const cspContent = [
-      "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net",
+      "default-src 'self' 'unsafe-inline'",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.gpteng.co https://cdn.jsdelivr.net",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: https: blob:",
@@ -57,11 +60,8 @@ const SecurityHeaders = () => {
       meta.content = content;
     });
 
-    // Set Strict Transport Security for HTTPS
-    if (window.location.protocol === 'https:') {
-      // This would normally be set by the server, but we can log it for monitoring
-      console.log('[SECURITY] HTTPS enforced, HSTS should be configured at server level');
-    }
+    // Log security status for monitoring
+    console.log('[SECURITY] Security headers configured for production');
 
   }, []);
 
