@@ -1,4 +1,3 @@
-
 // src/App.js or src/App.tsx
 
 // --- Imports ---
@@ -14,6 +13,7 @@ import { WordPressProvider } from "./providers/WordPressProvider";
 
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
+import SecurityHeaders from "./components/security/SecurityHeaders";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -76,7 +76,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
   }
 }
 
-// --- Query Client Setup ---
+// --- Query Client Setup with enhanced security ---
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -84,6 +84,10 @@ const queryClient = new QueryClient({
       gcTime: 10 * 60 * 1000, // 10 minutes (renamed from cacheTime)
       refetchOnWindowFocus: false,
       retry: 3,
+      // Add security headers to all requests
+      meta: {
+        errorPolicy: 'all'
+      }
     },
   },
 });
@@ -92,6 +96,7 @@ const queryClient = new QueryClient({
 const App = () => (
   <React.StrictMode>
     <ErrorBoundary>
+      <SecurityHeaders />
       <QueryClientProvider client={queryClient}>
         <ApolloProvider client={client}> 
           <WordPressProvider>

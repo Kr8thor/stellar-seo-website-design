@@ -1,9 +1,11 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { validateContactForm, checkClientRateLimit } from '@/lib/security';
+import { securityMonitor } from '@/lib/securityMonitor';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -19,6 +21,7 @@ const Contact = () => {
     
     // Client-side rate limiting
     if (!checkClientRateLimit('contact-form', 3, 60000)) {
+      securityMonitor.logRateLimit('contact-form', 3);
       toast({
         title: "Too many requests",
         description: "Please wait a minute before submitting another message.",
@@ -31,6 +34,11 @@ const Contact = () => {
     const validation = validateContactForm(formData);
     
     if (!validation.isValid) {
+      // Log validation errors
+      validation.errors.forEach(error => {
+        securityMonitor.logValidationError('contact-form', error);
+      });
+      
       toast({
         title: "Validation Error",
         description: validation.errors.join(', '),
@@ -46,6 +54,7 @@ const Contact = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest', // Security header
         },
         body: JSON.stringify(validation.sanitizedData),
       });
@@ -55,6 +64,9 @@ const Contact = () => {
       if (!response.ok) {
         throw new Error(result.error || `HTTP error! status: ${response.status}`);
       }
+      
+      // Log successful submission
+      securityMonitor.logFormSubmission('contact', true);
       
       toast({
         title: "Message sent successfully!",
@@ -70,6 +82,9 @@ const Contact = () => {
       let errorMessage = "There was an error sending your message. Please try again.";
       
       if (error instanceof Error) {
+        // Log failed submission with details
+        securityMonitor.logFormSubmission('contact', false, error.message);
+        
         if (error.message.includes('Rate limit')) {
           errorMessage = "Too many requests. Please try again later.";
         } else if (error.message.includes('Validation')) {
