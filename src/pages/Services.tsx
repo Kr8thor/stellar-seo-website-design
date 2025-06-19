@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
@@ -10,11 +9,7 @@ const Services = () => {
         <div className="text-center max-w-3xl mx-auto animate-fade-in relative">
           {/* Background logo */}
           <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-8 opacity-10 z-0">
-            <img 
-              src="/lovable-uploads/a103d7ea-fa9e-4582-9d36-828eb4472ece.png" 
-              alt="" 
-              className="w-32 h-32 object-contain"
-            />
+            <img alt="" className="w-32 h-32 object-contain" src="/lovable-uploads/cfc3c92e-93d8-41ac-8c26-e07989a3ff76.png" />
           </div>
           <div className="relative z-10">
             <h1 className="heading-lg mb-6">SEO Services</h1>
