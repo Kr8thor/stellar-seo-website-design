@@ -2,16 +2,20 @@ import React from 'react';
 import { useSEO, seoConfigs } from '@/hooks/useSEO';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import { Link } from 'react-router-dom';
-import { ArrowRight, DollarSign, Users, Lightbulb, Workflow, Settings, CalendarClock, CheckCircle } from 'lucide-react';
+import { ArrowRight, DollarSign, Users, Lightbulb, Workflow, Settings, CalendarClock, CheckCircle, Zap, Database, MessageSquare, BarChart3 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardFooter, CardTitle, CardDescription } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+
 const WorkflowAutomation = () => {
   // Add SEO for this page
   useSEO(seoConfigs.workflowAutomation);
-  return <main className="pt-24">
+
+  return (
+    <main className="pt-24">
       <Breadcrumbs />
+      
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden">
         {/* Background */}
@@ -55,50 +59,114 @@ const WorkflowAutomation = () => {
         </div>
       </section>
       
-      {/* Technology Partners Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4 md:px-8">
+      {/* Technology Partners Section - Redesigned */}
+      <section className="relative py-16 md:py-24 bg-black overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-30"
+            poster="https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=1920&q=80"
+          >
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-data-and-numbers-25348-large.mp4" type="video/mp4" />
+            {/* Fallback for browsers that don't support video */}
+          </video>
+          
+          {/* Video Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-900/80 via-black/60 to-pink-900/80"></div>
+        </div>
+        
+        {/* Content */}
+        <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="text-center mb-12">
-            <h2 className="heading-md mb-4">Powered by Industry-Leading Tools</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="heading-md mb-4 text-white">Powered by Industry-Leading Tools</h2>
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
               We leverage cutting-edge automation platforms to create seamless, reliable workflows 
               that integrate with your existing tech stack
             </p>
           </div>
           
-          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16 mb-12">
+          {/* Tool Integration Cards */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-12">
             {/* n8n - Primary */}
-            <div className="w-48 h-24 flex items-center justify-center">
-              <img src="https://n8n.io/assets/logo.svg" alt="n8n" className="w-32" />
+            <div className="group bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-all duration-300 border border-white/20">
+              <div className="text-center">
+                <Workflow className="h-8 w-8 text-purple-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                <h3 className="text-white font-semibold text-sm mb-2">n8n</h3>
+                <p className="text-gray-300 text-xs">Core Automation</p>
+              </div>
             </div>
             
-            {/* Other partners in grayscale */}
-            <div className="w-32 h-20 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
-              <img src="https://cdn.anthropic.com/claude-logo.svg" alt="Claude AI" className="w-24" />
+            {/* AI Tools */}
+            <div className="group bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-all duration-300 border border-white/20">
+              <div className="text-center">
+                <Zap className="h-8 w-8 text-amber-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                <h3 className="text-white font-semibold text-sm mb-2">AI Integration</h3>
+                <p className="text-gray-300 text-xs">Claude & OpenAI</p>
+              </div>
             </div>
             
-            <div className="w-32 h-20 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
-              <img src="https://cursor.sh/brand/cursor-full-fixed.svg" alt="Cursor" className="w-24" />
+            {/* Development Tools */}
+            <div className="group bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-all duration-300 border border-white/20">
+              <div className="text-center">
+                <Settings className="h-8 w-8 text-blue-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                <h3 className="text-white font-semibold text-sm mb-2">Dev Tools</h3>
+                <p className="text-gray-300 text-xs">Cursor & VS Code</p>
+              </div>
             </div>
             
-            <div className="w-32 h-20 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
-              <img src="https://cdn.zapier.com/zapier/images/logos/zapier-logo.svg" alt="Zapier" className="w-24" />
+            {/* Other Automation */}
+            <div className="group bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-all duration-300 border border-white/20">
+              <div className="text-center">
+                <ArrowRight className="h-8 w-8 text-green-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                <h3 className="text-white font-semibold text-sm mb-2">Zapier</h3>
+                <p className="text-gray-300 text-xs">Quick Automations</p>
+              </div>
             </div>
             
-            <div className="w-32 h-20 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
-              <img src="https://make.com/en/assets/main/make-logo.svg" alt="Make.com" className="w-24" />
+            {/* Database Tools */}
+            <div className="group bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-all duration-300 border border-white/20">
+              <div className="text-center">
+                <Database className="h-8 w-8 text-pink-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                <h3 className="text-white font-semibold text-sm mb-2">Data Tools</h3>
+                <p className="text-gray-300 text-xs">Airtable & Notion</p>
+              </div>
             </div>
             
-            <div className="w-32 h-20 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
-              <img src="https://static.airtable.com/images/logo_full.png" alt="Airtable" className="w-24" />
-            </div>
-            
-            <div className="w-32 h-20 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
-              <img src="https://notion.so/front-static/shared/logos/notion-logo.png" alt="Notion" className="w-24" />
+            {/* Communication */}
+            <div className="group bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-all duration-300 border border-white/20">
+              <div className="text-center">
+                <MessageSquare className="h-8 w-8 text-cyan-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                <h3 className="text-white font-semibold text-sm mb-2">Communication</h3>
+                <p className="text-gray-300 text-xs">Slack & Teams</p>
+              </div>
             </div>
           </div>
 
-          <p className="text-center text-gray-600 max-w-3xl mx-auto">Find out how our workflows will take hours off your working week!</p>
+          {/* Trust Indicators */}
+          <div className="text-center">
+            <div className="inline-flex items-center gap-6 bg-white/10 backdrop-blur-sm rounded-full px-8 py-4 border border-white/20">
+              <div className="flex items-center gap-2">
+                <BarChart3 className="h-5 w-5 text-green-400" />
+                <span className="text-white font-semibold">500+ Workflows Built</span>
+              </div>
+              <div className="w-px h-6 bg-white/30"></div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-5 w-5 text-blue-400" />
+                <span className="text-white font-semibold">99.9% Uptime</span>
+              </div>
+              <div className="w-px h-6 bg-white/30"></div>
+              <div className="flex items-center gap-2">
+                <Users className="h-5 w-5 text-purple-400" />
+                <span className="text-white font-semibold">200+ Happy Clients</span>
+              </div>
+            </div>
+          </div>
+
+          <p className="text-center text-gray-300 max-w-3xl mx-auto mt-8">Find out how our workflows will take hours off your working week!</p>
         </div>
       </section>
       
@@ -810,6 +878,8 @@ const WorkflowAutomation = () => {
           </div>
         </div>
       </section>
-    </main>;
+    </main>
+  );
 };
+
 export default WorkflowAutomation;
