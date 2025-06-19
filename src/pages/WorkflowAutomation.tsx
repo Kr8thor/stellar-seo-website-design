@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useSEO, seoConfigs } from '@/hooks/useSEO';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
@@ -7,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardFooter, CardTitle, CardDescription } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Badge } from "@/components/ui/badge";
+
 const WorkflowAutomation = () => {
   // Add SEO for this page
   useSEO(seoConfigs.workflowAutomation);
@@ -452,6 +455,13 @@ const WorkflowAutomation = () => {
             </p>
           </div>
           
+          {/* Popular Badge - Moved to top center */}
+          <div className="flex justify-center mb-8">
+            <Badge variant="secondary" className="bg-gradient-to-r from-pink-600 to-purple-600 text-white text-sm font-bold px-4 py-2 rounded-full">
+              POPULAR
+            </Badge>
+          </div>
+          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Basic Package */}
             <Card className="border-0 shadow-lg relative overflow-hidden">
@@ -489,12 +499,9 @@ const WorkflowAutomation = () => {
               </CardFooter>
             </Card>
             
-            {/* Standard Package */}
+            {/* Standard Package - This is the popular one */}
             <Card className="border-0 shadow-xl relative overflow-hidden scale-105 z-10">
               <div className="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-pink-500 to-purple-500"></div>
-              <div className="absolute top-6 right-6 bg-gradient-to-r from-pink-600 to-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full">
-                POPULAR
-              </div>
               <CardHeader>
                 <CardTitle className="text-xl font-bold">Standard Workflow Solution</CardTitle>
                 <CardDescription>For established businesses with complex needs</CardDescription>
