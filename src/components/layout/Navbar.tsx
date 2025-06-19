@@ -1,13 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from 'lucide-react';
-
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 10) {
@@ -16,28 +13,16 @@ const Navbar = () => {
         setIsScrolled(false);
       }
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
-  return (
-    <header 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-background/95 backdrop-blur-md shadow-sm' : 'bg-transparent'
-      }`}
-    >
+  return <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-background/95 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-3 group">
-          <img 
-            src="/lovable-uploads/a103d7ea-fa9e-4582-9d36-828eb4472ece.png" 
-            alt="Marden SEO Logo" 
-            className="h-8 w-8 transition-transform group-hover:scale-110"
-          />
+          <img alt="Marden SEO Logo" className="h-8 w-8 transition-transform group-hover:scale-110" src="/lovable-uploads/6bc582ad-ebe9-4438-9f37-6881cbeb14ec.png" />
           <span className="font-heading text-2xl font-medium">Marden SEO</span>
         </Link>
 
@@ -58,17 +43,11 @@ const Navbar = () => {
         </Button>
 
         {/* Mobile Menu - ensuring solid white background regardless of scroll state */}
-        <div className={`fixed inset-0 bg-white z-50 transition-transform transform duration-300 ease-in-out ${
-          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        } md:hidden`}>
+        <div className={`fixed inset-0 bg-white z-50 transition-transform transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} md:hidden`}>
           <div className="container mx-auto px-4 py-4 flex flex-col h-full bg-white">
             <div className="flex justify-between items-center">
               <Link to="/" className="flex items-center space-x-3" onClick={() => setIsMenuOpen(false)}>
-                <img 
-                  src="/lovable-uploads/a103d7ea-fa9e-4582-9d36-828eb4472ece.png" 
-                  alt="Marden SEO Logo" 
-                  className="h-8 w-8"
-                />
+                <img src="/lovable-uploads/a103d7ea-fa9e-4582-9d36-828eb4472ece.png" alt="Marden SEO Logo" className="h-8 w-8" />
                 <span className="font-heading text-2xl font-medium">Marden SEO</span>
               </Link>
               <Button variant="ghost" size="icon" onClick={toggleMenu}>
@@ -88,8 +67,6 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </header>
-  );
+    </header>;
 };
-
 export default Navbar;
