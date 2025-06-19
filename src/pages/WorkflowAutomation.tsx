@@ -7,13 +7,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardFooter, CardTitle, CardDescription } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-
 const WorkflowAutomation = () => {
   // Add SEO for this page
   useSEO(seoConfigs.workflowAutomation);
-
-  return (
-    <main className="pt-24">
+  return <main className="pt-24">
       <Breadcrumbs />
       
       {/* Hero Section */}
@@ -63,14 +60,7 @@ const WorkflowAutomation = () => {
       <section className="relative py-16 md:py-24 bg-black overflow-hidden">
         {/* Video Background */}
         <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover opacity-30"
-            poster="https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=1920&q=80"
-          >
+          <video autoPlay loop muted playsInline className="w-full h-full object-cover opacity-30" poster="https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=1920&q=80">
             <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-data-and-numbers-25348-large.mp4" type="video/mp4" />
             {/* Fallback for browsers that don't support video */}
           </video>
@@ -151,7 +141,7 @@ const WorkflowAutomation = () => {
             <div className="inline-flex items-center gap-6 bg-white/10 backdrop-blur-sm rounded-full px-8 py-4 border border-white/20">
               <div className="flex items-center gap-2">
                 <BarChart3 className="h-5 w-5 text-green-400" />
-                <span className="text-white font-semibold">500+ Workflows Built</span>
+                <span className="text-white font-semibold">Rapid Turnaround</span>
               </div>
               <div className="w-px h-6 bg-white/30"></div>
               <div className="flex items-center gap-2">
@@ -161,7 +151,7 @@ const WorkflowAutomation = () => {
               <div className="w-px h-6 bg-white/30"></div>
               <div className="flex items-center gap-2">
                 <Users className="h-5 w-5 text-purple-400" />
-                <span className="text-white font-semibold">200+ Happy Clients</span>
+                <span className="text-white font-semibold">100% Happy Clients</span>
               </div>
             </div>
           </div>
@@ -878,8 +868,6 @@ const WorkflowAutomation = () => {
           </div>
         </div>
       </section>
-    </main>
-  );
+    </main>;
 };
-
 export default WorkflowAutomation;
