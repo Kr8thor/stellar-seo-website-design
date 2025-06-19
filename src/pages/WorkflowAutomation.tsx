@@ -7,13 +7,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardFooter, CardTitle, CardDescription } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-
 const WorkflowAutomation = () => {
   // Add SEO for this page
   useSEO(seoConfigs.workflowAutomation);
-
-  return (
-    <main className="pt-24">
+  return <main className="pt-24">
       <Breadcrumbs />
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden">
@@ -101,10 +98,7 @@ const WorkflowAutomation = () => {
             </div>
           </div>
 
-          <p className="text-center text-gray-600 max-w-3xl mx-auto">
-            As certified n8n Partners and automation specialists, we create custom workflows that connect your entire
-            digital ecosystem — from Google Workspace and Microsoft 365 to CRMs, databases, and custom applications.
-          </p>
+          <p className="text-center text-gray-600 max-w-3xl mx-auto">Find out how our workflows will take hours off your working week!</p>
         </div>
       </section>
       
@@ -216,11 +210,7 @@ const WorkflowAutomation = () => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <img 
-                      src="https://images.unsplash.com/photo-1607703703674-df96941cfa40" 
-                      alt="n8n CRM workflow" 
-                      className="rounded-lg shadow-lg w-full h-auto border border-gray-200" 
-                    />
+                    <img src="https://images.unsplash.com/photo-1607703703674-df96941cfa40" alt="n8n CRM workflow" className="rounded-lg shadow-lg w-full h-auto border border-gray-200" />
                   </div>
                 </div>
               </TabsContent>
@@ -253,11 +243,7 @@ const WorkflowAutomation = () => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <img 
-                      src="https://images.unsplash.com/photo-1554224155-1696413565d3" 
-                      alt="n8n invoice workflow" 
-                      className="rounded-lg shadow-lg w-full h-auto border border-gray-200" 
-                    />
+                    <img src="https://images.unsplash.com/photo-1554224155-1696413565d3" alt="n8n invoice workflow" className="rounded-lg shadow-lg w-full h-auto border border-gray-200" />
                   </div>
                 </div>
               </TabsContent>
@@ -290,11 +276,7 @@ const WorkflowAutomation = () => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <img 
-                      src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7" 
-                      alt="n8n social media workflow" 
-                      className="rounded-lg shadow-lg w-full h-auto border border-gray-200" 
-                    />
+                    <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7" alt="n8n social media workflow" className="rounded-lg shadow-lg w-full h-auto border border-gray-200" />
                   </div>
                 </div>
               </TabsContent>
@@ -327,11 +309,7 @@ const WorkflowAutomation = () => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <img 
-                      src="https://images.unsplash.com/photo-1573497019418-b400bb3ab074" 
-                      alt="n8n support workflow" 
-                      className="rounded-lg shadow-lg w-full h-auto border border-gray-200" 
-                    />
+                    <img src="https://images.unsplash.com/photo-1573497019418-b400bb3ab074" alt="n8n support workflow" className="rounded-lg shadow-lg w-full h-auto border border-gray-200" />
                   </div>
                 </div>
               </TabsContent>
@@ -364,11 +342,7 @@ const WorkflowAutomation = () => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <img 
-                      src="https://images.unsplash.com/photo-1553413077-190dd305871c" 
-                      alt="n8n inventory workflow" 
-                      className="rounded-lg shadow-lg w-full h-auto border border-gray-200" 
-                    />
+                    <img src="https://images.unsplash.com/photo-1553413077-190dd305871c" alt="n8n inventory workflow" className="rounded-lg shadow-lg w-full h-auto border border-gray-200" />
                   </div>
                 </div>
               </TabsContent>
@@ -401,11 +375,7 @@ const WorkflowAutomation = () => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <img 
-                      src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" 
-                      alt="n8n reporting workflow" 
-                      className="rounded-lg shadow-lg w-full h-auto border border-gray-200" 
-                    />
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" alt="n8n reporting workflow" className="rounded-lg shadow-lg w-full h-auto border border-gray-200" />
                   </div>
                 </div>
               </TabsContent>
@@ -808,43 +778,23 @@ const WorkflowAutomation = () => {
                   <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div className="space-y-2">
                       <label htmlFor="name" className="text-sm font-medium text-gray-700">Name</label>
-                      <input
-                        id="name"
-                        type="text"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                        placeholder="Your name"
-                      />
+                      <input id="name" type="text" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500" placeholder="Your name" />
                     </div>
                     
                     <div className="space-y-2">
                       <label htmlFor="email" className="text-sm font-medium text-gray-700">Email</label>
-                      <input
-                        id="email"
-                        type="email"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                        placeholder="Your email"
-                      />
+                      <input id="email" type="email" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500" placeholder="Your email" />
                     </div>
                   </div>
                   
                   <div className="space-y-2">
                     <label htmlFor="company" className="text-sm font-medium text-gray-700">Company</label>
-                    <input
-                      id="company"
-                      type="text"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                      placeholder="Your company name"
-                    />
+                    <input id="company" type="text" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500" placeholder="Your company name" />
                   </div>
                   
                   <div className="space-y-2">
                     <label htmlFor="requirements" className="text-sm font-medium text-gray-700">What would you like to automate?</label>
-                    <textarea
-                      id="requirements"
-                      rows={4}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                      placeholder="Describe the process you'd like to automate..."
-                    ></textarea>
+                    <textarea id="requirements" rows={4} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500" placeholder="Describe the process you'd like to automate..."></textarea>
                   </div>
                   
                   <Button size="lg" className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700">
@@ -860,8 +810,6 @@ const WorkflowAutomation = () => {
           </div>
         </div>
       </section>
-    </main>
-  );
+    </main>;
 };
-
 export default WorkflowAutomation;
