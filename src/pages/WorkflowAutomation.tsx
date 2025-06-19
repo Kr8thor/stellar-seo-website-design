@@ -1,4 +1,6 @@
 import React from 'react';
+import { useSEO, seoConfigs } from '@/hooks/useSEO';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import { Link } from 'react-router-dom';
 import { ArrowRight, DollarSign, Users, Lightbulb, Workflow, Settings, CalendarClock, CheckCircle } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -7,8 +9,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const WorkflowAutomation = () => {
+  // Add SEO for this page
+  useSEO(seoConfigs.workflowAutomation);
+
   return (
     <main className="pt-24">
+      <Breadcrumbs />
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden">
         {/* Background */}

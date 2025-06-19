@@ -1,6 +1,4 @@
-// src/App.js or src/App.tsx
 
-// --- Imports ---
 import { ApolloProvider } from '@apollo/client';
 import { client } from '../lib/apolloClient';
 import React from "react";
@@ -14,6 +12,7 @@ import { WordPressProvider } from "./providers/WordPressProvider";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import SecurityHeaders from "./components/security/SecurityHeaders";
+import SEOProvider from "./components/seo/SEOProvider";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -76,27 +75,23 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
   }
 }
 
-// --- Query Client Setup with enhanced security ---
+// Query Client Setup
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 5 * 60 * 1000, // 5 minutes
-      gcTime: 10 * 60 * 1000, // 10 minutes (renamed from cacheTime)
+      staleTime: 5 * 60 * 1000,
+      gcTime: 10 * 60 * 1000,
       refetchOnWindowFocus: false,
       retry: 3,
-      // Add security headers to all requests
-      meta: {
-        errorPolicy: 'all'
-      }
     },
   },
 });
 
-// --- App Component ---
+// App Component - removed duplicate React.StrictMode
 const App = () => (
-  <React.StrictMode>
-    <ErrorBoundary>
-      <SecurityHeaders />
+  <ErrorBoundary>
+    <SecurityHeaders />
+    <SEOProvider>
       <QueryClientProvider client={queryClient}>
         <ApolloProvider client={client}> 
           <WordPressProvider>
@@ -118,7 +113,6 @@ const App = () => (
                       <Route path="/app-building" element={<AppBuilding />} />
                       <Route path="/case-study/:id" element={<CaseStudy />} />
                       <Route path="/workflow-automation" element={<WorkflowAutomation />} />
-                      {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                       <Route path="*" element={<NotFound />} />
                     </Routes>
                   </div>
@@ -129,8 +123,8 @@ const App = () => (
           </WordPressProvider>
         </ApolloProvider>
       </QueryClientProvider>
-    </ErrorBoundary>
-  </React.StrictMode>
+    </SEOProvider>
+  </ErrorBoundary>
 );
 
 export default App;
