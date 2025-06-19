@@ -32,8 +32,13 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
-        <Link to="/" className="font-heading text-2xl font-medium">
-          Marden SEO
+        <Link to="/" className="flex items-center space-x-3 group">
+          <img 
+            src="/lovable-uploads/a103d7ea-fa9e-4582-9d36-828eb4472ece.png" 
+            alt="Marden SEO Logo" 
+            className="h-8 w-8 transition-transform group-hover:scale-110"
+          />
+          <span className="font-heading text-2xl font-medium">Marden SEO</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -58,8 +63,13 @@ const Navbar = () => {
         } md:hidden`}>
           <div className="container mx-auto px-4 py-4 flex flex-col h-full bg-white">
             <div className="flex justify-between items-center">
-              <Link to="/" className="font-heading text-2xl font-medium" onClick={() => setIsMenuOpen(false)}>
-                Marden SEO
+              <Link to="/" className="flex items-center space-x-3" onClick={() => setIsMenuOpen(false)}>
+                <img 
+                  src="/lovable-uploads/a103d7ea-fa9e-4582-9d36-828eb4472ece.png" 
+                  alt="Marden SEO Logo" 
+                  className="h-8 w-8"
+                />
+                <span className="font-heading text-2xl font-medium">Marden SEO</span>
               </Link>
               <Button variant="ghost" size="icon" onClick={toggleMenu}>
                 <X className="h-6 w-6" />

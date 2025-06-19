@@ -9,7 +9,14 @@ const Footer = () => {
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
-            <h3 className="font-heading text-2xl mb-4">Marden SEO</h3>
+            <div className="flex items-center space-x-3 mb-4">
+              <img 
+                src="/lovable-uploads/a103d7ea-fa9e-4582-9d36-828eb4472ece.png" 
+                alt="Marden SEO Logo" 
+                className="h-8 w-8"
+              />
+              <h3 className="font-heading text-2xl">Marden SEO</h3>
+            </div>
             <p className="text-muted-foreground mb-6">
               Elevating your digital presence with data-driven SEO strategies and custom application development.
             </p>

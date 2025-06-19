@@ -15,6 +15,15 @@ const Home = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-background to-background/50"></div>
         </div>
         
+        {/* Logo Watermark */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 opacity-5">
+          <img 
+            src="/lovable-uploads/a103d7ea-fa9e-4582-9d36-828eb4472ece.png" 
+            alt="" 
+            className="w-96 h-96 object-contain"
+          />
+        </div>
+        
         {/* Content */}
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="max-w-3xl animate-fade-in">
@@ -182,8 +191,14 @@ const Home = () => {
                   
                   {/* Right Column */}
                   <div className="lg:w-1/2 bg-gradient-to-br from-purple-50 to-pink-50 p-8 md:p-12 relative">
-                    
-                    
+                    {/* Trust signal logo */}
+                    <div className="absolute top-6 right-6 opacity-20">
+                      <img 
+                        src="/lovable-uploads/a103d7ea-fa9e-4582-9d36-828eb4472ece.png" 
+                        alt="" 
+                        className="w-16 h-16 object-contain"
+                      />
+                    </div>
                     
                     <div className="bg-white/70 backdrop-blur-sm border border-purple-100 p-6 rounded-lg shadow-lg">
                       <h3 className="text-2xl font-bold mb-6 text-gray-800 border-b border-purple-100 pb-4">
@@ -214,7 +229,7 @@ const Home = () => {
                           </div>
                           <div>
                             <h4 className="font-bold text-gray-800">Action Plan</h4>
-                            <p className="text-gray-600">Detailed advice on what you need to do next. </p>
+                            <p className="text-gray-600">Detailed advice on what you need to do next. </p>
                           </div>
                         </li>
                       </ul>
@@ -233,8 +248,16 @@ const Home = () => {
       <section className="bg-accent/30 py-16 md:py-24 lg:py-32">
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-col md:flex-row gap-12">
-            <div className="md:w-1/2">
+            <div className="md:w-1/2 relative">
               <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f" alt="SEO case study results" className="w-full h-96 object-cover rounded-lg" />
+              {/* Brand signature */}
+              <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm p-2 rounded-lg shadow-sm">
+                <img 
+                  src="/lovable-uploads/a103d7ea-fa9e-4582-9d36-828eb4472ece.png" 
+                  alt="Marden SEO" 
+                  className="w-8 h-8 object-contain opacity-60"
+                />
+              </div>
             </div>
             <div className="md:w-1/2 flex flex-col justify-center">
               <h2 className="heading-lg mb-6">Case Study: 300% Traffic Growth</h2>

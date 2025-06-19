@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
@@ -6,14 +7,24 @@ const Services = () => {
   return <main className="pt-24">
       {/* Hero Section */}
       <section className="section-container">
-        <div className="text-center max-w-3xl mx-auto animate-fade-in">
-          <h1 className="heading-lg mb-6">SEO Services</h1>
-          <p className="text-xl text-muted-foreground mb-8">
-            Comprehensive search engine optimization services designed to improve your visibility, drive qualified traffic, and increase conversions.
-          </p>
-          <Button asChild size="lg">
-            <Link to="/contact">Get a Free Consultation</Link>
-          </Button>
+        <div className="text-center max-w-3xl mx-auto animate-fade-in relative">
+          {/* Background logo */}
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-8 opacity-10 z-0">
+            <img 
+              src="/lovable-uploads/a103d7ea-fa9e-4582-9d36-828eb4472ece.png" 
+              alt="" 
+              className="w-32 h-32 object-contain"
+            />
+          </div>
+          <div className="relative z-10">
+            <h1 className="heading-lg mb-6">SEO Services</h1>
+            <p className="text-xl text-muted-foreground mb-8">
+              Comprehensive search engine optimization services designed to improve your visibility, drive qualified traffic, and increase conversions.
+            </p>
+            <Button asChild size="lg">
+              <Link to="/contact">Get a Free Consultation</Link>
+            </Button>
+          </div>
         </div>
       </section>
       
