@@ -461,7 +461,7 @@ const WorkflowAutomation = () => {
                 <CardDescription>Perfect for small businesses and startups</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-4xl font-bold">$1,499</p>
+                <p className="text-4xl font-bold">$1,199</p>
                 <p className="text-sm text-muted-foreground">Starting price</p>
                 <ul className="space-y-2">
                   <li className="flex items-start">
@@ -500,7 +500,7 @@ const WorkflowAutomation = () => {
                 <CardDescription>For established businesses with complex needs</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-4xl font-bold">$3,499</p>
+                <p className="text-4xl font-bold">$2,499</p>
                 <p className="text-sm text-muted-foreground">Starting price</p>
                 <ul className="space-y-2">
                   <li className="flex items-start">
