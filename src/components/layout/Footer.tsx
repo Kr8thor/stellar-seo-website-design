@@ -1,20 +1,13 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Github } from 'lucide-react';
-
 const Footer = () => {
-  return (
-    <footer className="bg-secondary py-16 md:py-24">
+  return <footer className="bg-secondary py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
             <div className="flex items-center space-x-3 mb-4">
-              <img 
-                src="/lovable-uploads/a103d7ea-fa9e-4582-9d36-828eb4472ece.png" 
-                alt="Marden SEO Logo" 
-                className="h-8 w-8"
-              />
+              <img alt="Marden SEO Logo" className="h-8 w-8" src="/lovable-uploads/e9f1c2da-1a67-40f7-834f-3329774e4abb.png" />
               <h3 className="font-heading text-2xl">Marden SEO</h3>
             </div>
             <p className="text-muted-foreground mb-6">
@@ -45,8 +38,6 @@ const Footer = () => {
           <p>&copy; {new Date().getFullYear()} Marden SEO. All rights reserved.</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
