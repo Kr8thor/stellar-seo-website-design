@@ -17,15 +17,26 @@ const WorkflowAutomation = () => {
       
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden">
+        {/* Background Image (shows before video loads) */}
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('/lovable-uploads/cfbffaed-dca4-4866-8714-42f6bc4c10ec.png')`
+          }}
+        >
+          {/* Background overlay for the image */}
+          <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60"></div>
+        </div>
+
         {/* Video Background */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-10">
           <video 
             autoPlay 
             loop 
             muted 
             playsInline 
             className="w-full h-full object-cover"
-            poster="https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=1920&q=80"
+            poster="/lovable-uploads/cfbffaed-dca4-4866-8714-42f6bc4c10ec.png"
           >
             <source src="/n8n.mp4" type="video/mp4" />
             {/* Fallback for browsers that don't support video */}
@@ -36,7 +47,7 @@ const WorkflowAutomation = () => {
         </div>
         
         {/* Content */}
-        <div className="container mx-auto px-4 md:px-8 relative z-10">
+        <div className="container mx-auto px-4 md:px-8 relative z-20">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
             <div className="inline-flex items-center justify-center p-2 bg-white/10 backdrop-blur-sm rounded-full mb-6 border border-white/20">
               <Workflow className="h-8 w-8 text-white" />
