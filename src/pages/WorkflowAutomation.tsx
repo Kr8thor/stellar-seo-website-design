@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useSEO, seoConfigs } from '@/hooks/useSEO';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
@@ -18,38 +17,37 @@ const WorkflowAutomation = () => {
       
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden">
-        {/* Background */}
+        {/* Video Background */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-100 via-pink-50 to-amber-50">
-            <div className="absolute inset-0 opacity-20">
-              <svg className="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <defs>
-                  <radialGradient id="radialGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-                    <stop offset="0%" stopColor="rgba(124, 58, 237, 0.5)" />
-                    <stop offset="70%" stopColor="rgba(236, 72, 153, 0.3)" />
-                    <stop offset="100%" stopColor="rgba(245, 158, 11, 0.2)" />
-                  </radialGradient>
-                </defs>
-                <path d="M0 0 Q50 100 100 0 L100 100 0 100" fill="url(#radialGradient)" />
-              </svg>
-            </div>
-            <div className="absolute top-0 left-0 w-full h-full bg-grid-pattern opacity-10"></div>
-          </div>
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            className="w-full h-full object-cover"
+            poster="https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=1920&q=80"
+          >
+            <source src="/n8n.mp4" type="video/mp4" />
+            {/* Fallback for browsers that don't support video */}
+          </video>
+          
+          {/* Video Overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60"></div>
         </div>
         
         {/* Content */}
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <div className="inline-flex items-center justify-center p-2 bg-purple-100 rounded-full mb-6">
-              <Workflow className="h-8 w-8 text-purple-700" />
+            <div className="inline-flex items-center justify-center p-2 bg-white/10 backdrop-blur-sm rounded-full mb-6 border border-white/20">
+              <Workflow className="h-8 w-8 text-white" />
             </div>
-            <h1 className="heading-xl mb-6 text-gradient-purple">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white drop-shadow-lg">
               Custom n8n Workflow Automation
             </h1>
-            <p className="text-xl md:text-2xl mb-10 text-gray-700 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl mb-10 text-gray-100 max-w-3xl mx-auto drop-shadow-md">
               Reduce costs, minimize hiring needs, and solve business challenges with custom automation solutions
             </p>
-            <Button asChild size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 text-white border-none hover:opacity-90">
+            <Button asChild size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 text-white border-none hover:opacity-90 shadow-lg">
               <a href="#contact" className="group flex items-center gap-2">
                 Get Your Custom Workflow
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
