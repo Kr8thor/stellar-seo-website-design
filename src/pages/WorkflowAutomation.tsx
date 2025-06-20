@@ -8,7 +8,6 @@ import { Card, CardContent, CardHeader, CardFooter, CardTitle, CardDescription }
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
-
 const WorkflowAutomation = () => {
   // Add SEO for this page
   useSEO(seoConfigs.workflowAutomation);
@@ -18,26 +17,16 @@ const WorkflowAutomation = () => {
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden">
         {/* Background Image (shows before video loads) */}
-        <div 
-          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('/lovable-uploads/cfbffaed-dca4-4866-8714-42f6bc4c10ec.png')`
-          }}
-        >
+        <div className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat" style={{
+        backgroundImage: `url('/lovable-uploads/cfbffaed-dca4-4866-8714-42f6bc4c10ec.png')`
+      }}>
           {/* Background overlay for the image */}
           <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60"></div>
         </div>
 
         {/* Video Background */}
         <div className="absolute inset-0 z-10">
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline 
-            className="w-full h-full object-cover"
-            poster="/lovable-uploads/cfbffaed-dca4-4866-8714-42f6bc4c10ec.png"
-          >
+          <video autoPlay loop muted playsInline className="w-full h-full object-cover" poster="/lovable-uploads/cfbffaed-dca4-4866-8714-42f6bc4c10ec.png">
             <source src="/n8n.mp4" type="video/mp4" />
             {/* Fallback for browsers that don't support video */}
           </video>
@@ -280,7 +269,7 @@ const WorkflowAutomation = () => {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <img src="https://images.unsplash.com/photo-1607703703674-df96941cfa40" alt="n8n CRM workflow" className="rounded-lg shadow-lg w-full h-auto border border-gray-200" />
+                    <img alt="n8n CRM workflow" className="rounded-lg shadow-lg w-full h-auto border border-gray-200" src="/lovable-uploads/c8a83efc-65be-4fc1-8e32-30cf21136902.png" />
                   </div>
                 </div>
               </TabsContent>
