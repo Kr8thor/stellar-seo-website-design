@@ -2,8 +2,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Calendar, Clock, Tag, Award } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { Helmet } from 'react-helmet';
+import { getPostContent, getPostMeta } from '@/data/blogPostRegistry';
 
 export type BlogPostProps = {
   id: number | string;
@@ -18,13 +19,19 @@ export type BlogPostProps = {
 };
 
 const BlogPost = ({ post }: { post: BlogPostProps }) => {
-  const isFeaturedArticle = post.id === 'featured';
+  // Check if this post exists in the new registry system
+  const postMeta = getPostMeta(post.id);
+  const postContent = getPostContent(post.id);
+  
+  // Use registry data if available, otherwise fall back to legacy props
+  const displayPost = postMeta ? { ...postMeta, content: postContent } : post;
+  const isFeaturedArticle = displayPost.id === 'featured';
   
   return (
-    <article className="max-w-4xl mx-auto blog-post-article">
+    <>
       <Helmet>
-        <title>{post.title} | Marden SEO Blog</title>
-        <meta name="description" content={typeof post.excerpt === 'string' ? post.excerpt.substring(0, 160) : 'Blog post by Marden SEO'} />
+        <title>{displayPost.title} | Marden SEO Blog</title>
+        <meta name="description" content={typeof displayPost.excerpt === 'string' ? displayPost.excerpt.substring(0, 160) : 'Blog post by Marden SEO'} />
       </Helmet>
       
       {/* Back button */}
@@ -37,55 +44,9 @@ const BlogPost = ({ post }: { post: BlogPostProps }) => {
         </Button>
       </div>
       
-      {/* Post Header */}
-      <header className={`mb-8 ${isFeaturedArticle ? 'text-center' : ''}`}>
-        {isFeaturedArticle && (
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <Award className="h-5 w-5 text-amber-500" />
-            <span className="text-amber-500 font-medium">Featured Article</span>
-          </div>
-        )}
-        
-        <div className={`flex items-center gap-4 mb-4 text-sm text-muted-foreground ${isFeaturedArticle ? 'justify-center' : ''}`}>
-          <span className="bg-accent/50 text-accent-foreground px-3 py-1 rounded">
-            {post.category}
-          </span>
-          <div className="flex items-center">
-            <Calendar className="h-4 w-4 mr-1" />
-            {post.date}
-          </div>
-          <div className="flex items-center">
-            <Clock className="h-4 w-4 mr-1" />
-            {post.readTime}
-          </div>
-        </div>
-        
-        <h1 className={`heading-lg mb-6 ${isFeaturedArticle ? 'max-w-3xl mx-auto' : ''}`}>{post.title}</h1>
-        
-        {post.author && (
-          <div className={`flex items-center ${isFeaturedArticle ? 'justify-center' : ''} gap-3`}>
-            <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center text-lg uppercase font-medium">
-              {post.author[0]}
-            </div>
-            <span>By {post.author}</span>
-          </div>
-        )}
-      </header>
-      
-      {/* Featured Image */}
-      <div className="mb-10">
-        <img 
-          src={post.image} 
-          alt={post.title} 
-          className="w-full h-auto rounded-lg shadow-md object-cover aspect-video max-h-[500px]"
-        />
-      </div>
-      
-      {/* Post Content */}
-      <div className="prose prose-lg max-w-none blog-content">
-        {post.content}
-      </div>
-    </article>
+      {/* Render the component-based content or legacy content */}
+      {postContent || displayPost.content}
+    </>
   );
 };
 
