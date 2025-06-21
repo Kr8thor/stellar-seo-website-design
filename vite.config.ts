@@ -22,16 +22,4 @@ export default defineConfig({
     assetsDir: 'assets',
     copyPublicDir: true,
   },
-  // Add optimizeDeps to force rebuild of dependencies
-  optimizeDeps: {
-    force: true,
-    include: [
-      'react',
-      'react-dom',
-      'react-router-dom',
-      '@tanstack/react-query',
-      '@apollo/client',
-      'graphql'
-    ]
-  },
 });
