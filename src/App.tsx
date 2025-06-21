@@ -87,7 +87,7 @@ const queryClient = new QueryClient({
   },
 });
 
-// App Component with Lovable Tagger Integration via Vite Plugin
+// App Component - Visual editing enabled via Vite plugin
 const App = () => (
   <ErrorBoundary>
     <SecurityHeaders />

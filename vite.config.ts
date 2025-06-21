@@ -12,6 +12,7 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
+    // Enable component tagger in development mode for visual editing
     mode === 'development' && componentTagger(),
   ].filter(Boolean),
   resolve: {
@@ -25,5 +26,9 @@ export default defineConfig(({ mode }) => ({
     outDir: 'dist',
     assetsDir: 'assets',
     copyPublicDir: true,
+  },
+  // Ensure proper development mode detection
+  define: {
+    'process.env.NODE_ENV': JSON.stringify(mode),
   },
 }));
