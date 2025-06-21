@@ -5,6 +5,183 @@ import { BlogPostProps } from '@/components/blog/BlogPost';
 export const blogPosts: BlogPostProps[] = [
   {
     id: 'featured',
+    title: "From Google Whisperer to AI Prophet: An SEO's Midlife Crisis",
+    category: "AI & SEO",
+    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    date: "June 21, 2025",
+    readTime: "12 min read",
+    author: "Leo Corbett",
+    excerpt: "The era of traditional SEO is officially over. ChatGPT and AI have fundamentally changed how people find information, and your old playbook won't save you.",
+    content: (
+      <React.Fragment>
+        <p className="text-xl leading-relaxed mb-8">
+          Once upon a time, in the kingdom of the Internet, Google was Macbeth - the conniving king but in-charge nevertheless. You wrote a blog post, sprinkled a few keywords into the bubbling pot like SEO glitter, prayed to the algorithm gods, and waited. Sometimes it worked. Sometimes it didn't. But the process was predictable, like a bad sitcom with a laugh track: Write good stuff, get traffic, convert visitors, make money.
+        </p>
+
+        <p className="mb-6">
+          That era is officially over. Macbeth is bleeding out on the castle steps. And the assassin? It's ChatGPT. And its friends Gemini, Perplexity, and every other LLM that's rewiring how humans find and trust information.
+        </p>
+
+        <div className="bg-red-50 border-l-4 border-red-500 p-4 my-8 rounded-r-md">
+          <p className="italic text-red-800 font-medium">
+            "The witches have cackled, made their prediction and now fate awaits!"
+          </p>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="AI and traditional computing clash" className="rounded-lg shadow-md my-8 w-full" />
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4">RIP Blue Links, Long Live The Prompt</h2>
+        <p className="mb-6">
+          Google took 13 years to reach a billion users. ChatGPT did it in 2.5. That's not growth. That's a detonation. People are no longer googling "best CRM software." They're telling ChatGPT, "Hey, I run a failing ad agency in Des Moines. Give me three CRMs that won't make me cry blood."
+        </p>
+
+        <p className="font-medium mb-8">
+          And ChatGPT delivers. Fast. Personalized. No ads. No scrolling. No clickbait. Just answers.
+        </p>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">The Buyer Journey Isn't a Funnel Anymore. It's a Slingshot.</h2>
+        <p className="mb-6">
+          You know how we used to woo leads? Ten-step blog funnels. Lead magnets. Nurture emails that made your soul die a little. Not anymore. Today, users go from "I'm vaguely curious" to "I've picked my vendor" in one conversation with an LLM.
+        </p>
+
+        <p className="mb-8">
+          Asia Frost from HubSpot sees this happening constantly. Actual sales calls where prospects say, "ChatGPT told me you were the best, so I'm here. Let's go." If that doesn't make your marketing team panic-laugh, check their pulse.
+        </p>
+
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Code and AI programming interface" className="rounded-lg shadow-md my-8 w-full" />
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">LLM Visitors Are 4x More Valuable Than Google Traffic (And Probably Better People Too)</h2>
+        <p className="mb-6">
+          SEMrush has data showing that LLM-sourced visitors convert 4 times more than your average organic search clicker. Why? Because these aren't looky-loos. They're pre-qualified by an AI that's already walked them through their problem, vetted options, and nudged them to you.
+        </p>
+
+        <div className="bg-green-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-green-800 mb-4">The New Reality:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-green-800">
+            <li>By the time they land on your site, they're ready to talk or buy</li>
+            <li>No fluff. No funnel. Just finish the sale.</li>
+            <li>Pre-qualified leads with actual intent</li>
+            <li>Higher conversion rates across the board</li>
+          </ul>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Your Website Isn't Being Cited. Reddit Is. So Is Some Random Blog Called Kevin's CRM Cave.</h2>
+        <p className="mb-6">
+          Here's the bad news: Only 9% of LLM results link to vendor sites. That means your lovingly optimized blog probably isn't showing up. Instead, LLMs cite Reddit threads, aggregator sites, and low-authority blogs that happen to be well-structured, specific, and context-rich.
+        </p>
+
+        <p className="font-medium mb-8">
+          The good news? This is a reset. You're no longer competing with million-dollar domain authority. You're competing with specificity. LLMs don't care if you're Forbes or Fred's Funnel Factory. They care if your page nails the context of the query.
+        </p>
+
+        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Woman working on laptop with AI interface" className="rounded-lg shadow-md my-8 w-full" />
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">You Need 300 Pages. Not 3. And They Need to Say Something Useful.</h2>
+        <p className="mb-6">
+          We used to aim for a few high-ranking articles that covered big keywords. Now? You need hyper-specific content at scale. Think: "Best CRM for 3-person construction firms in Alberta struggling with duplicate leads."
+        </p>
+
+        <p className="mb-6">
+          To do that, you need systems. AI-powered ones. You're not going to write 300 high-context pages by hand unless you enjoy wrist pain and existential despair. So build workflows that generate personalized, data-driven content for each persona, each use case.
+        </p>
+
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-8 rounded-r-md">
+          <p className="italic text-blue-800">
+            And if you're wondering what kind of content LLMs love: they're obsessed with original data. Not just stats from surveys. They want <strong>your</strong> data. Your customer insights. Your real-world outcomes.
+          </p>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">SEO Is No Longer About Ranking. It's About Showing Up in AI Answers.</h2>
+        <p className="mb-6">
+          HubSpot's growth team is already measuring <strong>visibility</strong> in ChatGPT and Gemini. They're tracking which queries their brand appears in, not how many backlinks they've got. Why? Because when AI is the interface, it doesn't matter what page you're on. It matters if you're in the conversation at all.
+        </p>
+
+        <p className="font-medium mb-8">
+          The new metric isn't traffic. It's share of voice in AI results.
+        </p>
+
+        <img src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Colorful code on computer screen representing AI and web development" className="rounded-lg shadow-md my-8 w-full" />
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">And Forget Backlinks. You Need Co-Citations Now.</h2>
+        <p className="mb-6">
+          LLMs don't care about anchor text and PageRank. They care if your brand gets mentioned enough in the right context. HubSpot doesn't care about getting links anymore. They care about being named alongside the term "CRM" in every place ChatGPT pulls from.
+        </p>
+
+        <p className="mb-6">
+          Your goal is to get your brand mentioned in Reddit, Quora, comparison blogs, and weird niche directories that LLMs love like raccoons love garbage bins.
+        </p>
+
+        <div className="bg-amber-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-amber-800 mb-4">Pro tip:</h3>
+          <p className="text-amber-800">Use tools like Xfunnel to find out where LLMs are pulling from. Then get yourself in there. Email the site owners. Submit guest content. Bribe them with merch. Just get in the citation pool.</p>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">What You Should Do Before AI Eats Your Lunch and Invites Your Competitor Over</h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-purple-700 mb-3">1. Define Your Personas</h3>
+            <p>Like you're writing a dating profile. No vague demographics. Real problems, roles, context.</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-green-700 mb-3">2. Create AI-Powered Systems</h3>
+            <p>Build content systems that can produce niche content faster than your competitors can blink.</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-blue-700 mb-3">3. Use Your Customer Data</h3>
+            <p>Find the unique proof points that make your product better for specific use cases.</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-red-700 mb-3">4. Track Visibility, Not Visits</h3>
+            <p>SEO traffic is a ghost. AI mentions are the new gold.</p>
+          </div>
+        </div>
+
+        <p className="font-medium mb-8">
+          5. <strong>Dominate co-citations.</strong> Get mentioned in LLM-friendly sites until you're the default answer.
+        </p>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Final Thought: AI Isn't a Trend. It's a Bulldozer.</h2>
+        <p className="mb-6">
+          This is your chance to get ahead while everyone else is still updating their Yoast plugin and crying into a spreadsheet.
+        </p>
+
+        <p className="mb-6">
+          AI search optimization isn't SEO 2.0. It's a new species. One that rewards agility, specificity, and a whole new set of instincts. You can't cling to the old playbook anymore.
+        </p>
+
+        <p className="font-medium mb-8">
+          It's time to stop chasing clicks and start chasing citations.
+        </p>
+
+        <div className="bg-gray-100 p-6 rounded-lg my-8">
+          <p className="italic text-gray-800 mb-4">
+            "Double, double toil and trouble; Fire burn and cauldron bubble." Listen to the witches prophecy (this blog article) and avoid the fateful death of your SEO game.
+          </p>
+          <p className="font-medium">You're not optimizing content. You're training AI to say your name.</p>
+          <p className="mt-4 text-xl font-bold">Do it well, and you won't just rank. You'll rule.</p>
+        </div>
+
+        <div className="bg-gray-100 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">About the Author</h3>
+          <div className="flex items-center">
+            <div className="h-16 w-16 rounded-full bg-purple-100 flex items-center justify-center text-xl font-medium text-purple-700 mr-4">
+              LC
+            </div>
+            <div>
+              <p className="font-medium">Leo Corbett</p>
+              <p className="text-sm text-gray-600">An AI-first automation specialist and SEO expert who builds high-performance systems that scale businesses while eliminating inefficiencies.</p>
+            </div>
+          </div>
+        </div>
+      </React.Fragment>
+    ),
+  },
+  {
+    id: 'eat-guide',
     title: "The Complete Guide to E-E-A-T: How Experience, Expertise, Authoritativeness, and Trustworthiness Impact SEO",
     category: "SEO Strategy",
     image: "https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
