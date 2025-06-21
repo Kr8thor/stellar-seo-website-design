@@ -12,9 +12,9 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    // Enable component tagger in development mode for visual editing
-    mode === 'development' && componentTagger(),
-  ].filter(Boolean),
+    // Always enable component tagger in development for visual editing
+    componentTagger(),
+  ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -30,5 +30,6 @@ export default defineConfig(({ mode }) => ({
   // Ensure proper development mode detection
   define: {
     'process.env.NODE_ENV': JSON.stringify(mode),
+    '__DEV__': mode === 'development',
   },
 }));
