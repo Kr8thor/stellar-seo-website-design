@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { BlogPostProps } from '@/components/blog/BlogPost';
 
@@ -118,7 +117,7 @@ export const blogPosts: BlogPostProps[] = [
 
         <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">What You Should Do Before AI Eats Your Lunch and Invites Your Competitor Over</h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
           <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
             <h3 className="text-lg font-semibold text-purple-700 mb-3">1. Define Your Personas</h3>
             <p>Like you're writing a dating profile. No vague demographics. Real problems, roles, context.</p>
@@ -133,10 +132,17 @@ export const blogPosts: BlogPostProps[] = [
             <h3 className="text-lg font-semibold text-blue-700 mb-3">3. Use Your Customer Data</h3>
             <p>Find the unique proof points that make your product better for specific use cases.</p>
           </div>
-          
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
           <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
             <h3 className="text-lg font-semibold text-red-700 mb-3">4. Track Visibility, Not Visits</h3>
             <p>SEO traffic is a ghost. AI mentions are the new gold.</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-amber-700 mb-3">5. Dominate Co-Citations</h3>
+            <p>Get mentioned in LLM-friendly sites until you're the default answer.</p>
           </div>
         </div>
 
