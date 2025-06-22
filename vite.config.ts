@@ -5,31 +5,39 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
-  server: {
-    host: "::",
-    port: 8080,
-  },
-  plugins: [
-    react(),
-    // Always enable component tagger in development for visual editing
-    componentTagger(),
-  ],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
+export default defineConfig(({ mode }) => {
+  console.log('Vite mode:', mode);
+  console.log('Component tagger plugin loading...');
+  
+  return {
+    server: {
+      host: "::",
+      port: 8080,
     },
-  },
-  // Ensure .htaccess is copied to dist folder
-  publicDir: 'public',
-  build: {
-    outDir: 'dist',
-    assetsDir: 'assets',
-    copyPublicDir: true,
-  },
-  // Ensure proper development mode detection
-  define: {
-    'process.env.NODE_ENV': JSON.stringify(mode),
-    '__DEV__': mode === 'development',
-  },
-}));
+    plugins: [
+      react(),
+      // Always enable component tagger with explicit options
+      componentTagger({
+        enabled: mode === 'development',
+        debug: true,
+      }),
+    ],
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "./src"),
+      },
+    },
+    // Ensure .htaccess is copied to dist folder
+    publicDir: 'public',
+    build: {
+      outDir: 'dist',
+      assetsDir: 'assets',
+      copyPublicDir: true,
+    },
+    // Ensure proper development mode detection
+    define: {
+      'process.env.NODE_ENV': JSON.stringify(mode),
+      '__DEV__': mode === 'development',
+    },
+  };
+});

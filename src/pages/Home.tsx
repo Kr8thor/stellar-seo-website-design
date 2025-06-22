@@ -1,14 +1,22 @@
-
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, BarChart3, Search, Zap, Award, Globe2, Users, FileSearch, TrendingUp, CheckCircle, Calendar, Gift, Clock, Workflow } from 'lucide-react';
+import React from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { ArrowRight, Code, Palette, Zap, Users, TrendingUp, CheckCircle } from "lucide-react";
+import { Link } from "react-router-dom";
+import PluginTest from "@/components/test/PluginTest";
 
 const Home = () => {
-  return <main>
+  console.log('Home component rendering, DEV mode:', typeof window !== 'undefined' && (window as any).__DEV__);
+  
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      {/* Debug component to test plugin */}
+      {process.env.NODE_ENV === 'development' && <PluginTest />}
+      
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      <section className="container mx-auto px-4 py-20 text-center relative">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" alt="SEO optimization workspace" className="w-full h-full object-cover opacity-20" />
@@ -26,26 +34,41 @@ const Home = () => {
         
         {/* Content */}
         <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className="max-w-3xl animate-fade-in">
-            <h1 className="heading-xl mb-6">
-              Strategic SEO Solutions for Digital Success
+          <div className="max-w-4xl mx-auto">
+            <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-6">
+              Transform Your Business with AI-Powered Solutions
             </h1>
-            <p className="text-xl md:text-2xl mb-10 text-muted-foreground">
-              Elevate your online presence with data-driven strategies that drive organic traffic, improve rankings, and increase conversions.
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              We specialize in custom AI automation, modern web applications, and workflow optimization 
+              that help businesses scale efficiently and stay ahead of the competition.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Button asChild size="lg">
-                <Link to="/contact">Get a Free Consultation</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link to="/services">Explore Services</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 text-white border-none hover:opacity-90">
-                <Link to="/workflow-automation" className="flex items-center gap-2">
-                  <Workflow className="h-5 w-5" />
-                  <span>Automate Your Business with n8n</span>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+                <Link to="/contact">
+                  Get Started <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
+              <Button asChild variant="outline" size="lg">
+                <Link to="/portfolio">
+                  View Our Work
+                </Link>
+              </Button>
+            </div>
+            
+            {/* Trust Indicators */}
+            <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-4 w-4 text-green-500" />
+                <span>100+ Projects Delivered</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-4 w-4 text-green-500" />
+                <span>99% Client Satisfaction</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-4 w-4 text-green-500" />
+                <span>24/7 Support</span>
+              </div>
             </div>
           </div>
         </div>
@@ -284,6 +307,8 @@ const Home = () => {
           </Button>
         </div>
       </section>
-    </main>;
+    </div>
+  );
 };
+
 export default Home;
