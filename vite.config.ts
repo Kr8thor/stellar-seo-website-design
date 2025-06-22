@@ -12,21 +12,18 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    componentTagger(),
-  ],
+    mode === 'development' && componentTagger(),
+  ].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // Ensure .htaccess is copied to dist folder
   publicDir: 'public',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
     copyPublicDir: true,
-  },
-  define: {
-    'process.env.NODE_ENV': JSON.stringify(mode),
-    '__DEV__': mode === 'development',
   },
 }));

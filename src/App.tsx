@@ -87,7 +87,7 @@ const queryClient = new QueryClient({
   },
 });
 
-// App Component - Visual editing enabled via Vite plugin
+// App Component - removed duplicate React.StrictMode
 const App = () => (
   <ErrorBoundary>
     <SecurityHeaders />

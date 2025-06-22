@@ -1,15 +1,14 @@
 
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, BarChart3, Search, Zap, Award, Globe2, Users, FileSearch, TrendingUp, CheckCircle, Calendar, Gift, Clock, Workflow } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, CheckCircle, Search, Globe2, BarChart3, Award, Gift, Calendar, Clock, Zap, Users } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const Home = () => {
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+  return <main>
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-20 text-center relative">
+      <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" alt="SEO optimization workspace" className="w-full h-full object-cover opacity-20" />
@@ -27,41 +26,26 @@ const Home = () => {
         
         {/* Content */}
         <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-6">
+          <div className="max-w-3xl animate-fade-in">
+            <h1 className="heading-xl mb-6">
               Strategic SEO Solutions for Digital Success
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              We specialize in comprehensive SEO strategies, technical optimization, and data-driven campaigns 
-              that help businesses dominate search results and increase organic traffic.
+            <p className="text-xl md:text-2xl mb-10 text-muted-foreground">
+              Elevate your online presence with data-driven strategies that drive organic traffic, improve rankings, and increase conversions.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
-                <Link to="/contact">
-                  Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
+            <div className="flex flex-wrap gap-4">
+              <Button asChild size="lg">
+                <Link to="/contact">Get a Free Consultation</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link to="/portfolio">
-                  View Our Work
+                <Link to="/services">Explore Services</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 text-white border-none hover:opacity-90">
+                <Link to="/workflow-automation" className="flex items-center gap-2">
+                  <Workflow className="h-5 w-5" />
+                  <span>Automate Your Business with n8n</span>
                 </Link>
               </Button>
-            </div>
-            
-            {/* Trust Indicators */}
-            <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                <span>100+ Projects Delivered</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                <span>99% Client Satisfaction</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                <span>24/7 Support</span>
-              </div>
             </div>
           </div>
         </div>
@@ -155,6 +139,8 @@ const Home = () => {
           
           <div className="max-w-7xl mx-auto">
             <Card className="border-0 shadow-xl bg-white/90 backdrop-blur-sm overflow-hidden relative transform hover:scale-[1.01] transition-all duration-300">
+              
+              
               <CardContent className="p-0">
                 <div className="flex flex-col lg:flex-row">
                   {/* Left Column */}
@@ -243,10 +229,12 @@ const Home = () => {
                           </div>
                           <div>
                             <h4 className="font-bold text-gray-800">Action Plan</h4>
-                            <p className="text-gray-600">Detailed advice on what you need to do next.</p>
+                            <p className="text-gray-600">Detailed advice on what you need to do next. </p>
                           </div>
                         </li>
                       </ul>
+                      
+                      
                     </div>
                   </div>
                 </div>
@@ -296,8 +284,6 @@ const Home = () => {
           </Button>
         </div>
       </section>
-    </div>
-  );
+    </main>;
 };
-
 export default Home;
