@@ -17,11 +17,8 @@ export default defineConfig(({ mode }) => {
     plugins: [
       react(),
       // Always enable component tagger with explicit options
-      componentTagger({
-        enabled: mode === 'development',
-        debug: true,
-      }),
-    ],
+      mode === 'development' && componentTagger(),
+    ].filter(Boolean),
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
