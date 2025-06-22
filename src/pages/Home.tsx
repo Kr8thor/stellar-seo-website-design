@@ -6,16 +6,10 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { ArrowRight, Code, Palette, Zap, Users, TrendingUp, CheckCircle, Search, Globe2, BarChart3, Award, Gift, Calendar, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
-import PluginTest from "@/components/test/PluginTest";
 
 const Home = () => {
-  console.log('Home component rendering, DEV mode:', typeof window !== 'undefined' && (window as any).__DEV__);
-  
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
-      {/* Debug component to test plugin */}
-      {process.env.NODE_ENV === 'development' && <PluginTest />}
-      
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-20 text-center relative">
         {/* Background Image */}

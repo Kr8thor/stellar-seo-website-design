@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -6,15 +7,6 @@ import { Menu, X, Code, Palette, Zap } from 'lucide-react';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-
-  // Debug: Check if plugin attributes are being added
-  React.useEffect(() => {
-    if (process.env.NODE_ENV === 'development') {
-      console.log('Checking for data-lov attributes in navbar...');
-      const elementsWithLovData = document.querySelectorAll('[data-lov-id]');
-      console.log('Found elements with data-lov-id:', elementsWithLovData.length);
-    }
-  }, []);
 
   const navigation = [
     { name: 'Home', href: '/' },

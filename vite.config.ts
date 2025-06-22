@@ -6,19 +6,30 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  console.log('Vite mode:', mode);
-  console.log('Component tagger plugin loading...');
+  console.log('Vite config: mode =', mode);
+  
+  const plugins = [react()];
+  
+  // Add component tagger only in development mode
+  if (mode === 'development') {
+    try {
+      console.log('Adding componentTagger plugin...');
+      plugins.push(componentTagger({
+        enabled: true,
+        debug: true,
+      }));
+      console.log('componentTagger plugin added successfully');
+    } catch (error) {
+      console.error('Failed to load componentTagger plugin:', error);
+    }
+  }
   
   return {
     server: {
       host: "::",
       port: 8080,
     },
-    plugins: [
-      react(),
-      // Always enable component tagger with explicit options
-      mode === 'development' && componentTagger(),
-    ].filter(Boolean),
+    plugins,
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
