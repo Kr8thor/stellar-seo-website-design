@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Code, Palette, Zap } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,6 +15,8 @@ const Navbar = () => {
     { name: 'Portfolio', href: '/portfolio' },
     { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' },
+    { name: 'Workflow Automation', href: '/workflow-automation' },
+    { name: 'App Building', href: '/app-building' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -23,8 +25,7 @@ const Navbar = () => {
     <nav className="bg-white/95 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-200">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <Link to="/" className="flex items-center font-bold text-lg md:text-2xl">
-          {/* You can replace this with your logo */}
-          YourBrand
+          Marden SEO
         </Link>
 
         {/* Mobile Menu Button */}
@@ -65,7 +66,7 @@ const Navbar = () => {
                 className={`text-gray-700 hover:text-primary transition-colors duration-200 ${
                   isActive(item.href) ? 'text-primary font-semibold' : ''
                 }`}
-                onClick={() => setIsOpen(false)} // Close menu on click
+                onClick={() => setIsOpen(false)}
               >
                 {item.name}
               </Link>

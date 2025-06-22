@@ -1,10 +1,7 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import { ArrowRight, Code, Palette, Zap, Users, TrendingUp, CheckCircle, Search, Globe2, BarChart3, Award, Gift, Calendar, Clock } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { ArrowRight, CheckCircle, Search, Globe2, BarChart3, Award, Gift, Calendar, Clock, Zap, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -31,11 +28,11 @@ const Home = () => {
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-6">
-              Transform Your Business with AI-Powered Solutions
+              Strategic SEO Solutions for Digital Success
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              We specialize in custom AI automation, modern web applications, and workflow optimization 
-              that help businesses scale efficiently and stay ahead of the competition.
+              We specialize in comprehensive SEO strategies, technical optimization, and data-driven campaigns 
+              that help businesses dominate search results and increase organic traffic.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
@@ -157,8 +154,6 @@ const Home = () => {
           
           <div className="max-w-7xl mx-auto">
             <Card className="border-0 shadow-xl bg-white/90 backdrop-blur-sm overflow-hidden relative transform hover:scale-[1.01] transition-all duration-300">
-              
-              
               <CardContent className="p-0">
                 <div className="flex flex-col lg:flex-row">
                   {/* Left Column */}
@@ -247,12 +242,10 @@ const Home = () => {
                           </div>
                           <div>
                             <h4 className="font-bold text-gray-800">Action Plan</h4>
-                            <p className="text-gray-600">Detailed advice on what you need to do next. </p>
+                            <p className="text-gray-600">Detailed advice on what you need to do next.</p>
                           </div>
                         </li>
                       </ul>
-                      
-                      
                     </div>
                   </div>
                 </div>
