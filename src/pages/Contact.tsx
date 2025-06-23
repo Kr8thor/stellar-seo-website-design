@@ -6,8 +6,12 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { validateContactForm, checkClientRateLimit } from '@/lib/security';
 import { securityMonitor } from '@/lib/securityMonitor';
+import { useSEO, seoConfigs } from '@/hooks/useSEO';
 
 const Contact = () => {
+  // Add SEO for this page
+  useSEO(seoConfigs.contact);
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',

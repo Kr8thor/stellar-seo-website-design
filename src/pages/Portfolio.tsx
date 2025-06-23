@@ -2,10 +2,14 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ExternalLink, FileSearch, TrendingUp, CheckCircle } from 'lucide-react';
+import { useSEO, seoConfigs } from '@/hooks/useSEO';
 
 // Portfolio filter categories
 const categories = ["All", "E-commerce", "SaaS", "Local Business", "B2B"];
 const Portfolio = () => {
+  // Add SEO for this page
+  useSEO(seoConfigs.portfolio);
+  
   const [activeFilter, setActiveFilter] = useState("All");
   const caseStudies = [{
     id: 1,

@@ -1,0 +1,27 @@
+
+# Basic .htaccess for React SPA
+RewriteEngine On
+
+# Handle client-side routing
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/\.well-known/
+RewriteRule . /index.html [L]
+
+# Set MIME types
+AddType text/html .html
+AddType text/css .css
+AddType application/javascript .js
+AddType image/svg+xml .svg
+
+# Basic security
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options SAMEORIGIN
+</IfModule>
+
+# File permissions
+<Files ".htaccess">
+    Order allow,deny
+    Deny from all
+</Files>

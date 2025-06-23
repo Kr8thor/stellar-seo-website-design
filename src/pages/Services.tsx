@@ -2,7 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowRight, Search, Globe2, BarChart3, Zap, Users, FileText } from 'lucide-react';
+import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
+
 const Services = () => {
+  // Add enhanced SEO for this page with service schema
+  useSEO(getEnhancedSEOConfig('services'));
   return <main className="pt-24">
       {/* Hero Section */}
       <section className="section-container">

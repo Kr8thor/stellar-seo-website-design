@@ -1,6 +1,7 @@
 
 import React, { createContext, useContext } from 'react';
 import { Helmet } from 'react-helmet';
+import { EnhancedSchema, SchemaConfig } from '@/types/schema';
 
 interface SEOData {
   title?: string;
@@ -12,6 +13,9 @@ interface SEOData {
   author?: string;
   publishedTime?: string;
   modifiedTime?: string;
+  // Phase 2 Enhanced Schema Support
+  schemas?: EnhancedSchema[];
+  schemaConfig?: SchemaConfig;
 }
 
 interface SEOContextType {
@@ -110,6 +114,40 @@ const SEOProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             }
           })}
         </script>
+        
+        {/* Phase 2 Enhanced Schemas */}
+        {seoData.schemas && seoData.schemas.map((schema, index) => (
+          <script key={`enhanced-schema-${index}`} type="application/ld+json">
+            {JSON.stringify(schema)}
+          </script>
+        ))}
+        
+        {/* Individual Schema Config Support */}
+        {seoData.schemaConfig?.service && (
+          <script type="application/ld+json">
+            {JSON.stringify(seoData.schemaConfig.service)}
+          </script>
+        )}
+        {seoData.schemaConfig?.article && (
+          <script type="application/ld+json">
+            {JSON.stringify(seoData.schemaConfig.article)}
+          </script>
+        )}
+        {seoData.schemaConfig?.breadcrumbs && (
+          <script type="application/ld+json">
+            {JSON.stringify(seoData.schemaConfig.breadcrumbs)}
+          </script>
+        )}
+        {seoData.schemaConfig?.faq && (
+          <script type="application/ld+json">
+            {JSON.stringify(seoData.schemaConfig.faq)}
+          </script>
+        )}
+        {seoData.schemaConfig?.howTo && (
+          <script type="application/ld+json">
+            {JSON.stringify(seoData.schemaConfig.howTo)}
+          </script>
+        )}
       </Helmet>
       {children}
     </SEOContext.Provider>

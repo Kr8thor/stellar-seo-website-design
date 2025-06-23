@@ -3,8 +3,11 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Github, Code, Database, Server, Box, Settings, Cloud, Cpu, Sparkles, LineChart } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
 
 const AppBuilding = () => {
+  // Add enhanced SEO for this page with app development schema
+  useSEO(getEnhancedSEOConfig('appBuilding'));
   return (
     <main className="pt-24">
       {/* Hero Section */}

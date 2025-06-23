@@ -3,8 +3,12 @@ import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
+import { useSEO, seoConfigs } from '@/hooks/useSEO';
 
 const NotFound = () => {
+  // Add SEO for this page (with noIndex)
+  useSEO(seoConfigs.notFound);
+  
   const location = useLocation();
 
   useEffect(() => {

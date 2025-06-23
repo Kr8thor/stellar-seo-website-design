@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import { useSEO as useSEOContext } from '@/components/seo/SEOProvider';
 import { useLocation } from 'react-router-dom';
+import { EnhancedSchema, SchemaConfig } from '@/types/schema';
 
 interface SEOOptions {
   title?: string;
@@ -13,6 +14,9 @@ interface SEOOptions {
   publishedTime?: string;
   modifiedTime?: string;
   noIndex?: boolean;
+  // Phase 2 Enhanced Schema Support
+  schemas?: EnhancedSchema[];
+  schemaConfig?: SchemaConfig;
 }
 
 export const useSEO = (options: SEOOptions = {}) => {
@@ -85,5 +89,87 @@ export const seoConfigs = {
     description: "Professional custom application development using React, modern frameworks, and cutting-edge technologies. Scalable solutions for your business needs.",
     keywords: "custom app development, React development, web applications, mobile-first development, modern web apps",
     type: "service"
+  },
+  portfolio: {
+    title: "Portfolio & Case Studies | Proven SEO Results | Marden SEO",
+    description: "Explore our successful SEO campaigns and app development projects. Real results, measurable improvements, and satisfied clients across various industries.",
+    keywords: "SEO portfolio, case studies, SEO results, client success stories, proven SEO campaigns, app development portfolio",
+    type: "website"
+  },
+  notFound: {
+    title: "Page Not Found | Marden SEO",
+    description: "The page you're looking for doesn't exist. Explore our SEO services, app development solutions, or contact us for assistance.",
+    keywords: "404 error, page not found, SEO services, app development",
+    type: "website",
+    noIndex: true
   }
+};
+// Enhanced SEO configurations using Phase 2 schemas
+import { 
+  enhancedSchemaConfig,
+  generateBreadcrumbs 
+} from '@/data/enhancedSchemas';
+
+// Enhanced service page configurations
+export const enhancedSeoConfigs = {
+  services: {
+    ...seoConfigs.services,
+    schemaConfig: {
+      service: enhancedSchemaConfig.services.seo,
+      faq: enhancedSchemaConfig.faq.seoServices,
+      breadcrumbs: generateBreadcrumbs('/services')
+    }
+  },
+  appBuilding: {
+    ...seoConfigs.appBuilding,
+    schemaConfig: {
+      service: enhancedSchemaConfig.services.appDevelopment,
+      faq: enhancedSchemaConfig.faq.appDevelopment,
+      breadcrumbs: generateBreadcrumbs('/app-building')
+    }
+  },
+  workflowAutomation: {
+    ...seoConfigs.workflowAutomation,
+    schemaConfig: {
+      service: enhancedSchemaConfig.services.workflowAutomation,
+      howTo: enhancedSchemaConfig.howTo.n8nAutomation,
+      breadcrumbs: generateBreadcrumbs('/workflow-automation')
+    }
+  },
+  // Enhanced configurations for other pages
+  home: {
+    ...seoConfigs.home,
+    schemaConfig: {
+      breadcrumbs: generateBreadcrumbs('/')
+    }
+  },
+  about: {
+    ...seoConfigs.about,
+    schemaConfig: {
+      breadcrumbs: generateBreadcrumbs('/about')
+    }
+  },
+  portfolio: {
+    ...seoConfigs.portfolio,
+    schemaConfig: {
+      breadcrumbs: generateBreadcrumbs('/portfolio')
+    }
+  },
+  blog: {
+    ...seoConfigs.blog,
+    schemaConfig: {
+      breadcrumbs: generateBreadcrumbs('/blog')
+    }
+  },
+  contact: {
+    ...seoConfigs.contact,
+    schemaConfig: {
+      breadcrumbs: generateBreadcrumbs('/contact')
+    }
+  }
+};
+
+// Helper function to get enhanced SEO config by page key
+export const getEnhancedSEOConfig = (pageKey: keyof typeof enhancedSeoConfigs) => {
+  return enhancedSeoConfigs[pageKey] || seoConfigs[pageKey];
 };

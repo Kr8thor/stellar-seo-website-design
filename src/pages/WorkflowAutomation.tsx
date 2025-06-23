@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSEO, seoConfigs } from '@/hooks/useSEO';
+import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import { Link } from 'react-router-dom';
 import { ArrowRight, DollarSign, Users, Lightbulb, Workflow, Settings, CalendarClock, CheckCircle, Zap, Database, MessageSquare, BarChart3 } from 'lucide-react';
@@ -10,8 +10,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Badge } from "@/components/ui/badge";
 
 const WorkflowAutomation = () => {
-  // Add SEO for this page
-  useSEO(seoConfigs.workflowAutomation);
+  // Add enhanced SEO for this page with workflow automation schema and HowTo
+  useSEO(getEnhancedSEOConfig('workflowAutomation'));
 
   return (
     <main className="pt-24">

@@ -8,6 +8,7 @@ import { useWordPress } from '@/providers/WordPressProvider';
 import { useQuery } from '@apollo/client';
 import { GET_POST_BY_SLUG } from '@/graphql/queries';
 import { adaptPost } from '@/adapters/wordpressAdapter';
+import { useSEO } from '@/hooks/useSEO';
 
 const BlogPostDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -44,6 +45,23 @@ const BlogPostDetail = () => {
         : post.id === id
     );
   }
+  
+  // Dynamic SEO based on post content
+  useSEO(post ? {
+    title: `${post.title} | Marden SEO Blog`,
+    description: post.excerpt || `Read about ${post.title} on the Marden SEO blog. Expert insights on SEO, app development, and digital marketing.`,
+    keywords: `${post.title}, SEO blog, ${post.category || 'digital marketing'}, search engine optimization`,
+    image: post.image || 'https://mardenseo.com/opengraph-image.png',
+    type: 'article',
+    author: post.author || 'Marden SEO',
+    publishedTime: post.date,
+    modifiedTime: post.lastModified || post.date
+  } : {
+    title: "Blog Post | Marden SEO",
+    description: "Expert SEO and development insights from the Marden SEO team.",
+    keywords: "SEO blog, digital marketing, app development",
+    type: "article"
+  });
   
   // Scroll to top when post changes
   useEffect(() => {
