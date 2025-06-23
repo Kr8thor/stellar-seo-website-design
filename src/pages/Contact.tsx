@@ -6,11 +6,11 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { validateContactForm, checkClientRateLimit } from '@/lib/security';
 import { securityMonitor } from '@/lib/securityMonitor';
-import { useSEO, seoConfigs } from '@/hooks/useSEO';
+import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
 
 const Contact = () => {
-  // Add SEO for this page
-  useSEO(seoConfigs.contact);
+  // Add enhanced SEO for contact page with breadcrumb schema
+  useSEO(getEnhancedSEOConfig('contact'));
   
   const [formData, setFormData] = useState({
     name: '',

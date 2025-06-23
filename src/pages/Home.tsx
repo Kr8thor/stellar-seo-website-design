@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, BarChart3, Search, Zap, Award, Globe2, Users, FileSearch, TrendingUp, CheckCircle, Calendar, Gift, Clock, Workflow } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { useSEO, seoConfigs } from '@/hooks/useSEO';
+import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
 
 const Home = () => {
-  // Add SEO for this page
-  useSEO(seoConfigs.home);
+  // Add enhanced SEO for home page with breadcrumb schema
+  useSEO(getEnhancedSEOConfig('home'));
   return <main>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden">

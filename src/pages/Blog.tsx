@@ -13,15 +13,15 @@ import {
   PaginationPrevious
 } from '@/components/ui/pagination';
 import { Helmet } from 'react-helmet';
-import { useSEO, seoConfigs } from '@/hooks/useSEO';
+import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
 import { useWordPress } from '@/providers/WordPressProvider';
 
 // Blog categories
 const categories = ["All", "SEO Tips", "Technical SEO", "Content Strategy", "Local SEO", "E-commerce SEO"];
 
 const Blog = () => {
-  // Add SEO for this page
-  useSEO(seoConfigs.blog);
+  // Add enhanced SEO for blog page with breadcrumb schema
+  useSEO(getEnhancedSEOConfig('blog'));
   
   const { posts, featuredPost, loading } = useWordPress();
   const [activeFilter, setActiveFilter] = useState("All");
