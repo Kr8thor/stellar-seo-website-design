@@ -2,24 +2,28 @@ import { useEffect } from 'react';
 
 const Sitemap = () => {
   useEffect(() => {
-    // Set the document content type to XML
-    document.contentType = 'application/xml';
-    
-    // Set the page title to indicate this is a sitemap
+    // Set document title for this route
     document.title = 'Sitemap - Marden SEO';
     
-    // Try to set response headers (limited in client-side React)
+    // Update the URL without navigation
     if (typeof window !== 'undefined' && window.history && window.history.replaceState) {
-      // This helps with some hosting setups
       window.history.replaceState(null, 'Sitemap', '/sitemap.xml');
+    }
+    
+    // Set meta content type
+    const metaTag = document.querySelector('meta[http-equiv="Content-Type"]');
+    if (metaTag) {
+      metaTag.setAttribute('content', 'application/xml; charset=UTF-8');
+    } else {
+      const newMetaTag = document.createElement('meta');
+      newMetaTag.setAttribute('http-equiv', 'Content-Type');
+      newMetaTag.setAttribute('content', 'application/xml; charset=UTF-8');
+      document.head.appendChild(newMetaTag);
     }
   }, []);
 
-  // Return XML content as JSX
-  // Note: React will render this as HTML, but search engines can still parse it
-  return (
-    <div style={{ fontFamily: 'monospace', whiteSpace: 'pre-wrap', margin: 0, padding: 0 }}>
-      {`<?xml version="1.0" encoding="UTF-8"?>
+  // Raw XML content without any HTML wrapper
+  const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -152,8 +156,22 @@ const Sitemap = () => {
     <priority>0.7</priority>
   </url>
 
-</urlset>`}
-    </div>
+</urlset>`;
+
+  return (
+    <pre 
+      style={{ 
+        margin: 0, 
+        padding: 0, 
+        fontFamily: 'monospace',
+        whiteSpace: 'pre-wrap',
+        fontSize: '14px',
+        lineHeight: '1.2',
+        background: 'transparent',
+        border: 'none'
+      }}
+      dangerouslySetInnerHTML={{ __html: xmlContent }}
+    />
   );
 };
 
