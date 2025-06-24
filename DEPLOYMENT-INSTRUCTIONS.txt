@@ -1,0 +1,17 @@
+﻿# FTP Upload Script for Marden SEO Deployment
+# Files to upload from: C:\Users\Leo\stellar-seo-website-design\sitemap-fix-deploy\
+
+Write-Host "=== MARDEN SEO SITEMAP FIX DEPLOYMENT ==="
+Write-Host ""
+Write-Host "📂 Files to upload to public_html/:"
+Write-Host "1. index-CQl0KpYd.js → assets/index-CQl0KpYd.js"
+Write-Host "2. index.html → index.html" 
+Write-Host "3. sitemap.xml → sitemap.xml"
+Write-Host ""
+Write-Host "🔧 Upload via cPanel File Manager:"
+Write-Host "1. Login to Namecheap cPanel"
+Write-Host "2. Open File Manager"
+Write-Host "3. Navigate to public_html/"
+Write-Host "4. Upload these files (overwrite existing)"
+Write-Host ""
+Write-Host "📁 Source folder: C:\Users\Leo\stellar-seo-website-design\sitemap-fix-deploy\"
