@@ -3,7 +3,7 @@
 // All Phase 1 & 2 SEO implementations completed and ready for deployment
 
 import { ApolloProvider } from '@apollo/client';
-import { client } from '../lib/apolloClient';
+import { client } from './lib/apolloClient';
 import React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -27,6 +27,7 @@ import NotFound from "./pages/NotFound";
 import AppBuilding from "./pages/AppBuilding";
 import CaseStudy from "./pages/CaseStudy";
 import WorkflowAutomation from "./pages/WorkflowAutomation";
+import Sitemap from "./pages/Sitemap";
 
 // Error Boundary Component
 interface ErrorBoundaryState {
@@ -116,6 +117,7 @@ const App = () => (
                       <Route path="/app-building" element={<AppBuilding />} />
                       <Route path="/case-study/:id" element={<CaseStudy />} />
                       <Route path="/workflow-automation" element={<WorkflowAutomation />} />
+                      <Route path="/sitemap.xml" element={<Sitemap />} />
                       <Route path="*" element={<NotFound />} />
                     </Routes>
                   </div>

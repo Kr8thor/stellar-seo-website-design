@@ -1,17 +1,17 @@
-
 ---
 deployment:
   tasks:
     - export DEPLOYPATH=/home/marddium/public_html/
-    # Clean the deployment directory first
-    - /bin/rm -rf $DEPLOYPATH/*
-    # Copy all files from dist
+    - echo "Starting deployment to $DEPLOYPATH"
+    - echo "Listing dist folder contents:"
+    - ls -la dist/
+    - echo "Copying files from dist/ to $DEPLOYPATH"
     - /bin/cp -R dist/* $DEPLOYPATH/
-    # Set directory permissions
+    - echo "Setting permissions..."
     - /bin/find $DEPLOYPATH -type d -exec chmod 755 {} \;
-    # Set file permissions
     - /bin/find $DEPLOYPATH -type f -exec chmod 644 {} \;
-    # Ensure .htaccess is present and has correct permissions
-    - /bin/chmod 644 $DEPLOYPATH/.htaccess
-    # Make sure index.html is readable
-    - /bin/chmod 644 $DEPLOYPATH/index.html
+    - echo "Verifying deployment:"
+    - ls -la $DEPLOYPATH/index.html
+    - ls -la $DEPLOYPATH/sitemap.xml
+    - ls -la $DEPLOYPATH/robots.txt
+    - echo "Deployment completed!"
