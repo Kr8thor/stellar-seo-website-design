@@ -2,6 +2,16 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/marddium/public_html/
-    - /bin/cp -R dist/* $DEPLOYPATH
+    - echo "Starting deployment to $DEPLOYPATH"
+    - echo "Listing dist folder contents:"
+    - ls -la dist/
+    - echo "Copying files from dist/ to $DEPLOYPATH"
+    - /bin/cp -R dist/* $DEPLOYPATH/
+    - echo "Setting permissions..."
     - /bin/find $DEPLOYPATH -type d -exec chmod 755 {} \;
     - /bin/find $DEPLOYPATH -type f -exec chmod 644 {} \;
+    - echo "Verifying deployment:"
+    - ls -la $DEPLOYPATH/index.html
+    - ls -la $DEPLOYPATH/sitemap.xml
+    - ls -la $DEPLOYPATH/robots.txt
+    - echo "Deployment completed!"
