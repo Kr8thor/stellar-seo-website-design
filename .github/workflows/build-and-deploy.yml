@@ -11,6 +11,8 @@ on:
       - 'package.json'
       - 'vite.config.ts'
       - 'tailwind.config.ts'
+      - 'MANUAL-DEPLOY-TRIGGER.txt'
+      - 'dist/**'
   
   # Allow manual trigger
   workflow_dispatch:
