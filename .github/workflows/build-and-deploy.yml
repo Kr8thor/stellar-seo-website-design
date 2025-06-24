@@ -108,9 +108,19 @@ jobs:
       if: env.CHANGES_MADE == 'true'
       run: |
         echo "Pushing updated build to repository..."
-        git push
-        echo "✅ Build deployed successfully!"
-        echo "The updated files will be automatically deployed by cPanel"
+        git push origin main
+        echo "✅ Build pushed to GitHub successfully!"
+        echo "Waiting for cPanel deployment webhook..."
+        echo "Expected deployment time: 1-3 minutes"
+        
+    - name: 🔔 Trigger cPanel Deployment
+      if: env.CHANGES_MADE == 'true' 
+      run: |
+        echo "Attempting to trigger cPanel deployment..."
+        echo "Repository: https://github.com/Kr8thor/stellar-seo-website-design"
+        echo "Branch: main"
+        echo "Commit: ${GITHUB_SHA:0:8}"
+        echo "If auto-deployment fails, check cPanel Git deployment settings"
     
     - name: ✅ Deployment Summary
       run: |
