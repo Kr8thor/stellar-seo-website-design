@@ -27,6 +27,7 @@ import NotFound from "./pages/NotFound";
 import AppBuilding from "./pages/AppBuilding";
 import CaseStudy from "./pages/CaseStudy";
 import WorkflowAutomation from "./pages/WorkflowAutomation";
+import Sitemap from "./pages/Sitemap";
 
 // Error Boundary Component
 interface ErrorBoundaryState {
@@ -116,6 +117,7 @@ const App = () => (
                       <Route path="/app-building" element={<AppBuilding />} />
                       <Route path="/case-study/:id" element={<CaseStudy />} />
                       <Route path="/workflow-automation" element={<WorkflowAutomation />} />
+                      <Route path="/sitemap.xml" element={<Sitemap />} />
                       <Route path="*" element={<NotFound />} />
                     </Routes>
                   </div>
