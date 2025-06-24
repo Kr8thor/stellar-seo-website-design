@@ -3,17 +3,25 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/marddium/public_html/
     - echo "🚀 Starting deployment to $DEPLOYPATH"
-    - echo "🔧 Resolving any Git conflicts..."
-    - git config --global user.email "deploy@mardenseo.com"
-    - git config --global user.name "cPanel Deploy Bot"
-    - echo "🔄 Resetting repository to clean state..."
-    - git fetch origin
+    - echo "🔧 PRE-DEPLOYMENT: Resolving Git conflicts..."
+    - pwd
+    - echo "📊 Git status before cleanup:"
+    - git status
+    - echo "🧹 Stashing any local changes (including .htaccess conflicts)..."
+    - git stash push -u -m "Auto-stash before deployment $(date)"
+    - echo "🔄 Ensuring we're on main branch..."
+    - git checkout main
+    - echo "⬇️ Fetching latest from GitHub..."
+    - git fetch origin main
+    - echo "🔨 Hard reset to match GitHub exactly..."
     - git reset --hard origin/main
-    - echo "✅ Repository reset completed"
+    - echo "🧽 Cleaning any remaining untracked files..."
+    - git clean -fd
+    - echo "✅ Repository sync completed!"
+    - echo "📋 Current commit after reset:"
+    - git log --oneline -1
     - echo "📁 Listing dist folder contents:"
     - ls -la dist/
-    - echo "📋 Current deployment commit:"
-    - git log --oneline -1
     - echo "🚀 Copying files from dist/ to $DEPLOYPATH"
     - /bin/cp -R dist/* $DEPLOYPATH/
     - echo "🔐 Setting proper permissions..."
