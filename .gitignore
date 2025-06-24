@@ -29,3 +29,6 @@ dist-ssr
 .env
 .env.*
 !.env.example
+
+# Server-managed files that cause deployment conflicts
+public/.htaccess
