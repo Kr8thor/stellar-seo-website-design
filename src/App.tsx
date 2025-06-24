@@ -3,7 +3,7 @@
 // All Phase 1 & 2 SEO implementations completed and ready for deployment
 
 import { ApolloProvider } from '@apollo/client';
-import { client } from '../lib/apolloClient';
+import { client } from './lib/apolloClient';
 import React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
