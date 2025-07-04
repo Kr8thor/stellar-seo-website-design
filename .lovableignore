@@ -1,0 +1,90 @@
+# Lovable-specific ignores for sync optimization
+# This file helps Lovable focus on source code only
+
+# Build outputs
+dist/
+build/
+*.zip
+*.tar.gz
+
+# Deployment artifacts
+*deploy*
+*trigger*
+*build*
+*automation*
+*setup*
+*guide*
+*instructions*
+*verification*
+*backup*
+*emergency*
+*manual*
+*force*
+*system*
+*ready*
+*summary*
+*check*
+*reset*
+*server*
+*favicon*
+*cpanel*
+*ftp*
+*github*
+*actions*
+*workflow*
+DEPLOY*.md
+DEPLOY*.txt
+BUILD*.md
+FORCE*.md
+MANUAL*.txt
+EMERGENCY*.md
+AUTOMATION*.md
+GITHUB*.md
+FTP*.md
+CPANEL*.md
+FULL*.md
+SECURITY.md
+README.md
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+logs/
+.cache/
+
+# OS and IDE
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Package managers
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+bun.lockb
+package-lock.json
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE and Editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Git
+.git/
+.gitignore
+
+# Lovable internal
+.lovable/
