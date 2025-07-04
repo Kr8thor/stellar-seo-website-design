@@ -21,19 +21,7 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    // Always include componentTagger for Lovable integration
-    componentTagger({
-      // Enhanced settings for better Lovable integration
-      enabled: true,
-      // Only tag components in development
-      tagInProduction: false,
-      // Custom tag attributes for Lovable
-      tagAttribute: 'data-lovable-component',
-      // Include file path in tags for better editing
-      includeFilePath: true,
-      // Exclude node_modules from tagging
-      exclude: ['node_modules/**'],
-    }),
+    mode === 'development' && componentTagger(),
   ].filter(Boolean),
   resolve: {
     alias: {
