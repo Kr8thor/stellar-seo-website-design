@@ -1,14 +1,31 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "marden-seo-website",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "Professional SEO services website built with React, TypeScript, and Vite",
+  "homepage": "https://mardenseo.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kr8thor/stellar-seo-website-design"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lovable:dev": "vite --port 8080 --host ::",
+    "lovable:build": "vite build --mode development",
+    "lovable:preview": "vite preview --port 8080 --host ::"
+  },
+  "lovable": {
+    "projectId": "c99afeda-cbc8-4b8a-acd8-ca805aa26fa8",
+    "framework": "react",
+    "buildCommand": "npm run build",
+    "devCommand": "npm run dev",
+    "directEdit": true,
+    "syncEnabled": true
   },
   "dependencies": {
     "@apollo/client": "^3.13.7",
@@ -84,5 +101,15 @@
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.11",
     "typescript-eslint": "^8.0.1"
-  }
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "vite",
+    "seo",
+    "website",
+    "lovable",
+    "tailwind",
+    "shadcn"
+  ]
 }
