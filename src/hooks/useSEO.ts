@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { useSEO as useSEOContext } from '@/components/seo/SEOProvider';
 import { useLocation } from 'react-router-dom';
@@ -66,6 +65,12 @@ export const seoConfigs = {
     keywords: "SEO services, technical SEO, app development, React development, n8n automation, content optimization, digital transformation",
     type: "service"
   },
+  servicesPricing: {
+    title: "Web Development & Educational Services | Pricing | Marden SEO",
+    description: "Exceptional websites and web development education. Choose from done-for-you sites, self-paced learning, or personalized coaching. Transparent pricing, expert guidance.",
+    keywords: "web development services, website pricing, web development education, done-for-you websites, web development coaching, website training, Lovable development, AI-powered websites",
+    type: "service"
+  },
   blog: {
     title: "SEO Insights & Blog | Marden SEO",
     description: "Expert tips, strategies, and insights to help you improve your search visibility and stay ahead of the competition. Latest SEO trends and best practices.",
@@ -104,6 +109,7 @@ export const seoConfigs = {
     noIndex: true
   }
 };
+
 // Enhanced SEO configurations using Phase 2 schemas
 import { 
   enhancedSchemaConfig,
@@ -118,6 +124,14 @@ export const enhancedSeoConfigs = {
       service: enhancedSchemaConfig.services.seo,
       faq: enhancedSchemaConfig.faq.seoServices,
       breadcrumbs: generateBreadcrumbs('/services')
+    }
+  },
+  servicesPricing: {
+    ...seoConfigs.servicesPricing,
+    schemaConfig: {
+      service: enhancedSchemaConfig.services.seo,
+      faq: enhancedSchemaConfig.faq.seoServices,
+      breadcrumbs: generateBreadcrumbs('/services-pricing')
     }
   },
   appBuilding: {

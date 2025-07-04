@@ -1,4 +1,3 @@
-
 // 🚀 DEPLOYMENT TRIGGER: June 24, 2025 - SEO Enhanced Version Ready for Production
 // All Phase 1 & 2 SEO implementations completed and ready for deployment
 
@@ -27,6 +26,8 @@ import NotFound from "./pages/NotFound";
 import AppBuilding from "./pages/AppBuilding";
 import CaseStudy from "./pages/CaseStudy";
 import WorkflowAutomation from "./pages/WorkflowAutomation";
+import WhatsAppButton from "./components/common/WhatsAppButton";
+import ServicesAndPricing from "./pages/ServicesAndPricing";
 
 // Error Boundary Component
 interface ErrorBoundaryState {
@@ -109,6 +110,7 @@ const App = () => (
                       <Route path="/" element={<Home />} />
                       <Route path="/about" element={<About />} />
                       <Route path="/services" element={<Services />} />
+                      <Route path="/services-pricing" element={<ServicesAndPricing />} />
                       <Route path="/portfolio" element={<Portfolio />} />
                       <Route path="/blog" element={<Blog />} />
                       <Route path="/blog/:id" element={<BlogPostDetail />} />
@@ -116,11 +118,11 @@ const App = () => (
                       <Route path="/app-building" element={<AppBuilding />} />
                       <Route path="/case-study/:id" element={<CaseStudy />} />
                       <Route path="/workflow-automation" element={<WorkflowAutomation />} />
-
                       <Route path="*" element={<NotFound />} />
                     </Routes>
                   </div>
                   <Footer />
+                  <WhatsAppButton />
                 </div>
               </BrowserRouter>
             </TooltipProvider>

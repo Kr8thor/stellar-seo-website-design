@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from 'lucide-react';
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 10) {
@@ -16,9 +18,11 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
   return <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-background/95 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-3 group">
@@ -31,6 +35,7 @@ const Navbar = () => {
           <Link to="/" className="hover-underline text-sm uppercase tracking-wider">Home</Link>
           <Link to="/about" className="hover-underline text-sm uppercase tracking-wider">About</Link>
           <Link to="/services" className="hover-underline text-sm uppercase tracking-wider">Services</Link>
+          <Link to="/services-pricing" className="hover-underline text-sm uppercase tracking-wider">Web + Learning</Link>
           <Link to="/workflow-automation" className="hover-underline text-sm uppercase tracking-wider">Workflow Automation</Link>
           <Link to="/portfolio" className="hover-underline text-sm uppercase tracking-wider">Portfolio</Link>
           <Link to="/blog" className="hover-underline text-sm uppercase tracking-wider">Blog</Link>
@@ -58,6 +63,7 @@ const Navbar = () => {
               <Link to="/" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>Home</Link>
               <Link to="/about" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>About</Link>
               <Link to="/services" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>Services</Link>
+              <Link to="/services-pricing" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>Web + Learning</Link>
               <Link to="/workflow-automation" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>Workflow Automation</Link>
               <Link to="/portfolio" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>Portfolio</Link>
               <Link to="/blog" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>Blog</Link>
@@ -69,4 +75,5 @@ const Navbar = () => {
       </div>
     </header>;
 };
+
 export default Navbar;
