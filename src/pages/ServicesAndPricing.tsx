@@ -365,7 +365,7 @@ const ServicesAndPricing = () => {
           <Button size="lg" variant="secondary" asChild>
             <Link to="/contact">Book Your Consultation</Link>
           </Button>
-          <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-purple-600">
+          <Button size="lg" className="bg-white text-purple-600 border-white hover:bg-purple-50 hover:text-purple-700">
             Start Learning Today
           </Button>
         </div>
