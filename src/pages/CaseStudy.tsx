@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, BarChart3, CalendarDays, Award, Target } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
+import { handleAnchorClick } from '@/utils/scrollUtils';
 
 // Case study data
 const caseStudies = [{
@@ -280,7 +281,7 @@ const CaseStudy = () => {
             Let's discuss how we can apply these proven strategies to improve your search visibility and grow your business.
           </p>
           <Button asChild size="lg">
-            <Link to="/contact">Get in Touch</Link>
+            <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Get in Touch</a>
           </Button>
         </div>
       </section>

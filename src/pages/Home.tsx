@@ -39,7 +39,7 @@ const Home = () => {
             </p>
             <div className="flex flex-wrap gap-4">
               <Button asChild size="lg">
-                <Link to="/contact">Get a Free Consultation</Link>
+                <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Get a Free Consultation</a>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <Link to="/services">Explore Services</Link>

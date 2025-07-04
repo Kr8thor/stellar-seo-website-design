@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
+import { handleAnchorClick } from '@/utils/scrollUtils';
 
 const CallToAction = () => {
   return (
@@ -12,7 +13,7 @@ const CallToAction = () => {
           Let's discuss how AI-powered SEO can transform your business visibility and results.
         </p>
         <Button asChild size="lg" variant="secondary">
-          <Link to="/contact">Schedule a Strategy Session</Link>
+          <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Schedule a Strategy Session</a>
         </Button>
       </div>
     </section>

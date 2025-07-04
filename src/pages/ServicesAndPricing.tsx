@@ -8,6 +8,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Check, Star, Globe, Zap, BookOpen, Users, Award, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { handleAnchorClick } from '@/utils/scrollUtils';
 
 const ServicesAndPricing = () => {
   useSEO({
@@ -171,7 +172,7 @@ const ServicesAndPricing = () => {
           <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
             Transform your online presence with our done-for-you websites or master our proven methods through personalized education. Choose your path to digital success.
           </p>
-          <Button size="lg" className="animate-fade-in">
+          <Button size="lg" className="animate-fade-in bg-purple-600 hover:bg-purple-700 text-white">
             <a href="#pricing-options">Choose Your Path</a>
           </Button>
         </div>
@@ -272,8 +273,17 @@ const ServicesAndPricing = () => {
                         </li>
                       ))}
                     </ul>
-                    <Button className="w-full" variant={pkg.popular ? "default" : "outline"}>
-                      Request Consultation
+                    <Button 
+                      className="w-full" 
+                      variant={pkg.popular ? "default" : "outline"}
+                      style={pkg.popular ? {} : {
+                        backgroundColor: '#6366f1',
+                        color: 'white',
+                        border: '1px solid #6366f1'
+                      }}
+                      asChild
+                    >
+                      <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Request Consultation</a>
                     </Button>
                   </CardContent>
                 </Card>
@@ -304,8 +314,11 @@ const ServicesAndPricing = () => {
                         </li>
                       ))}
                     </ul>
-                    <Button className="w-full" variant="outline">
-                      Learn More
+                    <Button 
+                      className="w-full bg-purple-600 hover:bg-purple-700 text-white"
+                      asChild
+                    >
+                      <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Learn More</a>
                     </Button>
                   </CardContent>
                 </Card>
@@ -363,10 +376,17 @@ const ServicesAndPricing = () => {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" variant="secondary" asChild>
-            <Link to="/contact">Book Your Consultation</Link>
+            <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Book Your Consultation</a>
           </Button>
-          <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-purple-600">
-            Start Learning Today
+          <Button size="lg" style={{ backgroundColor: 'white', color: '#9333ea', borderColor: 'white' }} className="hover:bg-purple-50" asChild>
+            <a 
+              href="/contact#top" 
+              onClick={(e) => handleAnchorClick('/contact#top', e)}
+              style={{ color: '#9333ea' }}
+              className="hover:!text-purple-700"
+            >
+              Start Learning Today
+            </a>
           </Button>
         </div>
       </section>

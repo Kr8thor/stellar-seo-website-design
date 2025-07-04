@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
+import { handleAnchorClick } from '@/utils/scrollUtils';
 
 const HeroSection = () => {
   return (
@@ -17,7 +18,7 @@ const HeroSection = () => {
           </p>
           <div className="flex flex-wrap gap-4">
             <Button asChild>
-              <Link to="/contact">Work With Me</Link>
+              <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Work With Me</a>
             </Button>
             <Button asChild variant="outline">
               <Link to="/portfolio">See My Results</Link>

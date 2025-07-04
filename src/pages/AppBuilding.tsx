@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Github, Code, Database, Server, Box, Settings, Cloud, Cpu, Sparkles, LineChart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
+import { handleAnchorClick } from '@/utils/scrollUtils';
 
 const AppBuilding = () => {
   // Add enhanced SEO for this page with app development schema
@@ -211,7 +212,7 @@ const AppBuilding = () => {
             Let's discuss your project requirements and create a custom SaaS application that drives your business forward.
           </p>
           <Button asChild size="lg">
-            <Link to="/contact">Get in Touch</Link>
+            <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Get in Touch</a>
           </Button>
         </div>
       </section>

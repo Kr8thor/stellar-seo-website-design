@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -7,10 +7,19 @@ import { useToast } from '@/hooks/use-toast';
 import { validateContactForm, checkClientRateLimit } from '@/lib/security';
 import { securityMonitor } from '@/lib/securityMonitor';
 import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
+import { scrollToTop } from '@/utils/scrollUtils';
 
 const Contact = () => {
   // Add enhanced SEO for contact page with breadcrumb schema
   useSEO(getEnhancedSEOConfig('contact'));
+  
+  // Scroll to top when component mounts
+  useEffect(() => {
+    // Check if we have a hash in the URL
+    if (window.location.hash === '#top' || window.location.hash === '') {
+      scrollToTop();
+    }
+  }, []);
   
   const [formData, setFormData] = useState({
     name: '',

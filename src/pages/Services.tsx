@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowRight, Search, Globe2, BarChart3, Zap, Users, FileText } from 'lucide-react';
 import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
+import { handleAnchorClick } from '@/utils/scrollUtils';
 
 const Services = () => {
   // Add enhanced SEO for this page with service schema
@@ -21,7 +22,7 @@ const Services = () => {
               Comprehensive search engine optimization services designed to improve your visibility, drive qualified traffic, and increase conversions.
             </p>
             <Button asChild size="lg">
-              <Link to="/contact">Get a Free Consultation</Link>
+              <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Get a Free Consultation</a>
             </Button>
           </div>
         </div>
@@ -48,7 +49,7 @@ const Services = () => {
                     </li>)}
                 </ul>
                 <Button asChild>
-                  <Link to="/contact">Get Started <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                  <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Get Started <ArrowRight className="ml-2 h-4 w-4" /></a>
                 </Button>
               </div>
               <div className="md:w-1/2">
@@ -75,7 +76,7 @@ const Services = () => {
                     </li>)}
                 </ul>
                 <Button asChild>
-                  <Link to="/contact">Get Started <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                  <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Get Started <ArrowRight className="ml-2 h-4 w-4" /></a>
                 </Button>
               </div>
               <div className="md:w-1/2">
@@ -102,7 +103,7 @@ const Services = () => {
                     </li>)}
                 </ul>
                 <Button asChild>
-                  <Link to="/contact">Get Started <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                  <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Get Started <ArrowRight className="ml-2 h-4 w-4" /></a>
                 </Button>
               </div>
               <div className="md:w-1/2">
@@ -129,7 +130,7 @@ const Services = () => {
                   </li>)}
               </ul>
               <Button asChild variant="outline" className="w-full">
-                <Link to="/contact">Learn More</Link>
+                <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Learn More</a>
               </Button>
             </div>
             
@@ -149,7 +150,7 @@ const Services = () => {
                   </li>)}
               </ul>
               <Button asChild variant="outline" className="w-full">
-                <Link to="/contact">Learn More</Link>
+                <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Learn More</a>
               </Button>
             </div>
             
@@ -169,7 +170,7 @@ const Services = () => {
                   </li>)}
               </ul>
               <Button asChild variant="outline" className="w-full">
-                <Link to="/contact">Learn More</Link>
+                <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Learn More</a>
               </Button>
             </div>
           </div>
@@ -243,7 +244,7 @@ const Services = () => {
                   </li>)}
               </ul>
               <Button asChild className="w-full">
-                <Link to="/contact">Get Started</Link>
+                <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Get Started</a>
               </Button>
             </div>
             
@@ -272,7 +273,7 @@ const Services = () => {
                   </li>)}
               </ul>
               <Button asChild className="w-full">
-                <Link to="/contact">Get Started</Link>
+                <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Get Started</a>
               </Button>
             </div>
             
@@ -291,7 +292,7 @@ const Services = () => {
                   </li>)}
               </ul>
               <Button asChild className="w-full" variant="outline">
-                <Link to="/contact">Contact for Quote</Link>
+                <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Contact for Quote</a>
               </Button>
             </div>
           </div>
@@ -306,7 +307,7 @@ const Services = () => {
             Schedule your free 30-minute consultation to discuss your SEO goals and how I can help you achieve them.
           </p>
           <Button asChild size="lg" variant="secondary">
-            <Link to="/contact">Book Your Free Consultation</Link>
+            <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Book Your Free Consultation</a>
           </Button>
         </div>
       </section>

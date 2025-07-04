@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ExternalLink, FileSearch, TrendingUp, CheckCircle } from 'lucide-react';
 import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
+import { handleAnchorClick } from '@/utils/scrollUtils';
 
 // Portfolio filter categories
 const categories = ["All", "E-commerce", "SaaS", "Local Business", "B2B"];
@@ -243,7 +244,7 @@ const Portfolio = () => {
           <div className="flex flex-col items-center">
             
             <Button asChild size="lg" variant="secondary">
-              <Link to="/contact">Reserve Your Free SEO Audit</Link>
+              <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Reserve Your Free SEO Audit</a>
             </Button>
           </div>
         </div>
@@ -256,7 +257,7 @@ const Portfolio = () => {
             Let's discuss how we can apply these proven strategies to improve your search visibility and grow your business.
           </p>
           <Button asChild size="lg" variant="secondary">
-            <Link to="/contact">Schedule Your Consultation</Link>
+            <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Schedule Your Consultation</a>
           </Button>
         </div>
       </section>
