@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardFooter, CardTitle, CardDescription }
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
+import { handleAnchorClick } from '@/utils/scrollUtils';
 
 const WorkflowAutomation = () => {
   // Add enhanced SEO for this page with workflow automation schema and HowTo
@@ -61,7 +62,7 @@ const WorkflowAutomation = () => {
               Reduce costs, minimize hiring needs, and solve business challenges with custom automation solutions
             </p>
             <Button asChild size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 text-white border-none hover:opacity-90 shadow-lg">
-              <a href="#contact" className="group flex items-center gap-2">
+              <a href="/contact" onClick={(e) => handleAnchorClick('#contact', e)} className="group flex items-center gap-2">
                 Get Your Custom Workflow
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </a>
@@ -505,7 +506,7 @@ const WorkflowAutomation = () => {
               </CardContent>
               <CardFooter>
                 <Button asChild className="w-full">
-                  <a href="#contact">Request Quote</a>
+                  <a href="/contact" onClick={(e) => handleAnchorClick('#contact', e)}>Request Quote</a>
                 </Button>
               </CardFooter>
             </Card>
@@ -545,7 +546,7 @@ const WorkflowAutomation = () => {
               </CardContent>
               <CardFooter>
                 <Button asChild className="w-full bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700">
-                  <a href="#contact">Request Quote</a>
+                  <a href="/contact" onClick={(e) => handleAnchorClick('#contact', e)}>Request Quote</a>
                 </Button>
               </CardFooter>
             </Card>
@@ -585,7 +586,7 @@ const WorkflowAutomation = () => {
               </CardContent>
               <CardFooter>
                 <Button asChild className="w-full">
-                  <a href="#contact">Request Quote</a>
+                  <a href="/contact" onClick={(e) => handleAnchorClick('#contact', e)}>Request Quote</a>
                 </Button>
               </CardFooter>
             </Card>
@@ -816,7 +817,7 @@ const WorkflowAutomation = () => {
                 </Button>
                 
                 <Button asChild size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10">
-                  <a href="#" className="flex items-center gap-2">
+                  <a href="/contact" className="flex items-center gap-2">
                     <CalendarClock className="h-5 w-5" />
                     Schedule a Demo
                   </a>

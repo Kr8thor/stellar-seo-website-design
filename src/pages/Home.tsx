@@ -5,6 +5,7 @@ import { ArrowRight, BarChart3, Search, Zap, Award, Globe2, Users, FileSearch, T
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
+import { handleAnchorClick } from '@/utils/scrollUtils';
 
 const Home = () => {
   // Add enhanced SEO for home page with breadcrumb schema
@@ -185,7 +186,7 @@ const Home = () => {
                     </div>
                     
                     <Button asChild size="lg" className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium py-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group">
-                      <a href="/contact#top">
+                      <a href="/contact" onClick={(e) => handleAnchorClick('/contact#top', e)}>
                         Reserve Your Free Audit Now
                         <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                       </a>
