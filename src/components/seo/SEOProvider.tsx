@@ -39,8 +39,8 @@ const SEOProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     setSeoData(data);
   };
 
-  const defaultTitle = "Marden SEO | Professional Search Engine Optimization & App Development Services";
-  const defaultDescription = "Elevate your online presence with data-driven SEO strategies and custom application development using n8n, MCPs, and React. Expert services tailored to improve your rankings and drive growth.";
+  const defaultTitle = "Strategic SEO Solutions for Digital Success | Marden SEO";
+  const defaultDescription = "Elevate your online presence with data-driven strategies that drive organic traffic, improve rankings, and increase conversions.";
   const defaultImage = "https://mardenseo.com/opengraph-image.png";
   const defaultUrl = "https://mardenseo.com";
 
