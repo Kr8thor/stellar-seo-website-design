@@ -28,6 +28,7 @@ import CaseStudy from "./pages/CaseStudy";
 import WorkflowAutomation from "./pages/WorkflowAutomation";
 import WhatsAppButton from "./components/common/WhatsAppButton";
 import ServicesAndPricing from "./pages/ServicesAndPricing";
+import Admin from "./pages/Admin";
 
 // Error Boundary Component
 interface ErrorBoundaryState {
@@ -118,6 +119,7 @@ const App = () => (
                       <Route path="/app-building" element={<AppBuilding />} />
                       <Route path="/case-study/:id" element={<CaseStudy />} />
                       <Route path="/workflow-automation" element={<WorkflowAutomation />} />
+                      <Route path="/admin" element={<Admin />} />
                       <Route path="*" element={<NotFound />} />
                     </Routes>
                   </div>
