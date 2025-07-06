@@ -9,10 +9,15 @@ import { securityMonitor } from '@/lib/securityMonitor';
 import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
 import { scrollToTop } from '@/utils/scrollUtils';
 import { trackContactFormSubmission } from '@/components/Analytics';
+import { useAnalytics } from '@/hooks/useAnalytics';
+import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 
 const Contact = () => {
   // Add enhanced SEO for contact page with breadcrumb schema
   useSEO(getEnhancedSEOConfig('contact'));
+  
+  // Initialize analytics
+  const { trackFormSubmission, trackEngagement } = useAnalytics();
   
   // Scroll to top when component mounts
   useEffect(() => {
@@ -85,6 +90,9 @@ const Contact = () => {
       // Track form submission in Google Analytics
       trackContactFormSubmission('contact_form');
       
+      // Enhanced analytics tracking
+      trackFormSubmission('contact_form');
+      
       toast({
         title: "Message sent successfully!",
         description: "Thank you for your message. I'll get back to you soon.",
@@ -127,6 +135,11 @@ const Contact = () => {
   return (
     <main className="pt-24 pb-16 px-4 md:px-8 bg-gradient-to-b from-white to-slate-50 min-h-screen">
       <div className="max-w-4xl mx-auto">
+        {/* Breadcrumbs */}
+        <div className="mb-8">
+          <Breadcrumbs />
+        </div>
+        
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
             Get In Touch

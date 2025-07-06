@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 // Google Tag Manager Configuration
-const GTM_ID = 'GTM-5R45LHS7';
+const GTM_ID = import.meta.env.VITE_GTM_ID || 'GTM-5R45LHS7';
 
 declare global {
   interface Window {

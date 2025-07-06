@@ -5,11 +5,17 @@ import { CheckCircle, ArrowRight, Search, Globe2, BarChart3, Zap, Users, FileTex
 import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
 import { handleAnchorClick } from '@/utils/scrollUtils';
 import { trackServiceClick } from '@/components/Analytics';
+import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 
 const Services = () => {
   // Add enhanced SEO for this page with service schema
   useSEO(getEnhancedSEOConfig('services'));
   return <main className="pt-24">
+      {/* Breadcrumbs */}
+      <div className="section-container">
+        <Breadcrumbs />
+      </div>
+      
       {/* Hero Section */}
       <section className="section-container">
         <div className="text-center max-w-3xl mx-auto animate-fade-in relative">

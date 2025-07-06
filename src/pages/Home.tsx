@@ -15,7 +15,11 @@ const Home = () => {
       <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" alt="SEO optimization workspace" className="w-full h-full object-cover opacity-20" />
+          <img 
+            src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" 
+            alt="Professional SEO optimization workspace showing analytics dashboards and search engine results" 
+            className="w-full h-full object-cover opacity-20"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-background to-background/50"></div>
         </div>
         
