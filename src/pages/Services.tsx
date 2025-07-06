@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowRight, Search, Globe2, BarChart3, Zap, Users, FileText } from 'lucide-react';
 import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
 import { handleAnchorClick } from '@/utils/scrollUtils';
+import { trackServiceClick } from '@/components/Analytics';
 
 const Services = () => {
   // Add enhanced SEO for this page with service schema
@@ -22,7 +23,10 @@ const Services = () => {
               Comprehensive search engine optimization services designed to improve your visibility, drive qualified traffic, and increase conversions.
             </p>
             <Button asChild size="lg">
-              <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Get a Free Consultation</a>
+              <a href="/contact#top" onClick={(e) => {
+                trackServiceClick('SEO Services - Hero CTA');
+                handleAnchorClick('/contact#top', e);
+              }}>Get a Free Consultation</a>
             </Button>
           </div>
         </div>

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, ExternalLink, FileSearch, TrendingUp, CheckCircle } from 'lucide-react';
 import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
 import { handleAnchorClick } from '@/utils/scrollUtils';
+import { trackPortfolioView } from '@/components/Analytics';
 
 // Portfolio filter categories
 const categories = ["All", "E-commerce", "SaaS", "Local Business", "B2B"];
@@ -169,7 +170,7 @@ const Portfolio = () => {
                     </div>)}
                 </div>
                 <Button asChild variant="outline" className="w-full">
-                  <Link to={`/case-study/${study.id}`}>
+                  <Link to={`/case-study/${study.id}`} onClick={() => trackPortfolioView(study.title)}>
                     View Full Case Study <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>

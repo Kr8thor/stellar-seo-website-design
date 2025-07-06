@@ -8,6 +8,7 @@ import { validateContactForm, checkClientRateLimit } from '@/lib/security';
 import { securityMonitor } from '@/lib/securityMonitor';
 import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
 import { scrollToTop } from '@/utils/scrollUtils';
+import { trackContactFormSubmission } from '@/components/Analytics';
 
 const Contact = () => {
   // Add enhanced SEO for contact page with breadcrumb schema
@@ -80,6 +81,9 @@ const Contact = () => {
       
       // Log successful submission
       securityMonitor.logFormSubmission('contact', true);
+      
+      // Track form submission in Google Analytics
+      trackContactFormSubmission('contact_form');
       
       toast({
         title: "Message sent successfully!",

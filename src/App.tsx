@@ -15,6 +15,7 @@ import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import SecurityHeaders from "./components/security/SecurityHeaders";
 import SEOProvider from "./components/seo/SEOProvider";
+import { GoogleAnalytics, GoogleTagManager } from "./components/Analytics";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -104,6 +105,8 @@ const App = () => (
               <Toaster />
               <Sonner />
               <BrowserRouter>
+                <GoogleAnalytics />
+                <GoogleTagManager />
                 <div className="flex flex-col min-h-screen">
                   <Navbar />
                   <div className="flex-grow">
