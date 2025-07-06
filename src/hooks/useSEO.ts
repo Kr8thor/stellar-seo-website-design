@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useSEO as useSEOContext } from '@/components/seo/SEOProvider';
 import { useLocation } from 'react-router-dom';
 import { EnhancedSchema, SchemaConfig } from '@/types/schema';
@@ -22,17 +22,32 @@ export const useSEO = (options: SEOOptions = {}) => {
   const { setSEO } = useSEOContext();
   const location = useLocation();
 
+  // Memoize the options to prevent infinite re-renders
+  const memoizedOptions = useMemo(() => options, [
+    options.title,
+    options.description, 
+    options.keywords,
+    options.image,
+    options.type,
+    options.author,
+    options.publishedTime,
+    options.modifiedTime,
+    options.noIndex,
+    JSON.stringify(options.schemas),
+    JSON.stringify(options.schemaConfig)
+  ]);
+
   useEffect(() => {
     const baseUrl = 'https://mardenseo.com';
     const currentUrl = `${baseUrl}${location.pathname}`;
 
     setSEO({
-      ...options,
+      ...memoizedOptions,
       url: currentUrl
     });
 
     // Add noindex meta tag if specified
-    if (options.noIndex) {
+    if (memoizedOptions.noIndex) {
       const meta = document.createElement('meta');
       meta.name = 'robots';
       meta.content = 'noindex, nofollow';
@@ -42,7 +57,7 @@ export const useSEO = (options: SEOOptions = {}) => {
         document.head.removeChild(meta);
       };
     }
-  }, [setSEO, location.pathname, options]);
+  }, [setSEO, location.pathname, memoizedOptions]);
 };
 
 // Predefined SEO configurations for common pages

@@ -12,7 +12,7 @@ import {
   PaginationNext, 
   PaginationPrevious
 } from '@/components/ui/pagination';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
 import { useWordPress } from '@/providers/WordPressProvider';
 

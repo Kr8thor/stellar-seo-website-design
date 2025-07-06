@@ -9,6 +9,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from 'react-helmet-async';
 import { WordPressProvider } from "./providers/WordPressProvider";
 import { CartProvider } from "./contexts/CartContext";
 
@@ -98,16 +99,17 @@ const queryClient = new QueryClient({
 // App Component - removed duplicate React.StrictMode
 const App = () => (
   <ErrorBoundary>
-    <SecurityHeaders />
-    <SEOProvider>
-      <QueryClientProvider client={queryClient}>
-        <ApolloProvider client={client}> 
-          <WordPressProvider>
-            <TooltipProvider>
-              <Toaster />
-              <Sonner />
-              <BrowserRouter>
-                <CartProvider>
+    <HelmetProvider>
+      <SecurityHeaders />
+      <SEOProvider>
+        <QueryClientProvider client={queryClient}>
+          <ApolloProvider client={client}> 
+            <WordPressProvider>
+              <TooltipProvider>
+                <Toaster />
+                <Sonner />
+                <BrowserRouter>
+                  <CartProvider>
                   <GoogleAnalytics />
                   <GoogleTagManager />
                   <div className="flex flex-col min-h-screen">
@@ -140,6 +142,7 @@ const App = () => (
         </ApolloProvider>
       </QueryClientProvider>
     </SEOProvider>
+  </HelmetProvider>
   </ErrorBoundary>
 );
 

@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { blogPosts } from '@/data/blogPosts';
 import BlogPost from '@/components/blog/BlogPost';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { useWordPress } from '@/providers/WordPressProvider';
 import { useQuery } from '@apollo/client';
 import { GET_POST_BY_SLUG } from '@/graphql/queries';

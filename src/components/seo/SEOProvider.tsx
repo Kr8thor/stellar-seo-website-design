@@ -1,6 +1,6 @@
 
-import React, { createContext, useContext } from 'react';
-import { Helmet } from 'react-helmet';
+import React, { createContext, useContext, useCallback } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { EnhancedSchema, SchemaConfig } from '@/types/schema';
 
 interface SEOData {
@@ -35,9 +35,15 @@ export const useSEO = () => {
 const SEOProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [seoData, setSeoData] = React.useState<SEOData>({});
 
-  const setSEO = (data: SEOData) => {
-    setSeoData(data);
-  };
+  // Use useCallback to prevent setSEO from changing on every render
+  const setSEO = useCallback((data: SEOData) => {
+    setSeoData(prevData => {
+      // Only update if data is actually different to prevent unnecessary re-renders
+      const newData = { ...prevData, ...data };
+      const hasChanged = JSON.stringify(prevData) !== JSON.stringify(newData);
+      return hasChanged ? newData : prevData;
+    });
+  }, []);
 
   const defaultTitle = "Strategic SEO Solutions for Digital Success | Marden SEO";
   const defaultDescription = "Elevate your online presence with data-driven strategies that drive organic traffic, improve rankings, and increase conversions.";

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
 import { handleAnchorClick } from '@/utils/scrollUtils';
+import { ReviewSection } from '@/components';
 
 const Home = () => {
   // Add enhanced SEO for home page with breadcrumb schema
@@ -114,6 +115,9 @@ const Home = () => {
           </Button>
         </div>
       </section>
+      
+      {/* Reviews Section */}
+      <ReviewSection />
       
       {/* Redesigned SEO Audit Teaser Section */}
       <section className="relative py-16 md:py-24 overflow-hidden">
