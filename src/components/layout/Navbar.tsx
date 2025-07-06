@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from 'lucide-react';
+import CartIcon from '@/components/cart/CartIcon';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,9 +44,12 @@ const Navbar = () => {
           <Link to="/contact" className="hover-underline text-sm uppercase tracking-wider">Contact</Link>
         </nav>
 
-        <Button variant="ghost" size="icon" className="md:hidden" onClick={toggleMenu}>
-          <Menu className="h-6 w-6" />
-        </Button>
+        <div className="flex items-center space-x-4">
+          <CartIcon />
+          <Button variant="ghost" size="icon" className="md:hidden" onClick={toggleMenu}>
+            <Menu className="h-6 w-6" />
+          </Button>
+        </div>
 
         {/* Mobile Menu - ensuring solid white background regardless of scroll state */}
         <div className={`fixed inset-0 bg-white z-50 transition-transform transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} md:hidden`}>
@@ -69,6 +73,7 @@ const Navbar = () => {
               <Link to="/blog" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>Blog</Link>
               <Link to="/app-building" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>App Building</Link>
               <Link to="/contact" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+              <Link to="/cart" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>Cart</Link>
             </nav>
           </div>
         </div>

@@ -77,7 +77,7 @@ const ServicesAndPricing = () => {
       icon: <Award className="h-6 w-6 text-amber-600" />,
       description: "Intensive personal coaching to build your site together",
       features: [
-        "16 hours of 1:1 mentoring",
+        "Intensive 1:1 mentoring sessions",
         "Weekend intensive format",
         "Live website building",
         "Personalized guidance",
@@ -90,7 +90,7 @@ const ServicesAndPricing = () => {
       icon: <BookOpen className="h-6 w-6 text-green-600" />,
       description: "Complete course with all tools and templates",
       features: [
-        "10+ hours of video content",
+        "Comprehensive video content library",
         "Step-by-step tutorials",
         "Template library access",
         "Community forum access",
@@ -116,7 +116,7 @@ const ServicesAndPricing = () => {
       icon: <Users className="h-6 w-6 text-blue-600" />,
       description: "Interactive group learning experience",
       features: [
-        "8-hour workshop format",
+        "Full-day interactive workshop",
         "Small group (max 8 people)",
         "Hands-on practice",
         "Group project collaboration",
@@ -165,14 +165,15 @@ const ServicesAndPricing = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="section-container bg-gradient-to-b from-purple-50 to-white">
-        <div className="text-center max-w-4xl mx-auto">
-          <h1 className="heading-xl mb-6 text-gradient-purple">
-            Exceptional Websites. Clear Pricing. Empowering Education.
+        <div className="text-center max-w-5xl mx-auto">
+          <h1 className="heading-xl mb-8 pb-4 text-gradient-purple">
+            Exceptional Websites. Clear Pricing.<br />
+            Empowering Education.
           </h1>
-          <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+          <p className="text-xl text-muted-foreground mb-8 leading-relaxed max-w-4xl mx-auto">
             Transform your online presence with our done-for-you websites or master our proven methods through personalized education. Choose your path to digital success.
           </p>
-          <Button size="lg" className="animate-fade-in bg-purple-600 hover:bg-purple-700 text-white">
+          <Button size="lg" className="animate-fade-in bg-purple-600 hover:bg-purple-700 text-white mb-8">
             <a href="#pricing-options">Choose Your Path</a>
           </Button>
         </div>
