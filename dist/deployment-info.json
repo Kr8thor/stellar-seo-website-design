@@ -1,0 +1,17 @@
+{
+  "deployment": {
+    "timestamp": "2025-07-06 07:07:01 UTC",
+    "commit": "176f0884",
+    "branch": "main",
+    "workflow": "🚀 Build & Deploy via cPanel Git",
+    "actor": "lovable-dev[bot]",
+    "event": "push",
+    "run_id": "16096455486"
+  },
+  "seo": {
+    "sitemap_clean": true,
+    "meta_tags_optimized": true,
+    "schema_markup_included": true,
+    "performance_optimized": true
+  }
+}
