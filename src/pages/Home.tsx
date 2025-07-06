@@ -104,7 +104,7 @@ const Home = () => {
               <h3 className="font-heading text-xl mb-3">{service.title}</h3>
               <p className="text-muted-foreground mb-6">{service.description}</p>
               <Link to="/services" className="inline-flex items-center text-sm font-medium hover-underline">
-                Learn more <ArrowRight className="ml-1 h-4 w-4" />
+                Learn more about {service.title} <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
             </div>)}
         </div>
