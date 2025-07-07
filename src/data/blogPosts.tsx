@@ -190,3 +190,1276 @@ export const blogPosts: BlogPostProps[] = [
     content: <div>Component-based content from registry</div> // Placeholder
   }))
 ];
+  {
+    id: 1,
+    title: "10 On-Page SEO Tactics That Still Work in 2025 (And Actually Matter)",
+    category: "SEO Tips",
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    date: "April 05, 2025",
+    readTime: "8 min read",
+    author: "Leo Corbett",
+    excerpt: "If you've ever screamed into a Google Doc, 'What even works anymore?!'—this one's for you. SEO's been dragged through AI upheavals, algorithm shakeups, and enough SERP drama to fuel a Netflix docuseries.",
+    content: (
+      <React.Fragment>
+        <p className="text-xl leading-relaxed mb-8">
+          If you've ever screamed into a Google Doc, "What even works anymore?!"—this one's for you. SEO's been dragged through AI upheavals, algorithm shakeups, and enough SERP drama to fuel a Netflix docuseries. But guess what? Some on-page tactics still hold the line.
+        </p>
+        
+        <p className="mb-6">
+          These are the old-school fundamentals with fresh-school relevance. The techniques Google still rewards because—spoiler alert—they're actually helpful to users. So put down your AI content spinner and let's get into the real stuff.
+        </p>
+
+        <div className="bg-amber-50 border-l-4 border-amber-500 p-4 my-8 rounded-r-md">
+          <p className="italic text-amber-800">
+            "SEO in 2025 isn't about gaming the system—it's about showing up like a professional with content that helps, structure that guides, and performance that respects the user's time."
+          </p>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4">1. 🔍 Search Intent: The Only Keyword That Matters Is Why</h2>
+        <p className="mb-6">
+          You can stuff your page with keywords like a piñata full of synonyms, but if you're not matching the reason behind the search, Google will ghost you. In 2025, intent is the algorithm's North Star. People aren't just searching "best protein powder"—they're trying to lose weight, gain muscle, or avoid burping up chalk dust.
+        </p>
+
+        <p className="font-medium mb-6">How to win:</p>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Answer the real question.</li>
+          <li>Anticipate follow-ups.</li>
+          <li>Align your tone to the reader's mood (panicked, researching, comparison-shopping, etc.).</li>
+        </ul>
+
+        <p className="font-medium mb-8">Google doesn't want "content"—it wants solutions.</p>
+        
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4">2. 💬 Schema Markup: Talking to Google in Its Love Language</h2>
+        <p className="mb-6">
+          Structured data is like putting subtitles on your website. You're not just saying "Here's a recipe." You're saying, "This is a gluten-free lasagna with 1,000 five-star reviews, prep time of 15 mins, and no one cried making it."
+        </p>
+
+        <p className="font-medium mb-4">Use it for:</p>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Reviews, events, FAQs, products</li>
+          <li>Article type, author, and publish dates</li>
+          <li>Your ego (via "sameAs" and "author" tags)</li>
+        </ul>
+
+        <p className="mb-8">Result? Rich snippets. Enhanced SERPs. And maybe even your face showing up in Google's fancy answers box.</p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-purple-700 mb-3">3. 📚 Content Depth: Go Long or Go Home</h3>
+            <p>We're not talking word count inflation here. Depth means giving a topic the attention it deserves—covering angles your competitors missed, answering the follow-up questions before they're even asked.</p>
+            <div className="mt-4 p-3 bg-gray-50 rounded">
+              <p className="text-gray-700 font-medium">Quick test:</p>
+              <p>If a user still needs to Google after reading your post, you've failed.</p>
+            </div>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-green-700 mb-3">4. 🧠 Internal Linking: The Secret Sauce</h3>
+            <p>Google's like a curious toddler—it follows links to understand context. Internal linking isn't just about "SEO juice" anymore. It's about building semantic relationships between your ideas.</p>
+            <div className="mt-4 p-3 bg-gray-50 rounded">
+              <p className="text-gray-700 font-medium">Do this:</p>
+              <p>Build a web of ideas, not a maze of confusion.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4">5. ⚡ Core Web Vitals: Google's Fitness Tracker for Your Site</h2>
+        <p className="mb-6">
+          Still important. Still annoying. Still worth doing.
+        </p>
+
+        <p className="mb-6">
+          You want your site fast, stable, and responsive because—shocker—people don't like broken or sluggish pages. And Google knows this.
+        </p>
+
+        <div className="bg-green-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-green-800 mb-4">Focus on:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-green-800">
+            <li><span className="font-bold">LCP:</span> Make that big hero image load fast</li>
+            <li><span className="font-bold">CLS:</span> Stop layout shifts that make people rage-click</li>
+            <li><span className="font-bold">INP:</span> Keep interaction smooth (especially on mobile)</li>
+          </ul>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Person using laptop for SEO work" className="rounded-lg shadow-md my-8 w-full" />
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4">6. 🔁 Update Your Evergreen Content</h2>
+        <p className="mb-6">
+          The "set it and forget it" strategy is now "set it and regret it." Your 2021 guide to TikTok ads needs CPR. And Google can smell stale info from a mile away.
+        </p>
+
+        <p className="font-medium mb-4">How to resuscitate content:</p>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Add new insights</li>
+          <li>Refresh stats</li>
+          <li>Replace outdated screenshots</li>
+          <li>Re-promote like it's brand new</li>
+        </ul>
+
+        <p className="italic mb-8">Old content is like wine—only the good stuff gets better with age. The rest turns into vinegar.</p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-blue-700 mb-3">7. 🧠 Entity-Based Optimization</h3>
+            <p>Keywords? Still relevant. But 2025 SEO is about entities—people, places, concepts, and how they all relate.</p>
+            <div className="mt-4 p-3 bg-gray-50 rounded">
+              <p className="text-gray-700 font-medium">Think:</p>
+              <p>"Elon Musk" is an entity. "CEO of Tesla and Twitter chaos coordinator" is context. Google understands both.</p>
+            </div>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-amber-700 mb-3">8. 🖼️ Media Optimization</h3>
+            <p>A beautiful hero image is great—until it takes 6 seconds to load and your bounce rate turns into a bounce rave.</p>
+            <div className="mt-4 p-3 bg-gray-50 rounded">
+              <p className="text-gray-700 font-medium">Fix it:</p>
+              <p>Compress images, use lazy loading, add descriptive alt text, and transcript your videos.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4">9. 📱 Mobile-First or You're Last</h2>
+        <p className="mb-6">
+          Google's been mobile-first for years. But now it's mobile-everything. Your beautifully responsive site on desktop doesn't matter if it feels like a Craigslist forum on phones.
+        </p>
+
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-8 rounded-r-md">
+          <p className="italic text-blue-800">
+            "You don't design for mobile anymore. You design on mobile."
+          </p>
+        </div>
+
+        <p className="font-medium mb-4">Your checklist:</p>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Large, tap-friendly buttons</li>
+          <li>No desktop-style popups</li>
+          <li>Font sizes that don't require squinting</li>
+          <li>Fast mobile performance</li>
+        </ul>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4">10. 🤖 AI-Optimized Structure: Write for Readers, Organize for Robots</h2>
+        <p className="mb-6">
+          AI-assisted search (hello, SGE) now reads your page like a structured document. You need crystal-clear headings, digestible sections, and logic that even a chatbot can follow.
+        </p>
+
+        <p className="font-medium mb-4">Best practices:</p>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Use H1 → H2 → H3 hierarchy properly</li>
+          <li>Front-load value in every paragraph</li>
+          <li>Use bullet points like this one</li>
+          <li>Make your page skimmable, scrollable, and screenshot-worthy</li>
+        </ul>
+
+        <p className="mb-6">AI doesn't "read"—it parses. Give it clean input, and you'll get clean rankings.</p>
+
+        <div className="bg-gray-100 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">Final Thought: SEO That's Worth Clicking</h3>
+          <p className="mb-4">On-page SEO in 2025 isn't about "gaming the system." It's about showing up like a professional—with content that helps, structure that guides, and performance that respects the user's time.</p>
+          <p className="font-medium">Google is getting smarter. Your content should too.</p>
+          <p className="mt-4 italic">Now go update your site like it's your digital résumé—because in Google's eyes, it kinda is.</p>
+        </div>
+
+        <div className="bg-gray-100 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">About the Author</h3>
+          <div className="flex items-center">
+            <div className="h-16 w-16 rounded-full bg-purple-100 flex items-center justify-center text-xl font-medium text-purple-700 mr-4">
+              LC
+            </div>
+            <div>
+              <p className="font-medium">Leo Corbett</p>
+              <p className="text-sm text-gray-600">An AI-first automation specialist and SEO expert who builds high-performance systems that scale businesses while eliminating inefficiencies.</p>
+            </div>
+          </div>
+        </div>
+      </React.Fragment>
+    ),
+  },  {
+    id: 2,
+    title: "Why Core Web Vitals Are Still Running Your SEO Life in 2025",
+    category: "Technical SEO",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    date: "March 22, 2025",
+    readTime: "12 min read",
+    author: "Leo Corbett",
+    excerpt: "Core Web Vitals have evolved from nice-to-have metrics to essential ranking factors. Learn how to master them for better SEO performance in 2025.",
+    content: (
+      <React.Fragment>
+        <p className="text-xl leading-relaxed mb-8">
+          If Google were your gym trainer, Core Web Vitals would be its way of screaming, "No more junk food and janky websites!" In 2025, these three little metrics have gone from "nice-to-have" to non-negotiable. They're the difference between page one glory and page seven purgatory—where even your mom won't find you.
+        </p>
+
+        <p className="mb-6">
+          This isn't a technical rant. It's a survival guide for modern web performance. Let's break it down.
+        </p>
+
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-8 rounded-r-md">
+          <p className="italic text-blue-800">
+            "Core Web Vitals are Google's UX report card. They measure how fast, responsive, and stable your site feels when a real, impatient human visits it on a 4G connection while juggling coffee and car keys."
+          </p>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4">What the Heck Are Core Web Vitals, Anyway?</h2>
+        <p className="mb-6">
+          Core Web Vitals are Google's UX report card. They measure how fast, responsive, and stable your site feels when a real, impatient human visits it on a 4G connection while juggling coffee and car keys.
+        </p>
+
+        <p className="font-medium mb-4">The trio:</p>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li><strong>LCP (Largest Contentful Paint)</strong> – "How fast does the important stuff show up?"</li>
+          <li><strong>FID (First Input Delay)</strong> – "How fast can I click something without crying?"</li>
+          <li><strong>CLS (Cumulative Layout Shift)</strong> – "Why did the button move just as I tapped it?!"</li>
+        </ul>
+
+        <p className="italic mb-8">
+          Fail these, and Google assumes your site feels like trying to shop on a fax machine.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-blue-700 mb-3">LCP</h3>
+            <p className="text-gray-700">Largest Contentful Paint</p>
+            <p className="mt-2">How fast your main content loads</p>
+            <div className="mt-4 p-3 bg-blue-50 rounded text-center">
+              <p className="text-blue-800 font-bold">Target: &lt; 2.5s</p>
+            </div>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-purple-700 mb-3">FID</h3>
+            <p className="text-gray-700">First Input Delay</p>
+            <p className="mt-2">How fast your page responds</p>
+            <div className="mt-4 p-3 bg-purple-50 rounded text-center">
+              <p className="text-purple-800 font-bold">Target: &lt; 100ms</p>
+            </div>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-amber-700 mb-3">CLS</h3>
+            <p className="text-gray-700">Cumulative Layout Shift</p>
+            <p className="mt-2">How stable your page is</p>
+            <div className="mt-4 p-3 bg-amber-50 rounded text-center">
+              <p className="text-amber-800 font-bold">Target: &lt; 0.1</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">🚀 LCP: Show Me the Good Stuff—Fast</h2>
+        <p className="mb-6">
+          LCP measures how long it takes for the biggest visual part of your page to load. Google wants this under 2.5 seconds.
+        </p>
+
+        <p className="mb-6">
+          Because guess what? Nobody cares how clever your headline is if your hero image takes longer to load than a microwave burrito.
+        </p>
+
+        <div className="bg-blue-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-blue-800 mb-4">✅ How to Fix Your LCP Without Crying:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-blue-800">
+            <li>Compress your images like you're paying for pixels.</li>
+            <li>Cache smart—use the browser's memory like a steel trap.</li>
+            <li>Use CDNs. Your server in Ohio isn't gonna cut it for users in Dubai.</li>
+            <li>Ditch the script circus. If you're running 19 tracking pixels, rethink your life.</li>
+            <li>Prioritize the critical path. Show useful stuff first; load party tricks later.</li>
+          </ul>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Developer optimizing website code" className="rounded-lg shadow-md my-8 w-full" />
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">🖱️ FID: Don't Make Me Wait to Click</h2>
+        <p className="mb-6">
+          FID is about how responsive your site feels. It's the time between someone clicking something and your site responding.
+        </p>
+
+        <p className="mb-6">
+          If there's a delay, it feels like your site just ghosted them. FID over 100ms? That's the SEO equivalent of left on read.
+        </p>
+
+        <div className="bg-purple-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-purple-800 mb-4">✅ FID Optimization Cheat Sheet:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-purple-800">
+            <li>Minimize JavaScript like you're being charged by the kilobyte.</li>
+            <li>Break long tasks into short bursts. We're not here for a TED Talk.</li>
+            <li>Clean up your event handlers—don't make users wait for bloated code to think things through.</li>
+            <li>Offload heavy lifting to web workers. They're like interns for your browser.</li>
+            <li>Lazy load anything that doesn't scream "I need to be here right now."</li>
+          </ul>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">🧩 CLS: Stop the Page from Jumping Like a Nervous Chihuahua</h2>
+        <p className="mb-6">
+          CLS is all about visual stability. If your text shifts right as someone's about to click "Buy Now"—and they hit "Delete Account" instead—that's a problem.
+        </p>
+
+        <p className="mb-6">
+          Your CLS score should be under 0.1. Otherwise, your site looks like it's powered by caffeine and chaos.
+        </p>
+
+        <div className="bg-amber-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-amber-800 mb-4">✅ CLS Fixes That Actually Work:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-amber-800">
+            <li>Always define image and video dimensions. No surprises.</li>
+            <li>Reserve space for ads. Don't let them photobomb the layout.</li>
+            <li>Never insert content at the top of the page after load. That's betrayal.</li>
+            <li>Use transform, not layout-shifting animations. They're smooth and don't ruin lives.</li>
+            <li>Preload fonts so your text doesn't do a costume change mid-read.</li>
+          </ul>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Fast loading website on laptop" className="rounded-lg shadow-md my-8 w-full" />
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">💥 The Real-World Impact (Because You Like Numbers)</h2>
+        <p className="mb-6">
+          When you nail Core Web Vitals, the results aren't just "theoretical improvements"—they're cold, hard performance gains:
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-green-700 mb-3">Lower Bounce Rates</h3>
+            <p>Improved LCP can reduce bounce rates by up to 24%. People don't leave what loads fast.</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-green-700 mb-3">Higher Conversions</h3>
+            <p>Stable pages (good CLS) can increase conversion rates by 15-20%. People buy when buttons don't move.</p>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">🔧 The Testing Toolkit</h2>
+        <p className="mb-6">
+          You can't improve what you don't measure. Here's your Core Web Vitals testing arsenal:
+        </p>
+
+        <div className="bg-gray-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">Essential Tools:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-gray-800">
+            <li><strong>PageSpeed Insights:</strong> Google's official verdict on your performance</li>
+            <li><strong>Chrome DevTools:</strong> Real-time testing and debugging</li>
+            <li><strong>Search Console:</strong> Field data from real users</li>
+            <li><strong>Web Vitals Chrome Extension:</strong> Quick checks while browsing</li>
+            <li><strong>GTmetrix:</strong> Detailed waterfall analysis</li>
+          </ul>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">🎯 The Bottom Line: Speed = Success</h2>
+        <p className="mb-6">
+          Core Web Vitals aren't going anywhere. In fact, they're probably getting stricter. The sites that master them now will have a massive advantage as user expectations and Google's standards continue to rise.
+        </p>
+
+        <p className="text-xl font-medium mb-8">
+          Stop treating performance like an afterthought. Your users notice the difference, Google measures the difference, and your business will feel the difference.
+        </p>
+
+        <div className="bg-green-50 border-l-4 border-green-500 p-4 my-8 rounded-r-md">
+          <p className="font-semibold text-green-800 mb-2">Ready to Get Started?</p>
+          <p className="text-green-800">
+            Run your site through PageSpeed Insights right now. Pick the worst-scoring page and fix one thing today. Then tomorrow, fix another. Small improvements compound into big wins.
+          </p>
+        </div>
+
+        <div className="bg-gray-100 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">About the Author</h3>
+          <div className="flex items-center">
+            <div className="h-16 w-16 rounded-full bg-purple-100 flex items-center justify-center text-xl font-medium text-purple-700 mr-4">
+              LC
+            </div>
+            <div>
+              <p className="font-medium">Leo Corbett</p>
+              <p className="text-sm text-gray-600">An AI-first automation specialist and SEO expert who builds high-performance systems that scale businesses while eliminating inefficiencies.</p>
+            </div>
+          </div>
+        </div>
+      </React.Fragment>
+    ),
+  },  {
+    id: 3,
+    title: "The AI Revolution in SEO: How to Adapt Your Strategy",
+    category: "SEO Trends",
+    date: "March 15, 2025",
+    readTime: "9 min read",
+    image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    author: "Leo Corbett",
+    excerpt: "Explore how artificial intelligence is transforming search engine optimization and what it means for your strategy.",
+    content: (
+      <React.Fragment>
+        <p className="text-xl leading-relaxed mb-8">
+          Artificial intelligence is rapidly transforming the SEO landscape, changing how search engines work and how websites need to optimize. From content creation to technical optimization, AI's impact touches every aspect of SEO.
+        </p>
+
+        <p className="mb-6">
+          In this article, we'll explore how AI is changing SEO and provide practical strategies for adapting to this new reality. Whether you're a seasoned SEO professional or just getting started, understanding AI's role in search is crucial for staying competitive.
+        </p>
+
+        <div className="bg-purple-50 border-l-4 border-purple-500 p-4 my-8 rounded-r-md">
+          <p className="italic text-purple-800">
+            "The rise of AI in search isn't about replacing SEO—it's about evolving it. The fundamental goal remains connecting users with valuable content, but the methods are becoming more sophisticated."
+          </p>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4">How AI is Changing Search Engines</h2>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">1. Understanding User Intent</h3>
+        <p className="mb-6">
+          AI algorithms like Google's BERT and MUM have dramatically improved search engines' ability to understand natural language and user intent. These systems can now comprehend context, nuance, and even complex queries spanning multiple languages or involving both text and images.
+        </p>
+        <p className="mb-8">
+          <strong>What this means for SEO:</strong> Keywords remain important but must be incorporated naturally within content that comprehensively addresses user intent. The days of keyword-focused content that doesn't actually answer user questions are over.
+        </p>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">2. Content Evaluation</h3>
+        <p className="mb-6">
+          Search engines are increasingly capable of evaluating content quality beyond simple metrics like keyword density or word count. They can assess factors like comprehensiveness, accuracy, and even writing quality.
+        </p>
+        <p className="mb-8">
+          <strong>What this means for SEO:</strong> Creating genuinely valuable, well-written content is more important than ever. AI can detect patterns associated with low-value content, so shortcuts like AI-generated content without human editing may not perform well.
+        </p>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">3. User Experience Signals</h3>
+        <p className="mb-6">
+          AI enables search engines to better process user experience signals, including Core Web Vitals, engagement metrics, and browsing patterns.
+        </p>
+        <p className="mb-8">
+          <strong>What this means for SEO:</strong> Technical performance and user experience optimizations are now critical ranking factors. Websites need to focus on delivering fast, stable, and engaging user experiences.
+        </p>
+
+        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="AI and SEO technology" className="rounded-lg shadow-md my-8 w-full" />
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">AI Tools Transforming SEO Practices</h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-blue-700 mb-3">AI-Powered Content Creation</h3>
+            <p className="mb-4">Tools like GPT-4 and other language models can help generate content ideas, create drafts, and even produce complete articles.</p>
+            <div className="mt-4 p-3 bg-blue-50 rounded">
+              <p className="text-blue-800 font-medium">Strategic approach:</p>
+              <p className="text-blue-700">Use AI as a collaborative tool rather than a replacement for human creativity.</p>
+            </div>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-green-700 mb-3">AI Content Optimization</h3>
+            <p className="mb-4">AI-powered tools can analyze top-ranking content and provide recommendations for improving your own content's competitiveness.</p>
+            <div className="mt-4 p-3 bg-green-50 rounded">
+              <p className="text-green-800 font-medium">Strategic approach:</p>
+              <p className="text-green-700">Use insights as guidance while maintaining your unique perspective.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">Predictive SEO</h3>
+        <p className="mb-6">
+          AI systems can predict trends, forecast traffic changes, and identify emerging ranking opportunities.
+        </p>
+        <p className="mb-8">
+          <strong>Strategic approach:</strong> Incorporate predictive insights into your content calendar and SEO strategy, but balance them with your brand's core expertise and business objectives.
+        </p>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Adapting Your SEO Strategy for the AI Era</h2>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">1. Focus on E-E-A-T Signals</h3>
+        <p className="mb-6">
+          As AI-generated content becomes ubiquitous, Google's emphasis on Experience, Expertise, Authoritativeness, and Trustworthiness becomes even more important.
+        </p>
+        <p className="mb-8">
+          <strong>Implementation:</strong> Highlight author credentials, personal experiences, original research, and expert insights that AI alone cannot provide. Create content that demonstrates deep subject matter expertise and firsthand knowledge.
+        </p>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">2. Develop a Topic-Cluster Strategy</h3>
+        <p className="mb-6">
+          AI-powered search engines excel at understanding relationships between topics and concepts.
+        </p>
+        <p className="mb-8">
+          <strong>Implementation:</strong> Organize content into comprehensive topic clusters with pillar content and related subtopics. This demonstrates topical authority and creates a network of relevant content that AI can recognize as valuable.
+        </p>
+
+        <div className="bg-amber-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-amber-800 mb-4">Key Strategies for AI-Era SEO:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-amber-800">
+            <li>Optimize for voice and visual search with natural language patterns</li>
+            <li>Implement comprehensive schema markup beyond basic types</li>
+            <li>Prioritize user intent over keyword volume metrics</li>
+            <li>Create content that thoroughly addresses primary and related questions</li>
+            <li>Build topical authority through interconnected content clusters</li>
+          </ul>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Ethical Considerations in AI-Powered SEO</h2>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">1. Disclosure and Transparency</h3>
+        <p className="mb-6">
+          As AI content becomes more prevalent, transparency about AI usage builds trust.
+        </p>
+        <p className="mb-8">
+          <strong>Best practice:</strong> Consider disclosing when content is AI-assisted or AI-generated, particularly for sensitive topics where human expertise is expected.
+        </p>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">2. Maintaining Quality Control</h3>
+        <p className="mb-6">
+          AI tools can produce inaccurate or generic content without proper oversight.
+        </p>
+        <p className="mb-8">
+          <strong>Best practice:</strong> Establish robust review processes for AI-generated content, fact-check all information, and ensure the content reflects your brand's standards and values.
+        </p>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">3. Avoiding Over-Optimization</h3>
+        <p className="mb-6">
+          AI tools can make it tempting to over-optimize content in ways that compromise quality.
+        </p>
+        <p className="mb-8">
+          <strong>Best practice:</strong> Prioritize user experience over strict adherence to AI optimization suggestions. Use AI recommendations as guidelines rather than rigid rules.
+        </p>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">The Future of AI and SEO</h2>
+
+        <p className="mb-6">
+          As AI continues to evolve, we can expect several developments:
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-purple-700 mb-3">Multimodal Search</h3>
+            <p>Search engines will increasingly understand and combine text, images, video, and audio in search results.</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-blue-700 mb-3">Personalized Experiences</h3>
+            <p>AI will enable more personalized search results based on individual preferences and behaviors.</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-green-700 mb-3">Predictive Search</h3>
+            <p>Search engines may anticipate needs before users even type a query.</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-amber-700 mb-3">AI Content Detection</h3>
+            <p>More sophisticated algorithms will emerge to distinguish between AI-generated and human-written content.</p>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Conclusion: Embracing the AI-Powered Future</h2>
+
+        <p className="mb-6">
+          The rise of AI in search presents both challenges and opportunities for SEO professionals. By embracing AI tools while focusing on providing unique value that AI alone cannot create, you can develop a sustainable SEO strategy for this new era.
+        </p>
+
+        <p className="text-xl font-medium mb-8">
+          Remember that while AI is transforming the mechanics of search, the fundamental goal remains the same: connecting users with the most relevant, valuable content for their needs. Websites that genuinely serve their audience will continue to succeed, even as the technology powering search evolves.
+        </p>
+
+        <div className="bg-gray-50 border-l-4 border-gray-500 p-4 my-8 rounded-r-md">
+          <p className="font-semibold text-gray-800 mb-2">Action Steps:</p>
+          <p className="text-gray-700">
+            Start by auditing your current content for AI readiness. Focus on adding personal insights, expert commentary, and firsthand experience that AI tools cannot replicate. Then gradually incorporate AI tools into your workflow while maintaining human oversight and quality standards.
+          </p>
+        </div>
+
+        <div className="bg-gray-100 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">About the Author</h3>
+          <div className="flex items-center">
+            <div className="h-16 w-16 rounded-full bg-purple-100 flex items-center justify-center text-xl font-medium text-purple-700 mr-4">
+              LC
+            </div>
+            <div>
+              <p className="font-medium">Leo Corbett</p>
+              <p className="text-sm text-gray-600">An AI-first automation specialist and SEO expert who builds high-performance systems that scale businesses while eliminating inefficiencies.</p>
+            </div>
+          </div>
+        </div>
+      </React.Fragment>
+    ),
+  },  {
+    id: 4,
+    title: "Local SEO Mastery: How to Dominate Your Geographic Market",
+    category: "Local SEO",
+    date: "March 5, 2025",
+    readTime: "5 min read",
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    author: "Leo Corbett",
+    excerpt: "Learn the essential strategies to improve your business's visibility in local search results.",
+    content: (
+      <React.Fragment>
+        <p className="text-xl leading-relaxed mb-8">
+          For businesses that serve specific geographic areas, local SEO is the most powerful way to connect with nearby customers. This guide covers the essential tactics to dominate local search results and attract more local customers.
+        </p>
+
+        <p className="mb-6">
+          While general SEO principles apply to local search, there are unique strategies that can help you stand out in your community. Let's dive into the tactics that will make your business the go-to choice in your local market.
+        </p>
+
+        <div className="bg-green-50 border-l-4 border-green-500 p-4 my-8 rounded-r-md">
+          <p className="italic text-green-800">
+            "Local SEO isn't just about ranking higher—it's about becoming the obvious choice for customers in your neighborhood who are ready to buy."
+          </p>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4">Google Business Profile: Your Local SEO Foundation</h2>
+
+        <p className="mb-6">
+          Your Google Business Profile (formerly Google My Business) is the cornerstone of local SEO success. Here's how to optimize it:
+        </p>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">Complete Every Section</h3>
+        <p className="mb-4">
+          Provide comprehensive information in every available field. This includes:
+        </p>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Business name (exactly as it appears elsewhere)</li>
+          <li>Primary and additional categories</li>
+          <li>Complete address and service area</li>
+          <li>Accurate hours, including special hours for holidays</li>
+          <li>Phone number and website URL</li>
+          <li>Detailed business description with relevant keywords</li>
+          <li>Products and services with descriptions and prices</li>
+          <li>Attributes that apply to your business (e.g., "wheelchair accessible," "women-owned")</li>
+        </ul>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">Add High-Quality Photos</h3>
+        <p className="mb-4">
+          Businesses with photos receive significantly more clicks and direction requests. Upload:
+        </p>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Exterior photos from different approaches</li>
+          <li>Interior photos showing your space</li>
+          <li>Product or service photos</li>
+          <li>Team photos that humanize your business</li>
+          <li>A cover photo and logo</li>
+        </ul>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-blue-700 mb-3">Collect and Respond to Reviews</h3>
+            <p className="mb-4">Reviews directly influence local rankings and customer decisions:</p>
+            <ul className="list-disc pl-4 space-y-2 text-sm">
+              <li>Create a simple process for requesting reviews</li>
+              <li>Respond professionally to all reviews</li>
+              <li>Address concerns in negative reviews</li>
+            </ul>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-green-700 mb-3">Post Regular Updates</h3>
+            <p className="mb-4">Use the Posts feature to share:</p>
+            <ul className="list-disc pl-4 space-y-2 text-sm">
+              <li>Special offers and promotions</li>
+              <li>Events and announcements</li>
+              <li>New products or services</li>
+              <li>Business news and updates</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Local On-Page SEO Optimization</h2>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">Localize Your Website Content</h3>
+        <p className="mb-4">
+          Create location-specific content throughout your site:
+        </p>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Include city and region names in title tags, headings, and content</li>
+          <li>Create dedicated pages for each location you serve</li>
+          <li>Develop location-specific case studies and testimonials</li>
+          <li>Write about local events, news, or community involvement</li>
+        </ul>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">Implement Local Schema Markup</h3>
+        <p className="mb-4">
+          Schema markup helps search engines understand your business information:
+        </p>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>LocalBusiness schema (or a more specific type)</li>
+          <li>Organization schema</li>
+          <li>Review schema for testimonials</li>
+          <li>FAQ schema for local questions</li>
+        </ul>
+
+        <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Local business storefront" className="rounded-lg shadow-md my-8 w-full" />
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">Optimize for "Near Me" Searches</h3>
+        <p className="mb-4">
+          Capture proximity-based searches with:
+        </p>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Location-based keywords in title tags and headings</li>
+          <li>Neighborhood, landmark, and "near me" phrases in content</li>
+          <li>Location pages with embedded Google Maps</li>
+          <li>Directions from popular nearby locations or landmarks</li>
+        </ul>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Citations and Local Link Building</h2>
+
+        <div className="bg-blue-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-blue-800 mb-4">Build Consistent Local Citations</h3>
+          <p className="mb-4 text-blue-700">Citations are mentions of your business information online. Consistency is key:</p>
+          <ul className="list-disc pl-6 space-y-3 text-blue-800">
+            <li>Ensure NAP (Name, Address, Phone) consistency across all platforms</li>
+            <li>Claim and verify listings on major directories (Yelp, Yellow Pages, BBB, etc.)</li>
+            <li>Target industry-specific directories relevant to your business</li>
+            <li>Create listings on local chamber of commerce and community websites</li>
+          </ul>
+        </div>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">Local Link Building Strategies</h3>
+        <p className="mb-4">
+          Earn links from local websites to boost local relevance:
+        </p>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Sponsor local events, teams, or charities</li>
+          <li>Join local business associations</li>
+          <li>Create resources specifically for your community</li>
+          <li>Partner with complementary local businesses</li>
+          <li>Participate in local interviews or podcasts</li>
+        </ul>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Local Content Marketing</h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-purple-700 mb-3">Create Location-Specific Content</h3>
+            <p className="mb-4">Develop content that serves your local audience:</p>
+            <ul className="list-disc pl-4 space-y-2 text-sm">
+              <li>Local guides and resources</li>
+              <li>Community event calendars</li>
+              <li>Neighborhood spotlights</li>
+              <li>Local client success stories</li>
+            </ul>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-amber-700 mb-3">Localize Your Blog Strategy</h3>
+            <p className="mb-4">Use your blog to strengthen local relevance:</p>
+            <ul className="list-disc pl-4 space-y-2 text-sm">
+              <li>Cover local news related to your industry</li>
+              <li>Highlight community involvement</li>
+              <li>Answer common local questions</li>
+              <li>Create seasonal local content</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Advanced Local SEO Strategies</h2>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">Leverage Local Social Media</h3>
+        <p className="mb-4">
+          Use social platforms to enhance local presence:
+        </p>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Join and participate in local Facebook groups</li>
+          <li>Use location tags on Instagram and Facebook posts</li>
+          <li>Share location-specific content and promotions</li>
+          <li>Engage with local influencers and businesses</li>
+        </ul>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">Optimize for Voice Search</h3>
+        <p className="mb-4">
+          Prepare for local voice queries:
+        </p>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Focus on conversational, question-based keywords</li>
+          <li>Create content that answers specific local questions</li>
+          <li>Ensure your Google Business Profile is complete and accurate</li>
+          <li>Optimize for "near me" and "open now" searches</li>
+        </ul>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Conclusion: Think Local to Grow Local</h2>
+
+        <p className="mb-6">
+          Local SEO success requires a comprehensive approach that extends beyond traditional SEO tactics. By focusing on your Google Business Profile, creating location-specific content, building local citations and links, and actively managing your online reputation, you can significantly improve your visibility to local customers.
+        </p>
+
+        <p className="text-xl font-medium mb-8">
+          Remember that local SEO is highly competitive, and consistent effort over time yields the best results. Start with the fundamentals, measure your progress, and continually refine your strategy based on performance data and local market changes.
+        </p>
+
+        <div className="bg-green-50 border-l-4 border-green-500 p-4 my-8 rounded-r-md">
+          <p className="font-semibold text-green-800 mb-2">Quick Win:</p>
+          <p className="text-green-700">
+            Start by claiming and optimizing your Google Business Profile today. Add photos, collect your first few reviews, and post an update. These simple actions can improve your local visibility within days.
+          </p>
+        </div>
+
+        <div className="bg-gray-100 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">About the Author</h3>
+          <div className="flex items-center">
+            <div className="h-16 w-16 rounded-full bg-purple-100 flex items-center justify-center text-xl font-medium text-purple-700 mr-4">
+              LC
+            </div>
+            <div>
+              <p className="font-medium">Leo Corbett</p>
+              <p className="text-sm text-gray-600">An AI-first automation specialist and SEO expert who builds high-performance systems that scale businesses while eliminating inefficiencies.</p>
+            </div>
+          </div>
+        </div>
+      </React.Fragment>
+    ),
+  },        <p className="mb-6">
+          Ensure that your mobile version includes all the important meta information and structured data:
+        </p>
+
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Include the same meta titles and descriptions on mobile</li>
+          <li>Implement identical structured data markup</li>
+          <li>Use the same hreflang tags for international sites</li>
+          <li>Ensure canonical tags point to the correct URLs</li>
+        </ul>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">5. Internal Linking Structure</h3>
+        <p className="mb-6">
+          Your mobile site should maintain the same internal linking structure as your desktop version:
+        </p>
+
+        <div className="bg-amber-50 p-6 rounded-lg my-8">
+          <h4 className="font-semibold text-amber-800 mb-4">Internal Linking Checklist:</h4>
+          <ul className="list-disc pl-6 space-y-3 text-amber-800">
+            <li>All important pages are accessible within 3 clicks</li>
+            <li>Navigation menus include all key sections</li>
+            <li>Related content links are preserved on mobile</li>
+            <li>Footer links remain accessible and functional</li>
+          </ul>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Common Mobile-First Indexing Mistakes</h2>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">1. Hidden or Collapsed Content</h3>
+        <p className="mb-6">
+          Many sites hide content in tabs, accordions, or expandable sections on mobile. While this can improve user experience, it may reduce the content's value for SEO if not implemented correctly.
+        </p>
+
+        <p className="mb-8">
+          <strong>Solution:</strong> Use proper HTML structure and ensure that hidden content is still accessible to search engines. Consider using CSS to hide content visually while keeping it in the DOM.
+        </p>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">2. Separate Mobile URLs</h3>
+        <p className="mb-6">
+          Sites using separate mobile URLs (m.example.com) face additional complexity in ensuring content parity and proper canonicalization.
+        </p>
+
+        <p className="mb-8">
+          <strong>Solution:</strong> Consider migrating to responsive design, or ensure perfect content parity and proper rel=canonical implementation between mobile and desktop versions.
+        </p>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">3. Slow Mobile Performance</h3>
+        <p className="mb-6">
+          Many sites that perform well on desktop struggle with mobile performance due to unoptimized images, heavy JavaScript, or poor hosting.
+        </p>
+
+        <p className="mb-8">
+          <strong>Solution:</strong> Implement mobile-specific optimizations, use responsive images, and consider AMP for content-heavy pages.
+        </p>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Testing Your Mobile Readiness</h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-green-700 mb-3">Essential Testing Tools</h3>
+            <ul className="list-disc pl-4 space-y-2 text-sm">
+              <li>Google's Mobile-Friendly Test</li>
+              <li>PageSpeed Insights mobile scores</li>
+              <li>Chrome DevTools device simulation</li>
+              <li>Search Console Mobile Usability report</li>
+            </ul>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-blue-700 mb-3">Manual Testing</h3>
+            <ul className="list-disc pl-4 space-y-2 text-sm">
+              <li>Test on actual mobile devices</li>
+              <li>Check different screen sizes and orientations</li>
+              <li>Verify touch interactions work properly</li>
+              <li>Test form submissions and navigation</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Monitoring Mobile Performance</h2>
+
+        <p className="mb-6">
+          Once you've optimized for mobile-first indexing, ongoing monitoring is crucial:
+        </p>
+
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Set up Google Search Console to monitor mobile usability issues</li>
+          <li>Track Core Web Vitals specifically for mobile users</li>
+          <li>Monitor mobile traffic and engagement metrics</li>
+          <li>Regularly test new content and features on mobile devices</li>
+          <li>Keep an eye on mobile-specific ranking changes</li>
+        </ul>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">The Future of Mobile SEO</h2>
+
+        <p className="mb-6">
+          As mobile usage continues to grow and technology evolves, consider these emerging trends:
+        </p>
+
+        <div className="bg-purple-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-purple-800 mb-4">Emerging Mobile SEO Trends:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-purple-800">
+            <li>Voice search optimization for mobile devices</li>
+            <li>Progressive Web Apps (PWAs) for app-like experiences</li>
+            <li>5G optimization for faster mobile connections</li>
+            <li>Mobile-first AI and machine learning integration</li>
+            <li>Enhanced mobile local search features</li>
+          </ul>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Conclusion: Mobile-First is the Only Way Forward</h2>
+
+        <p className="mb-6">
+          Mobile-first indexing isn't just a Google update—it's a reflection of how people actually use the internet today. By ensuring your mobile experience is excellent, you're not just satisfying search engines; you're serving your users better.
+        </p>
+
+        <p className="text-xl font-medium mb-8">
+          The websites that thrive in the mobile-first era are those that treat mobile as the primary experience, not an afterthought. Start with mobile, enhance for desktop, and watch your search performance improve across all devices.
+        </p>
+
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-8 rounded-r-md">
+          <p className="font-semibold text-blue-800 mb-2">Action Step:</p>
+          <p className="text-blue-700">
+            Run your site through Google's Mobile-Friendly Test today, then spend 10 minutes browsing your own site on your phone. You'll quickly identify the biggest issues that need your attention.
+          </p>
+        </div>
+
+        <div className="bg-gray-100 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">About the Author</h3>
+          <div className="flex items-center">
+            <div className="h-16 w-16 rounded-full bg-purple-100 flex items-center justify-center text-xl font-medium text-purple-700 mr-4">
+              LC
+            </div>
+            <div>
+              <p className="font-medium">Leo Corbett</p>
+              <p className="text-sm text-gray-600">An AI-first automation specialist and SEO expert who builds high-performance systems that scale businesses while eliminating inefficiencies.</p>
+            </div>
+          </div>
+        </div>
+      </React.Fragment>
+    ),
+  },  {
+    id: 6,
+    title: "Content Strategy for SEO: Beyond Keywords",
+    category: "Content Strategy",
+    date: "February 15, 2025",
+    readTime: "8 min read",
+    image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    author: "Leo Corbett",
+    excerpt: "Discover how to create a content strategy that goes beyond traditional keyword targeting to drive real SEO results.",
+    content: (
+      <React.Fragment>
+        <p className="text-xl leading-relaxed mb-8">
+          The days of creating content around individual keywords are numbered. Modern SEO requires a more sophisticated approach to content strategy that focuses on user intent, topical authority, and comprehensive coverage of subjects.
+        </p>
+
+        <p className="mb-6">
+          This guide will show you how to develop a content strategy that not only ranks well but also builds real authority and drives meaningful business results.
+        </p>
+
+        <div className="bg-green-50 border-l-4 border-green-500 p-4 my-8 rounded-r-md">
+          <p className="italic text-green-800">
+            "Successful content strategy in 2025 is about becoming the definitive resource for your topic, not just ranking for individual keywords."
+          </p>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4">Understanding Topic Clusters</h2>
+        <p className="mb-6">
+          Topic clusters represent a shift from keyword-focused content to topic-focused content. Instead of creating individual pages for each keyword, you create comprehensive pillar content supported by related cluster content.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-blue-700 mb-3">Pillar Content</h3>
+            <p>Comprehensive, authoritative content that covers a broad topic. This serves as the foundation of your cluster.</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-green-700 mb-3">Cluster Content</h3>
+            <p>Specific, detailed content that explores subtopics and links back to the pillar content.</p>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Building Topical Authority</h2>
+        <p className="mb-6">
+          Topical authority is earned by consistently producing high-quality, comprehensive content around specific subjects. Here's how to build it:
+        </p>
+
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Choose 3-5 core topics relevant to your business</li>
+          <li>Create comprehensive pillar content for each topic</li>
+          <li>Develop supporting content that explores subtopics in detail</li>
+          <li>Maintain consistency in publishing within your chosen topics</li>
+          <li>Update and expand content regularly to maintain relevance</li>
+        </ul>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">User Intent-Driven Content Creation</h2>
+        <p className="mb-6">
+          Understanding user intent is crucial for creating content that satisfies both users and search engines. There are four main types of search intent:
+        </p>
+
+        <div className="bg-blue-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-blue-800 mb-4">Types of Search Intent:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-blue-800">
+            <li><strong>Informational:</strong> Users seeking information or answers to questions</li>
+            <li><strong>Navigational:</strong> Users looking for specific websites or pages</li>
+            <li><strong>Transactional:</strong> Users ready to make a purchase or take action</li>
+            <li><strong>Commercial Investigation:</strong> Users comparing options before buying</li>
+          </ul>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1542435503-956c469947f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Content strategy planning" className="rounded-lg shadow-md my-8 w-full" />
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">The Content Audit and Gap Analysis</h2>
+        <p className="mb-6">
+          Before creating new content, audit your existing content to identify gaps and opportunities:
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-purple-700 mb-3">Content Audit Steps</h3>
+            <ul className="list-disc pl-4 space-y-2 text-sm">
+              <li>Inventory all existing content</li>
+              <li>Analyze performance metrics</li>
+              <li>Identify content gaps</li>
+              <li>Assess content quality and relevance</li>
+            </ul>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-amber-700 mb-3">Gap Analysis</h3>
+            <ul className="list-disc pl-4 space-y-2 text-sm">
+              <li>Compare your content to competitors</li>
+              <li>Identify missing topics or subtopics</li>
+              <li>Find opportunities for content expansion</li>
+              <li>Discover new content formats to explore</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Content Optimization Beyond Keywords</h2>
+        <p className="mb-6">
+          Modern content optimization involves multiple factors beyond keyword density:
+        </p>
+
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Semantic keyword usage and related terms</li>
+          <li>Comprehensive coverage of the topic</li>
+          <li>Proper heading structure and content organization</li>
+          <li>Internal linking to related content</li>
+          <li>Use of multimedia elements (images, videos, infographics)</li>
+          <li>Mobile-friendly formatting and readability</li>
+        </ul>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Measuring Content Strategy Success</h2>
+        <p className="mb-6">
+          Track these metrics to measure the effectiveness of your content strategy:
+        </p>
+
+        <div className="bg-gray-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">Key Performance Indicators:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-gray-800">
+            <li>Organic traffic growth to pillar and cluster content</li>
+            <li>Keyword ranking improvements across topic clusters</li>
+            <li>Time on page and engagement metrics</li>
+            <li>Internal link clicks and content exploration</li>
+            <li>Conversion rates from content to business goals</li>
+            <li>Brand awareness and thought leadership metrics</li>
+          </ul>
+        </div>
+
+        <div className="bg-gray-100 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">About the Author</h3>
+          <div className="flex items-center">
+            <div className="h-16 w-16 rounded-full bg-purple-100 flex items-center justify-center text-xl font-medium text-purple-700 mr-4">
+              LC
+            </div>
+            <div>
+              <p className="font-medium">Leo Corbett</p>
+              <p className="text-sm text-gray-600">An AI-first automation specialist and SEO expert who builds high-performance systems that scale businesses while eliminating inefficiencies.</p>
+            </div>
+          </div>
+        </div>
+      </React.Fragment>
+    ),
+  },
+  {
+    id: 7,
+    title: "Technical SEO Fundamentals: The Foundation of Rankings",
+    category: "Technical SEO",
+    date: "February 8, 2025",
+    readTime: "11 min read",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    author: "Leo Corbett",
+    excerpt: "Master the technical aspects of SEO that form the foundation for all your other optimization efforts.",
+    content: (
+      <React.Fragment>
+        <p className="text-xl leading-relaxed mb-8">
+          Technical SEO is the foundation that supports all your other SEO efforts. Without a solid technical foundation, even the best content won't achieve its full potential.
+        </p>
+
+        <p className="mb-6">
+          This comprehensive guide covers the essential technical SEO elements that every website needs to master for better search engine visibility and user experience.
+        </p>
+
+        <div className="bg-red-50 border-l-4 border-red-500 p-4 my-8 rounded-r-md">
+          <p className="italic text-red-800">
+            "Technical SEO might not be glamorous, but it's the difference between a website that search engines can easily understand and index versus one that struggles to gain visibility."
+          </p>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4">Site Architecture and URL Structure</h2>
+        <p className="mb-6">
+          A well-organized site architecture helps both users and search engines navigate your content efficiently:
+        </p>
+
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Create a logical hierarchy with clear categories</li>
+          <li>Use descriptive, keyword-rich URLs</li>
+          <li>Keep URL structure simple and consistent</li>
+          <li>Implement breadcrumb navigation</li>
+          <li>Ensure important pages are accessible within 3 clicks</li>
+        </ul>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-green-700 mb-3">✅ Good URL Structure</h3>
+            <code className="text-sm bg-gray-100 p-2 rounded block">
+              example.com/category/subcategory/page-title
+            </code>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-red-700 mb-3">❌ Poor URL Structure</h3>
+            <code className="text-sm bg-gray-100 p-2 rounded block">
+              example.com/?p=123&cat=456&id=789
+            </code>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">XML Sitemaps and Robots.txt</h2>
+        <p className="mb-6">
+          Help search engines discover and understand your content structure:
+        </p>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">XML Sitemaps</h3>
+        <ul className="list-disc pl-6 mb-6 space-y-2">
+          <li>Include all important pages in your sitemap</li>
+          <li>Update sitemaps automatically when content changes</li>
+          <li>Submit sitemaps to Google Search Console</li>
+          <li>Use separate sitemaps for different content types (pages, images, videos)</li>
+        </ul>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">Robots.txt</h3>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Block access to admin areas and private content</li>
+          <li>Reference your XML sitemap location</li>
+          <li>Avoid accidentally blocking important content</li>
+          <li>Test robots.txt regularly to ensure proper functionality</li>
+        </ul>
+
+        <div className="bg-gray-100 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">About the Author</h3>
+          <div className="flex items-center">
+            <div className="h-16 w-16 rounded-full bg-purple-100 flex items-center justify-center text-xl font-medium text-purple-700 mr-4">
+              LC
+            </div>
+            <div>
+              <p className="font-medium">Leo Corbett</p>
+              <p className="text-sm text-gray-600">An AI-first automation specialist and SEO expert who builds high-performance systems that scale businesses while eliminating inefficiencies.</p>
+            </div>
+          </div>
+        </div>
+      </React.Fragment>
+    ),
+  },
+  {
+    id: 8,
+    title: "Link Building in 2025: Quality Over Quantity",
+    category: "Link Building",
+    date: "January 28, 2025",
+    readTime: "9 min read",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    author: "Leo Corbett",
+    excerpt: "Learn modern link building strategies that focus on earning high-quality, relevant backlinks that actually move the needle.",
+    content: (
+      <React.Fragment>
+        <p className="text-xl leading-relaxed mb-8">
+          Link building has evolved dramatically over the past few years. The days of mass outreach are giving way to more sophisticated strategies focused on building genuine relationships and creating truly valuable content.
+        </p>
+
+        <p className="mb-6">
+          This guide explores modern link building strategies that focus on quality, relevance, and sustainable growth rather than quick wins that can hurt your site in the long run.
+        </p>
+
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-8 rounded-r-md">
+          <p className="italic text-blue-800">
+            "The best link building strategy is to create content so valuable that people can't help but link to it. Everything else is just tactics."
+          </p>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4">The Foundation: Linkable Content</h2>
+        <p className="mb-6">
+          Before any outreach or relationship building, you need content that people actually want to link to:
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-green-700 mb-3">High-Value Content Types</h3>
+            <ul className="list-disc pl-4 space-y-2 text-sm">
+              <li>Original research and data studies</li>
+              <li>Comprehensive industry guides</li>
+              <li>Interactive tools and calculators</li>
+              <li>Expert roundups and interviews</li>
+            </ul>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-blue-700 mb-3">Content Promotion</h3>
+            <ul className="list-disc pl-4 space-y-2 text-sm">
+              <li>Share with relevant communities</li>
+              <li>Engage with industry influencers</li>
+              <li>Promote through multiple channels</li>
+              <li>Build relationships before asking for links</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Modern Link Building Strategies</h2>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">1. Digital PR and Brand Building</h3>
+        <p className="mb-6">
+          Focus on building your brand reputation through PR activities that naturally generate links:
+        </p>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Create newsworthy content and announcements</li>
+          <li>Participate in industry events and conferences</li>
+          <li>Offer expert commentary on trending topics</li>
+          <li>Build relationships with journalists and bloggers</li>
+        </ul>
+
+        <h3 className="text-xl font-semibold text-gray-700 mt-8 mb-3">2. Resource Page Link Building</h3>
+        <p className="mb-6">
+          Find resource pages in your industry and suggest your content as a valuable addition:
+        </p>
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Identify resource pages relevant to your niche</li>
+          <li>Create content specifically designed for resource inclusion</li>
+          <li>Personalize outreach to resource page owners</li>
+          <li>Focus on adding genuine value to their collection</li>
+        </ul>
+
+        <div className="bg-gray-100 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">About the Author</h3>
+          <div className="flex items-center">
+            <div className="h-16 w-16 rounded-full bg-purple-100 flex items-center justify-center text-xl font-medium text-purple-700 mr-4">
+              LC
+            </div>
+            <div>
+              <p className="font-medium">Leo Corbett</p>
+              <p className="text-sm text-gray-600">An AI-first automation specialist and SEO expert who builds high-performance systems that scale businesses while eliminating inefficiencies.</p>
+            </div>
+          </div>
+        </div>
+      </React.Fragment>
+    ),
+  },  // Add registry posts as metadata only
+  ...registryPosts.map(post => ({
+    ...post,
+    content: <div>Component-based content from registry</div> // Placeholder
+  }))
+];
