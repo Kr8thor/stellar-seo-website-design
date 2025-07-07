@@ -28,7 +28,6 @@ export const WordPressProvider = ({ children }) => {
   const [siteSettings, setSiteSettings] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-<<<<<<< HEAD
   const [usingCMS, setUsingCMS] = useState(false); // Start with false, enable only if CMS works
   
   // Fetch all posts
@@ -79,6 +78,10 @@ export const WordPressProvider = ({ children }) => {
       { id: 1, name: 'SEO Tips', slug: 'seo-tips', count: 5 },
       { id: 2, name: 'Technical SEO', slug: 'technical-seo', count: 3 },
       { id: 3, name: 'Content Strategy', slug: 'content-strategy', count: 2 },
+      { id: 4, name: 'AI & SEO', slug: 'ai-seo', count: 1 },
+      { id: 5, name: 'Local SEO', slug: 'local-seo', count: 1 },
+      { id: 6, name: 'SEO Trends', slug: 'seo-trends', count: 1 },
+      { id: 7, name: 'Link Building', slug: 'link-building', count: 1 },
     ]);
     setLoading(false);
   }, []);
@@ -141,17 +144,6 @@ export const WordPressProvider = ({ children }) => {
       console.log('Adapted featured post from CMS:', adaptedFeatured?.title);
       setFeaturedPost(adaptedFeatured);
     }
-    
-    // Set categories
-    setCategories([
-      { id: 1, name: 'SEO Tips', slug: 'seo-tips', count: 5 },
-      { id: 2, name: 'Technical SEO', slug: 'technical-seo', count: 3 },
-      { id: 3, name: 'Content Strategy', slug: 'content-strategy', count: 2 },
-      { id: 4, name: 'AI & SEO', slug: 'ai-seo', count: 1 },
-      { id: 5, name: 'Local SEO', slug: 'local-seo', count: 1 },
-      { id: 6, name: 'SEO Trends', slug: 'seo-trends', count: 1 },
-      { id: 7, name: 'Link Building', slug: 'link-building', count: 1 },
-    ]);
     
     if (settingsData) {
       setSiteSettings({

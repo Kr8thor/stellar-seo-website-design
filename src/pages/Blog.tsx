@@ -83,15 +83,6 @@ const Blog = () => {
       </Helmet>
       
       {/* Debug info - only show in development */}
-      {process.env.NODE_ENV === 'development' && (
-        <div className="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded mb-4 mx-4">
-          <strong>Debug:</strong> {usingCMS ? 'Using CMS' : 'Using Static Data'} | 
-          Posts: {posts.length} | 
-          Featured: {featuredPost ? 'Yes' : 'No'} |
-          {error && ` Error: ${error.message}`}
-        </div>
-      )}
-      
       {/* Featured Post */}
       {featuredPost && (
         <section className="bg-accent/30 py-16 md:py-24">

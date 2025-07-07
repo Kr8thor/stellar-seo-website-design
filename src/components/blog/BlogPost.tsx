@@ -28,7 +28,7 @@ const BlogPost = ({ post }: { post: BlogPostProps }) => {
   const isFeaturedArticle = displayPost.id === 'featured';
   
   return (
-    <>
+    <div className="max-w-4xl mx-auto">
       <Helmet>
         <title>{displayPost.title} | Marden SEO Blog</title>
         <meta name="description" content={typeof displayPost.excerpt === 'string' ? displayPost.excerpt.substring(0, 160) : 'Blog post by Marden SEO'} />
@@ -44,9 +44,12 @@ const BlogPost = ({ post }: { post: BlogPostProps }) => {
         </Button>
       </div>
       
-      {/* Render the component-based content or legacy content */}
-      {postContent || displayPost.content}
-    </>
+      {/* Article Content Container */}
+      <article className="prose prose-lg max-w-none blog-content">
+        {/* Render the component-based content or legacy content */}
+        {postContent || displayPost.content}
+      </article>
+    </div>
   );
 };
 

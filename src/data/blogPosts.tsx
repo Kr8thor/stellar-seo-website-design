@@ -1,9 +1,5 @@
 import React from 'react';
 import { BlogPostProps } from '@/components/blog/BlogPost';
-import { blogPostsRegistry, getAllPostsMeta } from './blogPostRegistry';
-
-// Get all posts from registry plus legacy posts
-const registryPosts = getAllPostsMeta();
 
 export const blogPosts: BlogPostProps[] = [
   // Featured post
@@ -45,6 +41,252 @@ export const blogPosts: BlogPostProps[] = [
           This shift means traditional SEO tactics are becoming less effective every day. The future belongs to businesses that can adapt to this new reality.
         </p>
 
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">The Search Behavior Revolution</h2>
+        <p className="mb-6">
+          People don't search like they used to. They're not typing "best CRM software" anymore. They're asking, "What CRM should I use for a 50-person marketing agency that needs to integrate with HubSpot and has a budget under $10k?"
+        </p>
+
+        <p className="mb-8">
+          AI understands context, intent, and nuance in ways that keyword-based optimization never could. This isn't just an evolution—it's a complete paradigm shift.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-red-700 mb-3">Old SEO Playbook</h3>
+            <ul className="list-disc pl-6 space-y-2 text-gray-700">
+              <li>Target specific keywords</li>
+              <li>Build backlink quantity</li>
+              <li>Optimize for search engines</li>
+              <li>Focus on ranking positions</li>
+              <li>Create content for algorithms</li>
+            </ul>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-green-700 mb-3">New AI-Era Strategy</h3>
+            <ul className="list-disc pl-6 space-y-2 text-gray-700">
+              <li>Answer user questions comprehensively</li>
+              <li>Build topical authority</li>
+              <li>Optimize for user intent</li>
+              <li>Focus on user satisfaction</li>
+              <li>Create content for humans</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">My Personal Journey: From Keywords to Conversations</h2>
+        <p className="mb-6">
+          Five years ago, I was obsessing over keyword density and building link farms. I had spreadsheets tracking hundreds of keyword rankings, and I thought "semantic SEO" just meant using synonyms.
+        </p>
+
+        <p className="mb-6">
+          Then ChatGPT happened. Suddenly, my clients were asking me about AI-generated content, conversational search, and how to optimize for questions they didn't even know people were asking.
+        </p>
+
+        <p className="mb-8">
+          I realized I had two choices: evolve or become obsolete. So I pivoted from traditional SEO to AI-powered automation and workflow optimization. Best decision I ever made.
+        </p>
+
+        <div className="max-w-none mx-auto">
+          <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="AI and automation workflow" className="rounded-lg shadow-md my-8 w-full max-w-2xl mx-auto h-64 object-cover" />
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">The Skills That Actually Matter Now</h2>
+        <p className="mb-6">
+          Traditional SEO skills are becoming commoditized. Anyone can learn to use keyword tools or submit to directories. But the skills that separate the professionals from the pretenders are evolving rapidly.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-red-100">
+            <h3 className="text-lg font-semibold text-red-700 mb-3">⚰️ Dying Skills</h3>
+            <ul className="list-disc pl-6 space-y-2 text-gray-700">
+              <li>Manual keyword research</li>
+              <li>Directory submissions</li>
+              <li>Guest post outreach</li>
+              <li>Link building tactics</li>
+              <li>Meta tag optimization</li>
+            </ul>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-green-100">
+            <h3 className="text-lg font-semibold text-green-700 mb-3">🚀 Essential Skills</h3>
+            <ul className="list-disc pl-6 space-y-2 text-gray-700">
+              <li>AI prompt engineering</li>
+              <li>Automation workflow design</li>
+              <li>Data analysis and insights</li>
+              <li>Content strategy at scale</li>
+              <li>Customer journey mapping</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Real Examples: What This Looks Like in Practice</h2>
+        <p className="mb-6">
+          Let me show you how this transformation actually plays out in real businesses. These aren't theoretical examples—these are clients I've worked with over the past two years.
+        </p>
+
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-6 my-8 rounded-r-md">
+          <h3 className="font-semibold text-blue-800 mb-3">Case Study: SaaS Company</h3>
+          <p className="text-blue-800 mb-4">
+            <strong>Before:</strong> Spending $10k/month on manual content creation, getting 50,000 monthly visitors, 2% conversion rate.
+          </p>
+          <p className="text-blue-800">
+            <strong>After AI transformation:</strong> Automated content pipeline, 200,000 monthly visitors, 8% conversion rate, $3k/month content costs.
+          </p>
+        </div>
+
+        <div className="bg-purple-50 border-l-4 border-purple-500 p-6 my-8 rounded-r-md">
+          <h3 className="font-semibold text-purple-800 mb-3">Case Study: E-commerce Brand</h3>
+          <p className="text-purple-800 mb-4">
+            <strong>Before:</strong> Manual product descriptions, inconsistent SEO, 3-hour turnaround per product page.
+          </p>
+          <p className="text-purple-800">
+            <strong>After AI automation:</strong> AI-generated product content, automated schema markup, 5-minute turnaround, 40% increase in organic sales.
+          </p>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">The Tools That Changed Everything</h2>
+        <p className="mb-6">
+          I'm not going to give you a generic list of "best AI tools." Instead, here are the specific tools and workflows that have fundamentally changed how I approach SEO and automation:
+        </p>
+
+        <div className="bg-gray-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">My Current AI-First Tech Stack:</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <h4 className="font-medium mb-2">📊 Analysis & Research:</h4>
+              <ul className="list-disc pl-6 space-y-1 text-gray-700">
+                <li>Claude for content strategy</li>
+                <li>Custom Python scripts for data analysis</li>
+                <li>AI-powered competitor research</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-medium mb-2">🤖 Automation & Workflows:</h4>
+              <ul className="list-disc pl-6 space-y-1 text-gray-700">
+                <li>n8n for workflow automation</li>
+                <li>Zapier for integrations</li>
+                <li>Custom APIs for scale</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-none mx-auto">
+          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Modern AI tools and automation" className="rounded-lg shadow-md my-8 w-full max-w-2xl mx-auto h-64 object-cover" />
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">What This Means for Your Business</h2>
+        <p className="mb-6">
+          If you're still thinking about SEO in terms of keywords and backlinks, you're already behind. The businesses winning in search today are the ones that understand their customers' actual problems and provide comprehensive, helpful solutions.
+        </p>
+
+        <div className="bg-amber-50 border-l-4 border-amber-500 p-4 my-8 rounded-r-md">
+          <h3 className="font-semibold text-amber-800 mb-2">The Reality Check</h3>
+          <p className="text-amber-800">
+            Your competitors aren't just other websites anymore. You're competing with AI assistants that can answer questions instantly and provide personalized recommendations at scale.
+          </p>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">The Path Forward: Embrace AI-First Thinking</h2>
+        <p className="mb-6">
+          Here's what I've learned after helping dozens of businesses navigate this transition:
+        </p>
+
+        <div className="bg-green-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-green-800 mb-4">The New Success Formula:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-green-800">
+            <li><strong>Understand intent at scale:</strong> Use AI to analyze what your customers really want</li>
+            <li><strong>Create comprehensive content:</strong> Answer the question and the five follow-up questions</li>
+            <li><strong>Automate the repetitive stuff:</strong> Let AI handle keyword research, content optimization, and technical SEO</li>
+            <li><strong>Focus on expertise:</strong> Become the go-to source for your niche, not just another website</li>
+            <li><strong>Think workflows, not websites:</strong> How does your content fit into your customer's entire journey?</li>
+          </ul>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">The Roadmap: How to Actually Make This Transition</h2>
+        <p className="mb-6">
+          Everyone talks about "embracing AI," but nobody gives you a practical roadmap. Here's exactly how to evolve your approach, whether you're doing SEO in-house or running an agency.
+        </p>
+
+        <div className="space-y-6 my-8">
+          <div className="bg-white border-l-4 border-blue-500 p-6 rounded-r-lg shadow-sm">
+            <h3 className="font-semibold text-blue-700 mb-3">Phase 1: Automate Your Current Processes (Months 1-2)</h3>
+            <p className="mb-3">Don't try to revolutionize everything at once. Start by automating what you're already doing manually.</p>
+            <ul className="list-disc pl-6 space-y-1 text-gray-700">
+              <li>Use AI for keyword research and content briefs</li>
+              <li>Automate technical SEO audits</li>
+              <li>Set up content optimization workflows</li>
+            </ul>
+          </div>
+
+          <div className="bg-white border-l-4 border-green-500 p-6 rounded-r-lg shadow-sm">
+            <h3 className="font-semibold text-green-700 mb-3">Phase 2: Expand Your Capabilities (Months 3-4)</h3>
+            <p className="mb-3">Once you've automated the basics, start doing things that weren't possible before.</p>
+            <ul className="list-disc pl-6 space-y-1 text-gray-700">
+              <li>Scale content production 10x</li>
+              <li>Implement personalized SEO strategies</li>
+              <li>Build predictive ranking models</li>
+            </ul>
+          </div>
+
+          <div className="bg-white border-l-4 border-purple-500 p-6 rounded-r-lg shadow-sm">
+            <h3 className="font-semibold text-purple-700 mb-3">Phase 3: Become AI-Native (Months 5-6)</h3>
+            <p className="mb-3">Transform from "SEO consultant" to "AI-powered growth strategist."</p>
+            <ul className="list-disc pl-6 space-y-1 text-gray-700">
+              <li>Offer AI automation as a service</li>
+              <li>Build custom tools for clients</li>
+              <li>Position yourself as the AI expert</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">The Mistakes I Made (So You Don't Have To)</h2>
+        <p className="mb-6">
+          This transition wasn't smooth. I made some expensive mistakes that cost me clients, time, and sanity. Learn from my failures:
+        </p>
+
+        <div className="bg-red-50 border-l-4 border-red-500 p-6 my-8 rounded-r-md">
+          <h3 className="font-semibold text-red-800 mb-4">❌ Common Pitfalls:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-red-800">
+            <li><strong>Trying to automate everything immediately:</strong> Start small, learn the systems, then scale</li>
+            <li><strong>Ignoring the human element:</strong> AI amplifies good strategy; it doesn't replace strategic thinking</li>
+            <li><strong>Not communicating the value:</strong> Clients need to understand why this matters for their business</li>
+            <li><strong>Becoming too dependent on tools:</strong> Always have backup plans when platforms change</li>
+          </ul>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Why This Matters More Than You Think</h2>
+        <p className="mb-6">
+          This isn't just about staying current with technology. It's about survival. The businesses that figure out AI-powered growth first will have an insurmountable advantage over those still doing things manually.
+        </p>
+
+        <p className="mb-8">
+          Think about it: while your competitors are spending 40 hours a week on tasks that AI can do in 4 hours, you'll be spending those 36 saved hours on strategy, relationships, and innovation. That's not just efficiency—that's a completely different business model.
+        </p>
+
+        <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 my-8 rounded-r-md">
+          <h3 className="font-semibold text-yellow-800 mb-2">⚡ The Compound Effect</h3>
+          <p className="text-yellow-800">
+            Every month you delay this transition, the gap widens. The businesses embracing AI now will be so far ahead in 2-3 years that catching up will be nearly impossible.
+          </p>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Final Thoughts: The Opportunity Is Massive</h2>
+        <p className="mb-6">
+          While everyone else is panicking about AI "killing" SEO, smart businesses are using AI to do SEO better than ever before. The opportunity isn't in fighting the change—it's in embracing it faster than your competitors.
+        </p>
+
+        <p className="text-xl font-medium mb-8">
+          The question isn't whether AI will change your industry. It's whether you'll be leading the change or scrambling to catch up.
+        </p>
+
+        <div className="bg-gray-900 text-white p-6 rounded-lg my-8">
+          <h3 className="font-semibold mb-4">Ready to make the transition?</h3>
+          <p className="mb-4">I help businesses build AI-powered systems that actually work. No fluff, no buzzwords—just practical automation that scales your operations and improves your results.</p>
+          <p className="text-blue-300">Let's talk about how AI can transform your business strategy.</p>
+        </div>
+
         <div className="bg-gray-100 p-6 rounded-lg my-8">
           <h3 className="text-lg font-semibold mb-4">About the Author</h3>
           <div className="flex items-start space-x-4">
@@ -53,14 +295,30 @@ export const blogPosts: BlogPostProps[] = [
             </div>
             <div>
               <p className="font-medium">Leo Corbett</p>
-              <p className="text-sm text-gray-600">An AI-first automation specialist and SEO expert who builds high-performance systems that scale businesses while eliminating inefficiencies.</p>
+              <p className="text-sm text-gray-600 mb-3">An AI-first automation specialist and SEO expert who builds high-performance systems that scale businesses while eliminating inefficiencies. After 5+ years in traditional SEO, Leo pivoted to focus on AI-powered workflow automation and modern search strategy.</p>
+              <div className="text-sm text-gray-500">
+                <p><strong>Specializes in:</strong> AI automation, n8n workflows, modern SEO strategy, and business process optimization</p>
+                <p><strong>Results delivered:</strong> 200%+ efficiency improvements for 50+ clients across SaaS, e-commerce, and service businesses</p>
+              </div>
             </div>
+          </div>
+        </div>
+
+        <div className="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">💡 Want to Future-Proof Your Business?</h3>
+          <p className="mb-4 text-gray-700">
+            If this resonates with you and you're ready to make the transition from traditional marketing to AI-powered growth, let's talk. I help businesses build automated systems that scale without the overwhelm.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <span className="text-sm text-gray-600 bg-white px-3 py-2 rounded-md">🚀 Strategy Consulting</span>
+            <span className="text-sm text-gray-600 bg-white px-3 py-2 rounded-md">⚡ Workflow Automation</span>
+            <span className="text-sm text-gray-600 bg-white px-3 py-2 rounded-md">🎯 Custom AI Solutions</span>
           </div>
         </div>
       </React.Fragment>
     ),
   },
-  // Legacy posts that haven't been converted yet
+  // E-E-A-T Guide
   {
     id: 'eat-guide',
     title: "The Complete Guide to E-E-A-T: How Experience, Expertise, Authoritativeness, and Trustworthiness Impact SEO",
@@ -130,7 +388,9 @@ export const blogPosts: BlogPostProps[] = [
           Real experience is what separates the how-to posts that rank from the ones that rot on page 7.
         </p>
 
-        <img src="https://images.unsplash.com/photo-1513128034602-7814ccaddd4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Person with actual experience" className="rounded-lg shadow-md my-8 w-full" />
+        <div className="max-w-none mx-auto">
+          <img src="https://images.unsplash.com/photo-1513128034602-7814ccaddd4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Person with actual experience" className="rounded-lg shadow-md my-8 w-full max-w-2xl mx-auto h-64 object-cover" />
+        </div>
 
         <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Expertise: Knowledge is Currency, But So is Context</h2>
         <p className="mb-6">
@@ -165,7 +425,9 @@ export const blogPosts: BlogPostProps[] = [
           Authority is cumulative. It builds slowly—until it doesn't, and you start getting links just for existing.
         </p>
 
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Authority building through connections" className="rounded-lg shadow-md my-8 w-full" />
+        <div className="max-w-none mx-auto">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Authority building through connections" className="rounded-lg shadow-md my-8 w-full max-w-2xl mx-auto h-64 object-cover" />
+        </div>
 
         <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Trustworthiness: The Most Boring but Crucial Factor</h2>
         <p className="mb-6">
@@ -219,9 +481,4 @@ export const blogPosts: BlogPostProps[] = [
       </React.Fragment>
     ),
   },
-  // Add registry posts (these will be rendered as components)
-  ...registryPosts.map(post => ({
-    ...post,
-    content: <div>Component-based content from registry</div> // Placeholder
-  }))
 ];
