@@ -29,7 +29,7 @@ export const WordPressProvider = ({ children }) => {
   const [siteSettings, setSiteSettings] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [usingCMS, setUsingCMS] = useState(true);
+  const [usingCMS, setUsingCMS] = useState(false); // Start with false, enable only if CMS works
   
   // Fetch all posts
   const { 
@@ -70,12 +70,37 @@ export const WordPressProvider = ({ children }) => {
     errorPolicy: 'all',
   });
   
-  // Handle errors and fallback to static data
+  // Initialize with fallback data immediately
+  useEffect(() => {
+    console.log('WordPressProvider: Initializing with fallback data');
+    setPosts(fallbackPosts.filter(post => post.id !== 'featured'));
+    setFeaturedPost(fallbackPosts.find(post => post.id === 'featured'));
+    setCategories([
+      { id: 1, name: 'SEO Tips', slug: 'seo-tips', count: 5 },
+      { id: 2, name: 'Technical SEO', slug: 'technical-seo', count: 3 },
+      { id: 3, name: 'Content Strategy', slug: 'content-strategy', count: 2 },
+    ]);
+    setLoading(false);
+  }, []);
+  
+  // Handle errors and determine if we should use CMS
   useEffect(() => {
     const hasErrors = postsError || featuredError || categoriesError || settingsError;
+    const isAnyLoading = postsLoading || featuredLoading || categoriesLoading || settingsLoading;
+    
+    console.log('WordPressProvider status:', {
+      hasErrors: !!hasErrors,
+      isAnyLoading,
+      postsError: postsError?.message,
+      featuredError: featuredError?.message,
+      categoriesError: categoriesError?.message,
+      settingsError: settingsError?.message,
+      postsData: !!postsData,
+      featuredData: !!featuredData
+    });
     
     if (hasErrors) {
-      console.warn('CMS connection issues, falling back to static data:', {
+      console.warn('CMS connection issues, using static data:', {
         postsError: postsError?.message,
         featuredError: featuredError?.message,
         categoriesError: categoriesError?.message,
@@ -84,34 +109,36 @@ export const WordPressProvider = ({ children }) => {
       
       setUsingCMS(false);
       setError(hasErrors);
-      
-      // Use fallback data
-      setPosts(fallbackPosts.filter(post => post.id !== 'featured'));
-      setFeaturedPost(fallbackPosts.find(post => post.id === 'featured'));
-      setCategories([
-        { id: 1, name: 'SEO Tips', slug: 'seo-tips', count: 5 },
-        { id: 2, name: 'Technical SEO', slug: 'technical-seo', count: 3 },
-        { id: 3, name: 'Content Strategy', slug: 'content-strategy', count: 2 },
-      ]);
       setLoading(false);
       return;
     }
     
-    setUsingCMS(true);
-    setError(null);
-  }, [postsError, featuredError, categoriesError, settingsError]);
+    // Check if we have successful data from CMS
+    const hasValidData = postsData?.posts?.nodes || featuredData?.posts?.nodes;
+    if (hasValidData && !isAnyLoading) {
+      console.log('CMS data available, switching to CMS mode');
+      setUsingCMS(true);
+      setError(null);
+    }
+    
+    setLoading(isAnyLoading);
+  }, [postsError, featuredError, categoriesError, settingsError, postsLoading, featuredLoading, categoriesLoading, settingsLoading, postsData, featuredData]);
   
-  // Process CMS data when it arrives
+  // Process CMS data when it arrives and we're using CMS
   useEffect(() => {
     if (!usingCMS) return;
     
+    console.log('Processing CMS data...');
+    
     if (postsData?.posts?.nodes) {
       const adaptedPosts = adaptPosts(postsData.posts.nodes);
+      console.log('Adapted posts from CMS:', adaptedPosts.length);
       setPosts(adaptedPosts);
     }
     
     if (featuredData?.posts?.nodes?.[0]) {
       const adaptedFeatured = adaptPost(featuredData.posts.nodes[0]);
+      console.log('Adapted featured post from CMS:', adaptedFeatured?.title);
       setFeaturedPost(adaptedFeatured);
     }
     
@@ -131,20 +158,12 @@ export const WordPressProvider = ({ children }) => {
         }))
       });
     }
-    
-    // Update loading state
-    const isLoading = postsLoading || featuredLoading || categoriesLoading || settingsLoading;
-    setLoading(isLoading);
   }, [
     usingCMS,
     postsData, 
     featuredData, 
     categoriesData, 
-    settingsData,
-    postsLoading, 
-    featuredLoading, 
-    categoriesLoading, 
-    settingsLoading
+    settingsData
   ]);
   
   // Get a specific post by ID or slug

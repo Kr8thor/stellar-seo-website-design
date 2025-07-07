@@ -15,6 +15,7 @@ import {
 import { Helmet } from 'react-helmet-async';
 import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
 import { useWordPress } from '@/providers/WordPressProvider';
+import { blogPosts as staticBlogPosts } from '@/data/blogPosts';
 
 // Blog categories
 const categories = ["All", "SEO Tips", "Technical SEO", "Content Strategy", "Local SEO", "E-commerce SEO"];
@@ -23,11 +24,28 @@ const Blog = () => {
   // Add enhanced SEO for blog page with breadcrumb schema
   useSEO(getEnhancedSEOConfig('blog'));
   
-  const { posts, featuredPost, loading } = useWordPress();
+  const { posts: wpPosts, featuredPost: wpFeaturedPost, loading, usingCMS, error } = useWordPress();
   const [activeFilter, setActiveFilter] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
+  
+  // Use WordPress posts if available and CMS is working, otherwise fall back to static posts
+  const posts = (usingCMS && wpPosts?.length > 0) ? wpPosts : staticBlogPosts.filter(post => post.id !== 'featured');
+  const featuredPost = (usingCMS && wpFeaturedPost) ? wpFeaturedPost : staticBlogPosts.find(post => post.id === 'featured');
+  
+  // Debug logging
+  useEffect(() => {
+    console.log('Blog Debug Info:', {
+      usingCMS,
+      error: error?.message,
+      wpPostsLength: wpPosts?.length || 0,
+      staticPostsLength: staticBlogPosts.length,
+      finalPostsLength: posts.length,
+      hasFeaturedPost: !!featuredPost,
+      loading
+    });
+  }, [usingCMS, error, wpPosts, posts, featuredPost, loading]);
   
   // Filter blog posts based on active filter and search term
   const filteredPosts = posts
@@ -63,6 +81,16 @@ const Blog = () => {
           content="Expert tips, strategies, and insights to help you improve your search visibility and stay ahead of the competition." 
         />
       </Helmet>
+      
+      {/* Debug info - only show in development */}
+      {process.env.NODE_ENV === 'development' && (
+        <div className="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded mb-4 mx-4">
+          <strong>Debug:</strong> {usingCMS ? 'Using CMS' : 'Using Static Data'} | 
+          Posts: {posts.length} | 
+          Featured: {featuredPost ? 'Yes' : 'No'} |
+          {error && ` Error: ${error.message}`}
+        </div>
+      )}
       
       {/* Featured Post */}
       {featuredPost && (
@@ -157,7 +185,7 @@ const Blog = () => {
       
       {/* Blog Posts */}
       <section className="section-container">
-        {loading ? (
+        {loading && usingCMS ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[...Array(6)].map((_, i) => (
               <div key={i} className="animate-pulse bg-card rounded-lg border border-border p-6">
