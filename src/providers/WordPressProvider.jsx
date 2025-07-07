@@ -28,26 +28,119 @@ export const WordPressProvider = ({ children }) => {
   const [siteSettings, setSiteSettings] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [usingCMS, setUsingCMS] = useState(false); // Force static data
+<<<<<<< HEAD
+  const [usingCMS, setUsingCMS] = useState(false); // Start with false, enable only if CMS works
   
-  // Force fallback to static data immediately
+  // Fetch all posts
+  const { 
+    data: postsData, 
+    loading: postsLoading, 
+    error: postsError 
+  } = useQuery(GET_ALL_POSTS, {
+    variables: { first: 50 },
+    errorPolicy: 'all',
+    notifyOnNetworkStatusChange: true,
+  });
+  
+  // Fetch featured posts
+  const { 
+    data: featuredData, 
+    loading: featuredLoading,
+    error: featuredError 
+  } = useQuery(GET_FEATURED_POSTS, {
+    variables: { first: 1 },
+    errorPolicy: 'all',
+  });
+  
+  // Fetch categories
+  const { 
+    data: categoriesData,
+    loading: categoriesLoading,
+    error: categoriesError 
+  } = useQuery(GET_CATEGORIES, {
+    errorPolicy: 'all',
+  });
+  
+  // Fetch site settings
+  const { 
+    data: settingsData,
+    loading: settingsLoading,
+    error: settingsError 
+  } = useQuery(GET_SITE_SETTINGS, {
+    errorPolicy: 'all',
+  });
+  
+  // Initialize with fallback data immediately
   useEffect(() => {
-    console.log('WordPress Provider: Using static fallback data');
-    console.log('Fallback posts count:', fallbackPosts.length);
+    console.log('WordPressProvider: Initializing with fallback data');
+    setPosts(fallbackPosts.filter(post => post.id !== 'featured'));
+    setFeaturedPost(fallbackPosts.find(post => post.id === 'featured'));
+    setCategories([
+      { id: 1, name: 'SEO Tips', slug: 'seo-tips', count: 5 },
+      { id: 2, name: 'Technical SEO', slug: 'technical-seo', count: 3 },
+      { id: 3, name: 'Content Strategy', slug: 'content-strategy', count: 2 },
+    ]);
+    setLoading(false);
+  }, []);
+  
+  // Handle errors and determine if we should use CMS
+  useEffect(() => {
+    const hasErrors = postsError || featuredError || categoriesError || settingsError;
+    const isAnyLoading = postsLoading || featuredLoading || categoriesLoading || settingsLoading;
     
-    // Use fallback data immediately
-    setUsingCMS(false);
-    setError(null);
+    console.log('WordPressProvider status:', {
+      hasErrors: !!hasErrors,
+      isAnyLoading,
+      postsError: postsError?.message,
+      featuredError: featuredError?.message,
+      categoriesError: categoriesError?.message,
+      settingsError: settingsError?.message,
+      postsData: !!postsData,
+      featuredData: !!featuredData
+    });
     
-    // Set posts (excluding featured)
-    const regularPosts = fallbackPosts.filter(post => post.id !== 'featured');
-    setPosts(regularPosts);
-    console.log('Regular posts set:', regularPosts.length);
+    if (hasErrors) {
+      console.warn('CMS connection issues, using static data:', {
+        postsError: postsError?.message,
+        featuredError: featuredError?.message,
+        categoriesError: categoriesError?.message,
+        settingsError: settingsError?.message,
+      });
+      
+      setUsingCMS(false);
+      setError(hasErrors);
+      setLoading(false);
+      return;
+    }
     
-    // Set featured post
-    const featured = fallbackPosts.find(post => post.id === 'featured');
-    setFeaturedPost(featured);
-    console.log('Featured post set:', featured?.title);
+    // Check if we have successful data from CMS
+    const hasValidData = postsData?.posts?.nodes || featuredData?.posts?.nodes;
+    if (hasValidData && !isAnyLoading) {
+      console.log('CMS data available, switching to CMS mode');
+      setUsingCMS(true);
+      setError(null);
+    }
+    
+    setLoading(isAnyLoading);
+  }, [postsError, featuredError, categoriesError, settingsError, postsLoading, featuredLoading, categoriesLoading, settingsLoading, postsData, featuredData]);
+  
+  // Process CMS data when it arrives and we're using CMS
+  useEffect(() => {
+    if (!usingCMS) return;
+    
+    console.log('Processing CMS data...');
+    
+    if (postsData?.posts?.nodes) {
+      const adaptedPosts = adaptPosts(postsData.posts.nodes);
+      console.log('Adapted posts from CMS:', adaptedPosts.length);
+      setPosts(adaptedPosts);
+    }
+    
+    if (featuredData?.posts?.nodes?.[0]) {
+      const adaptedFeatured = adaptPost(featuredData.posts.nodes[0]);
+      console.log('Adapted featured post from CMS:', adaptedFeatured?.title);
+      setFeaturedPost(adaptedFeatured);
+    }
     
     // Set categories
     setCategories([
@@ -60,8 +153,24 @@ export const WordPressProvider = ({ children }) => {
       { id: 7, name: 'Link Building', slug: 'link-building', count: 1 },
     ]);
     
-    setLoading(false);
-  }, []); // Run once on mount
+    if (settingsData) {
+      setSiteSettings({
+        title: settingsData.generalSettings?.title || 'Marden SEO',
+        description: settingsData.generalSettings?.description || '',
+        url: settingsData.generalSettings?.url || '',
+        menus: (settingsData.menus?.nodes || []).map(menu => ({
+          ...menu,
+          items: adaptMenuItems(menu.menuItems?.nodes || [])
+        }))
+      });
+    }
+  }, [
+    usingCMS,
+    postsData, 
+    featuredData, 
+    categoriesData, 
+    settingsData
+  ]);
   
   // Get a specific post by ID or slug
   const getPostById = (id) => {
