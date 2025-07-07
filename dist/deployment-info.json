@@ -1,12 +1,12 @@
 {
   "deployment": {
-    "timestamp": "2025-07-07 06:09:50 UTC",
-    "commit": "ddb32176",
+    "timestamp": "2025-07-07 12:24:20 UTC",
+    "commit": "89efd056",
     "branch": "main",
     "workflow": "🚀 Build & Deploy via cPanel Git",
-    "actor": "Kr8thor",
+    "actor": "lovable-dev[bot]",
     "event": "push",
-    "run_id": "16109003042"
+    "run_id": "16116840368"
   },
   "seo": {
     "sitemap_clean": true,
