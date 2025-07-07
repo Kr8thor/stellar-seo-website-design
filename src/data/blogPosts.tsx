@@ -2,7 +2,7 @@ import React from 'react';
 import { BlogPostProps } from '@/components/blog/BlogPost';
 import { blogPostsRegistry, getAllPostsMeta } from './blogPostRegistry';
 
-// Get all posts from registry plus legacy posts
+// Get all posts from registry plus legacy posts  
 const registryPosts = getAllPostsMeta();
 
 export const blogPosts: BlogPostProps[] = [
@@ -26,8 +26,7 @@ export const blogPosts: BlogPostProps[] = [
         </p>
       </React.Fragment>
     ),
-  },
-  // Comprehensive blog posts collection
+  },  // Comprehensive blog posts collection
   {
     id: 'eat-guide',
     title: "The Complete Guide to E-E-A-T: How Experience, Expertise, Authoritativeness, and Trustworthiness Impact SEO",
@@ -42,160 +41,150 @@ export const blogPosts: BlogPostProps[] = [
         <p className="text-xl leading-relaxed mb-8">
           Let's get one thing straight—if E-E-A-T were a real person, it'd be that coworker who drinks celery juice, runs a weekend startup, volunteers on Tuesdays, and files taxes in January. Google loves that guy. And whether you're a blogger, business, or someone yelling into the internet with a .com and a dream, you need to become him.
         </p>
+
         <p className="mb-6">
           This guide is your survival kit for building content that doesn't just rank—it earns trust, backlinks, and maybe even a compliment from a Google engineer (unlikely, but hey).
         </p>
+
         <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-8 rounded-r-md">
           <p className="italic text-blue-800">
             "E-E-A-T is Google's way of measuring your real-world value in the online world. It's not just about ranking—it's about reputation."
           </p>
         </div>
-      </React.Fragment>
-    ),
-  },
-  {
-    id: 1,
-    title: "10 On-Page SEO Tactics That Still Work in 2025 (And Actually Matter)",
-    category: "SEO Tips",
-    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    date: "April 05, 2025",
-    readTime: "8 min read",
-    author: "Leo Corbett",
-    excerpt: "If you've ever screamed into a Google Doc, 'What even works anymore?!'—this one's for you. SEO's been dragged through AI upheavals, algorithm shakeups, and enough SERP drama to fuel a Netflix docuseries.",
-    content: (
-      <React.Fragment>
-        <p className="text-xl leading-relaxed mb-8">
-          If you've ever screamed into a Google Doc, "What even works anymore?!"—this one's for you. SEO's been dragged through AI upheavals, algorithm shakeups, and enough SERP drama to fuel a Netflix docuseries. But guess what? Some on-page tactics still hold the line.
-        </p>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4">What is E-E-A-T, Really?</h2>
         <p className="mb-6">
-          These are the old-school fundamentals with fresh-school relevance. The techniques Google still rewards because—spoiler alert—they're actually helpful to users. So put down your AI content spinner and let's get into the real stuff.
+          Let's decode the acronym before it makes your eyes glaze over.
         </p>
-      </React.Fragment>
-    ),
-  },
-  {
-    id: 2,
-    title: "Why Core Web Vitals Are Still Running Your SEO Life in 2025",
-    category: "Technical SEO",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    date: "March 22, 2025",
-    readTime: "12 min read",
-    author: "Leo Corbett",
-    excerpt: "Core Web Vitals have evolved from nice-to-have metrics to essential ranking factors. Learn how to master them for better SEO performance in 2025.",
-    content: (
-      <React.Fragment>
-        <p className="text-xl leading-relaxed mb-8">
-          If Google were your gym trainer, Core Web Vitals would be its way of screaming, "No more junk food and janky websites!" In 2025, these three little metrics have gone from "nice-to-have" to non-negotiable. They're the difference between page one glory and page seven purgatory—where even your mom won't find you.
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-purple-700 mb-3">Experience</h3>
+            <p>Have you actually done the thing you're writing about? If not, Google's not impressed.</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-green-700 mb-3">Expertise</h3>
+            <p>Are you knowledgeable, credentialed, or at least writing like someone who isn't making it up on the spot?</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-amber-700 mb-3">Authoritativeness</h3>
+            <p>Do others point to your content as a source? Are you cited or linked to by people who aren't bots or your cousin Kevin?</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+            <h3 className="text-lg font-semibold text-blue-700 mb-3">Trustworthiness</h3>
+            <p>Does your site look and feel reliable enough for someone to hand over their email or credit card?</p>
+          </div>
+        </div>
+
+        <p className="mb-8">
+          E-E-A-T is Google's way of measuring your real-world value in the online world. It's not just about ranking—it's about reputation.
         </p>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Experience: More Than "I Read About It Once"</h2>
         <p className="mb-6">
-          This isn't a technical rant. It's a survival guide for modern web performance. Let's break it down.
+          You can't fake real-world experience anymore. Google wants to know if the person reviewing camping gear has actually left the house, or if the recipe writer has cooked anything other than toast.
         </p>
+
+        <p className="mb-6">
+          Show, don't tell. Add photos. Add video. Use first-person stories, especially in product reviews or tutorials. If your content reads like it was pulled straight out of ChatGPT's digestive system, you're in trouble.
+        </p>
+
+        <p className="font-medium mb-8">
+          Real experience is what separates the how-to posts that rank from the ones that rot on page 7.
+        </p>
+
+        <img src="https://images.unsplash.com/photo-1513128034602-7814ccaddd4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Person with actual experience" className="rounded-lg shadow-md my-8 w-full" />
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Expertise: Knowledge is Currency, But So is Context</h2>
+        <p className="mb-6">
+          Expertise doesn't always mean having a degree. It means knowing what you're talking about, and being able to prove it.
+        </p>
+
+        <p className="mb-6">
+          This is where things like author bios, credentials, case studies, and original insights come into play. If you're writing about cybersecurity, you better not be linking to your TikTok where you explain phishing scams with sock puppets—unless you do it really well.
+        </p>
+
+        <p className="font-medium mb-8">
+          Google is increasingly weighing not just what you say, but who's saying it.
+        </p>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Authoritativeness: Welcome to the High School Popularity Contest</h2>
+        <p className="mb-6">
+          Your content might be brilliant, but if no one's referencing you, it doesn't matter. Google trusts sites that others trust. This means backlinks from real websites. Mentions on industry blogs. Social proof. Peer recognition.
+        </p>
+
+        <p className="mb-6">
+          It's not easy to earn, but here's what helps:
+        </p>
+
+        <ul className="list-disc pl-6 mb-8 space-y-2">
+          <li>Guest contributions on industry blogs</li>
+          <li>Being cited in roundups or news articles</li>
+          <li>Getting backlinks from real sites (not Fiverr spam farms)</li>
+          <li>Publishing original research or data</li>
+        </ul>
+
+        <p className="mb-8">
+          Authority is cumulative. It builds slowly—until it doesn't, and you start getting links just for existing.
+        </p>
+
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Authority building through connections" className="rounded-lg shadow-md my-8 w-full" />
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Trustworthiness: The Most Boring but Crucial Factor</h2>
+        <p className="mb-6">
+          This is the unsexy stuff: HTTPS, clear contact info, privacy policies, fast load times, no deceptive ads, and definitely no auto-play audio. It's everything that makes a site feel like it was built by professionals and not by someone with 27 toolbars on their browser.
+        </p>
+
+        <p className="mb-8">
+          If you're dealing with health, finance, or legal topics—anything that falls under "Your Money or Your Life" (YMYL)—Google holds you to an even higher standard. Expect extra scrutiny and act accordingly.
+        </p>
+
+        <div className="bg-amber-50 border-l-4 border-amber-500 p-4 my-8 rounded-r-md">
+          <h3 className="font-semibold text-amber-800 mb-2">YMYL Content Warning</h3>
+          <p className="text-amber-800">
+            For Your Money or Your Life topics, trustworthiness isn't optional—it's mandatory. Health, finance, and legal content creators need impeccable credentials and references.
+          </p>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">So What's the Playbook?</h2>
+        <div className="bg-green-50 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-green-800 mb-4">The E-E-A-T Action Plan:</h3>
+          <ul className="list-disc pl-6 space-y-3 text-green-800">
+            <li>Use real authors. Give them bios. Preferably ones that don't sound like a bot pretending to be a doctor.</li>
+            <li>Add personal insights, stories, and media that prove real-world interaction with the subject.</li>
+            <li>Build backlinks organically through useful, cite-worthy content.</li>
+            <li>Keep your site clean, fast, secure, and transparent.</li>
+            <li>Don't fake it. Seriously.</li>
+          </ul>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">Final Thoughts: Be Useful, Be Honest, Be Findable</h2>
+        <p className="mb-6">
+          E-E-A-T isn't about tricking Google. It's about showing Google that you deserve to rank. That you're helping people. That you're not just part of the noise.
+        </p>
+
+        <p className="text-xl font-medium mb-8">
+          The internet has enough junk. If you're going to put something out there, make it count—and make it clear that it came from a real person with real insight.
+        </p>
+
+        <div className="bg-gray-100 p-6 rounded-lg my-8">
+          <h3 className="font-semibold text-gray-800 mb-4">About the Author</h3>
+          <div className="flex items-center">
+            <div className="h-16 w-16 rounded-full bg-purple-100 flex items-center justify-center text-xl font-medium text-purple-700 mr-4">
+              LC
+            </div>
+            <div>
+              <p className="font-medium">Leo Corbett</p>
+              <p className="text-sm text-gray-600">An AI-first automation specialist and SEO expert who builds high-performance systems that scale businesses while eliminating inefficiencies.</p>
+            </div>
+          </div>
+        </div>
       </React.Fragment>
     ),
-  },
-  {
-    id: 3,
-    title: "The AI Revolution in SEO: How to Adapt Your Strategy",
-    category: "SEO Trends",
-    date: "March 15, 2025",
-    readTime: "9 min read",
-    image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    author: "Leo Corbett",
-    excerpt: "Explore how artificial intelligence is transforming search engine optimization and what it means for your strategy.",
-    content: (
-      <React.Fragment>
-        <p className="text-xl leading-relaxed mb-8">
-          Artificial intelligence is rapidly transforming the SEO landscape, changing how search engines work and how websites need to optimize. From content creation to technical optimization, AI's impact touches every aspect of SEO.
-        </p>
-      </React.Fragment>
-    ),
-  },
-  {
-    id: 4,
-    title: "Local SEO Mastery: How to Dominate Your Geographic Market",
-    category: "Local SEO",
-    date: "March 5, 2025",
-    readTime: "5 min read",
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    author: "Leo Corbett",
-    excerpt: "Learn the essential strategies to improve your business's visibility in local search results.",
-    content: (
-      <React.Fragment>
-        <p className="text-xl leading-relaxed mb-8">
-          For businesses that serve specific geographic areas, local SEO is the most powerful way to connect with nearby customers. This guide covers the essential tactics to dominate local search results.
-        </p>
-      </React.Fragment>
-    ),
-  },
-  {
-    id: 5,
-    title: "Mobile-First Indexing: Is Your Site Truly Ready?",
-    category: "Technical SEO",
-    date: "February 25, 2025",
-    readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    author: "Leo Corbett",
-    excerpt: "Ensure your website is fully optimized for Google's mobile-first indexing with this comprehensive checklist.",
-    content: (
-      <React.Fragment>
-        <p className="text-xl leading-relaxed mb-8">
-          Mobile-first indexing is no longer the future—it's the present. Google now uses the mobile version of your site for indexing and ranking.
-        </p>
-      </React.Fragment>
-    ),
-  },
-  {
-    id: 6,
-    title: "Content Strategy for SEO: Beyond Keywords",
-    category: "Content Strategy",
-    date: "February 15, 2025",
-    readTime: "8 min read",
-    image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    author: "Leo Corbett",
-    excerpt: "Discover how to create a content strategy that goes beyond traditional keyword targeting to drive real SEO results.",
-    content: (
-      <React.Fragment>
-        <p className="text-xl leading-relaxed mb-8">
-          The days of creating content around individual keywords are numbered. Modern SEO requires a more sophisticated approach to content strategy.
-        </p>
-      </React.Fragment>
-    ),
-  },
-  {
-    id: 7,
-    title: "Technical SEO Fundamentals: The Foundation of Rankings",
-    category: "Technical SEO",
-    date: "February 8, 2025",
-    readTime: "11 min read",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    author: "Leo Corbett",
-    excerpt: "Master the technical aspects of SEO that form the foundation for all your other optimization efforts.",
-    content: (
-      <React.Fragment>
-        <p className="text-xl leading-relaxed mb-8">
-          Technical SEO is the foundation that supports all your other SEO efforts. Without a solid technical foundation, even the best content won't achieve its full potential.
-        </p>
-      </React.Fragment>
-    ),
-  },
-  {
-    id: 8,
-    title: "Link Building in 2025: Quality Over Quantity",
-    category: "Link Building",
-    date: "January 28, 2025",
-    readTime: "9 min read",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    author: "Leo Corbett",
-    excerpt: "Learn modern link building strategies that focus on earning high-quality, relevant backlinks that actually move the needle.",
-    content: (
-      <React.Fragment>
-        <p className="text-xl leading-relaxed mb-8">
-          Link building has evolved dramatically over the past few years. The days of mass outreach are giving way to more sophisticated strategies focused on building genuine relationships.
-        </p>
-      </React.Fragment>
-    ),
-  },
-  // Add registry posts as metadata only
+  },  // Add registry posts as metadata only
   ...registryPosts.map(post => ({
     ...post,
     content: <div>Component-based content from registry</div> // Placeholder
