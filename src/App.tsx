@@ -17,7 +17,8 @@ import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import SecurityHeaders from "./components/security/SecurityHeaders";
 import SEOProvider from "./components/seo/SEOProvider";
-import { GoogleAnalytics, GoogleTagManager } from "./components/Analytics";
+import { GoogleAnalytics } from "./components/Analytics";
+import { ClarityAnalytics } from "./components/Analytics/ClarityAnalytics";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -33,6 +34,7 @@ import WhatsAppButton from "./components/common/WhatsAppButton";
 import ServicesAndPricing from "./pages/ServicesAndPricing";
 import Admin from "./pages/Admin";
 import Cart from "./pages/Cart";
+import AnalyticsTest from "./pages/AnalyticsTest";
 
 // Error Boundary Component
 interface ErrorBoundaryState {
@@ -108,10 +110,15 @@ const App = () => (
               <TooltipProvider>
                 <Toaster />
                 <Sonner />
-                <BrowserRouter>
+                <BrowserRouter
+                  future={{
+                    v7_startTransition: true,
+                    v7_relativeSplatPath: true,
+                  }}
+                >
                   <CartProvider>
                   <GoogleAnalytics />
-                  <GoogleTagManager />
+                  <ClarityAnalytics />
                   <div className="flex flex-col min-h-screen">
                     <Navbar />
                     <div className="flex-grow">
@@ -129,6 +136,7 @@ const App = () => (
                         <Route path="/workflow-automation" element={<WorkflowAutomation />} />
                         <Route path="/admin" element={<Admin />} />
                         <Route path="/cart" element={<Cart />} />
+                        <Route path="/analytics-test" element={<AnalyticsTest />} />
                         <Route path="*" element={<NotFound />} />
                       </Routes>
                     </div>

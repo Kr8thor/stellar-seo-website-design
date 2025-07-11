@@ -112,7 +112,7 @@ export const GET_POST_BY_SLUG = gql`
   }
 `;
 
-// Query to get featured posts
+// Query to get featured posts (using tag-based approach instead of metaQuery)
 export const GET_FEATURED_POSTS = gql`
   ${POST_FRAGMENT}
   query GetFeaturedPosts($first: Int = 1) {
@@ -120,13 +120,7 @@ export const GET_FEATURED_POSTS = gql`
       first: $first,
       where: { 
         status: PUBLISH,
-        metaQuery: [
-          {
-            key: "featured_post",
-            value: "1",
-            compare: EQUAL_TO
-          }
-        ]
+        tag: "featured"
       }
     ) {
       nodes {
