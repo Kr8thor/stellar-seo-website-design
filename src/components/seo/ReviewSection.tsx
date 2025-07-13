@@ -25,12 +25,12 @@ const reviews: Review[] = [
     id: 1,
     name: "Violet Rainwater",
     role: "Keynote Speaker | Workplace Transformation Expert",
-    company: "The Rainmaker's Way",
+    company: "Violet Rainwater Website",
     content: "Leo is an absolute workflow wizard and SEO genius who helped me create the website of my dreams! His ability to teach how to leverage AI to essentially become your own coder and web designer is truly remarkable. Even with my passion for AI, I never imagined I'd be able to create something this incredible on my own. Because of Leo, I went from website shame to website fame, I literally receive compliments every single day on my website, and my confidence has skyrocketed. I'm genuinely excited to share my site and offerings now, which wasn't the case before. If you're looking for a stunning website, powerful SEO, or a customized workflow, and especially if you want to harness AI to maintain full creative control, I honestly couldn't recommend Leo highly enough. He's a total game changer!",
     rating: 5,
     featured: true,
     websiteUrl: "https://violetrainwater.com",
-    image: "/Violet image.jpeg"
+    image: "/Violet image.png"
   }
 ];
 const StarRating: React.FC<{ rating: number; size?: string }> = ({ rating, size = "w-5 h-5" }) => {
