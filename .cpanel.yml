@@ -14,7 +14,6 @@ deployment:
     - echo "🔍 DIAGNOSTIC: Checking if paths exist" | tee -a $LOGFILE
     - test -d $REPOPATH && echo "✅ Repository path exists: $REPOPATH" | tee -a $LOGFILE || echo "❌ Repository path missing: $REPOPATH" | tee -a $LOGFILE
     - test -d $DEPLOYPATH && echo "✅ Deploy path exists: $DEPLOYPATH" | tee -a $LOGFILE || echo "❌ Deploy path missing: $DEPLOYPATH" | tee -a $LOGFILE
-    - test -d $REPOPATH/dist && echo "✅ Dist folder exists: $REPOPATH/dist" | tee -a $LOGFILE || echo "❌ Dist folder missing: $REPOPATH/dist" | tee -a $LOGFILE
     
     # Repository operations
     - echo "🔧 REPOSITORY: Working from repository directory" | tee -a $LOGFILE
@@ -38,9 +37,15 @@ deployment:
     - echo "📋 Current commit after reset:" | tee -a $LOGFILE
     - git log --oneline -1 2>&1 | tee -a $LOGFILE
     
-    # Check dist folder contents
-    - echo "📁 Checking dist folder contents:" | tee -a $LOGFILE
-    - ls -la $REPOPATH/dist/ 2>&1 | tee -a $LOGFILE || echo "❌ Cannot list dist folder" | tee -a $LOGFILE
+    # BUILD PROCESS - This is the key addition!
+    - echo "🏗️ BUILD: Installing dependencies..." | tee -a $LOGFILE
+    - npm install 2>&1 | tee -a $LOGFILE || echo "❌ npm install failed" | tee -a $LOGFILE
+    - echo "🏗️ BUILD: Building production files..." | tee -a $LOGFILE
+    - npm run build 2>&1 | tee -a $LOGFILE || echo "❌ npm build failed" | tee -a $LOGFILE
+    
+    # Check dist folder contents after build
+    - echo "📁 Checking dist folder contents after build:" | tee -a $LOGFILE
+    - ls -la $REPOPATH/dist/ 2>&1 | tee -a $LOGFILE || echo "❌ Cannot list dist folder after build" | tee -a $LOGFILE
     - echo "📊 Dist folder file count:" | tee -a $LOGFILE
     - find $REPOPATH/dist/ -type f | wc -l 2>&1 | tee -a $LOGFILE || echo "❌ Cannot count dist files" | tee -a $LOGFILE
     
