@@ -29,7 +29,8 @@ const reviews: Review[] = [
     content: "Leo is an absolute workflow wizard and SEO genius who helped me create the website of my dreams! His ability to teach how to leverage AI to essentially become your own coder and web designer is truly remarkable. Even with my passion for AI, I never imagined I'd be able to create something this incredible on my own. Because of Leo, I went from website shame to website fame, I literally receive compliments every single day on my website, and my confidence has skyrocketed. I'm genuinely excited to share my site and offerings now, which wasn't the case before. If you're looking for a stunning website, powerful SEO, or a customized workflow, and especially if you want to harness AI to maintain full creative control, I honestly couldn't recommend Leo highly enough. He's a total game changer!",
     rating: 5,
     featured: true,
-    websiteUrl: "https://violetrainwater.com"
+    websiteUrl: "https://violetrainwater.com",
+    image: "/Violet image.jpeg"
   }
 ];
 const StarRating: React.FC<{ rating: number; size?: string }> = ({ rating, size = "w-5 h-5" }) => {
@@ -91,9 +92,19 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({
                     
                     {/* Client Info */}
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center text-white font-bold text-lg">
-                        {review.name.split(' ').map(n => n[0]).join('')}
-                      </div>
+                      {review.image ? (
+                        <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20 shadow-md">
+                          <img 
+                            src={review.image} 
+                            alt={`${review.name} - ${review.role}`}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      ) : (
+                        <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                          {review.name.split(' ').map(n => n[0]).join('')}
+                        </div>
+                      )}
                       <div>
                         <div className="font-semibold text-gray-900 dark:text-gray-100">{review.name}</div>
                         <div className="text-sm text-muted-foreground">{review.role}</div>
