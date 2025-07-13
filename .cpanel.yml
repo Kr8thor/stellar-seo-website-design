@@ -1,50 +1,49 @@
 ---
 deployment:
   tasks:
-    # Set up variables and logging
-    - export DEPLOYPATH=/home/marddium/public_html
-    - export REPOPATH=/home/marddium/repositories/stellar-seo-website-design
+    # Set up logging
     - export LOGFILE=/home/marddium/deployment-debug.log
-    - echo "=== SIMPLE DEPLOYMENT TEST $(date) ===" > $LOGFILE
+    - echo "=== DIRECT DEPLOYMENT $(date) ===" > $LOGFILE
     
-    # Test basic system info
-    - echo "🔍 SYSTEM INFO:" | tee -a $LOGFILE
-    - whoami | tee -a $LOGFILE
+    # We're already in public_html, so work from current directory
+    - echo "🔍 CURRENT DIRECTORY:" | tee -a $LOGFILE
     - pwd | tee -a $LOGFILE
-    - echo "Node version test:" | tee -a $LOGFILE
-    - node --version 2>&1 | tee -a $LOGFILE || echo "❌ Node.js not found" | tee -a $LOGFILE
-    - echo "NPM version test:" | tee -a $LOGFILE  
-    - npm --version 2>&1 | tee -a $LOGFILE || echo "❌ NPM not found" | tee -a $LOGFILE
+    - whoami | tee -a $LOGFILE
     
-    # Repository sync
-    - echo "🔧 REPOSITORY SYNC:" | tee -a $LOGFILE
-    - cd $REPOPATH || (echo "❌ FATAL: Cannot access repository" | tee -a $LOGFILE && exit 1)
-    - git fetch origin main 2>&1 | tee -a $LOGFILE
-    - git reset --hard origin/main 2>&1 | tee -a $LOGFILE
-    - echo "Current commit:" | tee -a $LOGFILE
-    - git log --oneline -1 2>&1 | tee -a $LOGFILE
+    # Check if Node.js is available
+    - echo "🔧 CHECKING DEPENDENCIES:" | tee -a $LOGFILE
+    - node --version 2>&1 | tee -a $LOGFILE || echo "❌ Node.js not available" | tee -a $LOGFILE
+    - npm --version 2>&1 | tee -a $LOGFILE || echo "❌ NPM not available" | tee -a $LOGFILE
     
-    # Check if dist exists in repo
-    - echo "📁 CHECKING DIST FOLDER:" | tee -a $LOGFILE
-    - test -d $REPOPATH/dist && echo "✅ dist folder exists" | tee -a $LOGFILE || echo "❌ dist folder missing" | tee -a $LOGFILE
-    - ls -la $REPOPATH/dist/ 2>&1 | tee -a $LOGFILE || echo "Cannot list dist contents" | tee -a $LOGFILE
+    # Install dependencies if package.json exists
+    - echo "📦 INSTALLING DEPENDENCIES:" | tee -a $LOGFILE
+    - test -f package.json && npm install 2>&1 | tee -a $LOGFILE || echo "⚠️ No package.json found" | tee -a $LOGFILE
     
-    # Test deployment path
-    - echo "🗂️ CHECKING DEPLOYMENT PATH:" | tee -a $LOGFILE
-    - test -d $DEPLOYPATH && echo "✅ Deploy path exists" | tee -a $LOGFILE || echo "❌ Deploy path missing" | tee -a $LOGFILE
-    - ls -la $DEPLOYPATH/ | tee -a $LOGFILE
+    # Build the project if build script exists
+    - echo "🏗️ BUILDING PROJECT:" | tee -a $LOGFILE
+    - test -f package.json && npm run build 2>&1 | tee -a $LOGFILE || echo "⚠️ No build script available" | tee -a $LOGFILE
     
-    # Create a test file to verify deployment works
-    - echo "🧪 TESTING DEPLOYMENT:" | tee -a $LOGFILE
-    - echo "DEPLOYMENT TEST $(date)" > /tmp/deployment-test.txt
-    - cp /tmp/deployment-test.txt $DEPLOYPATH/deployment-test.txt 2>&1 | tee -a $LOGFILE
-    - test -f $DEPLOYPATH/deployment-test.txt && echo "✅ Test file deployed successfully" | tee -a $LOGFILE || echo "❌ Test file deployment failed" | tee -a $LOGFILE
+    # Move built files to root if dist folder exists
+    - echo "📁 MOVING BUILT FILES:" | tee -a $LOGFILE
+    - if test -d dist; then echo "Moving dist contents to web root..." | tee -a $LOGFILE && cp -R dist/* . 2>&1 | tee -a $LOGFILE && echo "✅ Files moved to web root" | tee -a $LOGFILE; else echo "⚠️ No dist folder found, using source files directly" | tee -a $LOGFILE; fi
     
-    # IF dist exists, copy it
-    - echo "📋 CONDITIONAL DIST COPY:" | tee -a $LOGFILE
-    - if test -d $REPOPATH/dist; then echo "Copying existing dist folder..." | tee -a $LOGFILE && cp -R $REPOPATH/dist/* $DEPLOYPATH/ 2>&1 | tee -a $LOGFILE; else echo "No dist folder to copy, skipping..." | tee -a $LOGFILE; fi
+    # Clean up development files (keep built files only)
+    - echo "🧹 CLEANING DEVELOPMENT FILES:" | tee -a $LOGFILE
+    - rm -rf src/ node_modules/ dist/ *.md *.json *.js *.ts *.config.* .git* .env* 2>&1 | tee -a $LOGFILE || echo "⚠️ Cleanup completed with warnings" | tee -a $LOGFILE
     
-    # Final verification
-    - echo "✅ FINAL CHECK:" | tee -a $LOGFILE
-    - ls -la $DEPLOYPATH/ | tee -a $LOGFILE
-    - echo "🎉 Simple deployment test completed!" | tee -a $LOGFILE
+    # Set proper permissions
+    - echo "🔐 SETTING PERMISSIONS:" | tee -a $LOGFILE
+    - find . -type d -exec chmod 755 {} \; 2>&1 | tee -a $LOGFILE
+    - find . -type f -exec chmod 644 {} \; 2>&1 | tee -a $LOGFILE
+    
+    # Verify deployment
+    - echo "✅ VERIFYING DEPLOYMENT:" | tee -a $LOGFILE
+    - test -f index.html && echo "✅ index.html exists" | tee -a $LOGFILE || echo "❌ index.html missing" | tee -a $LOGFILE
+    - test -f sitemap.xml && echo "✅ sitemap.xml exists" | tee -a $LOGFILE || echo "⚠️ sitemap.xml missing" | tee -a $LOGFILE
+    - test -f robots.txt && echo "✅ robots.txt exists" | tee -a $LOGFILE || echo "⚠️ robots.txt missing" | tee -a $LOGFILE
+    - ls -la | tee -a $LOGFILE
+    
+    # Final status
+    - echo "🎉 DIRECT DEPLOYMENT COMPLETED!" | tee -a $LOGFILE
+    - echo "🌐 Website: https://mardenseo.com" | tee -a $LOGFILE
+    - echo "📋 Log: /home/marddium/deployment-debug.log" | tee -a $LOGFILE
