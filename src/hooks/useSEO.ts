@@ -112,8 +112,8 @@ export const seoConfigs = {
   },
   portfolio: {
     title: "Portfolio & Case Studies | Proven SEO Results | Marden SEO",
-    description: "Explore our successful SEO campaigns and app development projects. Real results, measurable improvements, and satisfied clients across various industries.",
-    keywords: "SEO portfolio, case studies, SEO results, client success stories, proven SEO campaigns, app development portfolio",
+    description: "Explore our successful SEO campaigns and app development projects. Real results, measurable improvements, and satisfied clients including video testimonials across various industries.",
+    keywords: "SEO portfolio, case studies, SEO results, client success stories, proven SEO campaigns, app development portfolio, client testimonials, video reviews",
     type: "website"
   },
   notFound: {

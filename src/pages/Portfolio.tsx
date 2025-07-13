@@ -9,12 +9,62 @@ import { trackPortfolioView } from '@/components/Analytics';
 // Portfolio filter categories
 const categories = ["All", "E-commerce", "SaaS", "Local Business", "B2B"];
 const Portfolio = () => {
-  // Add enhanced SEO for portfolio page with breadcrumb schema
-  useSEO(getEnhancedSEOConfig('portfolio'));
+  // Add enhanced SEO for portfolio page with client review structured data
+  useSEO({
+    ...getEnhancedSEOConfig('portfolio'),
+    schemas: [
+      {
+        "@context": "https://schema.org",
+        "@type": "Review",
+        "reviewBody": "If you're looking for a stunning website, powerful SEO, or a customized workflow, and especially if you want to harness AI to maintain full creative control, I honestly couldn't recommend Leo highly enough. He's a total game changer!",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Violet Rainwater"
+        },
+        "itemReviewed": {
+          "@type": "Service",
+          "name": "Professional Website Development and SEO Services",
+          "provider": {
+            "@type": "Organization",
+            "name": "Marden SEO",
+            "url": "https://mardenseo.com"
+          }
+        }
+      }
+    ]
+  });
   
   const [activeFilter, setActiveFilter] = useState("All");
   const caseStudies = [{
     id: 1,
+    title: "Violet Rainwater - Professional Website Development",
+    category: "Local Business",
+    image: "/Violet site.png",
+    description: "Complete website development and SEO optimization for Violet Rainwater's professional services, featuring modern design and enhanced user experience.",
+    stats: [{
+      label: "Website Performance",
+      value: "+95%"
+    }, {
+      label: "User Experience",
+      value: "+85%"
+    }, {
+      label: "Mobile Optimization",
+      value: "+90%"
+    }, {
+      label: "Client Satisfaction",
+      value: "100%"
+    }],
+    isVideoTestimonial: true,
+    videoUrl: "https://youtu.be/81LAr2L6Tu4",
+    websiteUrl: "https://violetrainwater.com",
+    clientName: "Violet Rainwater"
+  }, {
+    id: 2,
     title: "300% Traffic Growth for B2B SaaS",
     category: "SaaS",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
@@ -169,13 +219,114 @@ const Portfolio = () => {
                       <p className="text-xs text-muted-foreground">{stat.label}</p>
                     </div>)}
                 </div>
-                <Button asChild variant="outline" className="w-full">
-                  <Link to={`/case-study/${study.id}`} onClick={() => trackPortfolioView(study.title)}>
-                    View Full Case Study <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
+                
+                {/* Special handling for video testimonial case study */}
+                {study.isVideoTestimonial ? (
+                  <div className="space-y-3">
+                    <Button asChild variant="default" className="w-full">
+                      <a 
+                        href={study.videoUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        onClick={() => trackPortfolioView(`${study.title} - Video Review`)}
+                        className="flex items-center justify-center"
+                      >
+                        Watch Client Review <ExternalLink className="ml-2 h-4 w-4" />
+                      </a>
+                    </Button>
+                    <Button asChild variant="outline" className="w-full">
+                      <a 
+                        href={study.websiteUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        onClick={() => trackPortfolioView(`${study.title} - Website Visit`)}
+                        className="flex items-center justify-center"
+                      >
+                        Visit Website <ExternalLink className="ml-2 h-4 w-4" />
+                      </a>
+                    </Button>
+                  </div>
+                ) : (
+                  <Button asChild variant="outline" className="w-full">
+                    <Link to={`/case-study/${study.id}`} onClick={() => trackPortfolioView(study.title)}>
+                      View Full Case Study <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                )}
               </div>
             </div>)}
+        </div>
+      </section>
+      
+      {/* Client Video Testimonial Section */}
+      <section className="bg-accent/5 py-16 md:py-24">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="text-center max-w-4xl mx-auto">
+            <h2 className="heading-lg mb-6">Client Success Stories</h2>
+            <p className="text-xl text-muted-foreground mb-12">
+              Hear directly from our clients about the impact of our SEO and web development services
+            </p>
+            
+            {/* Video Testimonial Card */}
+            <div className="bg-card rounded-lg border border-border p-8 shadow-lg">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div className="order-2 lg:order-1">
+                  <h3 className="text-2xl font-heading mb-4">Violet Rainwater</h3>
+                  <p className="text-lg text-muted-foreground mb-6">
+                    "If you're looking for a stunning website, powerful SEO, or a customized workflow, and especially if you want to harness AI to maintain full creative control, I honestly couldn't recommend Leo highly enough. He's a total game changer!"
+                  </p>
+                  <div className="mb-6">
+                    <div className="flex items-center space-x-1 mb-2">
+                      {[...Array(5)].map((_, i) => (
+                        <span key={i} className="text-yellow-400 text-xl" aria-hidden="true">★</span>
+                      ))}
+                      <span className="ml-2 text-sm text-muted-foreground">(5/5 stars)</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      <strong>Project:</strong> Professional website development with SEO optimization
+                    </p>
+                  </div>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Button asChild size="lg" className="flex-1">
+                      <a 
+                        href="https://youtu.be/81LAr2L6Tu4" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        onClick={() => trackPortfolioView('Violet Rainwater Video Review')}
+                      >
+                        Watch Full Review <ExternalLink className="ml-2 h-4 w-4" />
+                      </a>
+                    </Button>
+                    <Button asChild variant="outline" size="lg" className="flex-1">
+                      <a 
+                        href="https://violetrainwater.com" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        onClick={() => trackPortfolioView('Violet Rainwater Website Visit')}
+                      >
+                        Visit Website <ExternalLink className="ml-2 h-4 w-4" />
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+                <div className="order-1 lg:order-2">
+                  <div className="relative rounded-lg overflow-hidden shadow-lg">
+                    <img 
+                      src="/Violet%20image.png" 
+                      alt="Violet Rainwater professional headshot" 
+                      className="w-full h-64 md:h-80 object-cover"
+                      style={{ 
+                        objectPosition: 'center top',
+                        imageRendering: 'auto',
+                        filter: 'none'
+                      }}
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       
