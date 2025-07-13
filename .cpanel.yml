@@ -1,49 +1,43 @@
 ---
 deployment:
   tasks:
-    # Set up logging
+    # Set up logging and detect current setup
     - export LOGFILE=/home/marddium/deployment-debug.log
-    - echo "=== DIRECT DEPLOYMENT $(date) ===" > $LOGFILE
+    - echo "=== HYBRID DEPLOYMENT $(date) ===" > $LOGFILE
     
-    # We're already in public_html, so work from current directory
-    - echo "🔍 CURRENT DIRECTORY:" | tee -a $LOGFILE
-    - pwd | tee -a $LOGFILE
+    # Detect which setup we're in
+    - export CURRENT_DIR=$(pwd)
+    - echo "Current directory: $CURRENT_DIR" | tee -a $LOGFILE
+    
+    # Set deployment variables based on detected setup
+    - if [[ "$CURRENT_DIR" == *"public_html"* ]]; then export DEPLOY_MODE="direct"; export DEPLOYPATH="$CURRENT_DIR"; else export DEPLOY_MODE="copy"; export DEPLOYPATH="/home/marddium/public_html"; fi
+    - echo "Deploy mode: $DEPLOY_MODE" | tee -a $LOGFILE
+    - echo "Deploy path: $DEPLOYPATH" | tee -a $LOGFILE
+    
+    # System info
     - whoami | tee -a $LOGFILE
-    
-    # Check if Node.js is available
-    - echo "🔧 CHECKING DEPENDENCIES:" | tee -a $LOGFILE
     - node --version 2>&1 | tee -a $LOGFILE || echo "❌ Node.js not available" | tee -a $LOGFILE
     - npm --version 2>&1 | tee -a $LOGFILE || echo "❌ NPM not available" | tee -a $LOGFILE
     
-    # Install dependencies if package.json exists
-    - echo "📦 INSTALLING DEPENDENCIES:" | tee -a $LOGFILE
-    - test -f package.json && npm install 2>&1 | tee -a $LOGFILE || echo "⚠️ No package.json found" | tee -a $LOGFILE
+    # Install and build if package.json exists
+    - if test -f package.json; then echo "📦 Installing dependencies..." | tee -a $LOGFILE && npm install 2>&1 | tee -a $LOGFILE; fi
+    - if test -f package.json; then echo "🏗️ Building project..." | tee -a $LOGFILE && npm run build 2>&1 | tee -a $LOGFILE; fi
     
-    # Build the project if build script exists
-    - echo "🏗️ BUILDING PROJECT:" | tee -a $LOGFILE
-    - test -f package.json && npm run build 2>&1 | tee -a $LOGFILE || echo "⚠️ No build script available" | tee -a $LOGFILE
+    # Deploy based on mode
+    - if [ "$DEPLOY_MODE" = "direct" ]; then echo "📁 Direct deployment - moving files..." | tee -a $LOGFILE && if test -d dist; then cp -R dist/* . 2>&1 | tee -a $LOGFILE; fi; else echo "📋 Copy deployment..." | tee -a $LOGFILE && if test -d dist; then cp -R dist/* $DEPLOYPATH/ 2>&1 | tee -a $LOGFILE; fi; fi
     
-    # Move built files to root if dist folder exists
-    - echo "📁 MOVING BUILT FILES:" | tee -a $LOGFILE
-    - if test -d dist; then echo "Moving dist contents to web root..." | tee -a $LOGFILE && cp -R dist/* . 2>&1 | tee -a $LOGFILE && echo "✅ Files moved to web root" | tee -a $LOGFILE; else echo "⚠️ No dist folder found, using source files directly" | tee -a $LOGFILE; fi
+    # Clean up if direct mode
+    - if [ "$DEPLOY_MODE" = "direct" ]; then echo "🧹 Cleaning development files..." | tee -a $LOGFILE && rm -rf src/ node_modules/ dist/ *.md package*.json *.config.* .git* .env* 2>&1 | tee -a $LOGFILE || true; fi
     
-    # Clean up development files (keep built files only)
-    - echo "🧹 CLEANING DEVELOPMENT FILES:" | tee -a $LOGFILE
-    - rm -rf src/ node_modules/ dist/ *.md *.json *.js *.ts *.config.* .git* .env* 2>&1 | tee -a $LOGFILE || echo "⚠️ Cleanup completed with warnings" | tee -a $LOGFILE
-    
-    # Set proper permissions
-    - echo "🔐 SETTING PERMISSIONS:" | tee -a $LOGFILE
-    - find . -type d -exec chmod 755 {} \; 2>&1 | tee -a $LOGFILE
-    - find . -type f -exec chmod 644 {} \; 2>&1 | tee -a $LOGFILE
+    # Set permissions
+    - echo "🔐 Setting permissions..." | tee -a $LOGFILE
+    - find $DEPLOYPATH -type d -exec chmod 755 {} \; 2>&1 | tee -a $LOGFILE || true
+    - find $DEPLOYPATH -type f -exec chmod 644 {} \; 2>&1 | tee -a $LOGFILE || true
     
     # Verify deployment
-    - echo "✅ VERIFYING DEPLOYMENT:" | tee -a $LOGFILE
-    - test -f index.html && echo "✅ index.html exists" | tee -a $LOGFILE || echo "❌ index.html missing" | tee -a $LOGFILE
-    - test -f sitemap.xml && echo "✅ sitemap.xml exists" | tee -a $LOGFILE || echo "⚠️ sitemap.xml missing" | tee -a $LOGFILE
-    - test -f robots.txt && echo "✅ robots.txt exists" | tee -a $LOGFILE || echo "⚠️ robots.txt missing" | tee -a $LOGFILE
-    - ls -la | tee -a $LOGFILE
+    - echo "✅ Verifying deployment..." | tee -a $LOGFILE
+    - test -f $DEPLOYPATH/index.html && echo "✅ index.html deployed" | tee -a $LOGFILE || echo "❌ index.html missing" | tee -a $LOGFILE
+    - ls -la $DEPLOYPATH/ | head -10 | tee -a $LOGFILE
     
     # Final status
-    - echo "🎉 DIRECT DEPLOYMENT COMPLETED!" | tee -a $LOGFILE
-    - echo "🌐 Website: https://mardenseo.com" | tee -a $LOGFILE
-    - echo "📋 Log: /home/marddium/deployment-debug.log" | tee -a $LOGFILE
+    - echo "🎉 Hybrid deployment completed in $DEPLOY_MODE mode!" | tee -a $LOGFILE
