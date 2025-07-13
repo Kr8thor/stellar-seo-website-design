@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
 import { handleAnchorClick } from '@/utils/scrollUtils';
 import { ReviewSection } from '@/components';
+import CalendlyButton from '@/components/common/CalendlyButton';
 
 const Home = () => {
   // Add enhanced SEO for home page with breadcrumb schema
@@ -291,9 +292,19 @@ const Home = () => {
           <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto opacity-90">
             Let's work together to create an SEO strategy that drives real business results.
           </p>
-          <Button asChild size="lg" variant="secondary">
-            <a href="/contact#top">Get Your Free SEO Consultation</a>
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button asChild size="lg" variant="secondary">
+              <a href="/contact#top">Get Your Free SEO Consultation</a>
+            </Button>
+            <CalendlyButton 
+              variant="outline"
+              size="lg"
+              className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+              calendlyUrl={import.meta.env.VITE_CALENDLY_URL}
+            >
+              Schedule a Call
+            </CalendlyButton>
+          </div>
         </div>
       </section>
     </main>;

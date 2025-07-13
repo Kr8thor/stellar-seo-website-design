@@ -10,6 +10,7 @@ import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
 import { scrollToTop } from '@/utils/scrollUtils';
 import { trackContactFormSubmission } from '@/components/Analytics';
 import { useAnalytics } from '@/hooks/useAnalytics';
+import CalendlyButton from '@/components/common/CalendlyButton';
 
 const Contact = () => {
   // Add enhanced SEO for contact page with breadcrumb schema
@@ -248,6 +249,23 @@ const Contact = () => {
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </Button>
+
+              {/* Calendly Integration */}
+              <div className="mt-6 pt-6 border-t border-slate-200">
+                <div className="text-center">
+                  <p className="text-sm text-slate-600 mb-4">
+                    Prefer to talk directly? Schedule a free consultation call.
+                  </p>
+                  <CalendlyButton 
+                    variant="outline"
+                    size="lg"
+                    className="w-full border-purple-200 text-purple-700 hover:bg-purple-50"
+                    calendlyUrl={import.meta.env.VITE_CALENDLY_URL}
+                  >
+                    Schedule Free Consultation
+                  </CalendlyButton>
+                </div>
+              </div>
             </form>
 
             <div className="mt-6 text-center text-sm text-slate-500">

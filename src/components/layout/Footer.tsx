@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Github } from 'lucide-react';
+import CalendlyButton from '@/components/common/CalendlyButton';
 const Footer = () => {
   return <footer className="bg-secondary py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
             <div className="flex items-center space-x-3 mb-4">
               <img alt="Marden SEO Logo" className="h-8 w-8" src="/lovable-uploads/e9f1c2da-1a67-40f7-834f-3329774e4abb.png" />
@@ -31,6 +32,17 @@ const Footer = () => {
               <Link to="/app-building" className="hover:underline text-muted-foreground hover:text-foreground transition-colors">App Building</Link>
               <Link to="/contact" className="hover:underline text-muted-foreground hover:text-foreground transition-colors">Contact</Link>
             </nav>
+          </div>
+
+          <div>
+            <h4 className="font-heading text-lg mb-4">Book a Meeting</h4>
+            <p className="text-muted-foreground mb-4">Ready to discuss your project? Schedule a free consultation.</p>
+            <CalendlyButton 
+              calendlyUrl={import.meta.env.VITE_CALENDLY_URL}
+              className="bg-primary text-primary-foreground hover:bg-primary/90"
+            >
+              Schedule Meeting
+            </CalendlyButton>
           </div>
         </div>
 
