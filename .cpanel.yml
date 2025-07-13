@@ -5,77 +5,46 @@ deployment:
     - export DEPLOYPATH=/home/marddium/public_html
     - export REPOPATH=/home/marddium/repositories/stellar-seo-website-design
     - export LOGFILE=/home/marddium/deployment-debug.log
-    - echo "=== DEPLOYMENT DEBUG LOG $(date) ===" > $LOGFILE
+    - echo "=== SIMPLE DEPLOYMENT TEST $(date) ===" > $LOGFILE
     
-    # Test basic commands and paths
-    - echo "🔍 DIAGNOSTIC: Testing basic system commands" | tee -a $LOGFILE
+    # Test basic system info
+    - echo "🔍 SYSTEM INFO:" | tee -a $LOGFILE
     - whoami | tee -a $LOGFILE
     - pwd | tee -a $LOGFILE
-    - echo "🔍 DIAGNOSTIC: Checking if paths exist" | tee -a $LOGFILE
-    - test -d $REPOPATH && echo "✅ Repository path exists: $REPOPATH" | tee -a $LOGFILE || echo "❌ Repository path missing: $REPOPATH" | tee -a $LOGFILE
-    - test -d $DEPLOYPATH && echo "✅ Deploy path exists: $DEPLOYPATH" | tee -a $LOGFILE || echo "❌ Deploy path missing: $DEPLOYPATH" | tee -a $LOGFILE
+    - echo "Node version test:" | tee -a $LOGFILE
+    - node --version 2>&1 | tee -a $LOGFILE || echo "❌ Node.js not found" | tee -a $LOGFILE
+    - echo "NPM version test:" | tee -a $LOGFILE  
+    - npm --version 2>&1 | tee -a $LOGFILE || echo "❌ NPM not found" | tee -a $LOGFILE
     
-    # Repository operations
-    - echo "🔧 REPOSITORY: Working from repository directory" | tee -a $LOGFILE
-    - cd $REPOPATH || (echo "❌ FATAL: Cannot access repository path" | tee -a $LOGFILE && exit 1)
-    - pwd | tee -a $LOGFILE
-    - echo "📊 Git status before cleanup:" | tee -a $LOGFILE
-    - git status 2>&1 | tee -a $LOGFILE
-    - echo "🧹 Stashing any local changes..." | tee -a $LOGFILE
-    - git stash push -u -m "Auto-stash before deployment $(date)" 2>&1 | tee -a $LOGFILE || echo "⚠️ Stash failed (may be normal)" | tee -a $LOGFILE
-    - echo "🔄 Ensuring we're on main branch..." | tee -a $LOGFILE
-    - git checkout main 2>&1 | tee -a $LOGFILE
-    - echo "⬇️ Fetching latest from GitHub..." | tee -a $LOGFILE
+    # Repository sync
+    - echo "🔧 REPOSITORY SYNC:" | tee -a $LOGFILE
+    - cd $REPOPATH || (echo "❌ FATAL: Cannot access repository" | tee -a $LOGFILE && exit 1)
     - git fetch origin main 2>&1 | tee -a $LOGFILE
-    - echo "🔨 Hard reset to match GitHub exactly..." | tee -a $LOGFILE
     - git reset --hard origin/main 2>&1 | tee -a $LOGFILE
-    - echo "🧽 Cleaning any remaining untracked files..." | tee -a $LOGFILE
-    - git clean -fd 2>&1 | tee -a $LOGFILE
-    
-    # Verify repository state
-    - echo "✅ Repository sync completed!" | tee -a $LOGFILE
-    - echo "📋 Current commit after reset:" | tee -a $LOGFILE
+    - echo "Current commit:" | tee -a $LOGFILE
     - git log --oneline -1 2>&1 | tee -a $LOGFILE
     
-    # BUILD PROCESS - This is the key addition!
-    - echo "🏗️ BUILD: Installing dependencies..." | tee -a $LOGFILE
-    - npm install 2>&1 | tee -a $LOGFILE || echo "❌ npm install failed" | tee -a $LOGFILE
-    - echo "🏗️ BUILD: Building production files..." | tee -a $LOGFILE
-    - npm run build 2>&1 | tee -a $LOGFILE || echo "❌ npm build failed" | tee -a $LOGFILE
+    # Check if dist exists in repo
+    - echo "📁 CHECKING DIST FOLDER:" | tee -a $LOGFILE
+    - test -d $REPOPATH/dist && echo "✅ dist folder exists" | tee -a $LOGFILE || echo "❌ dist folder missing" | tee -a $LOGFILE
+    - ls -la $REPOPATH/dist/ 2>&1 | tee -a $LOGFILE || echo "Cannot list dist contents" | tee -a $LOGFILE
     
-    # Check dist folder contents after build
-    - echo "📁 Checking dist folder contents after build:" | tee -a $LOGFILE
-    - ls -la $REPOPATH/dist/ 2>&1 | tee -a $LOGFILE || echo "❌ Cannot list dist folder after build" | tee -a $LOGFILE
-    - echo "📊 Dist folder file count:" | tee -a $LOGFILE
-    - find $REPOPATH/dist/ -type f | wc -l 2>&1 | tee -a $LOGFILE || echo "❌ Cannot count dist files" | tee -a $LOGFILE
+    # Test deployment path
+    - echo "🗂️ CHECKING DEPLOYMENT PATH:" | tee -a $LOGFILE
+    - test -d $DEPLOYPATH && echo "✅ Deploy path exists" | tee -a $LOGFILE || echo "❌ Deploy path missing" | tee -a $LOGFILE
+    - ls -la $DEPLOYPATH/ | tee -a $LOGFILE
     
-    # Check current web directory
-    - echo "🗂️ Checking current web directory contents:" | tee -a $LOGFILE
-    - ls -la $DEPLOYPATH/ 2>&1 | tee -a $LOGFILE || echo "❌ Cannot list deploy path" | tee -a $LOGFILE
+    # Create a test file to verify deployment works
+    - echo "🧪 TESTING DEPLOYMENT:" | tee -a $LOGFILE
+    - echo "DEPLOYMENT TEST $(date)" > /tmp/deployment-test.txt
+    - cp /tmp/deployment-test.txt $DEPLOYPATH/deployment-test.txt 2>&1 | tee -a $LOGFILE
+    - test -f $DEPLOYPATH/deployment-test.txt && echo "✅ Test file deployed successfully" | tee -a $LOGFILE || echo "❌ Test file deployment failed" | tee -a $LOGFILE
     
-    # Test copy operation
-    - echo "🚀 DEPLOYMENT: Starting file copy..." | tee -a $LOGFILE
-    - echo "Source: $REPOPATH/dist/*" | tee -a $LOGFILE
-    - echo "Target: $DEPLOYPATH/" | tee -a $LOGFILE
-    
-    # Perform the copy with detailed logging
-    - /bin/cp -R $REPOPATH/dist/* $DEPLOYPATH/ 2>&1 | tee -a $LOGFILE || echo "❌ Copy operation failed" | tee -a $LOGFILE
-    
-    # Set permissions
-    - echo "🔐 Setting proper permissions..." | tee -a $LOGFILE
-    - /bin/find $DEPLOYPATH -type d -exec chmod 755 {} \; 2>&1 | tee -a $LOGFILE || echo "⚠️ Directory permission setting failed" | tee -a $LOGFILE
-    - /bin/find $DEPLOYPATH -type f -exec chmod 644 {} \; 2>&1 | tee -a $LOGFILE || echo "⚠️ File permission setting failed" | tee -a $LOGFILE
-    
-    # Verify deployment results
-    - echo "✅ VERIFICATION: Checking deployed files..." | tee -a $LOGFILE
-    - test -f $DEPLOYPATH/index.html && echo "✅ index.html deployed successfully" | tee -a $LOGFILE || echo "❌ index.html missing!" | tee -a $LOGFILE
-    - test -f $DEPLOYPATH/sitemap.xml && echo "✅ sitemap.xml deployed successfully" | tee -a $LOGFILE || echo "❌ sitemap.xml missing!" | tee -a $LOGFILE
-    - test -f $DEPLOYPATH/robots.txt && echo "✅ robots.txt deployed successfully" | tee -a $LOGFILE || echo "❌ robots.txt missing!" | tee -a $LOGFILE
+    # IF dist exists, copy it
+    - echo "📋 CONDITIONAL DIST COPY:" | tee -a $LOGFILE
+    - if test -d $REPOPATH/dist; then echo "Copying existing dist folder..." | tee -a $LOGFILE && cp -R $REPOPATH/dist/* $DEPLOYPATH/ 2>&1 | tee -a $LOGFILE; else echo "No dist folder to copy, skipping..." | tee -a $LOGFILE; fi
     
     # Final verification
-    - echo "📊 Final web directory listing:" | tee -a $LOGFILE
-    - ls -la $DEPLOYPATH/ 2>&1 | tee -a $LOGFILE
-    - echo "🎉 Deployment script completed!" | tee -a $LOGFILE
-    - echo "🌐 Website should be live at https://mardenseo.com" | tee -a $LOGFILE
-    - echo "📋 Check deployment log: /home/marddium/deployment-debug.log" | tee -a $LOGFILE
-    - echo "🕐 Deployment time: $(date)" | tee -a $LOGFILE
+    - echo "✅ FINAL CHECK:" | tee -a $LOGFILE
+    - ls -la $DEPLOYPATH/ | tee -a $LOGFILE
+    - echo "🎉 Simple deployment test completed!" | tee -a $LOGFILE
