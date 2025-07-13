@@ -1,40 +1,76 @@
 ---
 deployment:
   tasks:
+    # Set up variables and logging
     - export DEPLOYPATH=/home/marddium/public_html
     - export REPOPATH=/home/marddium/repositories/stellar-seo-website-design
-    - echo "🚀 Starting deployment from $REPOPATH to $DEPLOYPATH"
-    - echo "🔧 PRE-DEPLOYMENT: Working from repository directory..."
-    - cd $REPOPATH
-    - pwd
-    - echo "📊 Git status before cleanup:"
-    - git status
-    - echo "🧹 Stashing any local changes..."
-    - git stash push -u -m "Auto-stash before deployment $(date)" || true
-    - echo "🔄 Ensuring we're on main branch..."
-    - git checkout main
-    - echo "⬇️ Fetching latest from GitHub..."
-    - git fetch origin main
-    - echo "🔨 Hard reset to match GitHub exactly..."
-    - git reset --hard origin/main
-    - echo "🧽 Cleaning any remaining untracked files..."
-    - git clean -fd
-    - echo "✅ Repository sync completed!"
-    - echo "📋 Current commit after reset:"
-    - git log --oneline -1
-    - echo "📁 Checking dist folder exists and has content:"
-    - ls -la $REPOPATH/dist/ || echo "⚠️ dist folder not found!"
-    - echo "🗂️ Checking what's currently in web directory:"
-    - ls -la $DEPLOYPATH/
-    - echo "🚀 Copying files from $REPOPATH/dist/ to $DEPLOYPATH/"
-    - /bin/cp -R $REPOPATH/dist/* $DEPLOYPATH/
-    - echo "🔐 Setting proper permissions..."
-    - /bin/find $DEPLOYPATH -type d -exec chmod 755 {} \; 2>/dev/null || true
-    - /bin/find $DEPLOYPATH -type f -exec chmod 644 {} \; 2>/dev/null || true
-    - echo "✅ Verifying critical files deployed:"
-    - ls -la $DEPLOYPATH/index.html || echo "❌ index.html missing!"
-    - ls -la $DEPLOYPATH/sitemap.xml || echo "❌ sitemap.xml missing!"
-    - ls -la $DEPLOYPATH/robots.txt || echo "❌ robots.txt missing!"
-    - echo "🎉 Deployment completed successfully!"
-    - echo "🌐 Website should be live at https://mardenseo.com"
-    - echo "🕐 Deployment time: $(date)"
+    - export LOGFILE=/home/marddium/deployment-debug.log
+    - echo "=== DEPLOYMENT DEBUG LOG $(date) ===" > $LOGFILE
+    
+    # Test basic commands and paths
+    - echo "🔍 DIAGNOSTIC: Testing basic system commands" | tee -a $LOGFILE
+    - whoami | tee -a $LOGFILE
+    - pwd | tee -a $LOGFILE
+    - echo "🔍 DIAGNOSTIC: Checking if paths exist" | tee -a $LOGFILE
+    - test -d $REPOPATH && echo "✅ Repository path exists: $REPOPATH" | tee -a $LOGFILE || echo "❌ Repository path missing: $REPOPATH" | tee -a $LOGFILE
+    - test -d $DEPLOYPATH && echo "✅ Deploy path exists: $DEPLOYPATH" | tee -a $LOGFILE || echo "❌ Deploy path missing: $DEPLOYPATH" | tee -a $LOGFILE
+    - test -d $REPOPATH/dist && echo "✅ Dist folder exists: $REPOPATH/dist" | tee -a $LOGFILE || echo "❌ Dist folder missing: $REPOPATH/dist" | tee -a $LOGFILE
+    
+    # Repository operations
+    - echo "🔧 REPOSITORY: Working from repository directory" | tee -a $LOGFILE
+    - cd $REPOPATH || (echo "❌ FATAL: Cannot access repository path" | tee -a $LOGFILE && exit 1)
+    - pwd | tee -a $LOGFILE
+    - echo "📊 Git status before cleanup:" | tee -a $LOGFILE
+    - git status 2>&1 | tee -a $LOGFILE
+    - echo "🧹 Stashing any local changes..." | tee -a $LOGFILE
+    - git stash push -u -m "Auto-stash before deployment $(date)" 2>&1 | tee -a $LOGFILE || echo "⚠️ Stash failed (may be normal)" | tee -a $LOGFILE
+    - echo "🔄 Ensuring we're on main branch..." | tee -a $LOGFILE
+    - git checkout main 2>&1 | tee -a $LOGFILE
+    - echo "⬇️ Fetching latest from GitHub..." | tee -a $LOGFILE
+    - git fetch origin main 2>&1 | tee -a $LOGFILE
+    - echo "🔨 Hard reset to match GitHub exactly..." | tee -a $LOGFILE
+    - git reset --hard origin/main 2>&1 | tee -a $LOGFILE
+    - echo "🧽 Cleaning any remaining untracked files..." | tee -a $LOGFILE
+    - git clean -fd 2>&1 | tee -a $LOGFILE
+    
+    # Verify repository state
+    - echo "✅ Repository sync completed!" | tee -a $LOGFILE
+    - echo "📋 Current commit after reset:" | tee -a $LOGFILE
+    - git log --oneline -1 2>&1 | tee -a $LOGFILE
+    
+    # Check dist folder contents
+    - echo "📁 Checking dist folder contents:" | tee -a $LOGFILE
+    - ls -la $REPOPATH/dist/ 2>&1 | tee -a $LOGFILE || echo "❌ Cannot list dist folder" | tee -a $LOGFILE
+    - echo "📊 Dist folder file count:" | tee -a $LOGFILE
+    - find $REPOPATH/dist/ -type f | wc -l 2>&1 | tee -a $LOGFILE || echo "❌ Cannot count dist files" | tee -a $LOGFILE
+    
+    # Check current web directory
+    - echo "🗂️ Checking current web directory contents:" | tee -a $LOGFILE
+    - ls -la $DEPLOYPATH/ 2>&1 | tee -a $LOGFILE || echo "❌ Cannot list deploy path" | tee -a $LOGFILE
+    
+    # Test copy operation
+    - echo "🚀 DEPLOYMENT: Starting file copy..." | tee -a $LOGFILE
+    - echo "Source: $REPOPATH/dist/*" | tee -a $LOGFILE
+    - echo "Target: $DEPLOYPATH/" | tee -a $LOGFILE
+    
+    # Perform the copy with detailed logging
+    - /bin/cp -R $REPOPATH/dist/* $DEPLOYPATH/ 2>&1 | tee -a $LOGFILE || echo "❌ Copy operation failed" | tee -a $LOGFILE
+    
+    # Set permissions
+    - echo "🔐 Setting proper permissions..." | tee -a $LOGFILE
+    - /bin/find $DEPLOYPATH -type d -exec chmod 755 {} \; 2>&1 | tee -a $LOGFILE || echo "⚠️ Directory permission setting failed" | tee -a $LOGFILE
+    - /bin/find $DEPLOYPATH -type f -exec chmod 644 {} \; 2>&1 | tee -a $LOGFILE || echo "⚠️ File permission setting failed" | tee -a $LOGFILE
+    
+    # Verify deployment results
+    - echo "✅ VERIFICATION: Checking deployed files..." | tee -a $LOGFILE
+    - test -f $DEPLOYPATH/index.html && echo "✅ index.html deployed successfully" | tee -a $LOGFILE || echo "❌ index.html missing!" | tee -a $LOGFILE
+    - test -f $DEPLOYPATH/sitemap.xml && echo "✅ sitemap.xml deployed successfully" | tee -a $LOGFILE || echo "❌ sitemap.xml missing!" | tee -a $LOGFILE
+    - test -f $DEPLOYPATH/robots.txt && echo "✅ robots.txt deployed successfully" | tee -a $LOGFILE || echo "❌ robots.txt missing!" | tee -a $LOGFILE
+    
+    # Final verification
+    - echo "📊 Final web directory listing:" | tee -a $LOGFILE
+    - ls -la $DEPLOYPATH/ 2>&1 | tee -a $LOGFILE
+    - echo "🎉 Deployment script completed!" | tee -a $LOGFILE
+    - echo "🌐 Website should be live at https://mardenseo.com" | tee -a $LOGFILE
+    - echo "📋 Check deployment log: /home/marddium/deployment-debug.log" | tee -a $LOGFILE
+    - echo "🕐 Deployment time: $(date)" | tee -a $LOGFILE
