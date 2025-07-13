@@ -9,7 +9,7 @@
   <!-- Homepage - Highest Priority -->
   <url>
     <loc>https://mardenseo.com/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -17,21 +17,21 @@
   <!-- Core Business Pages - High Priority -->
   <url>
     <loc>https://mardenseo.com/services</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mardenseo.com/about</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mardenseo.com/contact</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -39,14 +39,14 @@
   <!-- Service Pages - High Priority -->
   <url>
     <loc>https://mardenseo.com/app-building</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mardenseo.com/workflow-automation</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -54,90 +54,88 @@
   <!-- Portfolio and Content Pages -->
   <url>
     <loc>https://mardenseo.com/portfolio</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mardenseo.com/blog</loc>
-    <lastmod>2025-06-24</lastmod>
+    <lastmod>2025-07-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Sample Blog Posts - These would typically be generated dynamically -->
+  <!-- Real Blog Posts with Actual IDs -->
   <url>
-    <loc>https://mardenseo.com/blog/seo-best-practices-2025</loc>
-    <lastmod>2025-06-20</lastmod>
+    <loc>https://mardenseo.com/blog/1</loc>
+    <lastmod>2025-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://mardenseo.com/blog/react-seo-optimization</loc>
-    <lastmod>2025-06-18</lastmod>
+    <loc>https://mardenseo.com/blog/2</loc>
+    <lastmod>2025-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://mardenseo.com/blog/workflow-automation-guide</loc>
-    <lastmod>2025-06-15</lastmod>
+    <loc>https://mardenseo.com/blog/3</loc>
+    <lastmod>2025-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://mardenseo.com/blog/app-development-trends</loc>
-    <lastmod>2025-06-12</lastmod>
+    <loc>https://mardenseo.com/blog/4</loc>
+    <lastmod>2025-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://mardenseo.com/blog/schema-markup-guide</loc>
-    <lastmod>2025-06-10</lastmod>
+    <loc>https://mardenseo.com/blog/5</loc>
+    <lastmod>2025-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
-  <!-- Sample Case Studies - These would typically be generated dynamically -->
   <url>
-    <loc>https://mardenseo.com/case-study/ecommerce-seo-success</loc>
-    <lastmod>2025-06-20</lastmod>
+    <loc>https://mardenseo.com/blog/6</loc>
+    <lastmod>2025-07-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://mardenseo.com/case-study/saas-app-development</loc>
-    <lastmod>2025-06-18</lastmod>
+    <loc>https://mardenseo.com/blog/7</loc>
+    <lastmod>2025-07-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://mardenseo.com/case-study/automation-workflow-implementation</loc>
-    <lastmod>2025-06-15</lastmod>
+    <loc>https://mardenseo.com/blog/8</loc>
+    <lastmod>2025-07-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://mardenseo.com/case-study/local-business-seo</loc>
-    <lastmod>2025-06-12</lastmod>
+    <loc>https://mardenseo.com/blog/9</loc>
+    <lastmod>2025-07-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 
-  <!-- 
-  Note: The following pages are intentionally excluded:
-  - /debug (noIndex page for development)
-  - 404 error pages (not useful for search engines)
-  
-  Dynamic pages (blog posts and case studies) should be added automatically
-  when new content is published through the WordPress CMS or manual addition.
-  -->
+  <!-- Additional Services -->
+  <url>
+    <loc>https://mardenseo.com/services-pricing</loc>
+    <lastmod>2025-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
 </urlset>
