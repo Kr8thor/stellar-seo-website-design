@@ -300,7 +300,7 @@ const Home = () => {
               variant="outline"
               size="lg"
               className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
-              calendlyUrl={import.meta.env.VITE_CALENDLY_URL}
+              calendlyUrl={import.meta.env.VITE_CALENDLY_URL || 'https://calendly.com/marden-seo/30min'}
             >
               Schedule a Call
             </CalendlyButton>

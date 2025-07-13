@@ -38,7 +38,7 @@ const Footer = () => {
             <h4 className="font-heading text-lg mb-4">Book a Meeting</h4>
             <p className="text-muted-foreground mb-4">Ready to discuss your project? Schedule a free consultation.</p>
             <CalendlyButton 
-              calendlyUrl={import.meta.env.VITE_CALENDLY_URL}
+              calendlyUrl={import.meta.env.VITE_CALENDLY_URL || 'https://calendly.com/marden-seo/30min'}
               className="bg-primary text-primary-foreground hover:bg-primary/90"
             >
               Schedule Meeting

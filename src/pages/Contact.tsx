@@ -260,7 +260,7 @@ const Contact = () => {
                     variant="outline"
                     size="lg"
                     className="w-full border-purple-200 text-purple-700 hover:bg-purple-50"
-                    calendlyUrl={import.meta.env.VITE_CALENDLY_URL}
+                    calendlyUrl={import.meta.env.VITE_CALENDLY_URL || 'https://calendly.com/marden-seo/30min'}
                   >
                     Schedule Free Consultation
                   </CalendlyButton>
