@@ -45,8 +45,8 @@ const SEOProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     });
   }, []);
 
-  const defaultTitle = "Marden SEO - Expert SEO Services & App Development | Professional Digital Marketing";
-  const defaultDescription = "Marden SEO provides professional search engine optimization, custom app development, and workflow automation services. Boost your online presence with expert SEO solutions.";
+  const defaultTitle = "Marden SEO | Professional SEO Services & App Development | Expert Digital Marketing Solutions";
+  const defaultDescription = "Marden SEO provides professional search engine optimization, custom app development, and workflow automation services. Expert SEO solutions to boost your online presence and drive organic traffic growth.";
   const defaultImage = "https://mardenseo.com/opengraph-image.png";
   const defaultUrl = "https://mardenseo.com";
 
@@ -81,15 +81,22 @@ const SEOProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         {seoData.publishedTime && <meta property="article:published_time" content={seoData.publishedTime} />}
         {seoData.modifiedTime && <meta property="article:modified_time" content={seoData.modifiedTime} />}
         
-        {/* Structured Data - Organization */}
+        {/* Enhanced Structured Data - Professional Service Organization */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Organization",
+            "@type": "ProfessionalService",
             "name": "Marden SEO",
+            "alternateName": ["Marden SEO Services", "Marden SEO Company", "Marden SEO Professional"],
+            "brand": {
+              "@type": "Brand",
+              "name": "Marden SEO"
+            },
             "url": "https://mardenseo.com",
             "logo": "https://mardenseo.com/favicon.png",
-            "description": "Professional SEO and app development services",
+            "description": "Marden SEO is a professional search engine optimization and app development company providing expert SEO services, custom React applications, and n8n workflow automation solutions.",
+            "foundingDate": "2023",
+            "serviceArea": "Worldwide",
             "address": {
               "@type": "PostalAddress",
               "addressCountry": "US"
@@ -97,7 +104,38 @@ const SEOProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             "contactPoint": {
               "@type": "ContactPoint",
               "contactType": "customer service",
-              "url": "https://mardenseo.com/contact"
+              "url": "https://mardenseo.com/contact",
+              "availableLanguage": "English"
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "SEO and Development Services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Search Engine Optimization",
+                    "description": "Professional SEO services to improve search rankings and organic traffic"
+                  }
+                },
+                {
+                  "@type": "Offer", 
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "App Development",
+                    "description": "Custom React application development and web solutions"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service", 
+                    "name": "Workflow Automation",
+                    "description": "n8n workflow automation and business process optimization"
+                  }
+                }
+              ]
             },
             "sameAs": [
               "https://twitter.com/marden_seo"
@@ -105,14 +143,20 @@ const SEOProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           })}
         </script>
         
-        {/* Structured Data - Website */}
+        {/* Enhanced Structured Data - Website with Brand Focus */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
             "name": "Marden SEO",
+            "alternateName": "Marden SEO Official Website",
             "url": "https://mardenseo.com",
-            "description": defaultDescription,
+            "description": "Official website of Marden SEO - Professional SEO and app development services for businesses worldwide",
+            "inLanguage": "en-US",
+            "publisher": {
+              "@type": "Organization",
+              "name": "Marden SEO"
+            },
             "potentialAction": {
               "@type": "SearchAction",
               "target": "https://mardenseo.com/blog?search={search_term_string}",
