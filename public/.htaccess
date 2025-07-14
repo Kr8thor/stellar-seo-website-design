@@ -1,6 +1,22 @@
 Options -MultiViews
 RewriteEngine On
 
+# BEGIN Canonical Domain Redirects - PRIORITY
+# Force non-www version (canonical domain)
+RewriteCond %{HTTP_HOST} ^www\.mardenseo\.com$ [NC]
+RewriteRule ^(.*)$ https://mardenseo.com/$1 [R=301,L]
+
+# Force HTTPS (if not already HTTPS)
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.*)$ https://mardenseo.com/$1 [R=301,L]
+
+# Handle www + HTTP combination
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} ^www\.mardenseo\.com$ [NC]
+RewriteRule ^(.*)$ https://mardenseo.com/$1 [R=301,L]
+# END Canonical Domain Redirects
+
 # BEGIN URL Redirects - Fix Inconsistent URLs
 # Redirect /services-pricing to /services (consolidate service pages)
 RewriteRule ^services-pricing/?$ /services [R=301,L]
