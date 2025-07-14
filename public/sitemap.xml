@@ -130,12 +130,4 @@
     <priority>0.6</priority>
   </url>
 
-  <!-- Additional Services -->
-  <url>
-    <loc>https://mardenseo.com/services-pricing</loc>
-    <lastmod>2025-07-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
 </urlset>
