@@ -101,11 +101,33 @@ const SEOProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               "@type": "PostalAddress",
               "addressCountry": "US"
             },
+            "sameAs": [
+              "https://mardenseo.com",
+              "https://mardenseo.com/about",
+              "https://mardenseo.com/services",
+              "https://twitter.com/marden_seo"
+            ],
+            "knowsAbout": [
+              "Search Engine Optimization",
+              "SEO Services", 
+              "Digital Marketing",
+              "App Development",
+              "React Development",
+              "n8n Workflow Automation",
+              "Custom Web Applications"
+            ],
             "contactPoint": {
               "@type": "ContactPoint",
               "contactType": "customer service",
               "url": "https://mardenseo.com/contact",
               "availableLanguage": "English"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "5.0",
+              "reviewCount": "1",
+              "bestRating": "5",
+              "worstRating": "1"
             },
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
@@ -136,10 +158,7 @@ const SEOProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                   }
                 }
               ]
-            },
-            "sameAs": [
-              "https://twitter.com/marden_seo"
-            ]
+            }
           })}
         </script>
         
