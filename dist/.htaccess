@@ -28,6 +28,18 @@ RewriteRule ^about-us/?$ /about [R=301,L]
 RewriteRule ^about-us/(.*)$ /about [R=301,L]
 # END URL Redirects
 
+# BEGIN XML Sitemap Handling - CRITICAL FOR SEO
+# Force sitemap.xml to be served as XML, not HTML
+<Files "sitemap.xml">
+    ForceType application/xml
+    Header set Content-Type "application/xml; charset=UTF-8"
+</Files>
+
+# Prevent React app from handling sitemap.xml requests
+RewriteCond %{REQUEST_URI} ^/sitemap\.xml$ [NC]
+RewriteRule ^(.*)$ - [L]
+# END XML Sitemap Handling
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ index.html [QSA,L]
 
