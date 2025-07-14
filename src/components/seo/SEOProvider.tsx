@@ -45,8 +45,8 @@ const SEOProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     });
   }, []);
 
-  const defaultTitle = "Strategic SEO Solutions for Digital Success | Marden SEO";
-  const defaultDescription = "Elevate your online presence with data-driven strategies that drive organic traffic, improve rankings, and increase conversions.";
+  const defaultTitle = "Marden SEO - Expert SEO Services & App Development | Professional Digital Marketing";
+  const defaultDescription = "Marden SEO provides professional search engine optimization, custom app development, and workflow automation services. Boost your online presence with expert SEO solutions.";
   const defaultImage = "https://mardenseo.com/opengraph-image.png";
   const defaultUrl = "https://mardenseo.com";
 

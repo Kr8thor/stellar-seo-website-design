@@ -38,10 +38,10 @@ const Home = () => {
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="max-w-3xl animate-fade-in">
             <h1 className="heading-xl mb-6">
-              Strategic SEO Solutions for Digital Success
+              Marden SEO - Strategic SEO Solutions for Digital Success
             </h1>
             <p className="text-xl md:text-2xl mb-10 text-muted-foreground">
-              Elevate your online presence with data-driven strategies that drive organic traffic, improve rankings, and increase conversions.
+              Marden SEO elevates your online presence with data-driven strategies that drive organic traffic, improve rankings, and increase conversions.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button asChild size="lg">

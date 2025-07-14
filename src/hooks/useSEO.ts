@@ -63,9 +63,9 @@ export const useSEO = (options: SEOOptions = {}) => {
 // Predefined SEO configurations for common pages
 export const seoConfigs = {
   home: {
-    title: "Strategic SEO Solutions for Digital Success | Marden SEO",
-    description: "Elevate your online presence with data-driven strategies that drive organic traffic, improve rankings, and increase conversions.",
-    keywords: "SEO services, search engine optimization, app development, n8n automation, React development, digital marketing, web development, SEO consultant",
+    title: "Marden SEO - Expert SEO Services & App Development | Professional Digital Marketing",
+    description: "Marden SEO provides professional search engine optimization, custom app development, and workflow automation services. Boost your online presence with expert Marden SEO solutions.",
+    keywords: "Marden SEO, SEO services, search engine optimization, app development, n8n automation, React development, digital marketing, web development, SEO consultant, professional SEO",
     type: "website"
   },
   about: {
