@@ -29,15 +29,17 @@ RewriteRule ^about-us/(.*)$ /about [R=301,L]
 # END URL Redirects
 
 # BEGIN XML Sitemap Handling - CRITICAL FOR SEO
+# Completely bypass React app for sitemap.xml
+RewriteCond %{REQUEST_URI} ^/sitemap\.xml$ [NC]
+RewriteRule ^(.*)$ /sitemap.xml [L,E=no-gzip:1]
+
 # Force sitemap.xml to be served as XML, not HTML
 <Files "sitemap.xml">
     ForceType application/xml
     Header set Content-Type "application/xml; charset=UTF-8"
+    Header unset X-Powered-By
+    Header unset Server
 </Files>
-
-# Prevent React app from handling sitemap.xml requests
-RewriteCond %{REQUEST_URI} ^/sitemap\.xml$ [NC]
-RewriteRule ^(.*)$ - [L]
 # END XML Sitemap Handling
 
 RewriteCond %{REQUEST_FILENAME} !-f
