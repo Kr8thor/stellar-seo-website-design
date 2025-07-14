@@ -1,6 +1,7 @@
 
 import React from 'react';
 import FeaturedAIPost from '@/components/blog/posts/FeaturedAIPost';
+import LocalSEOPost from '@/components/blog/posts/LocalSEOPost';
 import type { BlogPostProps } from '@/components/blog/BlogPost';
 
 // Blog post metadata and components registry
@@ -18,7 +19,18 @@ export interface BlogPostData {
 
 export const blogPostsRegistry: BlogPostData[] = [
   {
-    id: 'featured',
+    id: 'local-seo-2025',
+    title: "Local SEO in 2025: How to Slap Your Competitors Out of the Map Pack",
+    category: "Local SEO",
+    image: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+    date: "July 14, 2025",
+    readTime: "15 min read",
+    author: "Leo Corbett",
+    excerpt: "In 2025, dominating the Map Pack isn't optional. It's survival. The top 3 spots on Google's local results are the modern storefront—where clicks become calls, and calls become money.",
+    component: LocalSEOPost
+  },
+  {
+    id: 'ai-midlife-crisis',
     title: "From Google Whisperer to AI Prophet: An SEO's Midlife Crisis",
     category: "AI & SEO",
     image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",

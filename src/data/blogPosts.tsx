@@ -2,9 +2,189 @@ import React from 'react';
 import { BlogPostProps } from '@/components/blog/BlogPost';
 
 export const blogPosts: BlogPostProps[] = [
-  // Featured post
+  // New featured Local SEO post
   {
-    id: 'featured',
+    id: 'local-seo-2025',
+    title: "Local SEO in 2025: How to Slap Your Competitors Out of the Map Pack",
+    category: "Local SEO",
+    image: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+    date: "July 14, 2025",
+    readTime: "15 min read",
+    author: "Leo Corbett",
+    excerpt: "In 2025, dominating the Map Pack isn't optional. It's survival. The top 3 spots on Google's local results are the modern storefront—where clicks become calls, and calls become money.",
+    content: (
+      <React.Fragment>
+        <p className="text-xl leading-relaxed mb-8">
+          If you're still treating local SEO like an afterthought—like a Yelp sticker on your window and a dusty Google Business Profile—you might as well hand over your customers to the smoothie bar across the street.
+        </p>
+        <p className="mb-6">
+          In 2025, dominating the Map Pack isn't optional. It's survival. The top 3 spots on Google's local results are the modern storefront—where clicks become calls, and calls become money.
+        </p>
+        <p className="mb-6">
+          This isn't some "set it and forget it" SEO checklist. This is hyper-local, hyper-tactical domination. You ready?
+        </p>
+        
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4 border-b border-gray-200 pb-2">🗺️ First, What the Hell Is the Map Pack?</h2>
+        <p className="mb-6">
+          It's that beautiful little box at the top of Google search with the map, the pins, and the top 3 local businesses. AKA: the holy trinity of local visibility.
+        </p>
+        <p className="mb-6">
+          It's above the fold. It's above organic. It's where your future customers look when they want something right now.
+        </p>
+        
+        <div className="bg-red-50 border-l-4 border-red-500 p-4 my-8 rounded-r-md">
+          <p className="italic font-medium text-red-800">
+            If your business isn't there, you're not losing traffic. You're losing revenue.
+          </p>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Person using smartphone for local search" className="rounded-lg shadow-md my-8 w-full object-cover" />
+        
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4 border-b border-gray-200 pb-2">📲 The Local SEO Landscape in 2025: Personal, Predictive, and Picky</h2>
+        <p className="mb-6">
+          Let's be clear: Local SEO has leveled up. It's no longer just "who's closest." It's who's trusted, relevant, and locally famous online.
+        </p>
+        <p className="mb-6">
+          Thanks to AI-driven search and hyper-personalized results, here's what's influencing the Map Pack in 2025:
+        </p>
+        
+        <ul className="pl-6 mb-8 space-y-2 list-disc">
+          <li>Voice search like, "best vegan pizza near me that's open now and doesn't judge me."</li>
+          <li>User behavior (what you've clicked, rated, or ignored before).</li>
+          <li>Mobile-first indexing (your site better load like lightning on a cracked iPhone).</li>
+        </ul>
+        
+        <div className="bg-amber-50 border-l-4 border-amber-500 p-4 my-8 rounded-r-md">
+          <p className="italic font-medium text-amber-800">
+            Translation: if you're not tailoring your content and setup for real humans with real context, Google's not interested.
+          </p>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4 border-b border-gray-200 pb-2">🧩 Step 1: Build a God-Tier Google Business Profile</h2>
+        <p className="mb-6">
+          Your Google Business Profile (formerly Google My Business, before the rebrand gods struck again) is your local SEO headquarters.
+        </p>
+        <p className="mb-4"><strong>Here's your 2025 cheat sheet:</strong></p>
+        
+        <ul className="pl-6 mb-8 space-y-2 list-disc">
+          <li className="relative"><span className="absolute -left-6 text-green-500">✓</span> Fill in every section. Half-finished profiles scream "forgot my password."</li>
+          <li className="relative"><span className="absolute -left-6 text-green-500">✓</span> Choose primary + secondary categories like your livelihood depends on it (it does).</li>
+          <li className="relative"><span className="absolute -left-6 text-green-500">✓</span> Upload fresh photos every month. Listings with regular pics get 35% more clicks. Do it. Now.</li>
+          <li className="relative"><span className="absolute -left-6 text-green-500">✓</span> Post weekly. Events, promos, or just "Look, we're alive." Google notices.</li>
+          <li className="relative"><span className="absolute -left-6 text-green-500">✓</span> Keep hours updated. Especially for holidays. Nothing tanks trust like a closed sign during your posted "open" hours.</li>
+          <li className="relative"><span className="absolute -left-6 text-green-500">✓</span> Add attributes like "LGBTQ+ friendly" or "wheelchair accessible"—these help surface you in hyper-specific searches.</li>
+        </ul>
+
+        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Five star rating on mobile device" className="rounded-lg shadow-md my-8 w-full object-cover" />
+        
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4 border-b border-gray-200 pb-2">🌟 Step 2: Review Management = Local Reputation on Steroids</h2>
+        <p className="mb-6">
+          Reviews are the street cred of the digital age. They impact rankings, trust, conversions—and your overall vibes.
+        </p>
+        <p className="mb-4"><strong>How to dominate review land:</strong></p>
+        
+        <ul className="pl-6 mb-8 space-y-2 list-disc">
+          <li>📩 Ask every customer to leave a review. Every. Single. One.</li>
+          <li>💬 Respond to all reviews. The good ones, the bad ones, and the weird ones.</li>
+          <li>🎯 Use keywords naturally in your replies (but don't keyword-stuff like a Yelp-obsessed robot).</li>
+          <li>🧯Handle negativity offline and gracefully. Review fights are SEO poison.</li>
+          <li>📊 Track sentiment over time—complaints might reveal product or service gaps you're too close to see.</li>
+        </ul>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4 border-b border-gray-200 pb-2">🏘️ Step 3: Local Content That Doesn't Bore People</h2>
+        <p className="mb-6">
+          Generic blog posts don't cut it. You need hyper-local, genuinely useful content that makes your site a community hub, not a billboard.
+        </p>
+        <p className="mb-4"><strong>Think:</strong></p>
+        
+        <ul className="pl-6 mb-8 space-y-2 list-disc">
+          <li>🗺️ Neighborhood guides ("Best spots for late-night sushi in Sligo")</li>
+          <li>🏟️ Event recaps, charity drives, or team cleanups at the park</li>
+          <li>🧑‍🍳 Interviews with local chefs, clients, influencers—build relationships and backlinks</li>
+          <li>🖼️ Images with geo-tagged filenames and local keyword alt text</li>
+          <li>📍 Service area pages that actually sound human, not like a copy-paste nightmare</li>
+        </ul>
+
+        <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Person working on laptop with data and analytics" className="rounded-lg shadow-md my-8 w-full object-cover" />
+        
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4 border-b border-gray-200 pb-2">🧾 Step 4: Citations Still Matter (But Don't Go Full Directory Bro)</h2>
+        <p className="mb-6">
+          Citations are like local ID cards. They tell search engines, "Yep, this business exists here, and they're consistent about it."
+        </p>
+        <p className="mb-4"><strong>Best practices in 2025:</strong></p>
+        
+        <ul className="pl-6 mb-8 space-y-2 list-disc">
+          <li>🧼 Keep your NAP (Name, Address, Phone) 100% consistent. Every. Single. Time.</li>
+          <li>🧠 Prioritize quality directories (Yelp, BBB, TripAdvisor) over random SEO spam farms.</li>
+          <li>🏷️ Industry-specific directories matter more than ever. Be where your competitors are.</li>
+          <li>🕵️ Audit regularly. Clean up duplicates like they're old Tinder profiles.</li>
+        </ul>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4 border-b border-gray-200 pb-2">🔗 Step 5: Build Local Links Without Being Weird</h2>
+        <p className="mb-6">
+          Local link-building is about real relationships, not cold emails to "high-DA dental blogs."
+        </p>
+        <p className="mb-4"><strong>How to earn those juicy backlinks:</strong></p>
+        
+        <ul className="pl-6 mb-8 space-y-2 list-disc">
+          <li>🛍️ Partner with neighboring businesses ("Link to us, we'll shout you out in our newsletter")</li>
+          <li>🎓 Sponsor a school event, charity run, or pet costume contest. PR gold.</li>
+          <li>📰 Pitch stories to local media. Real journalism &gt; backlinks from zombie blogs.</li>
+          <li>📢 Get featured by local influencers. Especially micro-influencers—they convert better anyway.</li>
+          <li>🤝 Join business associations. They usually have member pages = easy backlinks.</li>
+        </ul>
+
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Code on computer screen with technical SEO elements" className="rounded-lg shadow-md my-8 w-full object-cover" />
+        
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4 border-b border-gray-200 pb-2">⚙️ Step 6: Get Technical (Without Going Full Dev)</h2>
+        <p className="mb-6">
+          Technical local SEO is like putting the right engine in your content car. If it's not humming behind the scenes, you're gonna stall.
+        </p>
+        <p className="mb-4"><strong>Check these off:</strong></p>
+        
+        <ul className="pl-6 mb-8 space-y-2 list-disc">
+          <li className="relative"><span className="absolute -left-6 text-green-500">✓</span> LocalBusiness schema on every location page</li>
+          <li className="relative"><span className="absolute -left-6 text-green-500">✓</span> Mobile-first, fast-loading site that works on grandma's phone</li>
+          <li className="relative"><span className="absolute -left-6 text-green-500">✓</span> Optimize for "near me" and voice queries ("Where can I get my bike fixed right now?")</li>
+          <li className="relative"><span className="absolute -left-6 text-green-500">✓</span> Location in title tags, H1s, meta descriptions, URLs</li>
+          <li className="relative"><span className="absolute -left-6 text-green-500">✓</span> Clear internal linking to location pages and services</li>
+        </ul>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4 border-b border-gray-200 pb-2">📈 Step 7: Measure the Stuff That Moves the Needle</h2>
+        <p className="mb-6">
+          You can't improve what you don't track. And "gut feelings" don't get you to the Map Pack.
+        </p>
+        <p className="mb-4"><strong>Track like a local boss:</strong></p>
+        
+        <ul className="pl-6 mb-8 space-y-2 list-disc">
+          <li>📊 Google Business Profile Insights (calls, direction requests, website clicks)</li>
+          <li>🏁 Rankings for location-based keywords ("best tattoo shop in Cork")</li>
+          <li>📞 Phone calls and conversions from local search</li>
+          <li>🕵️ Competitor Map Pack spying (tools like BrightLocal are your BFFs)</li>
+          <li>🧪 A/B test your GBP posts, images, and CTAs</li>
+        </ul>
+
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Business growth chart and success metrics" className="rounded-lg shadow-md my-8 w-full object-cover" />
+        
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4 border-b border-gray-200 pb-2">Final Word: The Map Pack Isn't a Mystery—It's a Muscle</h2>
+        <p className="mb-6">
+          The businesses dominating local search in 2025 aren't the ones with the biggest budgets. They're the ones doing the unsexy things consistently—updating their profiles, responding to reviews, creating actually good content, and staying connected to their communities.
+        </p>
+        <p className="mb-6">
+          So stop treating local SEO like a "maybe" and start treating it like the main revenue channel it is.
+        </p>
+        
+        <div className="bg-amber-50 border-l-4 border-amber-500 p-4 my-8 rounded-r-md">
+          <p className="italic font-medium text-amber-800">
+            <strong>Google Maps is your homepage now. Make sure you show up like you own the place.</strong>
+          </p>
+        </div>
+      </React.Fragment>
+    )
+  },
+  // Previous featured AI post (now regular post)
+  {
+    id: 'ai-midlife-crisis',
     title: "From Google Whisperer to AI Prophet: An SEO's Midlife Crisis",
     category: "AI & SEO",
     image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
