@@ -46,7 +46,7 @@ export const useSEO = (options: SEOOptions = {}) => {
       url: currentUrl
     });
 
-    // Add noindex meta tag if specified
+    // Add noindex meta tag if specified, otherwise ensure indexable
     if (memoizedOptions.noIndex) {
       const meta = document.createElement('meta');
       meta.name = 'robots';
@@ -54,7 +54,9 @@ export const useSEO = (options: SEOOptions = {}) => {
       document.head.appendChild(meta);
 
       return () => {
-        document.head.removeChild(meta);
+        if (document.head.contains(meta)) {
+          document.head.removeChild(meta);
+        }
       };
     }
   }, [setSEO, location.pathname, memoizedOptions]);

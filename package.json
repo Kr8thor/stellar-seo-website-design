@@ -12,12 +12,17 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:with-prerender": "vite build && node prerender-routes.js",
     "build:dev": "vite build --mode development",
+    "build:ssg": "node build-ssg-crawlable.mjs",
+    "test:ssg": "node seo-test-crawlable.mjs",
+    "build:ssg:test": "npm run build:ssg && npm run test:ssg",
+    "prerender": "node prerender-routes.js",
     "lint": "eslint .",
     "preview": "vite preview",
-    "lovable:dev": "vite --port 8080 --host ::",
+    "lovable:dev": "vite --port 8081 --host ::",
     "lovable:build": "vite build --mode development",
-    "lovable:preview": "vite preview --port 8080 --host ::"
+    "lovable:preview": "vite preview --port 8081 --host ::"
   },
   "lovable": {
     "projectId": "c99afeda-cbc8-4b8a-acd8-ca805aa26fa8",
