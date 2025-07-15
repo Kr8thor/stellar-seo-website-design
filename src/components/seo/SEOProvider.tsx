@@ -59,10 +59,13 @@ const SEOProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <meta name="keywords" content={seoData.keywords || "SEO, search engine optimization, app development, n8n, React, digital marketing, web development"} />
         <meta name="author" content={seoData.author || "Marden SEO"} />
         
-        {/* Canonical URL */}
+        {/* CRITICAL: Explicit robots meta tag for indexability */}
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        
+        {/* Canonical URL - FIXED: Ensure each page has its own canonical */}
         <link rel="canonical" href={seoData.url || defaultUrl} />
         
-        {/* Open Graph */}
+        {/* Open Graph - Use page-specific data */}
         <meta property="og:title" content={seoData.title || defaultTitle} />
         <meta property="og:description" content={seoData.description || defaultDescription} />
         <meta property="og:type" content={seoData.type || "website"} />
@@ -70,7 +73,7 @@ const SEOProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <meta property="og:image" content={seoData.image || defaultImage} />
         <meta property="og:site_name" content="Marden SEO" />
         
-        {/* Twitter Card */}
+        {/* Twitter Card - Use page-specific data */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@marden_seo" />
         <meta name="twitter:title" content={seoData.title || defaultTitle} />

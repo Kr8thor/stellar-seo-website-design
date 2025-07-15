@@ -41,12 +41,13 @@ export const useSEO = (options: SEOOptions = {}) => {
     const baseUrl = 'https://mardenseo.com';
     const currentUrl = `${baseUrl}${location.pathname}`;
 
+    // CRITICAL FIX: Ensure SEO data is set immediately and completely
     setSEO({
       ...memoizedOptions,
       url: currentUrl
     });
 
-    // Add noindex meta tag if specified, otherwise ensure indexable
+    // Handle noindex pages explicitly
     if (memoizedOptions.noIndex) {
       const meta = document.createElement('meta');
       meta.name = 'robots';
@@ -58,6 +59,12 @@ export const useSEO = (options: SEOOptions = {}) => {
           document.head.removeChild(meta);
         }
       };
+    } else {
+      // CRITICAL FIX: Ensure indexable pages have explicit robots directive
+      const existingRobotsMeta = document.querySelector('meta[name="robots"]');
+      if (existingRobotsMeta && existingRobotsMeta.getAttribute('content')?.includes('noindex')) {
+        existingRobotsMeta.setAttribute('content', 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1');
+      }
     }
   }, [setSEO, location.pathname, memoizedOptions]);
 };
