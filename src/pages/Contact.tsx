@@ -6,15 +6,16 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { validateContactForm, checkClientRateLimit } from '@/lib/security';
 import { securityMonitor } from '@/lib/securityMonitor';
-import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
+import { useSEOWithKey, PAGE_KEYS } from '@/hooks/useSEO';
 import { scrollToTop } from '@/utils/scrollUtils';
 import { trackContactFormSubmission } from '@/components/Analytics';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import CalendlyButton from '@/components/common/CalendlyButton';
+import { Helmet } from 'react-helmet-async';
 
 const Contact = () => {
-  // Add enhanced SEO for contact page with breadcrumb schema
-  useSEO(getEnhancedSEOConfig('contact'));
+  // 🎯 COMPREHENSIVE SEO IMPLEMENTATION - Enhanced meta descriptions and keywords
+  useSEOWithKey(PAGE_KEYS.contact);
   
   // Initialize analytics
   const { trackFormSubmission, trackEngagement } = useAnalytics();

@@ -13,7 +13,7 @@ import {
   PaginationPrevious
 } from '@/components/ui/pagination';
 import { Helmet } from 'react-helmet-async';
-import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
+import { useSEOWithKey, PAGE_KEYS } from '@/hooks/useSEO';
 import { useWordPress } from '@/providers/WordPressProvider';
 import { blogPosts as staticBlogPosts } from '@/data/blogPosts';
 
@@ -21,8 +21,8 @@ import { blogPosts as staticBlogPosts } from '@/data/blogPosts';
 const categories = ["All", "SEO Tips", "Technical SEO", "Content Strategy", "Local SEO", "E-commerce SEO"];
 
 const Blog = () => {
-  // Add enhanced SEO for blog page with breadcrumb schema
-  useSEO(getEnhancedSEOConfig('blog'));
+  // 🎯 COMPREHENSIVE SEO IMPLEMENTATION - Enhanced meta descriptions and keywords
+  useSEOWithKey(PAGE_KEYS.blog);
   
   const { posts: wpPosts, featuredPost: wpFeaturedPost, loading, usingCMS, error } = useWordPress();
   const [activeFilter, setActiveFilter] = useState("All");
@@ -78,7 +78,7 @@ const Blog = () => {
         <title>SEO Insights & Blog | Marden SEO</title>
         <meta 
           name="description" 
-          content="Expert tips, strategies, and insights to help you improve your search visibility and stay ahead of the competition." 
+          content="Expert SEO tips, strategies, and insights to help you improve search visibility and stay ahead of the competition. Latest trends and best practices available." 
         />
       </Helmet>
       

@@ -3,12 +3,13 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Github, Code, Database, Server, Box, Settings, Cloud, Cpu, Sparkles, LineChart } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
+import { useSEOWithKey, PAGE_KEYS } from '@/hooks/useSEO';
 import { handleAnchorClick } from '@/utils/scrollUtils';
+import { Helmet } from 'react-helmet-async';
 
 const AppBuilding = () => {
-  // Add enhanced SEO for this page with app development schema
-  useSEO(getEnhancedSEOConfig('appBuilding'));
+  // 🎯 COMPREHENSIVE SEO IMPLEMENTATION - Enhanced meta descriptions and keywords
+  useSEOWithKey(PAGE_KEYS.appBuilding);
   return (
     <main className="pt-24">
       {/* Hero Section */}

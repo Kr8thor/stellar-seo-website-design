@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
+import { useSEOWithKey, PAGE_KEYS } from '@/hooks/useSEO';
 import { Link } from 'react-router-dom';
 import { ArrowRight, DollarSign, Users, Lightbulb, Workflow, Settings, CalendarClock, CheckCircle, Zap, Database, MessageSquare, BarChart3 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -8,10 +8,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { handleAnchorClick } from '@/utils/scrollUtils';
+import { Helmet } from 'react-helmet-async';
 
 const WorkflowAutomation = () => {
-  // Add enhanced SEO for this page with workflow automation schema and HowTo
-  useSEO(getEnhancedSEOConfig('workflowAutomation'));
+  // 🎯 COMPREHENSIVE SEO IMPLEMENTATION - Enhanced meta descriptions and keywords
+  useSEOWithKey(PAGE_KEYS.workflowAutomation);
 
   return (
     <main className="pt-24">

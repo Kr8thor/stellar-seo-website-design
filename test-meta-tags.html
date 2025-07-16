@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meta Tag Test</title>
+</head>
+<body>
+    <h1>Testing Meta Tags</h1>
+    <p>Checking if meta descriptions are rendering...</p>
+    
+    <script>
+        // Test script to check meta tags
+        async function checkMetaTags() {
+            try {
+                const response = await fetch('http://localhost:8083/');
+                const html = await response.text();
+                
+                console.log('HTML Response received');
+                
+                // Check for meta description
+                const hasMetaDescription = html.includes('name="description"');
+                const metaDescriptionMatch = html.match(/<meta\s+name="description"\s+content="([^"]+)"/);
+                
+                document.body.innerHTML += '<h2>Results:</h2>';
+                document.body.innerHTML += `<p>Has meta description tag: ${hasMetaDescription}</p>`;
+                
+                if (metaDescriptionMatch) {
+                    document.body.innerHTML += `<p>Meta description content: ${metaDescriptionMatch[1]}</p>`;
+                } else {
+                    document.body.innerHTML += '<p style="color: red;">No meta description found in HTML!</p>';
+                }
+                
+                // Check for title
+                const titleMatch = html.match(/<title>([^<]+)<\/title>/);
+                if (titleMatch) {
+                    document.body.innerHTML += `<p>Title tag: ${titleMatch[1]}</p>`;
+                }
+                
+            } catch (error) {
+                document.body.innerHTML += `<p style="color: red;">Error: ${error.message}</p>`;
+            }
+        }
+        
+        checkMetaTags();
+    </script>
+</body>
+</html></content>
+</invoke>

@@ -3,11 +3,11 @@ import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
-import { useSEO, seoConfigs } from '@/hooks/useSEO';
+import { useSEOWithKey, PAGE_KEYS } from '@/hooks/useSEO';
 
 const NotFound = () => {
-  // Add SEO for this page (with noIndex)
-  useSEO(seoConfigs.notFound);
+  // 🎯 COMPREHENSIVE SEO IMPLEMENTATION - Enhanced meta descriptions and keywords
+  useSEOWithKey(PAGE_KEYS.notFound);
   
   const location = useLocation();
 

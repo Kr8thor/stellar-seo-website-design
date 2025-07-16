@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, BarChart3, Search, Zap, Award, Globe2, Users, FileSearch, TrendingUp, CheckCircle, Calendar, Gift, Clock, Workflow } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
+import { useSEOWithKey, PAGE_KEYS } from '@/hooks/useSEO';
 import { handleAnchorClick } from '@/utils/scrollUtils';
 import { ReviewSection } from '@/components';
 import CalendlyButton from '@/components/common/CalendlyButton';
 
 const Home = () => {
-  // Add enhanced SEO for home page with breadcrumb schema
-  useSEO(getEnhancedSEOConfig('home'));
+  // 🎯 COMPREHENSIVE SEO IMPLEMENTATION - Enhanced meta descriptions and keywords
+  useSEOWithKey(PAGE_KEYS.home);
   return <main>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden">

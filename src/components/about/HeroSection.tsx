@@ -3,8 +3,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { handleAnchorClick } from '@/utils/scrollUtils';
+import { useSEOWithKey, PAGE_KEYS } from '@/hooks/useSEO';
 
 const HeroSection = () => {
+  // 🎯 COMPREHENSIVE SEO IMPLEMENTATION - Enhanced meta descriptions and keywords
+  useSEOWithKey(PAGE_KEYS.about);
+  
   return (
     <section className="section-container">
       <div className="flex flex-col lg:flex-row gap-12 items-center">

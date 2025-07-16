@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowRight, Search, Globe2, BarChart3, Zap, Users, FileText } from 'lucide-react';
-import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
+import { useSEOWithKey, PAGE_KEYS } from '@/hooks/useSEO';
 import { handleAnchorClick } from '@/utils/scrollUtils';
 import { trackServiceClick } from '@/components/Analytics';
 
 const Services = () => {
-  // Add enhanced SEO for this page with service schema
-  useSEO(getEnhancedSEOConfig('services'));
+  // 🎯 COMPREHENSIVE SEO IMPLEMENTATION - Enhanced meta descriptions and keywords
+  useSEOWithKey(PAGE_KEYS.services);
   return <main className="pt-24">
       
       {/* Hero Section */}

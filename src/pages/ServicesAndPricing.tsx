@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { useSEO, seoConfigs } from '@/hooks/useSEO';
+import { useSEOWithKey, PAGE_KEYS } from '@/hooks/useSEO';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -9,14 +9,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Check, Star, Globe, Zap, BookOpen, Users, Award, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { handleAnchorClick } from '@/utils/scrollUtils';
+import { Helmet } from 'react-helmet-async';
 
 const ServicesAndPricing = () => {
-  useSEO({
-    ...seoConfigs.services,
-    title: "Web Development & Educational Services | Pricing | Marden SEO",
-    description: "Exceptional websites and web development education. Choose from done-for-you sites, self-paced learning, or personalized coaching. Transparent pricing, expert guidance.",
-    keywords: "web development services, website pricing, web development education, done-for-you websites, web development coaching, website training, Lovable development, AI-powered websites"
-  });
+  // 🎯 COMPREHENSIVE SEO IMPLEMENTATION - Enhanced meta descriptions and keywords
+  useSEOWithKey(PAGE_KEYS.servicesPricing);
 
   const webDevelopmentPackages = [
     {

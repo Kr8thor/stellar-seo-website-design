@@ -2,42 +2,16 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ExternalLink, FileSearch, TrendingUp, CheckCircle } from 'lucide-react';
-import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
+import { useSEOWithKey, PAGE_KEYS } from '@/hooks/useSEO';
 import { handleAnchorClick } from '@/utils/scrollUtils';
 import { trackPortfolioView } from '@/components/Analytics';
+import { Helmet } from 'react-helmet-async';
 
 // Portfolio filter categories
 const categories = ["All", "E-commerce", "SaaS", "Local Business", "B2B"];
 const Portfolio = () => {
-  // Add enhanced SEO for portfolio page with client review structured data
-  useSEO({
-    ...getEnhancedSEOConfig('portfolio'),
-    schemas: [
-      {
-        "@context": "https://schema.org",
-        "@type": "Review",
-        "reviewBody": "If you're looking for a stunning website, powerful SEO, or a customized workflow, and especially if you want to harness AI to maintain full creative control, I honestly couldn't recommend Leo highly enough. He's a total game changer!",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "Violet Rainwater"
-        },
-        "itemReviewed": {
-          "@type": "Service",
-          "name": "Professional Website Development and SEO Services",
-          "provider": {
-            "@type": "Organization",
-            "name": "Marden SEO",
-            "url": "https://mardenseo.com"
-          }
-        }
-      }
-    ]
-  });
+  // 🎯 COMPREHENSIVE SEO IMPLEMENTATION - Enhanced meta descriptions and keywords
+  useSEOWithKey(PAGE_KEYS.portfolio);
   
   const [activeFilter, setActiveFilter] = useState("All");
   const caseStudies = [{

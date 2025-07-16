@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useSEOWithKey, PAGE_KEYS } from '@/hooks/useSEO';
 
 const AnalyticsTest: React.FC = () => {
+  // 🎯 COMPREHENSIVE SEO IMPLEMENTATION - Enhanced meta descriptions and keywords
+  useSEOWithKey(PAGE_KEYS.analyticsTest);
+  
   const [analyticsStatus, setAnalyticsStatus] = useState({
     ga4: false,
     gtm: false,

@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, BarChart3, CalendarDays, Award, Target } from 'lucide-react';
-import { useSEO } from '@/hooks/useSEO';
+import { useCaseStudySEO, CASE_STUDY_KEYS } from '@/hooks/useSEO';
 import { handleAnchorClick } from '@/utils/scrollUtils';
 
 // Case study data
@@ -167,19 +167,40 @@ const CaseStudy = () => {
   const { id } = useParams();
   const caseStudy = caseStudies.find(study => study.id === id);
   
-  // Dynamic SEO based on case study content
-  useSEO(caseStudy ? {
-    title: `${caseStudy.title} | Case Study | Marden SEO`,
-    description: caseStudy.description || `Learn how Marden SEO helped achieve ${caseStudy.title}. Detailed case study with results and methodology.`,
-    keywords: `${caseStudy.title}, SEO case study, ${caseStudy.category}, search engine optimization results, digital marketing success`,
-    image: caseStudy.image || 'https://mardenseo.com/opengraph-image.png',
-    type: 'article'
-  } : {
-    title: "Case Study Not Found | Marden SEO",
-    description: "Explore our SEO case studies and proven results in organic traffic growth and digital marketing success.",
-    keywords: "SEO case studies, digital marketing results, organic traffic growth",
-    type: "website"
-  });
+  // 🎯 COMPREHENSIVE SEO IMPLEMENTATION - Enhanced meta descriptions and keywords
+  // Try to use specific case study SEO config, fallback to dynamic generation
+  const getCaseStudyKey = (caseId: string) => {
+    const keyMap: Record<string, string> = {
+      '1': CASE_STUDY_KEYS.saasGrowth,
+      '2': CASE_STUDY_KEYS.ecommerceSEO,
+      '3': CASE_STUDY_KEYS.localBusiness,
+      'ecommerce-seo': CASE_STUDY_KEYS.ecommerceSEO,
+      'saas-growth': CASE_STUDY_KEYS.saasGrowth,
+      'local-business': CASE_STUDY_KEYS.localBusiness
+    };
+    return keyMap[caseId] || null;
+  };
+
+  const caseStudyKey = getCaseStudyKey(id || '');
+  
+  // Use comprehensive SEO config if available, otherwise dynamic SEO
+  if (caseStudyKey) {
+    useCaseStudySEO(caseStudyKey);
+  } else {
+    // Fallback to dynamic SEO for case studies not in comprehensive config
+    useCaseStudySEO('', caseStudy ? {
+      title: `${caseStudy.title} | Case Study | Marden SEO`,
+      description: caseStudy.description || `Learn how Marden SEO helped achieve ${caseStudy.title}. Detailed case study with results and methodology.`,
+      keywords: `${caseStudy.title}, SEO case study, ${caseStudy.category}, search engine optimization results, digital marketing success`,
+      image: caseStudy.image || 'https://mardenseo.com/opengraph-image.png',
+      type: 'article'
+    } : {
+      title: "Case Study Not Found | Marden SEO",
+      description: "Explore our SEO case studies and proven results in organic traffic growth and digital marketing success.",
+      keywords: "SEO case studies, digital marketing results, organic traffic growth",
+      type: "website"
+    });
+  }
   
   if (!caseStudy) {
     return <main className="pt-24 pb-16 section-container">

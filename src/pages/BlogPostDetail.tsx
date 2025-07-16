@@ -8,7 +8,7 @@ import { useWordPress } from '@/providers/WordPressProvider';
 import { useQuery } from '@apollo/client';
 import { GET_POST_BY_SLUG } from '@/graphql/queries';
 import { adaptPost } from '@/adapters/wordpressAdapter';
-import { useSEO } from '@/hooks/useSEO';
+import { useBlogPostSEO, BLOG_POST_KEYS } from '@/hooks/useSEO';
 
 const BlogPostDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -46,22 +46,46 @@ const BlogPostDetail = () => {
     );
   }
   
-  // Dynamic SEO based on post content
-  useSEO(post ? {
-    title: `${post.title} | Marden SEO Blog`,
-    description: post.excerpt || `Read about ${post.title} on the Marden SEO blog. Expert insights on SEO, app development, and digital marketing.`,
-    keywords: `${post.title}, SEO blog, ${post.category || 'digital marketing'}, search engine optimization`,
-    image: post.image || 'https://mardenseo.com/opengraph-image.png',
-    type: 'article',
-    author: post.author || 'Marden SEO',
-    publishedTime: post.date,
-    modifiedTime: post.lastModified || post.date
-  } : {
-    title: "Blog Post | Marden SEO",
-    description: "Expert SEO and development insights from the Marden SEO team.",
-    keywords: "SEO blog, digital marketing, app development",
-    type: "article"
-  });
+  // 🎯 COMPREHENSIVE SEO IMPLEMENTATION - Enhanced meta descriptions and keywords
+  // Try to use specific blog post SEO config, fallback to dynamic generation
+  const getBlogPostKey = (postId: string) => {
+    const keyMap: Record<string, string> = {
+      'eat-guide': BLOG_POST_KEYS.eatGuide,
+      '1': BLOG_POST_KEYS.onPageSEO,
+      '2': BLOG_POST_KEYS.coreWebVitals,
+      '3': BLOG_POST_KEYS.aiSEO,
+      '4': BLOG_POST_KEYS.localSEO,
+      '5': BLOG_POST_KEYS.mobileFirst,
+      '6': BLOG_POST_KEYS.contentStrategy,
+      '7': BLOG_POST_KEYS.technicalSEO,
+      '8': BLOG_POST_KEYS.linkBuilding
+    };
+    return keyMap[postId] || null;
+  };
+
+  const blogPostKey = getBlogPostKey(id || '');
+  
+  // Use comprehensive SEO config if available, otherwise dynamic SEO
+  if (blogPostKey) {
+    useBlogPostSEO(blogPostKey);
+  } else {
+    // Fallback to dynamic SEO for posts not in comprehensive config
+    useBlogPostSEO('', post ? {
+      title: `${post.title} | Marden SEO Blog`,
+      description: post.excerpt || `Read about ${post.title} on the Marden SEO blog. Expert insights on SEO, app development, and digital marketing.`,
+      keywords: `${post.title}, SEO blog, ${post.category || 'digital marketing'}, search engine optimization`,
+      image: post.image || 'https://mardenseo.com/opengraph-image.png',
+      type: 'article',
+      author: post.author || 'Marden SEO',
+      publishedTime: post.date,
+      modifiedTime: post.lastModified || post.date
+    } : {
+      title: "Blog Post | Marden SEO",
+      description: "Expert SEO and development insights from the Marden SEO team.",
+      keywords: "SEO blog, digital marketing, app development",
+      type: "article"
+    });
+  }
   
   // Scroll to top when post changes
   useEffect(() => {
