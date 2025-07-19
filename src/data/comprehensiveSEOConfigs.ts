@@ -22,36 +22,36 @@ export const comprehensiveSEOConfigs: Record<string, SEOConfig> = {
   
   // 🏠 HOMEPAGE - Brand Authority & Core Services
   home: {
-    title: "Marden SEO - Expert SEO Services & App Development | Professional Digital Marketing",
-    description: "Get expert SEO services, custom app development, and digital marketing solutions from Marden SEO. Boost your online presence and grow your business.",
-    keywords: "SEO services, app development, digital marketing, Marden SEO, online growth, search engine optimization",
+    title: "Marden SEO - Professional SEO Services | Boost Your Rankings",
+    description: "Professional SEO services to boost your website rankings. Custom app development, workflow automation, and digital marketing solutions for business growth.",
+    keywords: "SEO services, search engine optimization, app development, workflow automation, digital marketing, Marden SEO",
     type: "website",
     image: "https://mardenseo.com/opengraph-image.png"
   },
 
   // 👥 ABOUT PAGE - Team Expertise & Credibility
   about: {
-    title: "About Marden SEO | Expert SEO & Development Team | Professional Background",
-    description: "Learn about Marden SEO, our expert team, and our mission to deliver outstanding SEO and digital marketing results. Discover our experience and values.",
-    keywords: "about Marden SEO, SEO team, digital marketing experts, company mission, SEO agency",
+    title: "About Marden SEO - SEO Experts & App Development Team",
+    description: "Learn about our SEO expertise and app development team. Dedicated professionals helping businesses achieve higher search rankings and digital success.",
+    keywords: "about Marden SEO, SEO experts, app development team, digital marketing professionals, SEO company",
     type: "website",
     author: "Marden SEO Team"
   },
 
   // 🛠️ SERVICES PAGE - Core Service Offerings
   services: {
-    title: "Professional SEO & App Development Services | Marden SEO | Proven Results",
-    description: "Discover our full range of SEO, app development, and digital marketing services. Tailored solutions to improve rankings, traffic, and conversions for all businesses.",
-    keywords: "SEO services, app development, digital marketing, business solutions, Marden SEO, professional services",
+    title: "SEO Services & Packages - Comprehensive Digital Marketing Solutions",
+    description: "Comprehensive SEO services including keyword research, on-page optimization, technical SEO, content marketing, and digital strategy consulting.",
+    keywords: "SEO services, SEO packages, keyword research, on-page SEO, technical SEO, content marketing, digital strategy",
     type: "service",
     image: "https://mardenseo.com/opengraph-image.png"
   },
 
   // 💰 SERVICES & PRICING PAGE - Educational & Development Services
   servicesPricing: {
-    title: "Web Development & Educational Services | Transparent Pricing | Marden SEO",
-    description: "Exceptional web development and educational services. Choose from done-for-you sites, self-paced learning, or personalized coaching. Transparent pricing available.",
-    keywords: "web development services, website pricing, web development education, done-for-you websites, web development coaching, website training, Lovable development, AI-powered websites, transparent pricing",
+    title: "SEO Services Pricing - Transparent & Competitive Packages",
+    description: "Transparent SEO pricing with flexible packages. Choose from basic, professional, or enterprise SEO services tailored to your business needs.",
+    keywords: "SEO pricing, SEO packages cost, SEO services pricing, affordable SEO, SEO consultation pricing",
     type: "service",
     image: "https://mardenseo.com/opengraph-image.png"
   },
@@ -76,16 +76,16 @@ export const comprehensiveSEOConfigs: Record<string, SEOConfig> = {
 
   // 🎯 PORTFOLIO PAGE - Case Studies & Results
   portfolio: {
-    title: "Portfolio & Case Studies | Proven SEO Results | Client Success Stories",
-    description: "Explore our portfolio of successful SEO campaigns and app development projects. Discover real client results, measurable improvements, and proven strategies that drive business growth.",
-    keywords: "SEO portfolio, client results, case studies, app development, digital marketing, project success",
+    title: "SEO Portfolio - Success Stories & Case Studies | Marden SEO",
+    description: "Explore our SEO success stories and case studies. See how we helped businesses achieve higher rankings, increased traffic, and better conversions.",
+    keywords: "SEO portfolio, SEO case studies, SEO success stories, client results, SEO projects, ranking improvements",
     type: "website",
     image: "https://mardenseo.com/opengraph-image.png"
   },
 
   // 📞 CONTACT PAGE - Conversion-Focused
   contact: {
-    title: "Contact Marden SEO | Get Your Free SEO Consultation | Professional Services",
+    title: "Contact Marden SEO - Get Your Free SEO Consultation",
     description: "Contact Marden SEO for a free consultation or to learn more about our SEO and app development services. We’re here to help your business grow with expert advice and tailored solutions.",
     keywords: "contact Marden SEO, SEO consultation, app development inquiry, digital marketing contact, business growth",
     type: "website",
