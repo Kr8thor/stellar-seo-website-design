@@ -23,7 +23,7 @@ export const comprehensiveSEOConfigs: Record<string, SEOConfig> = {
   // 🏠 HOMEPAGE - Brand Authority & Core Services
   home: {
     title: "Marden SEO - Professional SEO Services | Boost Your Rankings",
-    description: "Professional SEO services to boost your website rankings. Custom app development, workflow automation, and digital marketing solutions for business growth.",
+    description: "Transform your business with expert SEO services that drive real results. Professional search engine optimization, app development, and digital marketing solutions.",
     keywords: "SEO services, search engine optimization, app development, workflow automation, digital marketing, Marden SEO",
     type: "website",
     image: "https://mardenseo.com/opengraph-image.png"
@@ -32,7 +32,7 @@ export const comprehensiveSEOConfigs: Record<string, SEOConfig> = {
   // 👥 ABOUT PAGE - Team Expertise & Credibility
   about: {
     title: "About Marden SEO - SEO Experts & App Development Team",
-    description: "Learn about our SEO expertise and app development team. Dedicated professionals helping businesses achieve higher search rankings and digital success.",
+    description: "Meet the expert team behind Marden SEO's success. Our experienced professionals specialize in search engine optimization and innovative app development solutions.",
     keywords: "about Marden SEO, SEO experts, app development team, digital marketing professionals, SEO company",
     type: "website",
     author: "Marden SEO Team"
@@ -41,7 +41,7 @@ export const comprehensiveSEOConfigs: Record<string, SEOConfig> = {
   // 🛠️ SERVICES PAGE - Core Service Offerings
   services: {
     title: "SEO Services & Packages - Comprehensive Digital Marketing Solutions",
-    description: "Comprehensive SEO services including keyword research, on-page optimization, technical SEO, content marketing, and digital strategy consulting.",
+    description: "Comprehensive SEO packages designed to boost your online visibility. From keyword research to technical optimization - everything you need to dominate search results.",
     keywords: "SEO services, SEO packages, keyword research, on-page SEO, technical SEO, content marketing, digital strategy",
     type: "service",
     image: "https://mardenseo.com/opengraph-image.png"
@@ -50,7 +50,7 @@ export const comprehensiveSEOConfigs: Record<string, SEOConfig> = {
   // 💰 SERVICES & PRICING PAGE - Educational & Development Services
   servicesPricing: {
     title: "SEO Services Pricing - Transparent & Competitive Packages",
-    description: "Transparent SEO pricing with flexible packages. Choose from basic, professional, or enterprise SEO services tailored to your business needs.",
+    description: "Transparent SEO pricing with no hidden fees. Choose from starter, professional, or enterprise packages designed to fit your budget and deliver exceptional ROI.",
     keywords: "SEO pricing, SEO packages cost, SEO services pricing, affordable SEO, SEO consultation pricing",
     type: "service",
     image: "https://mardenseo.com/opengraph-image.png"
@@ -59,7 +59,7 @@ export const comprehensiveSEOConfigs: Record<string, SEOConfig> = {
   // 📱 APP BUILDING PAGE - Custom Development Services
   appBuilding: {
     title: "App Building | Custom App Development Services | Marden SEO",
-    description: "Custom app development services from Marden SEO. Build scalable, modern applications tailored to your business needs, with expert guidance from our experienced development team.",
+    description: "Custom mobile and web application development services. Build scalable, modern apps with cutting-edge technology and user-centered design principles.",
     keywords: "app development, custom apps, software development, business applications, Marden SEO, scalable solutions",
     type: "website",
     image: "https://mardenseo.com/opengraph-image.png"
@@ -77,7 +77,7 @@ export const comprehensiveSEOConfigs: Record<string, SEOConfig> = {
   // 🎯 PORTFOLIO PAGE - Case Studies & Results
   portfolio: {
     title: "SEO Portfolio - Success Stories & Case Studies | Marden SEO",
-    description: "Explore our SEO success stories and case studies. See how we helped businesses achieve higher rankings, increased traffic, and better conversions.",
+    description: "Discover proven SEO success stories and detailed case studies. Real client results showing traffic growth, ranking improvements, and revenue increases.",
     keywords: "SEO portfolio, SEO case studies, SEO success stories, client results, SEO projects, ranking improvements",
     type: "website",
     image: "https://mardenseo.com/opengraph-image.png"

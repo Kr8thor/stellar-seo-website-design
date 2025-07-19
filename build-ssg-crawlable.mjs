@@ -27,35 +27,35 @@ const routes = [
 const routeMeta = {
   '/': {
     title: 'Marden SEO - Professional SEO Services | Boost Your Rankings',
-    description: 'Professional SEO services to boost your website rankings. Custom app development, workflow automation, and digital marketing solutions for business growth.',
+    description: 'Transform your business with expert SEO services that drive real results. Professional search engine optimization, app development, and digital marketing solutions.',
     keywords: 'SEO services, search engine optimization, app development, workflow automation, digital marketing, Marden SEO',
     h1: 'Professional SEO Services That Drive Results',
     priority: '1.0'
   },
   '/about': {
     title: 'About Marden SEO - SEO Experts & App Development Team',
-    description: 'Learn about our SEO expertise and app development team. Dedicated professionals helping businesses achieve higher search rankings and digital success.',
+    description: 'Meet the expert team behind Marden SEO success. Our experienced professionals specialize in search engine optimization and innovative app development solutions.',
     keywords: 'about Marden SEO, SEO experts, app development team, digital marketing professionals, SEO company',
     h1: 'About Our SEO & Development Team',
     priority: '0.9'
   },
   '/services': {
     title: 'SEO Services & Packages - Comprehensive Digital Marketing Solutions',
-    description: 'Comprehensive SEO services including keyword research, on-page optimization, technical SEO, content marketing, and digital strategy consulting.',
+    description: 'Comprehensive SEO packages designed to boost your online visibility. From keyword research to technical optimization - everything you need to dominate search results.',
     keywords: 'SEO services, SEO packages, keyword research, on-page SEO, technical SEO, content marketing, digital strategy',
     h1: 'Professional SEO Services & Packages',
     priority: '0.95'
   },
   '/services-pricing': {
     title: 'SEO Services Pricing - Transparent & Competitive Packages',
-    description: 'Transparent SEO pricing with flexible packages. Choose from basic, professional, or enterprise SEO services tailored to your business needs.',
+    description: 'Transparent SEO pricing with no hidden fees. Choose from starter, professional, or enterprise packages designed to fit your budget and deliver exceptional ROI.',
     keywords: 'SEO pricing, SEO packages cost, SEO services pricing, affordable SEO, SEO consultation pricing',
     h1: 'SEO Services Pricing & Packages',
     priority: '0.85'
   },
   '/portfolio': {
     title: 'SEO Portfolio - Success Stories & Case Studies | Marden SEO',
-    description: 'Explore our SEO success stories and case studies. See how we helped businesses achieve higher rankings, increased traffic, and better conversions.',
+    description: 'Discover proven SEO success stories and detailed case studies. Real client results showing traffic growth, ranking improvements, and revenue increases.',
     keywords: 'SEO portfolio, SEO case studies, SEO success stories, client results, SEO projects, ranking improvements',
     h1: 'Our SEO Portfolio & Success Stories',
     priority: '0.8'
@@ -76,35 +76,35 @@ const routeMeta = {
   },
   '/app-building': {
     title: 'Custom App Development - React, Mobile & Web Applications',
-    description: 'Professional app development services including React applications, mobile apps, and web development with SEO optimization built-in.',
+    description: 'Expert React and mobile app development services. Create scalable, user-friendly applications with modern tech stacks and SEO-optimized architecture.',
     keywords: 'app development, custom app development, React apps, mobile app development, web applications, SEO-optimized apps',
     h1: 'Custom App Development Services',
     priority: '0.85'
   },
   '/workflow-automation': {
     title: 'Workflow Automation - n8n Integration & Business Process Optimization',
-    description: 'Streamline your business with workflow automation solutions. n8n integration, process optimization, and custom automation development.',
+    description: 'Streamline operations with custom n8n workflow automation. Reduce manual tasks, optimize processes, and boost productivity with our automation expertise.',
     keywords: 'workflow automation, n8n automation, business process automation, workflow optimization, automation services',
     h1: 'Workflow Automation & n8n Integration',
     priority: '0.85'
   },
   '/admin': {
     title: 'Admin Dashboard - Content Management | Marden SEO',
-    description: 'Admin dashboard for content management and website administration. Secure access for authorized users only.',
+    description: 'Secure admin portal for website content management and analytics. Access restricted to authorized team members and administrators only.',
     keywords: 'admin dashboard, content management, website administration',
     h1: 'Admin Dashboard',
     priority: '0.1'
   },
   '/cart': {
     title: 'Shopping Cart - SEO Services & Packages | Marden SEO',
-    description: 'Review your selected SEO services and packages. Secure checkout for professional SEO solutions.',
+    description: 'Review and purchase your selected SEO service packages. Transparent pricing with secure checkout for professional search optimization solutions.',
     keywords: 'SEO services cart, checkout SEO packages, purchase SEO services',
     h1: 'Your SEO Services Cart',
     priority: '0.3'
   },
   '/analytics-test': {
     title: 'Analytics Testing - Performance Monitoring | Marden SEO',
-    description: 'Analytics and performance testing tools for monitoring website performance and SEO metrics.',
+    description: 'Internal testing dashboard for website analytics and performance monitoring. Track SEO metrics, user behavior, and conversion optimization data.',
     keywords: 'analytics testing, performance monitoring, SEO metrics',
     h1: 'Analytics Testing Dashboard',
     priority: '0.1'
