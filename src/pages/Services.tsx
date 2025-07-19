@@ -1,321 +1,135 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Search, Globe2, Zap, BarChart3, Users, Award, ArrowRight, CheckCircle } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import { CheckCircle, ArrowRight, Search, Globe2, BarChart3, Zap, Users, FileText } from 'lucide-react';
-import { useSEOWithKey, PAGE_KEYS } from '@/hooks/useSEO';
-import { handleAnchorClick } from '@/utils/scrollUtils';
-import { trackServiceClick } from '@/components/Analytics';
+import { Card, CardContent } from "@/components/ui/card";
+import { usePageSEO } from '@/hooks/useSEO';
 
 const Services = () => {
-  // 🎯 COMPREHENSIVE SEO IMPLEMENTATION - Enhanced meta descriptions and keywords
-  useSEOWithKey(PAGE_KEYS.services);
-  return <main className="pt-24">
-      
-      {/* Hero Section */}
-      <section className="section-container">
-        <div className="text-center max-w-3xl mx-auto animate-fade-in relative">
-          {/* Background logo */}
-          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-8 opacity-10 z-0">
-            <img alt="" className="w-32 h-32 object-contain" src="/lovable-uploads/cfc3c92e-93d8-41ac-8c26-e07989a3ff76.png" />
-          </div>
-          <div className="relative z-10">
-            <h1 className="heading-lg mb-6">SEO Services</h1>
-            <p className="text-xl text-muted-foreground mb-8">
-              Comprehensive search engine optimization services designed to improve your visibility, drive qualified traffic, and increase conversions.
-            </p>
-            <Button asChild size="lg">
-              <a href="/contact#top" onClick={(e) => {
-                trackServiceClick('SEO Services - Hero CTA');
-                handleAnchorClick('/contact#top', e);
-              }}>Get a Free Consultation</a>
-            </Button>
-          </div>
-        </div>
-      </section>
-      
-      {/* Services Section */}
-      <section className="bg-secondary py-16 md:py-24">
-        <div className="container mx-auto px-4 md:px-8">
-          {/* On-Page SEO */}
-          <div className="mb-24">
-            <div className="flex flex-col md:flex-row gap-12 items-center">
-              <div className="md:w-1/2">
-                <div className="text-primary mb-4">
-                  <Search className="h-12 w-12" />
-                </div>
-                <h2 className="heading-md mb-6">On-Page SEO</h2>
-                <p className="mb-6">
-                  Optimize your website's content and structure to improve relevance and visibility for your target keywords and provide a better user experience.
-                </p>
-                <ul className="space-y-3 mb-8">
-                  {["Comprehensive keyword research and mapping", "Content optimization for target keywords", "Meta title and description optimization", "Heading structure improvements", "Internal linking strategy", "Image optimization with proper alt text", "Schema markup implementation"].map((item, index) => <li key={index} className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-primary mr-2 flex-shrink-0" />
-                      <span>{item}</span>
-                    </li>)}
-                </ul>
-                <Button asChild>
-                  <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Get Started <ArrowRight className="ml-2 h-4 w-4" /></a>
-                </Button>
-              </div>
-              <div className="md:w-1/2">
-                <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a" alt="On-Page SEO" className="rounded-lg w-full h-auto" />
-              </div>
-            </div>
-          </div>
-          
-          {/* Off-Page SEO */}
-          <div className="mb-24">
-            <div className="flex flex-col md:flex-row-reverse gap-12 items-center">
-              <div className="md:w-1/2">
-                <div className="text-primary mb-4">
-                  <Globe2 className="h-12 w-12" />
-                </div>
-                <h2 className="heading-md mb-6">Off-Page SEO</h2>
-                <p className="mb-6">
-                  Build your website's authority and reputation through strategic outreach and high-quality backlink acquisition.
-                </p>
-                <ul className="space-y-3 mb-8">
-                  {["Competitor backlink analysis", "Strategic link building outreach", "Guest posting opportunities", "Brand mention monitoring", "Social media profile optimization", "Local citation building", "Online reputation management"].map((item, index) => <li key={index} className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-primary mr-2 flex-shrink-0" />
-                      <span>{item}</span>
-                    </li>)}
-                </ul>
-                <Button asChild>
-                  <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Get Started <ArrowRight className="ml-2 h-4 w-4" /></a>
-                </Button>
-              </div>
-              <div className="md:w-1/2">
-                <img src="https://images.unsplash.com/photo-1579389083078-4e7018379f7e" alt="Off-Page SEO" className="rounded-lg w-full h-auto" />
-              </div>
-            </div>
-          </div>
-          
-          {/* Technical SEO */}
-          <div className="mb-24">
-            <div className="flex flex-col md:flex-row gap-12 items-center">
-              <div className="md:w-1/2">
-                <div className="text-primary mb-4">
-                  <Zap className="h-12 w-12" />
-                </div>
-                <h2 className="heading-md mb-6">Technical SEO</h2>
-                <p className="mb-6">
-                  Ensure your website's technical foundation is solid to improve crawlability, indexation, and overall search performance.
-                </p>
-                <ul className="space-y-3 mb-8">
-                  {["Comprehensive technical SEO audit", "Site architecture optimization", "Page speed improvements", "Mobile-friendliness enhancement", "XML sitemap optimization", "Robots.txt configuration", "Structured data implementation", "HTTP status code fixes", "Duplicate content resolution", "Canonical tag implementation"].map((item, index) => <li key={index} className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-primary mr-2 flex-shrink-0" />
-                      <span>{item}</span>
-                    </li>)}
-                </ul>
-                <Button asChild>
-                  <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Get Started <ArrowRight className="ml-2 h-4 w-4" /></a>
-                </Button>
-              </div>
-              <div className="md:w-1/2">
-                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31" alt="Technical SEO" className="rounded-lg w-full h-auto" />
-              </div>
-            </div>
-          </div>
-          
-          {/* Other Services */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-            {/* Local SEO */}
-            <div className="bg-card p-8 rounded-lg border border-border hover:border-primary/30 transition-all duration-300">
-              <div className="text-primary mb-4">
-                <Users className="h-10 w-10" />
-              </div>
-              <h3 className="font-heading text-xl mb-3">Local SEO</h3>
-              <p className="text-muted-foreground mb-6">
-                Improve your local search visibility to attract more customers from your target geographic areas.
+  const { SEOHelmet } = usePageSEO('services');
+  
+  const services = [
+    {
+      icon: <Search className="h-12 w-12" />,
+      title: "Technical SEO",
+      description: "Optimize your website's technical foundation for better crawling, indexing, and performance.",
+      features: ["Site Speed Optimization", "Mobile Optimization", "Schema Markup", "XML Sitemaps"]
+    },
+    {
+      icon: <Globe2 className="h-12 w-12" />,
+      title: "On-Page SEO",
+      description: "Optimize individual pages to rank higher and earn more relevant traffic from search engines.",
+      features: ["Keyword Research", "Content Optimization", "Meta Tags", "Internal Linking"]
+    },
+    {
+      icon: <Zap className="h-12 w-12" />,
+      title: "Off-Page SEO",
+      description: "Build authority and trust through strategic link building and brand mentions.",
+      features: ["Link Building", "Digital PR", "Brand Mentions", "Citation Building"]
+    },
+    {
+      icon: <BarChart3 className="h-12 w-12" />,
+      title: "SEO Audits",
+      description: "Comprehensive analysis of your website's SEO performance with actionable recommendations.",
+      features: ["Technical Analysis", "Competitor Research", "Keyword Gaps", "Action Plans"]
+    },
+    {
+      icon: <Users className="h-12 w-12" />,
+      title: "Local SEO",
+      description: "Dominate local search results and attract more customers from your geographic area.",
+      features: ["Google Business Profile", "Local Citations", "Review Management", "Local Content"]
+    },
+    {
+      icon: <Award className="h-12 w-12" />,
+      title: "Content Strategy",
+      description: "Create and optimize content that ranks well and engages your target audience.",
+      features: ["Content Planning", "Topic Research", "Content Optimization", "Performance Tracking"]
+    }
+  ];
+  
+  return (
+    <>
+      {SEOHelmet()}
+      <main>
+        <section className="pt-32 pb-16">
+          <div className="container mx-auto px-4 md:px-8">
+            <div className="max-w-4xl mx-auto text-center">
+              <h1 className="heading-xl mb-6">Comprehensive SEO Services</h1>
+              <p className="text-xl md:text-2xl text-muted-foreground mb-12">
+                Complete SEO solutions to boost your organic traffic, improve rankings, and drive measurable business results.
               </p>
-              <ul className="space-y-2 mb-8">
-                {["Google Business Profile optimization", "Local citation building and management", "Local keyword research and targeting", "Review acquisition strategy", "Local link building"].map((item, index) => <li key={index} className="flex items-start text-sm">
-                    <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                    <span>{item}</span>
-                  </li>)}
-              </ul>
-              <Button asChild variant="outline" className="w-full">
-                <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Learn More</a>
-              </Button>
-            </div>
-            
-            {/* SEO Audit */}
-            <div className="bg-card p-8 rounded-lg border border-border hover:border-primary/30 transition-all duration-300">
-              <div className="text-primary mb-4">
-                <BarChart3 className="h-10 w-10" />
-              </div>
-              <h3 className="font-heading text-xl mb-3">SEO Audit & Analysis</h3>
-              <p className="text-muted-foreground mb-6">
-                Comprehensive assessment of your website's current SEO performance with actionable recommendations.
-              </p>
-              <ul className="space-y-2 mb-8">
-                {["Full-site technical SEO audit", "Content quality assessment", "Backlink profile analysis", "Competitor analysis", "Detailed recommendations and priority list"].map((item, index) => <li key={index} className="flex items-start text-sm">
-                    <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                    <span>{item}</span>
-                  </li>)}
-              </ul>
-              <Button asChild variant="outline" className="w-full">
-                <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Learn More</a>
-              </Button>
-            </div>
-            
-            {/* Content Strategy */}
-            <div className="bg-card p-8 rounded-lg border border-border hover:border-primary/30 transition-all duration-300">
-              <div className="text-primary mb-4">
-                <FileText className="h-10 w-10" />
-              </div>
-              <h3 className="font-heading text-xl mb-3">Content Strategy</h3>
-              <p className="text-muted-foreground mb-6">
-                Develop and implement a content strategy that attracts, engages, and converts your target audience.
-              </p>
-              <ul className="space-y-2 mb-8">
-                {["Content gap analysis", "Topic cluster development", "Content calendar creation", "SEO content briefs", "Content performance tracking"].map((item, index) => <li key={index} className="flex items-start text-sm">
-                    <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                    <span>{item}</span>
-                  </li>)}
-              </ul>
-              <Button asChild variant="outline" className="w-full">
-                <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Learn More</a>
-              </Button>
             </div>
           </div>
-        </div>
-      </section>
-      
-      {/* Process Section */}
-      <section className="section-container">
-        <div className="text-center mb-16">
-          <h2 className="heading-md mb-4">My SEO Process</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            A strategic, results-driven approach to improving your search visibility and driving organic growth.
-          </p>
-        </div>
+        </section>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[{
-          step: "01",
-          title: "Discovery & Analysis",
-          description: "Comprehensive audit of your website, competitors, and target audience to identify opportunities."
-        }, {
-          step: "02",
-          title: "Strategy Development",
-          description: "Creation of a customized SEO roadmap based on your specific goals and industry landscape."
-        }, {
-          step: "03",
-          title: "Implementation",
-          description: "Execution of on-page, off-page, and technical SEO tactics according to strategic priorities."
-        }, {
-          step: "04",
-          title: "Monitoring & Refinement",
-          description: "Continuous tracking, reporting, and optimization to ensure sustainable growth and ROI."
-        }].map((process, index) => <div key={index} className="bg-card p-8 rounded-lg border border-border/50 hover:border-primary/30 transition-all duration-300">
-              <div className="text-accent-foreground font-heading text-5xl mb-4">{process.step}</div>
-              <h3 className="font-heading text-xl mb-3">{process.title}</h3>
-              <p className="text-muted-foreground">{process.description}</p>
-            </div>)}
-        </div>
-      </section>
-      
-      {/* Pricing Section */}
-      <section className="bg-accent/30 py-16 md:py-24">
-        <div className="container mx-auto px-4 md:px-8">
-          <div className="text-center mb-16">
-            <h2 className="heading-md mb-4">Pricing Plans</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Flexible options designed to meet your specific needs and budget.
+        <section className="pb-16">
+          <div className="container mx-auto px-4 md:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {services.map((service, index) => (
+                <Card key={index} className="h-full hover:shadow-lg transition-shadow duration-300">
+                  <CardContent className="p-8">
+                    <div className="text-primary mb-6">{service.icon}</div>
+                    <h3 className="text-2xl font-semibold mb-4">{service.title}</h3>
+                    <p className="text-muted-foreground mb-6">{service.description}</p>
+                    <ul className="space-y-2 mb-6">
+                      {service.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-center gap-2">
+                          <CheckCircle className="h-4 w-4 text-primary" />
+                          <span className="text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Link to="/contact" className="inline-flex items-center text-primary font-medium hover:underline">
+                      Learn more <ArrowRight className="ml-1 h-4 w-4" />
+                    </Link>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+        
+        <section className="py-16 bg-accent/30">
+          <div className="container mx-auto px-4 md:px-8">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="heading-lg mb-6">Why Choose Our SEO Services?</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">500+</div>
+                  <p className="text-muted-foreground">Successful Projects</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">10+</div>
+                  <p className="text-muted-foreground">Years Experience</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">300%</div>
+                  <p className="text-muted-foreground">Average Traffic Increase</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section className="py-16">
+          <div className="container mx-auto px-4 md:px-8 text-center">
+            <h2 className="heading-lg mb-6">Ready to Boost Your Rankings?</h2>
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Get a free SEO consultation and discover how we can help your business dominate search results.
             </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Basic Plan */}
-            <div className="bg-card p-8 rounded-lg border border-border hover:border-primary/30 transition-all duration-300">
-              <h3 className="font-heading text-xl mb-2">SEO Essentials</h3>
-              <p className="text-muted-foreground mb-6">Perfect for small businesses looking to improve their local visibility.</p>
-              <div className="mb-6 relative">
-                <span className="font-heading text-4xl relative">
-                  <span className="relative">
-                    <span className="line-through decoration-red-500 decoration-2">$1,200</span>
-                  </span>
-                </span>
-                <span className="text-muted-foreground">/month</span>
-                <div className="mt-2">
-                  <span className="font-['Caveat'] text-4xl text-red-600">Only $245 until July 31st!</span>
-                </div>
-              </div>
-              <ul className="space-y-2 mb-8">
-                {["Keyword research and optimization", "On-page SEO for up to 10 pages", "Basic technical SEO audit", "Google Business Profile optimization", "Monthly performance reporting", "One content piece per month"].map((item, index) => <li key={index} className="flex items-start text-sm">
-                    <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                    <span>{item}</span>
-                  </li>)}
-              </ul>
-              <Button asChild className="w-full">
-                <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Get Started</a>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild size="lg">
+                <Link to="/contact">Get Free Consultation</Link>
               </Button>
-            </div>
-            
-            {/* Pro Plan */}
-            <div className="bg-card p-8 rounded-lg border-2 border-primary shadow-lg relative transform hover:-translate-y-1 transition-all duration-300">
-              <div className="absolute top-0 right-0 bg-primary text-primary-foreground text-xs font-medium px-3 py-1 rounded-bl-lg">
-                Most Popular
-              </div>
-              <h3 className="font-heading text-xl mb-2">SEO Professional</h3>
-              <p className="text-muted-foreground mb-6">Comprehensive SEO for growing businesses seeking significant improvement.</p>
-              <div className="mb-6 relative">
-                <span className="font-heading text-4xl relative">
-                  <span className="relative">
-                    <span className="line-through decoration-red-500 decoration-2">$2,500</span>
-                  </span>
-                </span>
-                <span className="text-muted-foreground">/month</span>
-                <div className="mt-2">
-                  <span className="font-['Caveat'] text-4xl text-red-600">Only $395 until July 31st!</span>
-                </div>
-              </div>
-              <ul className="space-y-2 mb-8">
-                {["Everything in SEO Essentials plus:", "On-page SEO for up to 25 pages", "Comprehensive technical SEO", "Competitive backlink acquisition", "Content strategy development", "Three content pieces per month", "Conversion rate optimization"].map((item, index) => <li key={index} className="flex items-start text-sm">
-                    <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                    <span>{item}</span>
-                  </li>)}
-              </ul>
-              <Button asChild className="w-full">
-                <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Get Started</a>
-              </Button>
-            </div>
-            
-            {/* Enterprise Plan */}
-            <div className="bg-card p-8 rounded-lg border border-border hover:border-primary/30 transition-all duration-300">
-              <h3 className="font-heading text-xl mb-2">SEO Enterprise</h3>
-              <p className="text-muted-foreground mb-6">For larger businesses with complex needs and competitive industries.</p>
-              <div className="mb-6">
-                <span className="font-heading text-4xl">Custom</span>
-                <span className="text-muted-foreground"> pricing</span>
-              </div>
-              <ul className="space-y-2 mb-8">
-                {["Everything in SEO Professional plus:", "Unlimited page optimization", "Advanced technical SEO", "International SEO strategy", "Enterprise-level link building", "Custom content strategy", "Dedicated SEO consultant", "Weekly reporting and strategy calls"].map((item, index) => <li key={index} className="flex items-start text-sm">
-                    <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                    <span>{item}</span>
-                  </li>)}
-              </ul>
-              <Button asChild className="w-full" variant="outline">
-                <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Contact for Quote</a>
+              <Button asChild size="lg" variant="outline">
+                <Link to="/services-pricing">View Pricing</Link>
               </Button>
             </div>
           </div>
-        </div>
-      </section>
-      
-      {/* CTA Section */}
-      <section className="bg-primary text-primary-foreground py-16 md:py-24">
-        <div className="container mx-auto px-4 md:px-8 text-center">
-          <h2 className="heading-md mb-6">Ready to Boost Your Search Rankings?</h2>
-          <p className="text-xl mb-10 max-w-3xl mx-auto opacity-90">
-            Schedule your free 30-minute consultation to discuss your SEO goals and how I can help you achieve them.
-          </p>
-          <Button asChild size="lg" variant="secondary">
-            <a href="/contact#top" onClick={(e) => handleAnchorClick('/contact#top', e)}>Book Your Free Consultation</a>
-          </Button>
-        </div>
-      </section>
-    </main>;
+        </section>
+      </main>
+    </>
+  );
 };
+
 export default Services;
