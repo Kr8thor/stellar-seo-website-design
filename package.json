@@ -12,17 +12,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:with-prerender": "vite build && node prerender-routes.js",
     "build:dev": "vite build --mode development",
-    "build:ssg": "node build-ssg-crawlable.mjs",
-    "test:ssg": "node seo-test-crawlable.mjs",
-    "build:ssg:test": "npm run build:ssg && npm run test:ssg",
-    "prerender": "node prerender-routes.js",
     "lint": "eslint .",
     "preview": "vite preview",
-    "lovable:dev": "vite --port 8081 --host ::",
+    "lovable:dev": "vite --port 8080 --host ::",
     "lovable:build": "vite build --mode development",
-    "lovable:preview": "vite preview --port 8081 --host ::"
+    "lovable:preview": "vite preview --port 8080 --host ::"
   },
   "lovable": {
     "projectId": "c99afeda-cbc8-4b8a-acd8-ca805aa26fa8",
@@ -65,6 +60,7 @@
     "@supabase/supabase-js": "^2.49.9",
     "@tanstack/react-query": "^5.56.2",
     "@types/react-helmet": "^6.1.11",
+    "@vitejs/plugin-react-swc": "^3.10.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
@@ -97,7 +93,6 @@
     "@types/node": "^24.0.3",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
-    "@vitejs/plugin-react-swc": "^3.11.0",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.9.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",

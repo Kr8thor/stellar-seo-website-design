@@ -1,17 +1,51 @@
-User-agent: *
+
+# Robots.txt for Marden SEO
+# Updated for comprehensive SEO
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Twitterbot
 Allow: /
 
-# Sitemap
-Sitemap: https://mardenseo.com/sitemap.xml
+User-agent: facebookexternalhit
+Allow: /
 
-# Block access to admin areas
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: *
+Allow: /
+Crawl-delay: 2
+
+# Disallow admin and private areas
 Disallow: /admin/
-Disallow: /analytics-test/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /*?*
 
-# Allow important SEO pages
-Allow: /services
-Allow: /app-building
-Allow: /workflow-automation
-Allow: /portfolio
-Allow: /blog
-Allow: /contact
+# Allow specific file types that are important for SEO
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.webp$
+
+# Sitemap location
+Sitemap: https://mardenseo.com/sitemap.xml

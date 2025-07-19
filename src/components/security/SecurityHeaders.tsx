@@ -34,9 +34,7 @@ const SecurityHeaders = () => {
       document.head.appendChild(cspMeta);
     }
 
-    if (process.env.NODE_ENV === 'development') {
-      console.log('[SECURITY] Minimal security headers configured');
-    }
+    console.log('[SECURITY] Minimal security headers configured');
   }, []);
 
   return null;

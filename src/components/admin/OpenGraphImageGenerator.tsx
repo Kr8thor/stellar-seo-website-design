@@ -14,9 +14,7 @@ const OpenGraphImageGenerator = () => {
   const generateImage = async () => {
     setIsGenerating(true);
     try {
-      if (process.env.NODE_ENV === 'development') {
-        console.log('Requesting OpenGraph image generation...');
-      }
+      console.log('Requesting OpenGraph image generation...');
       
       const { data, error } = await supabase.functions.invoke('generate-og-image', {
         body: { type: 'homepage' }

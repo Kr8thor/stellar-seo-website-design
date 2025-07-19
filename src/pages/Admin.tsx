@@ -1,11 +1,14 @@
 
 import React from 'react';
 import OpenGraphImageGenerator from '@/components/admin/OpenGraphImageGenerator';
-import { useSEOWithKey, PAGE_KEYS } from '@/hooks/useSEO';
+import { useSEO } from '@/hooks/useSEO';
 
 const Admin = () => {
-  // 🎯 COMPREHENSIVE SEO IMPLEMENTATION - Enhanced meta descriptions and keywords
-  useSEOWithKey(PAGE_KEYS.admin);
+  useSEO({
+    title: "Admin - Marden SEO",
+    description: "Administrative tools for Marden SEO website management",
+    noIndex: true
+  });
 
   return (
     <main className="pt-24 pb-16 px-4 md:px-8 min-h-screen bg-gradient-to-b from-white to-slate-50">

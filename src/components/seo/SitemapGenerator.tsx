@@ -74,9 +74,7 @@ ${urls.map(url => `  <url>
 </urlset>`;
 
       // In a real implementation, you would send this to your server
-      if (process.env.NODE_ENV === 'development') {
-        console.log('Generated sitemap:', sitemap);
-      }
+      console.log('Generated sitemap:', sitemap);
     };
 
     // Generate sitemap on component mount

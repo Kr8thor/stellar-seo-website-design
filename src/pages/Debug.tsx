@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { useSEOWithKey, PAGE_KEYS } from '@/hooks/useSEO';
+import { useSEO } from '@/hooks/useSEO';
 import SchemaValidator from '@/components/seo/SchemaValidator';
 import IndexingAccelerator from '@/components/seo/IndexingAccelerator';
 import { 
@@ -17,8 +17,12 @@ import {
 } from 'lucide-react';
 
 const Debug = () => {
-  // 🎯 COMPREHENSIVE SEO IMPLEMENTATION - Enhanced meta descriptions and keywords
-  useSEOWithKey(PAGE_KEYS.debug);
+  // Set noindex for debug page
+  useSEO({
+    title: "Debug & Testing Tools | Marden SEO",
+    description: "Internal debugging and testing tools for schema validation, SEO testing, and WordPress integration monitoring.",
+    noIndex: true
+  });
 
   const currentUrl = window.location.href;
   const isProduction = currentUrl.includes('mardenseo.com');

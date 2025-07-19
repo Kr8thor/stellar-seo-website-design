@@ -78,7 +78,7 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({
 
       if (onSuccess) onSuccess();
     } catch (error) {
-      console.error('Error submitting review:', error); // Keep error logs in production
+      console.error('Error submitting review:', error);
       toast({
         title: "Error",
         description: "Failed to submit review. Please try again.",

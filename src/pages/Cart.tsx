@@ -6,12 +6,16 @@ import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { servicesCatalog } from '@/data/servicesCatalog';
-import { useSEOWithKey, PAGE_KEYS } from '@/hooks/useSEO';
+import { useSEO } from '@/hooks/useSEO';
 import { useToast } from '@/hooks/use-toast';
 
 const Cart = () => {
-  // 🎯 COMPREHENSIVE SEO IMPLEMENTATION - Enhanced meta descriptions and keywords
-  useSEOWithKey(PAGE_KEYS.cart);
+  useSEO({
+    title: 'Shopping Cart | Marden SEO Services',
+    description: 'Review and purchase our professional SEO services, custom app development, and workflow automation solutions.',
+    keywords: ['seo services cart', 'purchase seo', 'buy seo services', 'app development pricing'],
+    noIndex: true // Cart pages typically shouldn't be indexed
+  });
 
   const { 
     items, 
