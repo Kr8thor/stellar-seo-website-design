@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags (visible to all) -->
   <title>SEO Portfolio & Case Studies | Proven Results & Client Success Stories - Marden SEO</title>
   <meta name="description" content="View our SEO portfolio showcasing real results for clients. Case studies with traffic growth, ranking improvements, and conversion increases.">
   <meta name="keywords" content="SEO portfolio, case studies, SEO results, client success, traffic growth, ranking improvements, SEO examples">
@@ -22,7 +24,7 @@
   <meta name="twitter:description" content="View our SEO portfolio showcasing real results for clients. Case studies with traffic growth, ranking improvements, and conversion increases.">
   <meta name="twitter:image" content="https://mardenseo.com/lovable-uploads/a103d7ea-fa9e-4582-9d36-828eb4472ece.png">
   
-  <!-- Structured Data - Organization -->
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -31,98 +33,61 @@
     "description": "Professional SEO and app development services",
     "url": "https://mardenseo.com",
     "areaServed": "Worldwide",
-    "serviceType": ["SEO Services", "App Development", "Workflow Automation"],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "SEO Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Search Engine Optimization",
-            "description": "Professional SEO services to improve search rankings"
-          }
-        },
-        {
-          "@type": "Offer", 
-          "itemOffered": {
-            "@type": "Service",
-            "name": "App Development",
-            "description": "Custom application development with React and TypeScript"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service", 
-            "name": "Workflow Automation",
-            "description": "Business process automation with n8n and custom tools"
-          }
-        }
-      ]
-    }
+    "serviceType": ["SEO Services", "App Development", "Workflow Automation"]
   }
   </script>
   
-  <!-- Favicon and Icons -->
+  <!-- Favicon and Assets -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
   <link rel="manifest" href="/site.webmanifest">
   
-  <!-- Preload critical resources -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://images.unsplash.com">
+  <!-- React Assets (for user interactivity) -->
   <link rel="stylesheet" href="/assets/index-bT0T0QyP.css">
 </head>
-<body class="min-h-screen bg-background font-sans antialiased">
-  
-    <nav class="hidden" aria-label="Search Engine Navigation">
-      <ul>
-        <li><a href="/">Home - Marden SEO Strategic Solutions</a></li>
-        <li><a href="/about">About - Expert SEO Team</a></li>
-        <li><a href="/services">Services - Professional SEO Services</a></li>
-        <li><a href="/services-pricing">Pricing - SEO Service Packages</a></li>
-        <li><a href="/portfolio">Portfolio - SEO Case Studies</a></li>
-        <li><a href="/blog">Blog - SEO Insights & Tips</a></li>
-        <li><a href="/contact">Contact - Get SEO Consultation</a></li>
-        <li><a href="/app-building">App Development - Custom Applications</a></li>
-        <li><a href="/workflow-automation">Automation - Business Process Optimization</a></li>
-      </ul>
-    </nav>
-  
-  
-      <main class="container mx-auto px-4 py-16">
-        <div class="max-w-6xl mx-auto">
-          <h1 class="text-4xl md:text-5xl font-bold mb-8 text-center">SEO Portfolio & Case Studies</h1>
-          <p class="text-xl text-muted-foreground mb-16 text-center">Proven results and client success stories</p>
-          
-          <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-card text-card-foreground rounded-lg border p-6">
-              <h3 class="text-xl font-semibold mb-4">E-commerce SEO Success</h3>
-              <p class="text-muted-foreground mb-4">Increased organic traffic by 300% and revenue by 250% for an online retailer.</p>
-              <div class="text-sm text-muted-foreground">Results: +300% Traffic, +250% Revenue</div>
-            </div>
-            <div class="bg-card text-card-foreground rounded-lg border p-6">
-              <h3 class="text-xl font-semibold mb-4">SaaS Growth Strategy</h3>
-              <p class="text-muted-foreground mb-4">Helped a SaaS company achieve #1 rankings for competitive keywords.</p>
-              <div class="text-sm text-muted-foreground">Results: #1 Rankings, +180% Leads</div>
-            </div>
-            <div class="bg-card text-card-foreground rounded-lg border p-6">
-              <h3 class="text-xl font-semibold mb-4">Local Business Domination</h3>
-              <p class="text-muted-foreground mb-4">Dominated local search results for a professional services firm.</p>
-              <div class="text-sm text-muted-foreground">Results: #1 Local Rankings, +220% Calls</div>
-            </div>
-          </div>
-        </div>
-      </main>
-      <div class="hidden">Route: /portfolio | Generated by SSG</div>
+<body>
+  <!-- Pre-rendered content for crawlers -->
+  <div id="crawler-content" style="display: none;">
     
+    <nav>
+      <a href="/">Home</a> | <a href="/about">About</a> | <a href="/services">Services</a> | 
+      <a href="/contact">Contact</a>
+    </nav>
+    <main>
+      <h1>SEO Portfolio & Case Studies</h1>
+      <h2>Proven results and client success stories</h2>
+    </main>
+  </div>
+  
+  <!-- React root for users -->
   <div id="root"></div>
   
-  <!-- React hydration will happen here -->
-  <script type="module" crossorigin src="/assets/index-QAza8IhB.js"></script>
+  <!-- Smart content switching script -->
+  <script>
+    // Detect if this is a crawler
+    const userAgent = navigator.userAgent || '';
+    const isCrawler = /bot|crawl|slurp|spider|facebookexternalhit|twitterbot|linkedinbot/i.test(userAgent);
+    
+    if (isCrawler) {
+      // Show pre-rendered content for crawlers
+      const crawlerContent = document.getElementById('crawler-content');
+      const reactRoot = document.getElementById('root');
+      if (crawlerContent && reactRoot) {
+        crawlerContent.style.display = 'block';
+        reactRoot.style.display = 'none';
+        // Copy crawler content to root for full visibility
+        reactRoot.innerHTML = crawlerContent.innerHTML;
+        reactRoot.style.display = 'block';
+      }
+    }
+  </script>
+  
+  <!-- React App (loads for users, ignored by most crawlers) -->
+  <script type="module" src="/assets/index-DHgNQw9l.js"></script>
+  
+  <!-- Fallback for crawlers that execute JavaScript -->
+  <noscript>
+    <style>#root { display: none; } #crawler-content { display: block !important; }</style>
+  </noscript>
 </body>
 </html>

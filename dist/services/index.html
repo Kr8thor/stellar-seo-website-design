@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags (visible to all) -->
   <title>Professional SEO Services & Packages | Technical SEO, Content Strategy - Marden SEO</title>
   <meta name="description" content="Comprehensive SEO services including technical optimization, content strategy, link building, and performance tracking. Custom packages for all business sizes.">
   <meta name="keywords" content="SEO services, technical SEO, content strategy, link building, SEO packages, search optimization, website audit">
@@ -22,7 +24,7 @@
   <meta name="twitter:description" content="Comprehensive SEO services including technical optimization, content strategy, link building, and performance tracking. Custom packages for all business sizes.">
   <meta name="twitter:image" content="https://mardenseo.com/lovable-uploads/a103d7ea-fa9e-4582-9d36-828eb4472ece.png">
   
-  <!-- Structured Data - Organization -->
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -31,95 +33,62 @@
     "description": "Professional SEO and app development services",
     "url": "https://mardenseo.com",
     "areaServed": "Worldwide",
-    "serviceType": ["SEO Services", "App Development", "Workflow Automation"],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "SEO Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Search Engine Optimization",
-            "description": "Professional SEO services to improve search rankings"
-          }
-        },
-        {
-          "@type": "Offer", 
-          "itemOffered": {
-            "@type": "Service",
-            "name": "App Development",
-            "description": "Custom application development with React and TypeScript"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service", 
-            "name": "Workflow Automation",
-            "description": "Business process automation with n8n and custom tools"
-          }
-        }
-      ]
-    }
+    "serviceType": ["SEO Services", "App Development", "Workflow Automation"]
   }
   </script>
   
-  <!-- Favicon and Icons -->
+  <!-- Favicon and Assets -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
   <link rel="manifest" href="/site.webmanifest">
   
-  <!-- Preload critical resources -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://images.unsplash.com">
+  <!-- React Assets (for user interactivity) -->
   <link rel="stylesheet" href="/assets/index-bT0T0QyP.css">
 </head>
-<body class="min-h-screen bg-background font-sans antialiased">
-  
-    <nav class="hidden" aria-label="Search Engine Navigation">
-      <ul>
-        <li><a href="/">Home - Marden SEO Strategic Solutions</a></li>
-        <li><a href="/about">About - Expert SEO Team</a></li>
-        <li><a href="/services">Services - Professional SEO Services</a></li>
-        <li><a href="/services-pricing">Pricing - SEO Service Packages</a></li>
-        <li><a href="/portfolio">Portfolio - SEO Case Studies</a></li>
-        <li><a href="/blog">Blog - SEO Insights & Tips</a></li>
-        <li><a href="/contact">Contact - Get SEO Consultation</a></li>
-        <li><a href="/app-building">App Development - Custom Applications</a></li>
-        <li><a href="/workflow-automation">Automation - Business Process Optimization</a></li>
-      </ul>
-    </nav>
-  
-  
-      <main class="container mx-auto px-4 py-16">
-        <div class="max-w-6xl mx-auto">
-          <h1 class="text-4xl md:text-5xl font-bold mb-8 text-center">Professional SEO Services & Packages</h1>
-          <p class="text-xl text-muted-foreground mb-16 text-center">Comprehensive optimization solutions for your business</p>
-          
-          <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-card text-card-foreground rounded-lg border p-6">
-              <h3 class="text-xl font-semibold mb-4">Technical SEO</h3>
-              <p class="text-muted-foreground">Comprehensive technical optimization including site speed, mobile responsiveness, and crawlability improvements.</p>
-            </div>
-            <div class="bg-card text-card-foreground rounded-lg border p-6">
-              <h3 class="text-xl font-semibold mb-4">Content Strategy</h3>
-              <p class="text-muted-foreground">Data-driven content planning and optimization to target high-value keywords and engage your audience.</p>
-            </div>
-            <div class="bg-card text-card-foreground rounded-lg border p-6">
-              <h3 class="text-xl font-semibold mb-4">Link Building</h3>
-              <p class="text-muted-foreground">High-quality backlink acquisition through strategic outreach and content marketing initiatives.</p>
-            </div>
-          </div>
-        </div>
-      </main>
-      <div class="hidden">Route: /services | Generated by SSG</div>
+<body>
+  <!-- Pre-rendered content for crawlers -->
+  <div id="crawler-content" style="display: none;">
     
+      <nav>
+        <a href="/">Home</a> | <a href="/about">About</a> | <a href="/services">Services</a> | 
+        <a href="/portfolio">Portfolio</a> | <a href="/blog">Blog</a> | <a href="/contact">Contact</a>
+      </nav>
+      <main>
+        <h1>Professional SEO Services & Packages</h1>
+        <h2>Comprehensive optimization solutions for your business</h2>
+        <p>Comprehensive SEO services including technical optimization, content strategy, link building, and performance tracking.</p>
+      </main>
+  </div>
+  
+  <!-- React root for users -->
   <div id="root"></div>
   
-  <!-- React hydration will happen here -->
-  <script type="module" crossorigin src="/assets/index-QAza8IhB.js"></script>
+  <!-- Smart content switching script -->
+  <script>
+    // Detect if this is a crawler
+    const userAgent = navigator.userAgent || '';
+    const isCrawler = /bot|crawl|slurp|spider|facebookexternalhit|twitterbot|linkedinbot/i.test(userAgent);
+    
+    if (isCrawler) {
+      // Show pre-rendered content for crawlers
+      const crawlerContent = document.getElementById('crawler-content');
+      const reactRoot = document.getElementById('root');
+      if (crawlerContent && reactRoot) {
+        crawlerContent.style.display = 'block';
+        reactRoot.style.display = 'none';
+        // Copy crawler content to root for full visibility
+        reactRoot.innerHTML = crawlerContent.innerHTML;
+        reactRoot.style.display = 'block';
+      }
+    }
+  </script>
+  
+  <!-- React App (loads for users, ignored by most crawlers) -->
+  <script type="module" src="/assets/index-DHgNQw9l.js"></script>
+  
+  <!-- Fallback for crawlers that execute JavaScript -->
+  <noscript>
+    <style>#root { display: none; } #crawler-content { display: block !important; }</style>
+  </noscript>
 </body>
 </html>

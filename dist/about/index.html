@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags (visible to all) -->
   <title>About Marden SEO - Expert SEO Team & Proven Methodology | 10+ Years Experience</title>
   <meta name="description" content="Meet our expert SEO team with 10+ years of proven results. Learn about our data-driven methodology that helps businesses dominate search rankings.">
   <meta name="keywords" content="about Marden SEO, SEO experts, app development team, digital marketing professionals, SEO experience, proven methodology">
@@ -22,7 +24,7 @@
   <meta name="twitter:description" content="Meet our expert SEO team with 10+ years of proven results. Learn about our data-driven methodology that helps businesses dominate search rankings.">
   <meta name="twitter:image" content="https://mardenseo.com/lovable-uploads/a103d7ea-fa9e-4582-9d36-828eb4472ece.png">
   
-  <!-- Structured Data - Organization -->
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -31,93 +33,62 @@
     "description": "Professional SEO and app development services",
     "url": "https://mardenseo.com",
     "areaServed": "Worldwide",
-    "serviceType": ["SEO Services", "App Development", "Workflow Automation"],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "SEO Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Search Engine Optimization",
-            "description": "Professional SEO services to improve search rankings"
-          }
-        },
-        {
-          "@type": "Offer", 
-          "itemOffered": {
-            "@type": "Service",
-            "name": "App Development",
-            "description": "Custom application development with React and TypeScript"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service", 
-            "name": "Workflow Automation",
-            "description": "Business process automation with n8n and custom tools"
-          }
-        }
-      ]
-    }
+    "serviceType": ["SEO Services", "App Development", "Workflow Automation"]
   }
   </script>
   
-  <!-- Favicon and Icons -->
+  <!-- Favicon and Assets -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
   <link rel="manifest" href="/site.webmanifest">
   
-  <!-- Preload critical resources -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://images.unsplash.com">
+  <!-- React Assets (for user interactivity) -->
   <link rel="stylesheet" href="/assets/index-bT0T0QyP.css">
 </head>
-<body class="min-h-screen bg-background font-sans antialiased">
-  
-    <nav class="hidden" aria-label="Search Engine Navigation">
-      <ul>
-        <li><a href="/">Home - Marden SEO Strategic Solutions</a></li>
-        <li><a href="/about">About - Expert SEO Team</a></li>
-        <li><a href="/services">Services - Professional SEO Services</a></li>
-        <li><a href="/services-pricing">Pricing - SEO Service Packages</a></li>
-        <li><a href="/portfolio">Portfolio - SEO Case Studies</a></li>
-        <li><a href="/blog">Blog - SEO Insights & Tips</a></li>
-        <li><a href="/contact">Contact - Get SEO Consultation</a></li>
-        <li><a href="/app-building">App Development - Custom Applications</a></li>
-        <li><a href="/workflow-automation">Automation - Business Process Optimization</a></li>
-      </ul>
-    </nav>
-  
-  
-      <main class="container mx-auto px-4 py-16">
-        <div class="max-w-4xl mx-auto">
-          <h1 class="text-4xl md:text-5xl font-bold mb-8 text-center">About Our SEO & Development Team</h1>
-          <p class="text-xl text-muted-foreground mb-12 text-center">Expert professionals dedicated to your digital success</p>
-          
-          <div class="grid md:grid-cols-2 gap-12 mb-16">
-            <div>
-              <h2 class="text-2xl font-semibold mb-6">Our Mission</h2>
-              <p class="text-muted-foreground mb-6">At Marden SEO, we're dedicated to helping businesses achieve sustainable growth through strategic search engine optimization and innovative digital solutions.</p>
-              <p class="text-muted-foreground">Our team combines technical expertise with creative strategy to deliver measurable results that drive real business impact.</p>
-            </div>
-            <div>
-              <h2 class="text-2xl font-semibold mb-6">Our Approach</h2>
-              <p class="text-muted-foreground mb-6">We believe in data-driven strategies that are tailored to each client's unique goals and industry challenges.</p>
-              <p class="text-muted-foreground">From technical SEO audits to content strategy and custom app development, we provide comprehensive solutions for digital success.</p>
-            </div>
-          </div>
-        </div>
-      </main>
-      <div class="hidden">Route: /about | Generated by SSG</div>
+<body>
+  <!-- Pre-rendered content for crawlers -->
+  <div id="crawler-content" style="display: none;">
     
+      <nav>
+        <a href="/">Home</a> | <a href="/about">About</a> | <a href="/services">Services</a> | 
+        <a href="/portfolio">Portfolio</a> | <a href="/blog">Blog</a> | <a href="/contact">Contact</a>
+      </nav>
+      <main>
+        <h1>About Our SEO & Development Team</h1>
+        <h2>Expert professionals dedicated to your digital success</h2>
+        <p>Meet our expert SEO team with 10+ years of proven results. Learn about our data-driven methodology that helps businesses dominate search rankings.</p>
+      </main>
+  </div>
+  
+  <!-- React root for users -->
   <div id="root"></div>
   
-  <!-- React hydration will happen here -->
-  <script type="module" crossorigin src="/assets/index-QAza8IhB.js"></script>
+  <!-- Smart content switching script -->
+  <script>
+    // Detect if this is a crawler
+    const userAgent = navigator.userAgent || '';
+    const isCrawler = /bot|crawl|slurp|spider|facebookexternalhit|twitterbot|linkedinbot/i.test(userAgent);
+    
+    if (isCrawler) {
+      // Show pre-rendered content for crawlers
+      const crawlerContent = document.getElementById('crawler-content');
+      const reactRoot = document.getElementById('root');
+      if (crawlerContent && reactRoot) {
+        crawlerContent.style.display = 'block';
+        reactRoot.style.display = 'none';
+        // Copy crawler content to root for full visibility
+        reactRoot.innerHTML = crawlerContent.innerHTML;
+        reactRoot.style.display = 'block';
+      }
+    }
+  </script>
+  
+  <!-- React App (loads for users, ignored by most crawlers) -->
+  <script type="module" src="/assets/index-DHgNQw9l.js"></script>
+  
+  <!-- Fallback for crawlers that execute JavaScript -->
+  <noscript>
+    <style>#root { display: none; } #crawler-content { display: block !important; }</style>
+  </noscript>
 </body>
 </html>

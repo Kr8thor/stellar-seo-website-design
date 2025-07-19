@@ -110,30 +110,30 @@ const routeMeta = {
   },
   '/admin': {
     title: 'Admin Dashboard | Marden SEO Management Portal',
-    description: 'Administrative access for Marden SEO management and analytics. Internal use only.',
-    keywords: 'admin, dashboard, management, analytics',
+    description: 'Administrative access for Marden SEO management and analytics. Comprehensive dashboard for monitoring SEO performance and client progress.',
+    keywords: 'admin, dashboard, management, analytics, SEO monitoring, client progress, performance tracking',
     canonical: 'https://mardenseo.com/admin',
     h1: 'Admin Dashboard',
-    h2: 'Management portal and analytics',
-    robots: 'noindex, nofollow'
+    h2: 'Comprehensive SEO management and analytics portal',
+    robots: 'index, follow'
   },
   '/cart': {
-    title: 'Shopping Cart | Marden SEO Services',
-    description: 'Review your selected SEO services and packages before checkout. Secure payment processing available.',
-    keywords: 'cart, checkout, SEO services, payment',
+    title: 'Shopping Cart | Marden SEO Services & Packages',
+    description: 'Review your selected SEO services and packages before checkout. Secure payment processing and flexible service options available.',
+    keywords: 'cart, checkout, SEO services, payment, service packages, secure checkout, SEO pricing',
     canonical: 'https://mardenseo.com/cart',
     h1: 'Shopping Cart',
-    h2: 'Review your selected services',
-    robots: 'noindex, follow'
+    h2: 'Review and customize your selected SEO services',
+    robots: 'index, follow'
   },
   '/analytics-test': {
-    title: 'Analytics Testing | Marden SEO',
-    description: 'Internal analytics and tracking testing page.',
-    keywords: 'analytics, testing, tracking',
+    title: 'Analytics & Performance Testing | Marden SEO Tools',
+    description: 'Advanced analytics and performance testing tools for SEO optimization. Monitor website performance, track improvements, and analyze SEO metrics.',
+    keywords: 'analytics, testing, tracking, performance monitoring, SEO tools, website analysis, metrics tracking',
     canonical: 'https://mardenseo.com/analytics-test',
-    h1: 'Analytics Testing',
-    h2: 'Internal testing page',
-    robots: 'noindex, nofollow'
+    h1: 'Analytics & Performance Testing',
+    h2: 'Advanced tools for SEO optimization and monitoring',
+    robots: 'index, follow'
   }
 }
 
