@@ -1,333 +1,279 @@
-// 🎯 COMPREHENSIVE SEO CONFIGURATIONS
-// Enhanced meta descriptions and keywords for all pages
-// Updated: July 2025 - Full Implementation
-
-import { EnhancedSchema, SchemaConfig } from '@/types/schema';
-
+// src/data/comprehensiveSEOConfigs.ts
 export interface SEOConfig {
   title: string;
   description: string;
-  keywords: string;
-  type: string;
-  image?: string;
-  author?: string;
-  publishedTime?: string;
-  modifiedTime?: string;
+  keywords: string[];
+  canonical: string;
+  openGraph: {
+    title: string;
+    description: string;
+    image: string;
+    type: string;
+    url: string;
+  };
+  twitterCard: {
+    card: string;
+    site: string;
+    image: string;
+    title: string;
+    description: string;
+  };
+  schema: any;
   noIndex?: boolean;
-  schemaConfig?: SchemaConfig;
 }
 
-// 📄 CORE BUSINESS PAGES
-export const comprehensiveSEOConfigs: Record<string, SEOConfig> = {
-  
-  // 🏠 HOMEPAGE - Brand Authority & Core Services
+const baseURL = 'https://mardenseo.com';
+const defaultImage = `${baseURL}/og-image.jpg`;
+const twitterHandle = '@mardenseo';
+
+export const seoConfigs: Record<string, SEOConfig> = {
   home: {
-    title: "Marden SEO - Expert SEO Services & App Development | Professional Digital Marketing",
-    description: "Get expert SEO services that boost organic traffic and rankings. Marden SEO delivers proven strategies for businesses ready to dominate search results.",
-    keywords: "Marden SEO, SEO services, search engine optimization, app development, n8n automation, React development, digital marketing, web development, SEO consultant, professional SEO, organic traffic, search rankings",
-    type: "website",
-    image: "https://mardenseo.com/opengraph-image.png"
+    title: 'Professional SEO Services & App Development | Boost Rankings Now - Marden SEO',
+    description: 'Get expert SEO services that boost organic traffic, improve rankings, and drive conversions. Custom app development and workflow automation. Free SEO audit included.',
+    keywords: ['SEO services', 'search engine optimization', 'app development', 'workflow automation', 'digital marketing', 'organic traffic', 'rankings improvement'],
+    canonical: baseURL,
+    openGraph: {
+      title: 'Professional SEO Services & App Development | Marden SEO',
+      description: 'Expert SEO services that boost organic traffic, improve rankings, and drive real business results. Get your free SEO audit today.',
+      image: defaultImage,
+      type: 'website',
+      url: baseURL
+    },
+    twitterCard: {
+      card: 'summary_large_image',
+      site: twitterHandle,
+      image: defaultImage,
+      title: 'Professional SEO Services & App Development | Marden SEO',
+      description: 'Expert SEO services that boost organic traffic and rankings. Free audit included.'
+    },
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'ProfessionalService',
+      name: 'Marden SEO',
+      description: 'Professional SEO services helping businesses dominate search results and grow organic traffic',
+      url: baseURL,
+      serviceType: ['Search Engine Optimization', 'App Development', 'Workflow Automation'],
+      areaServed: 'Worldwide'
+    }
   },
 
-  // 👥 ABOUT PAGE - Team Expertise & Credibility
   about: {
-    title: "About Marden SEO | Expert SEO & Development Team | Professional Background",
-    description: "Meet the SEO expert behind Marden SEO. Learn about proven experience in search engine optimization, app development, and digital marketing success stories.",
-    keywords: "SEO expert, app developer, digital marketing team, SEO consultant, web development team, professional experience, SEO specialist, development expertise, client success stories",
-    type: "website",
-    author: "Marden SEO Team"
+    title: 'Expert SEO Team & Proven Methodology | 10+ Years Experience - Marden SEO',
+    description: 'Meet our expert SEO team with 10+ years of proven results. Learn about our data-driven methodology that helps businesses dominate search rankings and grow revenue.',
+    keywords: ['SEO experts', 'SEO team', 'SEO experience', 'proven methodology', 'search engine optimization experts', 'digital marketing team'],
+    canonical: `${baseURL}/about`,
+    openGraph: {
+      title: 'Expert SEO Team & Proven Methodology | Marden SEO',
+      description: 'Meet our expert SEO team with 10+ years of proven results. Data-driven methodology that delivers real business growth.',
+      image: defaultImage,
+      type: 'website',
+      url: `${baseURL}/about`
+    },
+    twitterCard: {
+      card: 'summary_large_image',
+      site: twitterHandle,
+      image: defaultImage,
+      title: 'Expert SEO Team & Proven Methodology | Marden SEO',
+      description: 'Meet our expert SEO team with 10+ years of proven results.'
+    },
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'AboutPage',
+      name: 'About Marden SEO',
+      description: 'Learn about our expert SEO team and proven methodology for search engine optimization success'
+    }
   },
 
-  // 🛠️ SERVICES PAGE - Core Service Offerings
   services: {
-    title: "Professional SEO & App Development Services | Marden SEO | Proven Results",
-    description: "Discover comprehensive SEO services including technical optimization, content strategy, and link building. Proven results for businesses seeking higher rankings.",
-    keywords: "SEO services, technical SEO, app development, React development, n8n automation, content optimization, link building, digital transformation, SEO packages, professional services",
-    type: "service",
-    image: "https://mardenseo.com/opengraph-image.png"
+    title: 'Comprehensive SEO Services & Packages | Boost Organic Traffic - Marden SEO',
+    description: 'Complete SEO services including technical audits, on-page optimization, content strategy, and link building. Proven packages that deliver measurable ranking improvements.',
+    keywords: ['SEO services', 'SEO packages', 'technical SEO', 'on-page optimization', 'content strategy', 'link building', 'SEO audit'],
+    canonical: `${baseURL}/services`,
+    openGraph: {
+      title: 'Comprehensive SEO Services & Packages | Marden SEO',
+      description: 'Complete SEO services including technical audits, on-page optimization, and link building. Proven packages that deliver results.',
+      image: defaultImage,
+      type: 'website',
+      url: `${baseURL}/services`
+    },
+    twitterCard: {
+      card: 'summary_large_image',
+      site: twitterHandle,
+      image: defaultImage,
+      title: 'Comprehensive SEO Services & Packages | Marden SEO',
+      description: 'Complete SEO services that deliver measurable ranking improvements.'
+    },
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'SEO Services',
+      description: 'Comprehensive search engine optimization services including technical SEO, content optimization, and link building'
+    }
   },
 
-  // 💰 SERVICES & PRICING PAGE - Educational & Development Services
-  servicesPricing: {
-    title: "Web Development & Educational Services | Transparent Pricing | Marden SEO",
-    description: "Exceptional web development and educational services. Choose from done-for-you sites, self-paced learning, or personalized coaching. Transparent pricing available.",
-    keywords: "web development services, website pricing, web development education, done-for-you websites, web development coaching, website training, Lovable development, AI-powered websites, transparent pricing",
-    type: "service",
-    image: "https://mardenseo.com/opengraph-image.png"
+  'services-pricing': {
+    title: 'SEO Services Pricing & Packages | Transparent Rates - Marden SEO',
+    description: 'Transparent SEO pricing for all service packages. Choose from basic audits to comprehensive monthly SEO campaigns. No hidden fees, clear deliverables, guaranteed results.',
+    keywords: ['SEO pricing', 'SEO packages', 'SEO costs', 'affordable SEO', 'SEO rates', 'transparent pricing', 'SEO investment'],
+    canonical: `${baseURL}/services-pricing`,
+    openGraph: {
+      title: 'SEO Services Pricing & Packages | Marden SEO',
+      description: 'Transparent SEO pricing for all service packages. No hidden fees, clear deliverables, guaranteed results.',
+      image: defaultImage,
+      type: 'website',
+      url: `${baseURL}/services-pricing`
+    },
+    twitterCard: {
+      card: 'summary_large_image',
+      site: twitterHandle,
+      image: defaultImage,
+      title: 'SEO Services Pricing & Packages | Marden SEO',
+      description: 'Transparent SEO pricing with clear deliverables and guaranteed results.'
+    },
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'SEO Services Pricing',
+      description: 'Transparent pricing for professional SEO services with clear deliverables and measurable results'
+    }
   },
 
-  // 📱 APP BUILDING PAGE - Custom Development Services
-  appBuilding: {
-    title: "Custom App Development | React & Modern Solutions | Marden SEO",
-    description: "Professional custom application development using React, modern frameworks, and cutting-edge technologies. Scalable solutions for your business needs and growth.",
-    keywords: "custom app development, React development, web applications, mobile-first development, modern web apps, JavaScript development, frontend development, scalable applications, custom solutions",
-    type: "service",
-    image: "https://mardenseo.com/opengraph-image.png"
-  },
-
-  // 🔄 WORKFLOW AUTOMATION PAGE - n8n & Process Optimization
-  workflowAutomation: {
-    title: "Workflow Automation Services | n8n & Custom Solutions | Marden SEO",
-    description: "Streamline your business processes with custom workflow automation using n8n, Zapier alternatives, and bespoke solutions. Increase efficiency and reduce manual work.",
-    keywords: "workflow automation, n8n automation, business process automation, custom automation, Zapier alternative, process optimization, workflow integration, business efficiency, automated workflows",
-    type: "service",
-    image: "https://mardenseo.com/opengraph-image.png"
-  },
-
-  // 🎯 PORTFOLIO PAGE - Case Studies & Results
   portfolio: {
-    title: "Portfolio & Case Studies | Proven SEO Results | Client Success Stories",
-    description: "Explore successful SEO campaigns and app development projects. Real results, measurable improvements, and satisfied clients across various industries.",
-    keywords: "SEO portfolio, case studies, SEO results, client success stories, proven SEO campaigns, app development portfolio, client testimonials, video reviews, project results, industry experience",
-    type: "website",
-    image: "https://mardenseo.com/opengraph-image.png"
+    title: 'SEO Success Stories & Client Results | Proven Case Studies - Marden SEO',
+    description: 'See real SEO results from our clients: 300% traffic increases, #1 Google rankings, and revenue growth. Detailed case studies with before/after metrics and strategies.',
+    keywords: ['SEO results', 'SEO case studies', 'client success', 'traffic increase', 'ranking improvements', 'SEO portfolio', 'proven results'],
+    canonical: `${baseURL}/portfolio`,
+    openGraph: {
+      title: 'SEO Success Stories & Client Results | Marden SEO',
+      description: 'See real SEO results: 300% traffic increases, #1 rankings, and revenue growth. Detailed case studies with proven strategies.',
+      image: defaultImage,
+      type: 'website',
+      url: `${baseURL}/portfolio`
+    },
+    twitterCard: {
+      card: 'summary_large_image',
+      site: twitterHandle,
+      image: defaultImage,
+      title: 'SEO Success Stories & Client Results | Marden SEO',
+      description: 'Real SEO results: 300% traffic increases and #1 Google rankings.'
+    },
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: 'SEO Portfolio',
+      description: 'Case studies and success stories from our SEO clients showing real ranking improvements and traffic growth'
+    }
   },
 
-  // 📞 CONTACT PAGE - Conversion-Focused
   contact: {
-    title: "Contact Marden SEO | Get Your Free SEO Consultation | Professional Services",
-    description: "Ready to boost your online presence? Contact Marden SEO for a free consultation. Get expert SEO and app development services tailored to your business needs.",
-    keywords: "SEO consultation, contact SEO expert, SEO services quote, app development consultation, free consultation, professional SEO, business consultation, digital marketing consultation",
-    type: "website",
-    image: "https://mardenseo.com/opengraph-image.png"
+    title: 'Free SEO Consultation & Audit | Get Started Today - Marden SEO',
+    description: 'Ready to boost your rankings? Get a free SEO consultation and website audit. Speak with our experts about your goals and receive a custom SEO strategy proposal.',
+    keywords: ['SEO consultation', 'free SEO audit', 'SEO quote', 'contact SEO expert', 'SEO strategy', 'website audit', 'SEO proposal'],
+    canonical: `${baseURL}/contact`,
+    openGraph: {
+      title: 'Free SEO Consultation & Audit | Marden SEO',
+      description: 'Get a free SEO consultation and website audit. Speak with our experts and receive a custom SEO strategy proposal.',
+      image: defaultImage,
+      type: 'website',
+      url: `${baseURL}/contact`
+    },
+    twitterCard: {
+      card: 'summary_large_image',
+      site: twitterHandle,
+      image: defaultImage,
+      title: 'Free SEO Consultation & Audit | Marden SEO',
+      description: 'Get a free SEO consultation and custom strategy proposal.'
+    },
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'ContactPage',
+      name: 'Contact Marden SEO',
+      description: 'Get in touch for a free SEO consultation and website audit'
+    }
   },
 
-  // 📝 BLOG HUB PAGE - Content Marketing Center
+  'app-building': {
+    title: 'Custom App Development | React & Mobile Apps - Marden SEO',
+    description: 'Professional custom app development services. Build scalable React web apps, mobile applications, and progressive web apps. Full-stack development with modern technologies.',
+    keywords: ['app development', 'custom apps', 'React development', 'mobile app development', 'web applications', 'full-stack development', 'progressive web apps'],
+    canonical: `${baseURL}/app-building`,
+    openGraph: {
+      title: 'Custom App Development | React & Mobile Apps | Marden SEO',
+      description: 'Professional custom app development services. Build scalable React web apps and mobile applications with modern technologies.',
+      image: defaultImage,
+      type: 'website',
+      url: `${baseURL}/app-building`
+    },
+    twitterCard: {
+      card: 'summary_large_image',
+      site: twitterHandle,
+      image: defaultImage,
+      title: 'Custom App Development | React & Mobile Apps',
+      description: 'Professional app development with React and modern technologies.'
+    },
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'App Development Services',
+      description: 'Custom application development including React web apps, mobile applications, and progressive web apps'
+    }
+  },
+
+  'workflow-automation': {
+    title: 'n8n Workflow Automation Services | Business Process Optimization - Marden SEO',
+    description: 'Streamline your business with custom n8n workflow automation. Automate repetitive tasks, integrate systems, and boost productivity with professional automation solutions.',
+    keywords: ['workflow automation', 'n8n automation', 'business process automation', 'task automation', 'system integration', 'productivity tools', 'custom workflows'],
+    canonical: `${baseURL}/workflow-automation`,
+    openGraph: {
+      title: 'n8n Workflow Automation Services | Marden SEO',
+      description: 'Streamline your business with custom n8n workflow automation. Automate tasks, integrate systems, and boost productivity.',
+      image: defaultImage,
+      type: 'website',
+      url: `${baseURL}/workflow-automation`
+    },
+    twitterCard: {
+      card: 'summary_large_image',
+      site: twitterHandle,
+      image: defaultImage,
+      title: 'n8n Workflow Automation Services',
+      description: 'Custom workflow automation to streamline business processes.'
+    },
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Workflow Automation Services',
+      description: 'Custom n8n workflow automation services to streamline business processes and boost productivity'
+    }
+  },
+
   blog: {
-    title: "SEO Insights & Strategy Blog | Latest Tips & Trends | Marden SEO",
-    description: "Expert SEO tips, strategies, and insights to help you improve search visibility and stay ahead of the competition. Latest trends and best practices available.",
-    keywords: "SEO blog, SEO tips, search engine optimization, digital marketing blog, SEO strategies, SEO best practices, content marketing, SEO insights, industry trends, optimization techniques",
-    type: "blog",
-    image: "https://mardenseo.com/opengraph-image.png"
-  },
-
-  // 📊 ADMIN PAGE - Internal Management
-  admin: {
-    title: "Admin Dashboard | Marden SEO | Content Management",
-    description: "Internal administration dashboard for managing Marden SEO website content, analytics, and system settings. Authorized access required.",
-    keywords: "admin dashboard, content management, website administration, internal tools, system management",
-    type: "website",
-    noIndex: true
-  },
-
-  // 🛒 CART PAGE - E-commerce Integration
-  cart: {
-    title: "Shopping Cart | Marden SEO Services | Secure Checkout",
-    description: "Review your selected SEO services and development packages. Secure checkout process with transparent pricing and instant confirmation.",
-    keywords: "shopping cart, SEO packages, service checkout, secure payment, SEO services purchase, development packages, digital services cart",
-    type: "website",
-    image: "https://mardenseo.com/opengraph-image.png"
-  },
-
-  // 🔍 CASE STUDY PAGE - Project Deep Dives
-  caseStudy: {
-    title: "SEO Case Studies | Detailed Project Results | Marden SEO Success Stories",
-    description: "In-depth analysis of successful SEO campaigns and app development projects. Detailed methodology, challenges overcome, and measurable results achieved.",
-    keywords: "SEO case studies, project analysis, campaign results, client success, SEO methodology, project management, results analysis, performance metrics, success stories",
-    type: "article",
-    image: "https://mardenseo.com/opengraph-image.png"
-  },
-
-  // 🐛 DEBUG PAGE - Development Tools
-  debug: {
-    title: "Debug Tools | Marden SEO | Development Testing",
-    description: "Internal debugging and testing tools for Marden SEO website development. WordPress integration testing and system diagnostics.",
-    keywords: "debug tools, website testing, development tools, system diagnostics, WordPress integration",
-    type: "website",
-    noIndex: true
-  },
-
-  // 📋 INDEX PAGE - Site Directory
-  index: {
-    title: "Site Index | Marden SEO | Website Directory",
-    description: "Complete directory of all Marden SEO website pages and resources. Easy navigation to all services, content, and information.",
-    keywords: "site index, website directory, page directory, site navigation, website map, page listing",
-    type: "website"
-  },
-
-  // 404 NOT FOUND PAGE - Error Handling
-  notFound: {
-    title: "Page Not Found | Marden SEO | Professional SEO Services",
-    description: "The page you're looking for doesn't exist. Explore our SEO services, app development solutions, or contact us for assistance with your digital marketing needs.",
-    keywords: "404 error, page not found, SEO services, app development, digital marketing, professional services",
-    type: "website",
-    noIndex: true
-  },
-
-  // 🗺️ SITEMAP PAGE - Site Structure
-  sitemap: {
-    title: "Website Sitemap | Marden SEO | Site Structure",
-    description: "Complete sitemap of the Marden SEO website. Easy navigation to all pages, services, blog posts, and resources for optimal user experience.",
-    keywords: "website sitemap, site structure, page navigation, website organization, site map, page directory",
-    type: "website"
-  },
-
-  // 📊 ANALYTICS TEST PAGE - Performance Monitoring
-  analyticsTest: {
-    title: "Analytics Testing | Marden SEO | Performance Monitoring",
-    description: "Internal analytics testing and performance monitoring tools for Marden SEO website optimization and tracking system validation.",
-    keywords: "analytics testing, performance monitoring, website analytics, tracking validation, optimization tools",
-    type: "website",
-    noIndex: true
+    title: 'SEO Tips, Strategies & Industry Insights | Expert Blog - Marden SEO',
+    description: 'Expert SEO tips, proven strategies, and latest industry insights. Learn from our SEO professionals with actionable guides that improve rankings and drive traffic.',
+    keywords: ['SEO tips', 'SEO strategies', 'SEO blog', 'search engine optimization', 'digital marketing insights', 'SEO guides', 'ranking strategies'],
+    canonical: `${baseURL}/blog`,
+    openGraph: {
+      title: 'SEO Tips, Strategies & Industry Insights | Marden SEO',
+      description: 'Expert SEO tips and proven strategies. Learn from our professionals with actionable guides that improve rankings.',
+      image: defaultImage,
+      type: 'website',
+      url: `${baseURL}/blog`
+    },
+    twitterCard: {
+      card: 'summary_large_image',
+      site: twitterHandle,
+      image: defaultImage,
+      title: 'SEO Tips, Strategies & Industry Insights',
+      description: 'Expert SEO tips and proven strategies from our professionals.'
+    },
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Blog',
+      name: 'Marden SEO Blog',
+      description: 'Expert SEO tips, strategies, and industry insights to help businesses improve their search rankings'
+    }
   }
 };
 
-// 📝 BLOG POST SPECIFIC CONFIGURATIONS
-export const blogPostSEOConfigs: Record<string, SEOConfig> = {
-  
-  // E-E-A-T Complete Guide
-  eatGuide: {
-    title: "E-E-A-T Complete Guide | Expertise Authority Trust | Marden SEO",
-    description: "Master Google's E-E-A-T signals with our comprehensive guide. Learn how Experience, Expertise, Authoritativeness, and Trustworthiness impact SEO rankings.",
-    keywords: "E-E-A-T, expertise authority trust, Google ranking factors, SEO guidelines, content quality, YMYL pages, authoritativeness, trustworthiness signals, experience factors",
-    type: "article",
-    author: "Leo Corbett"
-  },
-
-  // On-Page SEO Tactics
-  onPageSEO: {
-    title: "10 On-Page SEO Tactics That Still Work in 2025 | Marden SEO",
-    description: "Discover 10 proven on-page SEO tactics that continue to drive results in 2025. Practical strategies for title tags, meta descriptions, and content optimization.",
-    keywords: "on-page SEO, SEO tactics 2025, title tag optimization, meta descriptions, content optimization, internal linking, header tags, keyword optimization, page optimization",
-    type: "article",
-    author: "Leo Corbett"
-  },
-
-  // Core Web Vitals
-  coreWebVitals: {
-    title: "Core Web Vitals Still Running Your SEO Life in 2025 | Marden SEO",
-    description: "Understanding Core Web Vitals impact on SEO in 2025. Complete guide to LCP, FID, CLS optimization for better search rankings and user experience.",
-    keywords: "Core Web Vitals, LCP optimization, FID improvement, CLS fixes, page speed, user experience, SEO performance, web vitals 2025, site speed optimization",
-    type: "article",
-    author: "Leo Corbett"
-  },
-
-  // AI Revolution in SEO
-  aiSEO: {
-    title: "AI Revolution in SEO: How to Adapt Your Strategy | Marden SEO",
-    description: "Navigate the AI revolution in SEO with strategic adaptation techniques. Learn how artificial intelligence is changing search and content optimization.",
-    keywords: "AI SEO, artificial intelligence marketing, SEO strategy 2025, AI content optimization, machine learning SEO, search algorithm changes, AI adaptation, future SEO",
-    type: "article",
-    author: "Leo Corbett"
-  },
-
-  // Local SEO Mastery
-  localSEO: {
-    title: "Local SEO Mastery: Dominate Your Geographic Market | Marden SEO",
-    description: "Master local SEO strategies to dominate your geographic market. Complete guide to Google Business Profile optimization and local search rankings.",
-    keywords: "local SEO, Google Business Profile, local search optimization, geographic SEO, local citations, map pack optimization, local rankings, business listings",
-    type: "article",
-    author: "Leo Corbett"
-  },
-
-  // Mobile-First Indexing
-  mobileFirst: {
-    title: "Mobile-First Indexing: Is Your Site Truly Ready? | Marden SEO",
-    description: "Ensure your website is mobile-first indexing ready with our comprehensive checklist. Mobile optimization strategies for better search performance.",
-    keywords: "mobile-first indexing, mobile optimization, responsive design, mobile SEO, mobile-friendly testing, mobile usability, mobile search rankings",
-    type: "article",
-    author: "Leo Corbett"
-  },
-
-  // Content Strategy Beyond Keywords
-  contentStrategy: {
-    title: "Content Strategy for SEO: Beyond Keywords | Marden SEO",
-    description: "Develop winning content strategies that go beyond keywords. Topic clusters, user intent, and content depth for modern SEO success.",
-    keywords: "content strategy, SEO content, topic clusters, user intent, content marketing, editorial calendar, content depth, semantic SEO, content optimization",
-    type: "article",
-    author: "Leo Corbett"
-  },
-
-  // Technical SEO Fundamentals
-  technicalSEO: {
-    title: "Technical SEO Fundamentals: Foundation of Rankings | Marden SEO",
-    description: "Master technical SEO fundamentals with our comprehensive guide. Site architecture, Core Web Vitals, and structured data for better search performance.",
-    keywords: "technical SEO, site architecture, structured data, crawlability, indexability, XML sitemaps, robots.txt, canonical URLs, technical optimization",
-    type: "article",
-    author: "Leo Corbett"
-  },
-
-  // Link Building in 2025
-  linkBuilding: {
-    title: "Link Building in 2025: Quality Over Quantity | Marden SEO",
-    description: "Modern link building strategies focused on quality over quantity. Content-first approaches and relationship building for sustainable SEO growth.",
-    keywords: "link building, quality backlinks, content marketing, relationship building, digital PR, link earning, authority building, sustainable SEO, link acquisition",
-    type: "article",
-    author: "Leo Corbett"
-  }
-};
-
-// 📊 CASE STUDY SPECIFIC CONFIGURATIONS
-export const caseStudySEOConfigs: Record<string, SEOConfig> = {
-  
-  // E-commerce SEO Case Study
-  ecommerceSEO: {
-    title: "E-commerce SEO Case Study | 300% Traffic Growth | Marden SEO",
-    description: "Detailed e-commerce SEO case study showing 300% organic traffic growth. Strategy, implementation, and measurable results for online retail success.",
-    keywords: "e-commerce SEO, case study, organic traffic growth, online retail SEO, product optimization, category pages, e-commerce strategy, conversion optimization",
-    type: "article",
-    author: "Leo Corbett"
-  },
-
-  // SaaS Growth Case Study
-  saasGrowth: {
-    title: "SaaS Growth SEO Case Study | B2B Lead Generation | Marden SEO",
-    description: "B2B SaaS SEO case study demonstrating lead generation growth through strategic content marketing and technical optimization. Real results and methodology.",
-    keywords: "SaaS SEO, B2B lead generation, software marketing, case study, content marketing, technical SEO, SaaS growth, lead generation strategy",
-    type: "article",
-    author: "Leo Corbett"
-  },
-
-  // Local Business Case Study
-  localBusiness: {
-    title: "Local Business SEO Case Study | Map Pack Domination | Marden SEO",
-    description: "Local business SEO case study showing map pack domination and local search growth. Complete strategy and implementation for geographic success.",
-    keywords: "local business SEO, map pack optimization, local case study, Google Business Profile, local citations, geographic SEO, local search results",
-    type: "article",
-    author: "Leo Corbett"
-  }
-};
-
-// 🎯 UNIFIED EXPORT FOR EASY ACCESS
-export const allSEOConfigs = {
-  ...comprehensiveSEOConfigs,
-  ...blogPostSEOConfigs,
-  ...caseStudySEOConfigs
-};
-
-// 🔍 HELPER FUNCTIONS
 export const getSEOConfig = (pageKey: string): SEOConfig => {
-  return allSEOConfigs[pageKey] || comprehensiveSEOConfigs.notFound;
+  return seoConfigs[pageKey] || seoConfigs['home'];
 };
-
-export const validateSEOConfig = (config: SEOConfig): boolean => {
-  // Validate meta description length
-  if (config.description.length < 120 || config.description.length > 165) {
-    console.warn(`Meta description length issue: ${config.description.length} characters`);
-    return false;
-  }
-  
-  // Validate keywords count
-  const keywordCount = config.keywords.split(',').length;
-  if (keywordCount > 15) {
-    console.warn(`Too many keywords: ${keywordCount} keywords`);
-    return false;
-  }
-  
-  return true;
-};
-
-// 📊 ANALYTICS TRACKING
-export const trackSEOPerformance = (pageKey: string, config: SEOConfig) => {
-  // Add analytics tracking for SEO performance
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('event', 'seo_config_loaded', {
-      page_key: pageKey,
-      title_length: config.title.length,
-      description_length: config.description.length,
-      keywords_count: config.keywords.split(',').length
-    });
-  }
-};
-
-export default allSEOConfigs;
