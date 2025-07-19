@@ -8,6 +8,7 @@ import { useSEOWithKey, PAGE_KEYS } from '@/hooks/useSEO';
 import { handleAnchorClick } from '@/utils/scrollUtils';
 import { ReviewSection } from '@/components';
 import CalendlyButton from '@/components/common/CalendlyButton';
+import LazyImage from '@/components/common/LazyImage';
 
 const Home = () => {
   // 🎯 COMPREHENSIVE SEO IMPLEMENTATION - Enhanced meta descriptions and keywords
@@ -17,7 +18,7 @@ const Home = () => {
       <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <img 
+          <LazyImage
             src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" 
             alt="Professional SEO optimization workspace showing analytics dashboards and search engine results" 
             className="w-full h-full object-cover opacity-20"
@@ -27,10 +28,12 @@ const Home = () => {
         
         {/* Logo Watermark */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 opacity-5">
-          <img 
+          <LazyImage
             src="/lovable-uploads/a103d7ea-fa9e-4582-9d36-828eb4472ece.png" 
             alt="" 
             className="w-96 h-96 object-contain"
+            width={384}
+            height={384}
           />
         </div>
         

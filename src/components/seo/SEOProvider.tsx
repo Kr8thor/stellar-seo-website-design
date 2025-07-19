@@ -37,12 +37,10 @@ const SEOProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   // Use useCallback to prevent setSEO from changing on every render
   const setSEO = useCallback((data: SEOData) => {
-    setSeoData(prevData => {
-      // Only update if data is actually different to prevent unnecessary re-renders
-      const newData = { ...prevData, ...data };
-      const hasChanged = JSON.stringify(prevData) !== JSON.stringify(newData);
-      return hasChanged ? newData : prevData;
-    });
+    if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {
+      console.log('[SEO DEBUG] setSEO called with data:', data);
+    }
+    setSeoData({ ...data }); // Always replace state to force update
   }, []);
 
   const defaultTitle = "Marden SEO | Professional SEO Services & App Development | Expert Digital Marketing Solutions";

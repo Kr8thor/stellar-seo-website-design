@@ -32,7 +32,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
           <Link to="/" className="hover-underline text-sm uppercase tracking-wider">Home</Link>
           <Link to="/about" className="hover-underline text-sm uppercase tracking-wider">About</Link>
           <Link to="/services" className="hover-underline text-sm uppercase tracking-wider">Services</Link>
@@ -46,8 +46,15 @@ const Navbar = () => {
 
         <div className="flex items-center space-x-4">
           <CartIcon />
-          <Button variant="ghost" size="icon" className="md:hidden" onClick={toggleMenu}>
-            <Menu className="h-6 w-6" />
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="md:hidden" 
+            onClick={toggleMenu}
+            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isMenuOpen}
+          >
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>
 
@@ -63,7 +70,7 @@ const Navbar = () => {
                 <X className="h-6 w-6" />
               </Button>
             </div>
-            <nav className="flex flex-col space-y-8 items-center justify-center flex-1 bg-white">
+            <nav className="flex flex-col space-y-8 items-center justify-center flex-1 bg-white" role="navigation" aria-label="Mobile navigation">
               <Link to="/" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>Home</Link>
               <Link to="/about" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>About</Link>
               <Link to="/services" className="font-heading text-2xl text-gray-800" onClick={() => setIsMenuOpen(false)}>Services</Link>

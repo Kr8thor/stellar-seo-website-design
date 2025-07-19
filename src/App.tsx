@@ -19,72 +19,31 @@ import SecurityHeaders from "./components/security/SecurityHeaders";
 import SEOProvider from "./components/seo/SEOProvider";
 import { GoogleAnalytics } from "./components/Analytics";
 import { ClarityAnalytics } from "./components/Analytics/ClarityAnalytics";
+import { lazy, Suspense } from "react";
 import Home from "./pages/Home";
-import About from "./pages/About";
-import Services from "./pages/Services";
-import Portfolio from "./pages/Portfolio";
-import Blog from "./pages/Blog";
-import BlogPostDetail from "./pages/BlogPostDetail";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
-import AppBuilding from "./pages/AppBuilding";
-import CaseStudy from "./pages/CaseStudy";
-import WorkflowAutomation from "./pages/WorkflowAutomation";
 import WhatsAppButton from "./components/common/WhatsAppButton";
-import ServicesAndPricing from "./pages/ServicesAndPricing";
-import Admin from "./pages/Admin";
-import Cart from "./pages/Cart";
-import AnalyticsTest from "./pages/AnalyticsTest";
+import { usePerformanceMonitoring, trackPageLoad } from "./hooks/usePerformanceMonitoring";
+import ErrorBoundary from "./components/common/ErrorBoundary";
+import { LoadingSpinner } from "./components/common/SkeletonLoaders";
+import { monitorBundleSize } from "./utils/bundleAnalyzer";
 
-// Error Boundary Component
-interface ErrorBoundaryState {
-  hasError: boolean;
-  error: Error | null;
-}
+// Lazy load heavy pages for better performance
+const About = lazy(() => import("./pages/About"));
+const Services = lazy(() => import("./pages/Services"));
+const Portfolio = lazy(() => import("./pages/Portfolio"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPostDetail = lazy(() => import("./pages/BlogPostDetail"));
+const Contact = lazy(() => import("./pages/Contact"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const AppBuilding = lazy(() => import("./pages/AppBuilding"));
+const CaseStudy = lazy(() => import("./pages/CaseStudy"));
+const WorkflowAutomation = lazy(() => import("./pages/WorkflowAutomation"));
+const ServicesAndPricing = lazy(() => import("./pages/ServicesAndPricing"));
+const Admin = lazy(() => import("./pages/Admin"));
+const Cart = lazy(() => import("./pages/Cart"));
+const AnalyticsTest = lazy(() => import("./pages/AnalyticsTest"));
 
-interface ErrorBoundaryProps {
-  children: React.ReactNode;
-}
-
-class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
-  constructor(props: ErrorBoundaryProps) {
-    super(props);
-    this.state = { hasError: false, error: null };
-  }
-
-  static getDerivedStateFromError(error: Error): ErrorBoundaryState {
-    return { hasError: true, error };
-  }
-
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-    console.error('App Error Boundary caught an error:', error, errorInfo);
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
-          <div className="text-center p-8">
-            <h1 className="text-2xl font-bold text-gray-900 mb-4">
-              Something went wrong
-            </h1>
-            <p className="text-gray-600 mb-6">
-              We're experiencing technical difficulties. Please try refreshing the page.
-            </p>
-            <button
-              onClick={() => window.location.reload()}
-              className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/90"
-            >
-              Refresh Page
-            </button>
-          </div>
-        </div>
-      );
-    }
-
-    return this.props.children;
-  }
-}
+// Removed old ErrorBoundary component - now using enhanced version from components
 
 // Query Client Setup
 const queryClient = new QueryClient({
@@ -99,7 +58,17 @@ const queryClient = new QueryClient({
 });
 
 // App Component - removed duplicate React.StrictMode
-const App = () => (
+const App = () => {
+  // Initialize performance monitoring
+  usePerformanceMonitoring();
+  
+  // Track page load performance and monitor bundle size
+  React.useEffect(() => {
+    trackPageLoad();
+    monitorBundleSize();
+  }, []);
+
+  return (
   <ErrorBoundary>
     <HelmetProvider>
       <SecurityHeaders />
@@ -120,26 +89,33 @@ const App = () => (
                   <GoogleAnalytics />
                   <ClarityAnalytics />
                   <div className="flex flex-col min-h-screen">
+                    <a href="#main-content" className="skip-link">
+                      Skip to main content
+                    </a>
                     <Navbar />
-                    <div className="flex-grow">
-                      <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/about" element={<About />} />
-                        <Route path="/services" element={<Services />} />
-                        <Route path="/services-pricing" element={<ServicesAndPricing />} />
-                        <Route path="/portfolio" element={<Portfolio />} />
-                        <Route path="/blog" element={<Blog />} />
-                        <Route path="/blog/:id" element={<BlogPostDetail />} />
-                        <Route path="/contact" element={<Contact />} />
-                        <Route path="/app-building" element={<AppBuilding />} />
-                        <Route path="/case-study/:id" element={<CaseStudy />} />
-                        <Route path="/workflow-automation" element={<WorkflowAutomation />} />
-                        <Route path="/admin" element={<Admin />} />
-                        <Route path="/cart" element={<Cart />} />
-                        <Route path="/analytics-test" element={<AnalyticsTest />} />
-                        <Route path="*" element={<NotFound />} />
-                      </Routes>
-                    </div>
+                    <main id="main-content" className="flex-grow">
+                      <ErrorBoundary>
+                        <Suspense fallback={<LoadingSpinner text="Loading page..." />}>
+                          <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/about" element={<ErrorBoundary><About /></ErrorBoundary>} />
+                            <Route path="/services" element={<ErrorBoundary><Services /></ErrorBoundary>} />
+                            <Route path="/services-pricing" element={<ErrorBoundary><ServicesAndPricing /></ErrorBoundary>} />
+                            <Route path="/portfolio" element={<ErrorBoundary><Portfolio /></ErrorBoundary>} />
+                            <Route path="/blog" element={<ErrorBoundary><Blog /></ErrorBoundary>} />
+                            <Route path="/blog/:id" element={<ErrorBoundary><BlogPostDetail /></ErrorBoundary>} />
+                            <Route path="/contact" element={<ErrorBoundary><Contact /></ErrorBoundary>} />
+                            <Route path="/app-building" element={<ErrorBoundary><AppBuilding /></ErrorBoundary>} />
+                            <Route path="/case-study/:id" element={<ErrorBoundary><CaseStudy /></ErrorBoundary>} />
+                            <Route path="/workflow-automation" element={<ErrorBoundary><WorkflowAutomation /></ErrorBoundary>} />
+                            <Route path="/admin" element={<ErrorBoundary><Admin /></ErrorBoundary>} />
+                            <Route path="/cart" element={<ErrorBoundary><Cart /></ErrorBoundary>} />
+                            <Route path="/analytics-test" element={<ErrorBoundary><AnalyticsTest /></ErrorBoundary>} />
+                            <Route path="*" element={<NotFound />} />
+                          </Routes>
+                        </Suspense>
+                      </ErrorBoundary>
+                    </main>
                     <Footer />
                     <WhatsAppButton />
                   </div>
@@ -152,6 +128,7 @@ const App = () => (
     </SEOProvider>
   </HelmetProvider>
   </ErrorBoundary>
-);
+  );
+};
 
 export default App;

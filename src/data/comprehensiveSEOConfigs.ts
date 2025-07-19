@@ -23,8 +23,8 @@ export const comprehensiveSEOConfigs: Record<string, SEOConfig> = {
   // 🏠 HOMEPAGE - Brand Authority & Core Services
   home: {
     title: "Marden SEO - Expert SEO Services & App Development | Professional Digital Marketing",
-    description: "Get expert SEO services that boost organic traffic and rankings. Marden SEO delivers proven strategies for businesses ready to dominate search results.",
-    keywords: "Marden SEO, SEO services, search engine optimization, app development, n8n automation, React development, digital marketing, web development, SEO consultant, professional SEO, organic traffic, search rankings",
+    description: "Get expert SEO services, custom app development, and digital marketing solutions from Marden SEO. Boost your online presence and grow your business.",
+    keywords: "SEO services, app development, digital marketing, Marden SEO, online growth, search engine optimization",
     type: "website",
     image: "https://mardenseo.com/opengraph-image.png"
   },
@@ -32,8 +32,8 @@ export const comprehensiveSEOConfigs: Record<string, SEOConfig> = {
   // 👥 ABOUT PAGE - Team Expertise & Credibility
   about: {
     title: "About Marden SEO | Expert SEO & Development Team | Professional Background",
-    description: "Meet the SEO expert behind Marden SEO. Learn about proven experience in search engine optimization, app development, and digital marketing success stories.",
-    keywords: "SEO expert, app developer, digital marketing team, SEO consultant, web development team, professional experience, SEO specialist, development expertise, client success stories",
+    description: "Learn about Marden SEO, our expert team, and our mission to deliver outstanding SEO and digital marketing results. Discover our experience and values.",
+    keywords: "about Marden SEO, SEO team, digital marketing experts, company mission, SEO agency",
     type: "website",
     author: "Marden SEO Team"
   },
@@ -41,8 +41,8 @@ export const comprehensiveSEOConfigs: Record<string, SEOConfig> = {
   // 🛠️ SERVICES PAGE - Core Service Offerings
   services: {
     title: "Professional SEO & App Development Services | Marden SEO | Proven Results",
-    description: "Discover comprehensive SEO services including technical optimization, content strategy, and link building. Proven results for businesses seeking higher rankings.",
-    keywords: "SEO services, technical SEO, app development, React development, n8n automation, content optimization, link building, digital transformation, SEO packages, professional services",
+    description: "Discover our full range of SEO, app development, and digital marketing services. Tailored solutions to improve rankings, traffic, and conversions for all businesses.",
+    keywords: "SEO services, app development, digital marketing, business solutions, Marden SEO, professional services",
     type: "service",
     image: "https://mardenseo.com/opengraph-image.png"
   },
@@ -58,27 +58,27 @@ export const comprehensiveSEOConfigs: Record<string, SEOConfig> = {
 
   // 📱 APP BUILDING PAGE - Custom Development Services
   appBuilding: {
-    title: "Custom App Development | React & Modern Solutions | Marden SEO",
-    description: "Professional custom application development using React, modern frameworks, and cutting-edge technologies. Scalable solutions for your business needs and growth.",
-    keywords: "custom app development, React development, web applications, mobile-first development, modern web apps, JavaScript development, frontend development, scalable applications, custom solutions",
-    type: "service",
+    title: "App Building | Custom App Development Services | Marden SEO",
+    description: "Custom app development services from Marden SEO. Build scalable, modern applications tailored to your business needs, with expert guidance from our experienced development team.",
+    keywords: "app development, custom apps, software development, business applications, Marden SEO, scalable solutions",
+    type: "website",
     image: "https://mardenseo.com/opengraph-image.png"
   },
 
   // 🔄 WORKFLOW AUTOMATION PAGE - n8n & Process Optimization
   workflowAutomation: {
-    title: "Workflow Automation Services | n8n & Custom Solutions | Marden SEO",
-    description: "Streamline your business processes with custom workflow automation using n8n, Zapier alternatives, and bespoke solutions. Increase efficiency and reduce manual work.",
-    keywords: "workflow automation, n8n automation, business process automation, custom automation, Zapier alternative, process optimization, workflow integration, business efficiency, automated workflows",
-    type: "service",
+    title: "Workflow Automation | Business Process Automation | Marden SEO",
+    description: "Automate your business processes with Marden SEO’s workflow automation services. Increase efficiency, reduce manual work, and streamline operations with custom automation solutions.",
+    keywords: "workflow automation, business automation, process automation, n8n, efficiency, digital transformation",
+    type: "website",
     image: "https://mardenseo.com/opengraph-image.png"
   },
 
   // 🎯 PORTFOLIO PAGE - Case Studies & Results
   portfolio: {
     title: "Portfolio & Case Studies | Proven SEO Results | Client Success Stories",
-    description: "Explore successful SEO campaigns and app development projects. Real results, measurable improvements, and satisfied clients across various industries.",
-    keywords: "SEO portfolio, case studies, SEO results, client success stories, proven SEO campaigns, app development portfolio, client testimonials, video reviews, project results, industry experience",
+    description: "Explore our portfolio of successful SEO campaigns and app development projects. Discover real client results, measurable improvements, and proven strategies that drive business growth.",
+    keywords: "SEO portfolio, client results, case studies, app development, digital marketing, project success",
     type: "website",
     image: "https://mardenseo.com/opengraph-image.png"
   },
@@ -86,8 +86,8 @@ export const comprehensiveSEOConfigs: Record<string, SEOConfig> = {
   // 📞 CONTACT PAGE - Conversion-Focused
   contact: {
     title: "Contact Marden SEO | Get Your Free SEO Consultation | Professional Services",
-    description: "Ready to boost your online presence? Contact Marden SEO for a free consultation. Get expert SEO and app development services tailored to your business needs.",
-    keywords: "SEO consultation, contact SEO expert, SEO services quote, app development consultation, free consultation, professional SEO, business consultation, digital marketing consultation",
+    description: "Contact Marden SEO for a free consultation or to learn more about our SEO and app development services. We’re here to help your business grow with expert advice and tailored solutions.",
+    keywords: "contact Marden SEO, SEO consultation, app development inquiry, digital marketing contact, business growth",
     type: "website",
     image: "https://mardenseo.com/opengraph-image.png"
   },
@@ -297,7 +297,8 @@ export const allSEOConfigs = {
 
 // 🔍 HELPER FUNCTIONS
 export const getSEOConfig = (pageKey: string): SEOConfig => {
-  return allSEOConfigs[pageKey] || comprehensiveSEOConfigs.notFound;
+  const config = allSEOConfigs[pageKey] || comprehensiveSEOConfigs.notFound;
+  return config;
 };
 
 export const validateSEOConfig = (config: SEOConfig): boolean => {

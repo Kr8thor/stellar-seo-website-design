@@ -1,74 +1,103 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 interface LazyImageProps {
   src: string;
   alt: string;
-  placeholder?: string;
   className?: string;
-  loading?: 'lazy' | 'eager';
+  placeholder?: string;
+  width?: number;
+  height?: number;
   onLoad?: () => void;
+  onError?: () => void;
 }
 
-export const LazyImage: React.FC<LazyImageProps> = ({
+const LazyImage: React.FC<LazyImageProps> = ({
   src,
   alt,
-  placeholder = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlMGUwZTAiLz48L3N2Zz4=',
   className = '',
-  loading = 'lazy',
-  onLoad
+  placeholder = '/placeholder-image.jpg',
+  width,
+  height,
+  onLoad,
+  onError
 }) => {
-  const [imageSrc, setImageSrc] = useState(placeholder);
-  const [imageRef, setImageRef] = useState<HTMLImageElement | null>(null);
-  const [isIntersecting, setIsIntersecting] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const [hasError, setHasError] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    if (!imageRef || loading === 'eager') {
-      setImageSrc(src);
-      return;
-    }
-
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsIntersecting(true);
-            observer.disconnect();
-          }
-        });
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
       },
-      {
-        rootMargin: '50px 0px',
-        threshold: 0.01
-      }
+      { threshold: 0.1 }
     );
 
-    if (imageRef) {
-      observer.observe(imageRef);
+    if (imgRef.current) {
+      observer.observe(imgRef.current);
     }
 
-    return () => {
-      observer.disconnect();
-    };
-  }, [imageRef, src, loading]);
+    return () => observer.disconnect();
+  }, []);
 
-  useEffect(() => {
-    if (isIntersecting && imageSrc === placeholder) {
-      const img = new Image();
-      img.src = src;
-      img.onload = () => {
-        setImageSrc(src);
-        if (onLoad) onLoad();
-      };
-    }
-  }, [isIntersecting, src, imageSrc, placeholder, onLoad]);
+  const handleLoad = () => {
+    setIsLoaded(true);
+    onLoad?.();
+  };
+
+  const handleError = () => {
+    setHasError(true);
+    onError?.();
+  };
 
   return (
-    <img
-      ref={setImageRef}
-      src={imageSrc}
-      alt={alt}
-      className={`${className} ${imageSrc === placeholder ? 'blur-sm' : ''} transition-all duration-300`}
-      loading={loading}
-    />
+    <div className={`relative overflow-hidden ${className}`}>
+      {/* Placeholder while loading */}
+      {!isLoaded && !hasError && (
+        <div 
+          className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center"
+          style={{ width, height }}
+        >
+          <div className="text-gray-400 text-sm">Loading...</div>
+        </div>
+      )}
+      
+      {/* Main image */}
+      <img
+        ref={imgRef}
+        src={isInView ? src : placeholder}
+        alt={alt}
+        className={`transition-opacity duration-300 ${
+          isLoaded ? 'opacity-100' : 'opacity-0'
+        } ${className}`}
+        width={width}
+        height={height}
+        loading="lazy"
+        onLoad={handleLoad}
+        onError={handleError}
+        style={{
+          aspectRatio: width && height ? `${width}/${height}` : undefined
+        }}
+      />
+      
+      {/* Error state */}
+      {hasError && (
+        <div 
+          className="absolute inset-0 bg-gray-100 flex items-center justify-center text-gray-500"
+          style={{ width, height }}
+        >
+          <div className="text-center">
+            <div className="text-2xl mb-2">📷</div>
+            <div className="text-sm">Image failed to load</div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
+
+export default LazyImage;
