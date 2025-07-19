@@ -411,8 +411,30 @@ function generateNavigation() {
   `
 }
 
+// Get the actual built asset filenames
+async function getBuiltAssets() {
+  try {
+    const assetsDir = path.join(__dirname, 'dist', 'assets')
+    const files = await fs.readdir(assetsDir)
+    
+    const jsFile = files.find(file => file.startsWith('index-') && file.endsWith('.js'))
+    const cssFile = files.find(file => file.startsWith('index-') && file.endsWith('.css'))
+    
+    return {
+      js: jsFile ? `/assets/${jsFile}` : '/assets/index.js',
+      css: cssFile ? `/assets/${cssFile}` : '/assets/index.css'
+    }
+  } catch (error) {
+    console.warn('Could not read assets directory, using fallback names')
+    return {
+      js: '/assets/index.js',
+      css: '/assets/index.css'
+    }
+  }
+}
+
 // Generate the HTML template for a route
-function generateRouteHTML(route, meta) {
+async function generateRouteHTML(route, meta, assets) {
   const crawlableContent = generateCrawlableContent(route, meta)
   const crawlableNavigation = generateNavigation()
   
@@ -493,6 +515,7 @@ function generateRouteHTML(route, meta) {
   <!-- Preload critical resources -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://images.unsplash.com">
+  ${assets.css ? `<link rel="stylesheet" href="${assets.css}">` : ''}
 </head>
 <body class="min-h-screen bg-background font-sans antialiased">
   ${crawlableNavigation}
@@ -500,7 +523,7 @@ function generateRouteHTML(route, meta) {
   <div id="root"></div>
   
   <!-- React hydration will happen here -->
-  <script type="module" crossorigin src="/assets/index.js"></script>
+  ${assets.js ? `<script type="module" crossorigin src="${assets.js}"></script>` : ''}
 </body>
 </html>`
 }
@@ -515,6 +538,11 @@ async function buildSSG() {
     await execPromise('npm run build')
     console.log('✅ React build completed')
     
+    // Step 1.5: Get the actual built asset filenames
+    console.log('🔍 Detecting built asset filenames...')
+    const assets = await getBuiltAssets()
+    console.log(`✅ Found assets: JS=${assets.js}, CSS=${assets.css}`)
+    
     // Step 2: Generate static HTML files for each route
     console.log('🔄 Generating static HTML files...')
     
@@ -525,7 +553,7 @@ async function buildSSG() {
         continue
       }
       
-      const html = generateRouteHTML(route, meta)
+      const html = await generateRouteHTML(route, meta, assets)
       
       // Determine the output path
       let outputPath
