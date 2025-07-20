@@ -1,0 +1,252 @@
+# 🚀 MARDEN SEO WEBSITE - PRODUCTION .HTACCESS
+# Professional configuration for React SPA + SEO optimization
+# Updated: July 2025
+
+# =============================================================================
+# HTTPS & SECURITY CONFIGURATION
+# =============================================================================
+
+# Force HTTPS redirect (production security)
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Security headers
+<IfModule mod_headers.c>
+    # Prevent clickjacking
+    Header always append X-Frame-Options SAMEORIGIN
+    
+    # XSS protection
+    Header set X-XSS-Protection "1; mode=block"
+    
+    # Content type sniffing protection
+    Header set X-Content-Type-Options nosniff
+    
+    # Referrer policy
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Content Security Policy (CSP) - Relaxed for React
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' *.googleapis.com *.gstatic.com *.google-analytics.com *.googletagmanager.com; style-src 'self' 'unsafe-inline' *.googleapis.com fonts.googleapis.com; font-src 'self' *.gstatic.com fonts.gstatic.com; img-src 'self' data: *.unsplash.com *.google-analytics.com *.googletagmanager.com; connect-src 'self' *.googleapis.com *.google-analytics.com *.googletagmanager.com; frame-src 'self' *.google.com"
+</IfModule>
+
+# =============================================================================
+# REACT SPA ROUTING CONFIGURATION
+# =============================================================================
+
+# Handle React Router routes - redirect all non-file requests to index.html
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Handle Angular and React Router - serve index.html for non-file requests
+    RewriteBase /
+    
+    # Exclude API endpoints and admin routes from SPA routing
+    RewriteCond %{REQUEST_URI} !^/api/
+    RewriteCond %{REQUEST_URI} !^/admin/
+    RewriteCond %{REQUEST_URI} !^/cpanel/
+    RewriteCond %{REQUEST_URI} !^/_/
+    
+    # Don't rewrite if file or directory exists
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    
+    # Don't rewrite for certain file extensions
+    RewriteCond %{REQUEST_URI} !\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot|pdf|zip|mp4|webm|ogg|mp3|wav|flac|aac|xml|txt|json)$
+    
+    # Serve index.html for all other requests (React Router)
+    RewriteRule . /index.html [L]
+</IfModule>
+
+# =============================================================================
+# SEO OPTIMIZATION
+# =============================================================================
+
+# Canonical domain redirect (ensure consistent domain)
+<IfModule mod_rewrite.c>
+    # Redirect www to non-www (choose one based on your preference)
+    RewriteCond %{HTTP_HOST} ^www\.mardenseo\.com [NC]
+    RewriteRule ^(.*)$ https://mardenseo.com/$1 [R=301,L]
+</IfModule>
+
+# Clean URLs - remove trailing slashes for consistency
+<IfModule mod_rewrite.c>
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^(.+)/$ /$1 [R=301,L]
+</IfModule>
+
+# =============================================================================
+# CACHING & PERFORMANCE
+# =============================================================================
+
+# Set expires headers for better caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # HTML files - short cache (for dynamic content)
+    ExpiresByType text/html "access plus 1 hour"
+    
+    # CSS and JavaScript - longer cache
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    
+    # Images - long cache
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/avif "access plus 1 year"
+    
+    # Fonts - long cache
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    
+    # Other assets
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType video/mp4 "access plus 1 month"
+    ExpiresByType audio/mpeg "access plus 1 month"
+    
+    # SEO files - moderate cache
+    ExpiresByType application/xml "access plus 1 day"
+    ExpiresByType text/xml "access plus 1 day"
+</IfModule>
+
+# Enable GZIP compression for better performance
+<IfModule mod_deflate.c>
+    # Compress HTML, CSS, JavaScript, Text, XML, JSON
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/ld+json
+    
+    # Remove browser bugs (only for old IE)
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+    Header append Vary User-Agent
+</IfModule>
+
+# =============================================================================
+# SEO FRIENDLY FILE ACCESS
+# =============================================================================
+
+# Ensure robots.txt and sitemap.xml are accessible
+<Files "robots.txt">
+    Allow from all
+    Header set Content-Type "text/plain"
+</Files>
+
+<Files "sitemap.xml">
+    Allow from all
+    Header set Content-Type "application/xml"
+</Files>
+
+# Ensure manifest and favicon are accessible
+<Files "site.webmanifest">
+    Allow from all
+    Header set Content-Type "application/manifest+json"
+</Files>
+
+<Files "favicon.ico">
+    Allow from all
+    Header set Content-Type "image/x-icon"
+</Files>
+
+# =============================================================================
+# SECURITY RESTRICTIONS
+# =============================================================================
+
+# Protect sensitive files
+<Files ~ "\.(env|log|ini|conf|bak|backup|old)$">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Protect system files
+<Files ~ "^(\.htaccess|\.htpasswd|\.git|\.gitignore|package\.json|node_modules)">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Prevent access to development and build files
+<FilesMatch "\.(md|json|lock|yml|yaml|config\.(js|ts))$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# =============================================================================
+# ERROR PAGES
+# =============================================================================
+
+# Custom error pages (optional - React will handle these)
+ErrorDocument 404 /index.html
+ErrorDocument 500 /index.html
+
+# =============================================================================
+# MIME TYPES
+# =============================================================================
+
+<IfModule mod_mime.c>
+    # JavaScript
+    AddType application/javascript .js
+    AddType application/javascript .mjs
+    
+    # CSS
+    AddType text/css .css
+    
+    # JSON
+    AddType application/json .json
+    AddType application/ld+json .jsonld
+    
+    # Web fonts
+    AddType font/woff .woff
+    AddType font/woff2 .woff2
+    AddType application/font-woff .woff
+    AddType application/font-woff2 .woff2
+    
+    # Images
+    AddType image/svg+xml .svg
+    AddType image/webp .webp
+    AddType image/avif .avif
+    
+    # Videos
+    AddType video/mp4 .mp4
+    AddType video/webm .webm
+    
+    # Audio
+    AddType audio/mp3 .mp3
+    AddType audio/mpeg .mp3
+    AddType audio/ogg .ogg
+    AddType audio/wav .wav
+    
+    # Documents
+    AddType application/pdf .pdf
+    
+    # Web manifest
+    AddType application/manifest+json .webmanifest
+</IfModule>
+
+# =============================================================================
+# END CONFIGURATION
+# =============================================================================
+
+# This .htaccess configuration provides:
+# ✅ HTTPS enforcement
+# ✅ React SPA routing support
+# ✅ SEO optimization
+# ✅ Security headers
+# ✅ Performance optimization
+# ✅ File protection
+# ✅ Proper MIME types
