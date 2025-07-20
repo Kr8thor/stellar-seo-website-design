@@ -9,7 +9,7 @@
   <!-- Homepage - Highest Priority -->
   <url>
     <loc>https://mardenseo.com/</loc>
-    <lastmod>2025-07-14</lastmod>
+    <lastmod>2025-07-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -17,21 +17,28 @@
   <!-- Core Business Pages - High Priority -->
   <url>
     <loc>https://mardenseo.com/services</loc>
-    <lastmod>2025-07-14</lastmod>
+    <lastmod>2025-07-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
+    <loc>https://mardenseo.com/services-pricing</loc>
+    <lastmod>2025-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://mardenseo.com/about</loc>
-    <lastmod>2025-07-14</lastmod>
+    <lastmod>2025-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mardenseo.com/contact</loc>
-    <lastmod>2025-07-14</lastmod>
+    <lastmod>2025-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -39,14 +46,14 @@
   <!-- Service Pages - High Priority -->
   <url>
     <loc>https://mardenseo.com/app-building</loc>
-    <lastmod>2025-07-14</lastmod>
+    <lastmod>2025-07-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mardenseo.com/workflow-automation</loc>
-    <lastmod>2025-07-14</lastmod>
+    <lastmod>2025-07-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -54,88 +61,80 @@
   <!-- Portfolio and Content Pages -->
   <url>
     <loc>https://mardenseo.com/portfolio</loc>
-    <lastmod>2025-07-14</lastmod>
+    <lastmod>2025-07-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mardenseo.com/blog</loc>
-    <lastmod>2025-07-14</lastmod>
+    <lastmod>2025-07-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Real Blog Posts with Actual IDs -->
+  <!-- Blog Posts - SEO Content -->
   <url>
     <loc>https://mardenseo.com/blog/1</loc>
-    <lastmod>2025-07-14</lastmod>
+    <lastmod>2025-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://mardenseo.com/blog/2</loc>
-    <lastmod>2025-07-14</lastmod>
+    <lastmod>2025-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://mardenseo.com/blog/3</loc>
-    <lastmod>2025-07-14</lastmod>
+    <lastmod>2025-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://mardenseo.com/blog/4</loc>
-    <lastmod>2025-07-14</lastmod>
+    <lastmod>2025-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://mardenseo.com/blog/5</loc>
-    <lastmod>2025-07-14</lastmod>
+    <lastmod>2025-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://mardenseo.com/blog/6</loc>
-    <lastmod>2025-07-14</lastmod>
+    <lastmod>2025-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://mardenseo.com/blog/7</loc>
-    <lastmod>2025-07-14</lastmod>
+    <lastmod>2025-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://mardenseo.com/blog/8</loc>
-    <lastmod>2025-07-14</lastmod>
+    <lastmod>2025-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://mardenseo.com/blog/9</loc>
-    <lastmod>2025-07-14</lastmod>
+    <lastmod>2025-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-  </url>
-
-  <!-- Additional Services -->
-  <url>
-    <loc>https://mardenseo.com/services-pricing</loc>
-    <lastmod>2025-07-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
   </url>
 
 </urlset>
