@@ -55,18 +55,37 @@ jobs:
         npm ci --prefer-offline --no-audit
         echo "✅ Dependencies installed successfully"
     
-    - name: 🏗️ Build production bundle
+    - name: 🏗️ Build production bundle with integrated SSG
       run: |
-        echo "🔨 Building production bundle..."
-        NODE_ENV=production npm run build
-        echo "✅ Build completed!"
+        echo "🔨 Building integrated SSG production bundle..."
+        NODE_ENV=production npm run build:integrated
+        echo "✅ Integrated SSG build completed!"
         
         # Verify critical files exist
-        echo "🔍 Verifying build output..."
+        echo "🔍 Verifying comprehensive SSG build output..."
         test -f dist/index.html && echo "✅ index.html generated" || (echo "❌ index.html missing" && exit 1)
         test -d dist/assets && echo "✅ assets folder generated" || (echo "❌ assets folder missing" && exit 1)
         test -f dist/sitemap.xml && echo "✅ sitemap.xml found" || echo "⚠️ sitemap.xml missing"
         test -f dist/robots.txt && echo "✅ robots.txt found" || echo "⚠️ robots.txt missing"
+        
+        # Verify static HTML pages exist
+        echo "🔍 Verifying static HTML page generation..."
+        test -f dist/about/index.html && echo "✅ About page generated" || echo "⚠️ About page missing"
+        test -f dist/services/index.html && echo "✅ Services page generated" || echo "⚠️ Services page missing"
+        test -f dist/services-pricing/index.html && echo "✅ Pricing page generated" || echo "⚠️ Pricing page missing"
+        test -f dist/contact/index.html && echo "✅ Contact page generated" || echo "⚠️ Contact page missing"
+        test -f dist/blog/index.html && echo "✅ Blog listing generated" || echo "⚠️ Blog listing missing"
+        
+        # Count blog posts generated
+        BLOG_COUNT=$(find dist/blog -name "index.html" 2>/dev/null | wc -l)
+        echo "📝 Blog posts generated: $BLOG_COUNT"
+        
+        # Verify content quality (should have actual content, not just React shell)
+        if grep -q "<h1>" dist/index.html; then
+          echo "✅ Home page has pre-rendered content"
+        else
+          echo "⚠️ Home page appears to be empty React shell"
+        fi
         
         # Verify sitemap is clean (no script tags)
         if grep -q "<script" dist/sitemap.xml 2>/dev/null; then
