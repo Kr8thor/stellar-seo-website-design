@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, BarChart3, Search, Zap, Award, Globe2, Users, FileSearch, TrendingUp, CheckCircle, Calendar, Gift, Clock, Workflow } from 'lucide-react';
+import { ArrowRight, BarChart3, Search, Zap, Award, Globe2, Users, FileSearch, TrendingUp, CheckCircle, Workflow } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useSEO, getEnhancedSEOConfig } from '@/hooks/useSEO';
@@ -141,12 +141,9 @@ const Home = () => {
         
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="text-center mb-10">
-            <span className="px-4 py-1.5 rounded-full text-sm font-medium bg-gradient-to-r from-purple-600 to-pink-600 text-white inline-block mb-4 animate-pulse">
-              Limited Time Opportunity
-            </span>
-            <h2 className="heading-lg font-bold text-gradient-purple mb-2">Free Complete SEO Audit</h2>
+            <h2 className="heading-lg font-bold text-gradient-purple mb-2">Free SEO Analysis</h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Discover what's holding your website back from ranking higher and converting better.
+              Get a comprehensive analysis of your website's SEO performance and discover opportunities to improve your search rankings.
             </p>
           </div>
           
@@ -159,51 +156,34 @@ const Home = () => {
                   {/* Left Column */}
                   <div className="lg:w-1/2 p-8 md:p-12">
                     <div className="flex items-center gap-4 mb-8">
-                      <div className="bg-gradient-to-br from-purple-600 to-pink-600 text-white p-3 rounded-xl shadow-lg">
-                        <Gift className="h-8 w-8" />
+                      <div className="bg-gradient-to-br from-blue-600 to-purple-600 text-white p-3 rounded-xl shadow-lg">
+                        <Search className="h-8 w-8" />
                       </div>
                       <div>
-                        <h3 className="text-2xl font-bold text-gray-800">Exclusive Offer</h3>
-                        <p className="text-gray-600">For business owners serious about growth</p>
+                        <h3 className="text-2xl font-bold text-gray-800">Professional SEO Analysis</h3>
+                        <p className="text-gray-600">Comprehensive website evaluation and strategy recommendations</p>
                       </div>
                     </div>
                     
                     <div className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-4">
                       {["Technical Analysis", "Keyword Opportunities", "Competitor Strategy", "Content Assessment", "Page Speed Insights", "Mobile Optimization"].map((item, idx) => <div key={idx} className="flex items-center gap-2 group">
-                          <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-1 rounded-full group-hover:scale-110 transition-all duration-300">
+                          <div className="bg-gradient-to-r from-blue-500 to-purple-500 p-1 rounded-full group-hover:scale-110 transition-all duration-300">
                             <CheckCircle className="h-5 w-5 text-white" />
                           </div>
                           <span className="text-gray-700 font-medium">{item}</span>
                         </div>)}
                     </div>
                     
-                    <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-5 rounded-lg mb-6 border border-purple-200">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="flex items-center gap-2">
-                          <Calendar className="h-5 w-5 text-purple-600" />
-                          <span className="font-medium text-gray-700">Launch Date:</span>
-                        </span>
-                        <span className="font-semibold text-purple-800">June 1st, 2025</span>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span className="flex items-center gap-2">
-                          <Clock className="h-5 w-5 text-purple-600" />
-                          <span className="font-medium text-gray-700">Status:</span>
-                        </span>
-                        <span className="font-semibold animate-pulse text-pink-600">Only 50 Spots Left</span>
-                      </div>
-                    </div>
-                    
-                    <Button asChild size="lg" className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium py-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <Button asChild size="lg" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group">
                       <a href="/contact" onClick={(e) => handleAnchorClick('/contact#top', e)}>
-                        Reserve Your Free Audit Now
+                        Get Your Free SEO Analysis
                         <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                       </a>
                     </Button>
                   </div>
                   
                   {/* Right Column */}
-                  <div className="lg:w-1/2 bg-gradient-to-br from-purple-50 to-pink-50 p-8 md:p-12 relative">
+                  <div className="lg:w-1/2 bg-gradient-to-br from-blue-50 to-purple-50 p-8 md:p-12 relative">
                     {/* Trust signal logo */}
                     <div className="absolute top-6 right-6 opacity-20">
                       <img 
@@ -213,13 +193,13 @@ const Home = () => {
                       />
                     </div>
                     
-                    <div className="bg-white/70 backdrop-blur-sm border border-purple-100 p-6 rounded-lg shadow-lg">
-                      <h3 className="text-2xl font-bold mb-6 text-gray-800 border-b border-purple-100 pb-4">
+                    <div className="bg-white/70 backdrop-blur-sm border border-blue-100 p-6 rounded-lg shadow-lg">
+                      <h3 className="text-2xl font-bold mb-6 text-gray-800 border-b border-blue-100 pb-4">
                         What You'll Receive:
                       </h3>
                       <ul className="space-y-6">
                         <li className="flex items-start gap-4">
-                          <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-3 rounded-full flex-shrink-0 shadow-md">
+                          <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-3 rounded-full flex-shrink-0 shadow-md">
                             <Search className="h-5 w-5 text-white" />
                           </div>
                           <div>
@@ -228,7 +208,7 @@ const Home = () => {
                           </div>
                         </li>
                         <li className="flex items-start gap-4">
-                          <div className="bg-gradient-to-r from-pink-600 to-amber-500 p-3 rounded-full flex-shrink-0 shadow-md">
+                          <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-3 rounded-full flex-shrink-0 shadow-md">
                             <BarChart3 className="h-5 w-5 text-white" />
                           </div>
                           <div>
@@ -237,7 +217,7 @@ const Home = () => {
                           </div>
                         </li>
                         <li className="flex items-start gap-4">
-                          <div className="bg-gradient-to-r from-amber-500 to-purple-600 p-3 rounded-full flex-shrink-0 shadow-md">
+                          <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-3 rounded-full flex-shrink-0 shadow-md">
                             <Zap className="h-5 w-5 text-white" />
                           </div>
                           <div>
