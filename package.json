@@ -26,6 +26,7 @@
     "test:complete": "npm run build:complete && npx serve dist -p 8088",
     "fix:seo": "node fix-seo-complete.mjs",
     "fix:canonicalization": "node fix-seo-no-canonicalization.mjs",
+    "fix:htaccess": "node fix-htaccess-canonicalization.mjs",
     "verify:seo": "node verify-seo-health.mjs",
     "create:missing": "node create-missing-pages.mjs",
     "generate:missing": "node generate-missing-pages.mjs",
