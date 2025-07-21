@@ -10,10 +10,16 @@
     <loc>https://mardenseo.com/about</loc>
     <lastmod>2025-07-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://mardenseo.com/services</loc>
+    <lastmod>2025-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://mardenseo.com/services-pricing</loc>
     <lastmod>2025-07-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -27,7 +33,7 @@
   <url>
     <loc>https://mardenseo.com/portfolio</loc>
     <lastmod>2025-07-21</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
@@ -45,7 +51,25 @@
   <url>
     <loc>https://mardenseo.com/blog</loc>
     <lastmod>2025-07-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mardenseo.com/blog/local-seo-2025</loc>
+    <lastmod>2025-07-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mardenseo.com/blog/ai-midlife-crisis</loc>
+    <lastmod>2025-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mardenseo.com/blog/on-page-seo-tactics-2025</loc>
+    <lastmod>2025-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
