@@ -22,6 +22,8 @@
     "test:ssg": "npm run build:ssg && npx serve dist -p 8096",
     "test:integrated": "npm run build:integrated && npx serve dist -p 8095",
     "test:comprehensive": "npm run build:comprehensive && npx serve dist -p 8099",
+    "test:local-canonicals": "npm run build:comprehensive && node fix-local-canonicals.mjs local && npx serve dist -p 57368",
+    "restore:production-canonicals": "node fix-local-canonicals.mjs production",
     "test:working": "npm run build:working && npx serve dist -p 8098",
     "test:complete": "npm run build:complete && npx serve dist -p 8088",
     "fix:seo": "node fix-seo-complete.mjs",
