@@ -2,7 +2,9 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/marddium/public_html/
+    - /bin/rm -rf $DEPLOYPATH/*
     - /bin/cp -R dist/* $DEPLOYPATH
-    - /bin/cp dist/.htaccess $DEPLOYPATH
+    - if [ -f "dist/.htaccess" ]; then /bin/cp dist/.htaccess $DEPLOYPATH; fi
     - /bin/find $DEPLOYPATH -type d -exec chmod 755 {} \;
     - /bin/find $DEPLOYPATH -type f -exec chmod 644 {} \;
+    - /bin/chmod 644 $DEPLOYPATH/.htaccess
