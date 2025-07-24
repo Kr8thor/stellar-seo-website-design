@@ -38,6 +38,14 @@ export default defineConfig(({ mode }) => ({
     sourcemap: mode === 'development',
     // Disable minification in development for better debugging
     minify: mode === 'production',
+    rollupOptions: {
+      input: {
+        main: './index.html',
+      },
+    },
+  },
+  ssr: {
+    format: 'esm',
   },
   // Enable CSS source maps for better development
   css: {
