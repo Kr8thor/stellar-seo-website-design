@@ -1,0 +1,24 @@
+{
+  "port": 8090,
+  "files": ["./dist-spa-temp/**/*.{html,htm,css,js}"],
+  "server": {
+    "baseDir": "./dist-spa-temp",
+    "routes": {
+      "/*": "index.html"
+    },
+    "middleware": [
+      function(req, res, next) {
+        // Fallback all routes to index.html for SPA
+        const fallback = '/index.html';
+        const ext = require('path').extname(req.url);
+        
+        // If no extension or .html extension, serve index.html
+        if (!ext || ext === '.html') {
+          req.url = fallback;
+        }
+        
+        next();
+      }
+    ]
+  }
+}

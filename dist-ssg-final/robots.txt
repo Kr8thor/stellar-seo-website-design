@@ -1,0 +1,8 @@
+# Marden SEO Robots.txt
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /cart
+Disallow: /analytics-test
+
+Sitemap: https://mardenseo.com/sitemap.xml
