@@ -1,0 +1,19 @@
+# Marden SEO - Robots.txt
+User-agent: *
+Allow: /
+
+# SEO files
+Sitemap: https://mardenseo.com/sitemap.xml
+
+# Block admin areas
+Disallow: /admin/
+Disallow: /cart/
+Disallow: /analytics-test/
+
+# Allow important pages
+Allow: /
+Allow: /about
+Allow: /services
+Allow: /contact
+Allow: /portfolio
+Allow: /blog
