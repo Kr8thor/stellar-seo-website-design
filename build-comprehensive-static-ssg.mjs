@@ -17,6 +17,10 @@ import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+// Import the dynamic generators
+import { writeSitemap } from './generate-sitemap-safe.mjs';
+import { writeRobotsTxt } from './generate-robots.mjs';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // =============================================================================
@@ -616,23 +620,22 @@ async function discoverBlogPosts() {
     
     // Extract blog post IDs and titles from the file
     const blogPosts = [];
-    const matches = blogContent.match(/id:\s*(\d+)[\s\S]*?title:\s*["'`]([^"'`]+)["'`]/g);
+    const matches = blogContent.match(/id:\s*["'`]([^"'`]+)["'`][\s\S]*?title:\s*["'`]([^"'`]+)["'`]/g);
     
     if (matches) {
       matches.forEach(match => {
-        const idMatch = match.match(/id:\s*(\d+)/);
+        const idMatch = match.match(/id:\s*["'`]([^"'`]+)["'`]/);
         const titleMatch = match.match(/title:\s*["'`]([^"'`]+)["'`]/);
         
         if (idMatch && titleMatch) {
           const id = idMatch[1];
           const title = titleMatch[1];
-          const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
           
           blogPosts.push({
             id,
-            slug,
+            slug: id, // Use the ID as slug since they are already proper slugs
             title,
-            path: `/blog/${slug}`,
+            path: `/blog/${id}`,
             priority: 0.6,
             changefreq: 'monthly'
           });
@@ -645,11 +648,9 @@ async function discoverBlogPosts() {
   } catch (error) {
     console.log('ℹ️ Blog posts file not found or error reading, using default posts');
     return [
-      { id: '1', slug: 'e-e-a-t-complete-guide', title: 'Complete Guide to E-E-A-T', path: '/blog/e-e-a-t-complete-guide', priority: 0.6, changefreq: 'monthly' },
-      { id: '2', slug: 'on-page-seo-tactics-2025', title: '10 On-Page SEO Tactics That Still Work in 2025', path: '/blog/on-page-seo-tactics-2025', priority: 0.6, changefreq: 'monthly' },
-      { id: '3', slug: 'core-web-vitals-seo-2025', title: 'Why Core Web Vitals Are Still Running Your SEO Life in 2025', path: '/blog/core-web-vitals-seo-2025', priority: 0.6, changefreq: 'monthly' },
-      { id: '4', slug: 'ai-revolution-seo-strategy', title: 'The AI Revolution in SEO: How to Adapt Your Strategy', path: '/blog/ai-revolution-seo-strategy', priority: 0.6, changefreq: 'monthly' },
-      { id: '5', slug: 'local-seo-mastery', title: 'Local SEO Mastery: How to Dominate Your Geographic Market', path: '/blog/local-seo-mastery', priority: 0.6, changefreq: 'monthly' }
+      { id: 'local-seo-2025', slug: 'local-seo-2025', title: 'Local SEO in 2025: How to Slap Your Competitors Out of the Map Pack', path: '/blog/local-seo-2025', priority: 0.6, changefreq: 'monthly' },
+      { id: 'ai-midlife-crisis', slug: 'ai-midlife-crisis', title: 'From Google Whisperer to AI Prophet: An SEO\'s Midlife Crisis', path: '/blog/ai-midlife-crisis', priority: 0.6, changefreq: 'monthly' },
+      { id: 'eat-guide', slug: 'eat-guide', title: 'The Complete Guide to E-E-A-T', path: '/blog/eat-guide', priority: 0.6, changefreq: 'monthly' }
     ];
   }
 }
@@ -888,8 +889,25 @@ function generateStaticHTML(route, meta) {
   </style>
 </head>
 <body>
+  <!-- CRAWLER DETECTION AND CONTENT SWITCHING -->
+  <script>
+    // Detect if this is a search engine crawler
+    const userAgent = navigator.userAgent.toLowerCase();
+    const isCrawler = /bot|crawl|slurp|spider|bingbot|googlebot|yandex|baidu|twitterbot|facebookexternalhit|rogerbot|linkedinbot|embedly|quora link preview|showyoubot|outbrain|pinterest|developers\.google\.com/i.test(userAgent);
+    
+    if (isCrawler) {
+      // Show static content to crawlers
+      document.getElementById('static-content').style.display = 'block';
+      document.getElementById('root').style.display = 'none';
+    } else {
+      // Hide static content from users, show React app
+      document.getElementById('static-content').style.display = 'none';
+      document.getElementById('root').style.display = 'block';
+    }
+  </script>
+
   <!-- STATIC CONTENT: Visible immediately for search engines -->
-  <div id="static-content">
+  <div id="static-content" style="display: none;">
     ${generateNavigation()}
     
     <div class="container">
@@ -935,11 +953,12 @@ function generateStaticHTML(route, meta) {
     </footer>
   </div>
   
-  <!-- REACT HYDRATION TARGET -->
-  <div id="root"></div>
+  <!-- REACT APPLICATION: Visible for users -->
+  <div id="root" style="display: block;"></div>
   
   <!-- LOAD REACT APP FOR INTERACTIVE FEATURES -->
-  <script type="module" src="/assets/index.js"></script>
+  <script type="module" src="/assets/main-BgO0c2Wu.js"></script>
+  <link rel="stylesheet" href="/assets/main-Kab0klor.css">
 </body>
 </html>`;
 }
@@ -980,11 +999,25 @@ async function buildComprehensiveStaticSSG() {
   console.log('🚀 Starting Comprehensive True Static HTML SSG Build...\n');
   
   try {
-    // Step 1: Build React app first
-    console.log('📦 Building React application...');
+    // Step 1: Build React client only (skip SSR due to module issues)
+    console.log('📦 Building React client application...');
     const { execSync } = await import('child_process');
-    execSync('npm run build', { stdio: 'inherit', cwd: __dirname });
-    console.log('✅ React build completed\n');
+    execSync('npm run build:client', { stdio: 'inherit', cwd: __dirname });
+    console.log('✅ React client build completed\n');
+    
+    // Step 1.5: Copy client files to root dist directory
+    console.log('📋 Copying client files to dist root...');
+    const clientDistPath = path.join(__dirname, 'dist', 'client');
+    const rootDistPath = path.join(__dirname, 'dist');
+    
+    // Copy assets directory
+    const clientAssetsPath = path.join(clientDistPath, 'assets');
+    const rootAssetsPath = path.join(rootDistPath, 'assets');
+    if (await fs.access(clientAssetsPath).then(() => true).catch(() => false)) {
+      await fs.cp(clientAssetsPath, rootAssetsPath, { recursive: true, force: true });
+    }
+    
+    console.log('✅ Client files copied\n');
     
     // Step 2: Discover dynamic content
     console.log('🔍 Discovering blog posts and dynamic content...');
@@ -1034,37 +1067,14 @@ async function buildComprehensiveStaticSSG() {
       console.log(`    ✅ Generated: ${outputPath}`);
     }
     
-    // Step 5: Generate sitemap
-    console.log('\n🗺️ Generating sitemap.xml...');
-    const sitemap = generateSitemap(allRoutes);
-    await fs.writeFile(path.join(__dirname, 'dist', 'sitemap.xml'), sitemap, 'utf8');
-    console.log('✅ Sitemap generated\n');
+    // Step 5: Generate dynamic sitemap
+    console.log('\n🗺️ Generating dynamic sitemap.xml...');
+    execSync('node generate-production-sitemap.cjs', { stdio: 'inherit', cwd: __dirname });
     
-    // Step 6: Generate robots.txt
-    console.log('🤖 Generating robots.txt...');
-    const robotsTxt = `User-agent: *
-Allow: /
-
-# Important SEO pages
-Allow: /services
-Allow: /about
-Allow: /portfolio
-Allow: /blog
-Allow: /contact
-Allow: /app-building
-Allow: /workflow-automation
-
-# Block admin and system pages
-Disallow: /admin
-Disallow: /debug
-Disallow: /analytics-test
-Disallow: /cart
-
-# Sitemap location
-Sitemap: https://mardenseo.com/sitemap.xml
-`;
-    await fs.writeFile(path.join(__dirname, 'dist', 'robots.txt'), robotsTxt, 'utf8');
-    console.log('✅ Robots.txt generated\n');
+    // Step 6: Generate dynamic robots.txt
+    console.log('🤖 Generating dynamic robots.txt...');
+    writeRobotsTxt();
+    
     
     // Step 7: Success summary
     console.log('🎉 COMPREHENSIVE SSG BUILD COMPLETED SUCCESSFULLY!\n');
@@ -1095,6 +1105,7 @@ Sitemap: https://mardenseo.com/sitemap.xml
 
 // Run the build
 if (import.meta.url === `file://${process.argv[1]}`) {
+  console.log('🚀 Starting Marden SEO comprehensive build...');
   buildComprehensiveStaticSSG();
 }
 

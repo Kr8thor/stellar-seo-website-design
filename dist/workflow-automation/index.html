@@ -1,106 +1,302 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workflow Automation Services | n8n & Business Process Optimization - Marden SEO</title>
+  <meta name="description" content="Professional workflow automation services using n8n and custom solutions. Streamline business processes, integrate systems, and improve efficiency with automated workflows.">
+  <meta name="keywords" content="workflow automation, n8n automation, business process automation, system integration">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mardenseo.com/workflow-automation">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Workflow Automation Services | n8n & Business Process Optimization - Marden SEO">
+  <meta property="og:description" content="Professional workflow automation services using n8n and custom solutions. Streamline business processes, integrate systems, and improve efficiency with automated workflows.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mardenseo.com/workflow-automation">
+  <meta property="og:image" content="https://mardenseo.com/og-image.jpg">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Workflow Automation Services | n8n & Business Process Optimization - Marden SEO">
+  <meta name="twitter:description" content="Professional workflow automation services using n8n and custom solutions. Streamline business processes, integrate systems, and improve efficiency with automated workflows.">
+  <meta name="twitter:image" content="https://mardenseo.com/og-image.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Marden SEO",
+    "description": "Professional SEO and app development services",
+    "url": "https://mardenseo.com",
+    "serviceType": ["SEO Services", "App Development", "Workflow Automation"],
+    "areaServed": "Worldwide"
+  }
+  </script>
+  
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #1f2937;
+      line-height: 1.6;
+    }
     
-    <!-- Favicon configuration optimized for best browser compatibility -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
-    <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
     
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    .main-navigation a:hover {
+      background-color: #374151 !important;
+    }
     
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5R45LHS7');</script>
-    <!-- End Google Tag Manager -->
+    .static-content {
+      min-height: 500px;
+      padding: 2rem 0;
+    }
     
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C4RC6CSFG6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-C4RC6CSFG6');
-    </script>
-    <!-- End Google Analytics -->
+    .static-content h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 1rem;
+    }
     
-    <title>Workflow Automation with n8n | Marden SEO</title>
-    <meta name="robots" content="index, follow" />
-    <meta name="description" content="Streamline your business processes with n8n workflow automation. Save time and reduce errors with custom automation solutions." />
+    .static-content h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #6b7280;
+      margin-bottom: 2rem;
+    }
     
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://mardenseo.com/workflow-automation" />
-    <meta property="og:title" content="Workflow Automation with n8n | Marden SEO" />
-    <meta property="og:description" content="Streamline your business processes with n8n workflow automation. Save time and reduce errors with custom automation solutions." />
-    <meta property="og:image" content="/opengraph-image.png" />
+    .static-content h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1f2937;
+      margin: 2rem 0 1rem 0;
+    }
     
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://mardenseo.com/workflow-automation" />
-    <meta property="twitter:title" content="Workflow Automation with n8n | Marden SEO" />
-    <meta property="twitter:description" content="Streamline your business processes with n8n workflow automation. Save time and reduce errors with custom automation solutions." />
-    <meta property="twitter:image" content="/opengraph-image.png" />
+    .static-content h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #1f2937;
+      margin: 1.5rem 0 0.5rem 0;
+    }
     
-    <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://*.google-analytics.com https://*.google.com https://*.googleapis.com https://*.gstatic.com https://*.clarity.ms https://www.clarity.ms https://td.doubleclick.net https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' 'unsafe-inline' https://*.googleapis.com https://fonts.googleapis.com; img-src 'self' data: https: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.google.com https://*.clarity.ms https://www.clarity.ms; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.google.com https://*.clarity.ms https://www.clarity.ms https://region1.google-analytics.com https://*.supabase.co wss://*.supabase.co https://api.openai.com https://cms.mardenseo.com; font-src 'self' data: https://fonts.gstatic.com https://fonts.googleapis.com; frame-src 'self' https://*.google.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self';" />
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    .static-content p {
+      margin-bottom: 1.5rem;
+      color: #374151;
+    }
     
-    <!-- Preload critical resources -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="canonical" href="https://mardenseo.com/workflow-automation/" />
-    <script type="module" crossorigin src="/assets/main-BgO0c2Wu.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/main-Kab0klor.css">
-  </head>
-  <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5R45LHS7"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    .static-content ul, .static-content ol {
+      margin-bottom: 1.5rem;
+      color: #374151;
+    }
     
+    .static-content li {
+      margin-bottom: 0.5rem;
+    }
     
-    <!-- Static content for SEO -->
-    <div id="static-seo-content" style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;">
-      <h1>Workflow Automation Services</h1>
+    .static-content a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+    
+    .static-content a:hover {
+      text-decoration: underline;
+    }
+    
+    .footer {
+      background: #1a1a1a;
+      color: #e5e7eb;
+      padding: 2rem 0;
+      margin-top: 4rem;
+    }
+    
+    .footer a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+    
+    @media (max-width: 768px) {
+      .main-navigation {
+        padding: 0.5rem !important;
+      }
       
-      <nav>
+      .main-navigation div {
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+      }
+      
+      .static-content h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- STATIC CONTENT: Visible immediately for search engines -->
+  <div id="static-content">
+    
+<nav class="main-navigation" style="background: #1a1a1a; padding: 1rem; margin-bottom: 2rem;">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
+    <a href="/" style="color: #3b82f6; text-decoration: none; font-weight: bold; margin-right: 2rem;">Marden SEO</a>
+    <a href="/" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">Home</a>
+    <a href="/about" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">About</a>
+    <a href="/services" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">Services</a>
+    <a href="/services-pricing" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">Pricing</a>
+    <a href="/portfolio" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">Portfolio</a>
+    <a href="/blog" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">Blog</a>
+    <a href="/contact" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">Contact</a>
+    <a href="/app-building" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">App Development</a>
+    <a href="/workflow-automation" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">Automation</a>
+  </div>
+</nav>
+
+    
+    <div class="container">
+      <main class="static-content">
+        <h1>Workflow Automation Services</h1>
+        <h2>Streamline your business processes with n8n automation and custom workflow solutions</h2>
+        
+        
+      <section class="automation-overview">
+        <h3>Professional Workflow Automation</h3>
+        <p>We help businesses streamline operations and improve efficiency through custom workflow automation solutions. Using tools like n8n and custom development, we automate repetitive tasks and integrate systems for seamless business operations.</p>
+      </section>
+      <section class="automation-benefits">
+        <h3>Benefits of Workflow Automation</h3>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/services/">Services</a></li>
-          <li><a href="/services-pricing/">Pricing</a></li>
-          <li><a href="/portfolio/">Portfolio</a></li>
-          <li><a href="/blog/">Blog</a></li>
-          <li><a href="/contact/">Contact</a></li>
-          <li><a href="/app-building/">App Development</a></li>
-          <li><a href="/workflow-automation/">Automation</a></li>
+          <li><strong>Increased Efficiency:</strong> Automate repetitive tasks and free up valuable time</li>
+          <li><strong>Reduced Errors:</strong> Eliminate human error in routine processes</li>
+          <li><strong>Cost Savings:</strong> Reduce operational costs through automation</li>
+          <li><strong>Better Data Flow:</strong> Seamless integration between different systems</li>
+          <li><strong>Improved Scalability:</strong> Handle increased workload without proportional staff increases</li>
         </ul>
-      </nav>
-      
-      <p>Automate repetitive tasks and streamline your business processes with our n8n workflow automation services.</p>
-      <h2>Automation Solutions</h2>
-      <ul>
-        <li>Marketing Automation</li>
-        <li>Sales Process Automation</li>
-        <li>Data Synchronization</li>
-        <li>Report Generation</li>
-      </ul>
+      </section>
+      <section class="automation-types">
+        <h3>Types of Workflow Automation</h3>
+        <div class="automation-type">
+          <h4>Marketing Automation</h4>
+          <p>Automate email campaigns, lead nurturing, social media posting, and customer communication workflows.</p>
+          <ul>
+            <li>Email marketing automation and drip campaigns</li>
+            <li>Lead scoring and qualification workflows</li>
+            <li>Social media scheduling and engagement</li>
+            <li>Customer onboarding and retention sequences</li>
+          </ul>
+        </div>
+        <div class="automation-type">
+          <h4>Sales Process Automation</h4>
+          <p>Streamline your sales pipeline with automated lead tracking, follow-ups, and reporting.</p>
+          <ul>
+            <li>CRM data synchronization and updates</li>
+            <li>Automated follow-up sequences</li>
+            <li>Sales reporting and analytics</li>
+            <li>Quote and proposal generation</li>
+          </ul>
+        </div>
+        <div class="automation-type">
+          <h4>Data Integration Workflows</h4>
+          <p>Connect different systems and automate data transfer between platforms.</p>
+          <ul>
+            <li>API integrations between business systems</li>
+            <li>Database synchronization and backup automation</li>
+            <li>Report generation and distribution</li>
+            <li>Data validation and cleanup processes</li>
+          </ul>
+        </div>
+        <div class="automation-type">
+          <h4>Customer Service Automation</h4>
+          <p>Improve customer support efficiency with automated ticket routing and response systems.</p>
+          <ul>
+            <li>Support ticket routing and escalation</li>
+            <li>Automated customer communication</li>
+            <li>Knowledge base management</li>
+            <li>Customer feedback collection and analysis</li>
+          </ul>
+        </div>
+      </section>
+      <section class="n8n-expertise">
+        <h3>n8n Automation Expertise</h3>
+        <p>We specialize in n8n workflow automation, a powerful open-source platform that allows for complex workflow creation and system integration.</p>
+        <ul>
+          <li><strong>Custom n8n Workflows:</strong> Tailored automation solutions for your specific business needs</li>
+          <li><strong>System Integration:</strong> Connect your existing tools and platforms seamlessly</li>
+          <li><strong>Scalable Solutions:</strong> Workflows that grow with your business requirements</li>
+          <li><strong>Maintenance & Support:</strong> Ongoing optimization and troubleshooting</li>
+        </ul>
+      </section>
+      <section class="automation-process">
+        <h3>Our Automation Process</h3>
+        <ol>
+          <li><strong>Process Analysis:</strong> Identify automation opportunities and map current workflows</li>
+          <li><strong>Solution Design:</strong> Create detailed automation strategy and workflow diagrams</li>
+          <li><strong>Development & Testing:</strong> Build and thoroughly test automation workflows</li>
+          <li><strong>Implementation:</strong> Deploy automations with minimal business disruption</li>
+          <li><strong>Training & Support:</strong> Team training and ongoing optimization support</li>
+        </ol>
+      </section>
+      <section class="integration-services">
+        <h3>Complete Digital Solution</h3>
+        <p>Combine workflow automation with our <a href="/services">SEO services</a> and <a href="/app-building">custom app development</a> for a comprehensive digital transformation that improves efficiency and drives growth.</p>
+      </section>
+      <section class="cta-section">
+        <h3>Ready to Automate Your Business Processes?</h3>
+        <p><a href="/contact">Contact us today</a> to discuss your workflow automation needs and discover how we can help streamline your business operations.</p>
+      </section>
     
+      </main>
     </div>
     
-    <div id="root"><!--ssr-outlet--></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <footer class="footer">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+          <div>
+            <h4 style="color: #e5e7eb; margin-bottom: 1rem;">Marden SEO</h4>
+            <p style="color: #9ca3af;">Professional SEO services, app development, and workflow automation solutions.</p>
+            <p style="color: #9ca3af;"><a href="/contact">Contact us today</a> for a free consultation.</p>
+          </div>
+          <div>
+            <h4 style="color: #e5e7eb; margin-bottom: 1rem;">Services</h4>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="margin-bottom: 0.5rem;"><a href="/services">SEO Optimization</a></li>
+              <li style="margin-bottom: 0.5rem;"><a href="/services-pricing">SEO Packages</a></li>
+              <li style="margin-bottom: 0.5rem;"><a href="/app-building">App Development</a></li>
+              <li style="margin-bottom: 0.5rem;"><a href="/workflow-automation">Workflow Automation</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="color: #e5e7eb; margin-bottom: 1rem;">Resources</h4>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="margin-bottom: 0.5rem;"><a href="/blog">SEO Blog</a></li>
+              <li style="margin-bottom: 0.5rem;"><a href="/portfolio">Case Studies</a></li>
+              <li style="margin-bottom: 0.5rem;"><a href="/about">About Us</a></li>
+              <li style="margin-bottom: 0.5rem;"><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div style="border-top: 1px solid #374151; margin-top: 2rem; padding-top: 2rem; text-align: center; color: #9ca3af;">
+          <p>&copy; 2025 Marden SEO. All rights reserved. Professional SEO services and app development.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  
+  <!-- REACT HYDRATION TARGET -->
+  <div id="root"></div>
+  
+  <!-- LOAD REACT APP FOR INTERACTIVE FEATURES -->
+  <script type="module" src="/assets/index.js"></script>
+</body>
 </html>

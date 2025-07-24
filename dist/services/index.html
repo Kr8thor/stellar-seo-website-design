@@ -1,107 +1,251 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional SEO Services & Solutions | Comprehensive SEO Packages - Marden SEO</title>
+  <meta name="description" content="Comprehensive SEO services including technical optimization, content strategy, local SEO, and link building. Custom packages for businesses of all sizes.">
+  <meta name="keywords" content="SEO services, technical SEO, content strategy, local SEO, link building">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mardenseo.com/services">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Professional SEO Services & Solutions | Comprehensive SEO Packages - Marden SEO">
+  <meta property="og:description" content="Comprehensive SEO services including technical optimization, content strategy, local SEO, and link building. Custom packages for businesses of all sizes.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mardenseo.com/services">
+  <meta property="og:image" content="https://mardenseo.com/og-image.jpg">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Professional SEO Services & Solutions | Comprehensive SEO Packages - Marden SEO">
+  <meta name="twitter:description" content="Comprehensive SEO services including technical optimization, content strategy, local SEO, and link building. Custom packages for businesses of all sizes.">
+  <meta name="twitter:image" content="https://mardenseo.com/og-image.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Marden SEO",
+    "description": "Professional SEO and app development services",
+    "url": "https://mardenseo.com",
+    "serviceType": ["SEO Services", "App Development", "Workflow Automation"],
+    "areaServed": "Worldwide"
+  }
+  </script>
+  
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #1f2937;
+      line-height: 1.6;
+    }
     
-    <!-- Favicon configuration optimized for best browser compatibility -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
-    <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
     
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    .main-navigation a:hover {
+      background-color: #374151 !important;
+    }
     
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5R45LHS7');</script>
-    <!-- End Google Tag Manager -->
+    .static-content {
+      min-height: 500px;
+      padding: 2rem 0;
+    }
     
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C4RC6CSFG6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-C4RC6CSFG6');
-    </script>
-    <!-- End Google Analytics -->
+    .static-content h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 1rem;
+    }
     
-    <title>Professional SEO Services - Boost Your Rankings | Marden SEO</title>
-    <meta name="robots" content="index, follow" />
-    <meta name="description" content="Comprehensive SEO services including technical SEO, content optimization, link building, and local SEO. Customized strategies for your business." />
+    .static-content h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #6b7280;
+      margin-bottom: 2rem;
+    }
     
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://mardenseo.com/services" />
-    <meta property="og:title" content="Professional SEO Services - Boost Your Rankings | Marden SEO" />
-    <meta property="og:description" content="Comprehensive SEO services including technical SEO, content optimization, link building, and local SEO. Customized strategies for your business." />
-    <meta property="og:image" content="/opengraph-image.png" />
+    .static-content h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1f2937;
+      margin: 2rem 0 1rem 0;
+    }
     
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://mardenseo.com/services" />
-    <meta property="twitter:title" content="Professional SEO Services - Boost Your Rankings | Marden SEO" />
-    <meta property="twitter:description" content="Comprehensive SEO services including technical SEO, content optimization, link building, and local SEO. Customized strategies for your business." />
-    <meta property="twitter:image" content="/opengraph-image.png" />
+    .static-content h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #1f2937;
+      margin: 1.5rem 0 0.5rem 0;
+    }
     
-    <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://*.google-analytics.com https://*.google.com https://*.googleapis.com https://*.gstatic.com https://*.clarity.ms https://www.clarity.ms https://td.doubleclick.net https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' 'unsafe-inline' https://*.googleapis.com https://fonts.googleapis.com; img-src 'self' data: https: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.google.com https://*.clarity.ms https://www.clarity.ms; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.google.com https://*.clarity.ms https://www.clarity.ms https://region1.google-analytics.com https://*.supabase.co wss://*.supabase.co https://api.openai.com https://cms.mardenseo.com; font-src 'self' data: https://fonts.gstatic.com https://fonts.googleapis.com; frame-src 'self' https://*.google.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self';" />
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    .static-content p {
+      margin-bottom: 1.5rem;
+      color: #374151;
+    }
     
-    <!-- Preload critical resources -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="canonical" href="https://mardenseo.com/services/" />
-    <script type="module" crossorigin src="/assets/main-BgO0c2Wu.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/main-Kab0klor.css">
-  </head>
-  <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5R45LHS7"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    .static-content ul, .static-content ol {
+      margin-bottom: 1.5rem;
+      color: #374151;
+    }
     
+    .static-content li {
+      margin-bottom: 0.5rem;
+    }
     
-    <!-- Static content for SEO -->
-    <div id="static-seo-content" style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;">
-      <h1>Professional SEO Services</h1>
+    .static-content a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+    
+    .static-content a:hover {
+      text-decoration: underline;
+    }
+    
+    .footer {
+      background: #1a1a1a;
+      color: #e5e7eb;
+      padding: 2rem 0;
+      margin-top: 4rem;
+    }
+    
+    .footer a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+    
+    @media (max-width: 768px) {
+      .main-navigation {
+        padding: 0.5rem !important;
+      }
       
-      <nav>
+      .main-navigation div {
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+      }
+      
+      .static-content h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- STATIC CONTENT: Visible immediately for search engines -->
+  <div id="static-content">
+    
+<nav class="main-navigation" style="background: #1a1a1a; padding: 1rem; margin-bottom: 2rem;">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
+    <a href="/" style="color: #3b82f6; text-decoration: none; font-weight: bold; margin-right: 2rem;">Marden SEO</a>
+    <a href="/" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">Home</a>
+    <a href="/about" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">About</a>
+    <a href="/services" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">Services</a>
+    <a href="/services-pricing" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">Pricing</a>
+    <a href="/portfolio" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">Portfolio</a>
+    <a href="/blog" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">Blog</a>
+    <a href="/contact" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">Contact</a>
+    <a href="/app-building" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">App Development</a>
+    <a href="/workflow-automation" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">Automation</a>
+  </div>
+</nav>
+
+    
+    <div class="container">
+      <main class="static-content">
+        <h1>Professional SEO Services & Solutions</h1>
+        <h2>Comprehensive optimization strategies for businesses of all sizes</h2>
+        
+        
+      <section class="technical-seo">
+        <h3>Technical SEO Services</h3>
+        <p>Complete website optimization including Core Web Vitals improvement, structured data implementation, crawlability enhancements, and mobile optimization.</p>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/services/">Services</a></li>
-          <li><a href="/services-pricing/">Pricing</a></li>
-          <li><a href="/portfolio/">Portfolio</a></li>
-          <li><a href="/blog/">Blog</a></li>
-          <li><a href="/contact/">Contact</a></li>
-          <li><a href="/app-building/">App Development</a></li>
-          <li><a href="/workflow-automation/">Automation</a></li>
+          <li>Core Web Vitals optimization for better user experience and rankings</li>
+          <li>Structured data markup for rich snippets</li>
+          <li>Website speed optimization and performance tuning</li>
+          <li>Mobile-first indexing optimization</li>
         </ul>
-      </nav>
-      
-      <p>Our comprehensive SEO services are designed to improve your website's visibility, drive organic traffic, and increase conversions. We offer customized solutions tailored to your business needs.</p>
-      <h2>Technical SEO</h2>
-      <p>Optimize your website's technical foundation for better crawlability and indexation.</p>
-      <h2>Content Optimization</h2>
-      <p>Create and optimize content that ranks well and engages your audience.</p>
-      <h2>Link Building</h2>
-      <p>Build high-quality backlinks that improve your domain authority.</p>
-      <h2>Local SEO</h2>
-      <p>Dominate local search results and attract customers in your area.</p>
+      </section>
+      <section class="content-strategy">
+        <h3>Content Strategy & Creation</h3>
+        <p>Data-driven content creation that targets high-value keywords and drives qualified traffic to your website.</p>
+        <ul>
+          <li>Keyword research and content planning</li>
+          <li>SEO-optimized blog content and landing pages</li>
+          <li>Content optimization for existing pages</li>
+          <li>Topic cluster development for authority building</li>
+        </ul>
+      </section>
+      <section class="local-seo">
+        <h3>Local SEO Optimization</h3>
+        <p>Dominate local search results with Google Business Profile optimization, local citations, and geo-targeted content strategies.</p>
+        <ul>
+          <li>Google Business Profile optimization and management</li>
+          <li>Local citation building and consistency</li>
+          <li>Review management and reputation building</li>
+          <li>Local keyword targeting and optimization</li>
+        </ul>
+      </section>
+      <section class="cta-section">
+        <h3>Ready to Get Started?</h3>
+        <p><a href="/services-pricing">View Our Pricing Packages</a> or <a href="/contact">Contact us</a> for a custom quote tailored to your business needs.</p>
+      </section>
     
+      </main>
     </div>
     
-    <div id="root"><!--ssr-outlet--></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <footer class="footer">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+          <div>
+            <h4 style="color: #e5e7eb; margin-bottom: 1rem;">Marden SEO</h4>
+            <p style="color: #9ca3af;">Professional SEO services, app development, and workflow automation solutions.</p>
+            <p style="color: #9ca3af;"><a href="/contact">Contact us today</a> for a free consultation.</p>
+          </div>
+          <div>
+            <h4 style="color: #e5e7eb; margin-bottom: 1rem;">Services</h4>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="margin-bottom: 0.5rem;"><a href="/services">SEO Optimization</a></li>
+              <li style="margin-bottom: 0.5rem;"><a href="/services-pricing">SEO Packages</a></li>
+              <li style="margin-bottom: 0.5rem;"><a href="/app-building">App Development</a></li>
+              <li style="margin-bottom: 0.5rem;"><a href="/workflow-automation">Workflow Automation</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="color: #e5e7eb; margin-bottom: 1rem;">Resources</h4>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="margin-bottom: 0.5rem;"><a href="/blog">SEO Blog</a></li>
+              <li style="margin-bottom: 0.5rem;"><a href="/portfolio">Case Studies</a></li>
+              <li style="margin-bottom: 0.5rem;"><a href="/about">About Us</a></li>
+              <li style="margin-bottom: 0.5rem;"><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div style="border-top: 1px solid #374151; margin-top: 2rem; padding-top: 2rem; text-align: center; color: #9ca3af;">
+          <p>&copy; 2025 Marden SEO. All rights reserved. Professional SEO services and app development.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  
+  <!-- REACT HYDRATION TARGET -->
+  <div id="root"></div>
+  
+  <!-- LOAD REACT APP FOR INTERACTIVE FEATURES -->
+  <script type="module" src="/assets/index.js"></script>
+</body>
 </html>
