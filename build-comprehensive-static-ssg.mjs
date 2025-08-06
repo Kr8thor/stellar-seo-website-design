@@ -614,45 +614,13 @@ const generateNavigation = () => `
 // =============================================================================
 
 async function discoverBlogPosts() {
-  try {
-    const blogDataPath = path.join(__dirname, 'src', 'data', 'blogPosts.tsx');
-    const blogContent = await fs.readFile(blogDataPath, 'utf8');
-    
-    // Extract blog post IDs and titles from the file
-    const blogPosts = [];
-    const matches = blogContent.match(/id:\s*["'`]([^"'`]+)["'`][\s\S]*?title:\s*["'`]([^"'`]+)["'`]/g);
-    
-    if (matches) {
-      matches.forEach(match => {
-        const idMatch = match.match(/id:\s*["'`]([^"'`]+)["'`]/);
-        const titleMatch = match.match(/title:\s*["'`]([^"'`]+)["'`]/);
-        
-        if (idMatch && titleMatch) {
-          const id = idMatch[1];
-          const title = titleMatch[1];
-          
-          blogPosts.push({
-            id,
-            slug: id, // Use the ID as slug since they are already proper slugs
-            title,
-            path: `/blog/${id}`,
-            priority: 0.6,
-            changefreq: 'monthly'
-          });
-        }
-      });
-    }
-    
-    console.log(`✅ Discovered ${blogPosts.length} blog posts for static generation`);
-    return blogPosts;
-  } catch (error) {
-    console.log('ℹ️ Blog posts file not found or error reading, using default posts');
-    return [
-      { id: 'local-seo-2025', slug: 'local-seo-2025', title: 'Local SEO in 2025: How to Slap Your Competitors Out of the Map Pack', path: '/blog/local-seo-2025', priority: 0.6, changefreq: 'monthly' },
-      { id: 'ai-midlife-crisis', slug: 'ai-midlife-crisis', title: 'From Google Whisperer to AI Prophet: An SEO\'s Midlife Crisis', path: '/blog/ai-midlife-crisis', priority: 0.6, changefreq: 'monthly' },
-      { id: 'eat-guide', slug: 'eat-guide', title: 'The Complete Guide to E-E-A-T', path: '/blog/eat-guide', priority: 0.6, changefreq: 'monthly' }
-    ];
-  }
+  // Return only the 3 blog posts that actually exist
+  console.log('ℹ️ Using the 3 existing blog posts from blogPosts.tsx');
+  return [
+    { id: 'local-seo-2025', slug: 'local-seo-2025', title: 'Local SEO in 2025: How to Slap Your Competitors Out of the Map Pack', path: '/blog/local-seo-2025', priority: 0.6, changefreq: 'monthly' },
+    { id: 'ai-midlife-crisis', slug: 'ai-midlife-crisis', title: 'From Google Whisperer to AI Prophet: An SEO\'s Midlife Crisis', path: '/blog/ai-midlife-crisis', priority: 0.6, changefreq: 'monthly' },
+    { id: 'eat-guide', slug: 'eat-guide', title: 'The Complete Guide to E-E-A-T', path: '/blog/eat-guide', priority: 0.6, changefreq: 'monthly' }
+  ];
 }
 
 // =============================================================================
@@ -1069,11 +1037,23 @@ async function buildComprehensiveStaticSSG() {
     
     // Step 5: Generate dynamic sitemap
     console.log('\n🗺️ Generating dynamic sitemap.xml...');
-    execSync('node generate-production-sitemap.cjs', { stdio: 'inherit', cwd: __dirname });
+    const sitemapContent = generateSitemap(allRoutes);
+    await fs.writeFile(path.join(__dirname, 'dist', 'sitemap.xml'), sitemapContent, 'utf8');
+    console.log('✅ Sitemap generated successfully');
     
     // Step 6: Generate dynamic robots.txt
     console.log('🤖 Generating dynamic robots.txt...');
-    writeRobotsTxt();
+    try {
+      await writeRobotsTxt();
+    } catch (error) {
+      console.log('⚠️ Using basic robots.txt generation');
+      const robotsContent = `# Robots.txt for Marden SEO
+User-agent: *
+Allow: /
+
+Sitemap: https://mardenseo.com/sitemap.xml`;
+      await fs.writeFile(path.join(__dirname, 'dist', 'robots.txt'), robotsContent, 'utf8');
+    }
     
     
     // Step 7: Success summary
