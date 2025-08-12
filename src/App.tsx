@@ -34,6 +34,13 @@ import WhatsAppButton from "./components/common/WhatsAppButton";
 import ServicesAndPricing from "./pages/ServicesAndPricing";
 import Admin from "./pages/Admin";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
+import PaymentSuccess from "./pages/PaymentSuccess";
+import Billing from "./pages/Billing";
+import TermsOfService from "./pages/TermsOfService";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import RefundPolicy from "./pages/RefundPolicy";
+import CartTest from "./pages/CartTest";
 import AnalyticsTest from "./pages/AnalyticsTest";
 
 // Error Boundary Component
@@ -136,7 +143,14 @@ const App = () => (
                         <Route path="/workflow-automation" element={<WorkflowAutomation />} />
                         <Route path="/admin" element={<Admin />} />
                         <Route path="/cart" element={<Cart />} />
+                        <Route path="/checkout" element={<Checkout />} />
+                        <Route path="/payment-success" element={<PaymentSuccess />} />
+                        <Route path="/billing" element={<Billing />} />
+                        <Route path="/terms-of-service" element={<TermsOfService />} />
+                        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                        <Route path="/refund-policy" element={<RefundPolicy />} />
                         <Route path="/analytics-test" element={<AnalyticsTest />} />
+                        <Route path="/cart-test" element={<CartTest />} />
                         <Route path="*" element={<NotFound />} />
                       </Routes>
                     </div>

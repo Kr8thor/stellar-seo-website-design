@@ -72,6 +72,26 @@ const urlStructure = {
     priority: 0.7,
     changefreq: 'daily',
     category: 'Content'
+  },
+
+  // Legal Pages (Lower Priority - Still Indexed)
+  termsOfService: {
+    path: '/terms-of-service/',
+    priority: 0.3,
+    changefreq: 'yearly',
+    category: 'Legal'
+  },
+  privacyPolicy: {
+    path: '/privacy-policy/',
+    priority: 0.3,
+    changefreq: 'yearly',
+    category: 'Legal'
+  },
+  refundPolicy: {
+    path: '/refund-policy/',
+    priority: 0.3,
+    changefreq: 'yearly',
+    category: 'Legal'
   }
 };
 

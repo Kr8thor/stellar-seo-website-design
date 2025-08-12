@@ -1,86 +1,456 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom App Development | React & Modern Web Applications - Marden SEO</title>
+  <meta name="description" content="Professional custom app development services using React, TypeScript, and modern web technologies. Build scalable applications that support your business growth.">
+  <meta name="keywords" content="custom app development, React development, web application development, TypeScript development">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mardenseo.com/app-building">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Custom App Development | React & Modern Web Applications - Marden SEO">
+  <meta property="og:description" content="Professional custom app development services using React, TypeScript, and modern web technologies. Build scalable applications that support your business growth.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mardenseo.com/app-building">
+  <meta property="og:image" content="https://mardenseo.com/og-image.jpg">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Custom App Development | React & Modern Web Applications - Marden SEO">
+  <meta name="twitter:description" content="Professional custom app development services using React, TypeScript, and modern web technologies. Build scalable applications that support your business growth.">
+  <meta name="twitter:image" content="https://mardenseo.com/og-image.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  <!-- =================================================================== -->
+  <!-- UNIVERSAL GTM IMPLEMENTATION - LOADS FOR ALL VISITORS -->
+  <!-- This implementation ensures GTM works for users, crawlers, and the GTM scanner -->
+  <!-- =================================================================== -->
+  
+  <!-- Initialize dataLayer FIRST (before any GTM scripts) -->
+  <script>
+    // Initialize dataLayer for ALL visitors
+    window.dataLayer = window.dataLayer || [];
     
-    <!-- Favicon configuration optimized for best browser compatibility -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
-    <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    // Push initial page data
+    window.dataLayer.push({
+      'event': 'page_initialized',
+      'page_type': 'app-building',
+      'page_path': '/app-building',
+      'page_title': 'Custom App Development | React & Modern Web Applications - Marden SEO'
+    });
+  </script>
+  
+  <!-- Google Tag Manager (loads for EVERYONE) -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5R45LHS7');</script>
-    <!-- End Google Tag Manager -->
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C4RC6CSFG6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-C4RC6CSFG6');
-    </script>
-    <!-- End Google Analytics -->
-    
-    <title>Custom App Development | React & Modern Web Applications - Marden SEO</title>
-    <meta name="description" content="Professional custom app development services using React, TypeScript, and modern web technologies. Build scalable applications that support your business growth." />
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://mardenseo.com/app-building" />
-    <meta property="og:title" content="Custom App Development | React & Modern Web Applications - Marden SEO" />
-    <meta property="og:description" content="Professional custom app development services using React, TypeScript, and modern web technologies. Build scalable applications that support your business growth." />
-    <meta property="og:image" content="/opengraph-image.png" />
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://mardenseo.com/" />
-    <meta property="twitter:title" content="Custom App Development | React & Modern Web Applications - Marden SEO" />
-    <meta property="twitter:description" content="Professional custom app development services using React, TypeScript, and modern web technologies. Build scalable applications that support your business growth." />
-    <meta property="twitter:image" content="/opengraph-image.png" />
-    
-    <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://*.google-analytics.com https://*.google.com https://*.googleapis.com https://*.gstatic.com https://*.clarity.ms https://www.clarity.ms https://td.doubleclick.net https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' 'unsafe-inline' https://*.googleapis.com https://fonts.googleapis.com; img-src 'self' data: https: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.google.com https://*.clarity.ms https://www.clarity.ms; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.google.com https://*.clarity.ms https://www.clarity.ms https://region1.google-analytics.com https://*.supabase.co wss://*.supabase.co https://api.openai.com https://cms.mardenseo.com; font-src 'self' data: https://fonts.gstatic.com https://fonts.googleapis.com; frame-src 'self' https://*.google.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self';" />
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
-    
-    <!-- Preload critical resources -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="/assets/main-BgO0c2Wu.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/main-Kab0klor.css">
-    <link rel="canonical" href="https://mardenseo.com/app-building">
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Custom App Development | React & Modern Web Applications - Marden SEO",
-  "description": "Professional custom app development services using React, TypeScript, and modern web technologies. Build scalable applications that support your business growth.",
-  "url": "https://mardenseo.com/app-building",
-  "isPartOf": {
-    "@type": "WebSite",
+    })(window,document,'script','dataLayer','GTM-5R45LHS7');
+  </script>
+  <!-- End Google Tag Manager -->
+  
+  <!-- Google Analytics 4 (Base Configuration) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C4RC6CSFG6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-C4RC6CSFG6', {
+      'send_page_view': true,
+      'custom_map.dimension1': 'visitor_type',
+      'custom_map.dimension2': 'render_mode'
+    });
+  </script>
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
     "name": "Marden SEO",
-    "url": "https://mardenseo.com"
+    "description": "Professional SEO and app development services",
+    "url": "https://mardenseo.com",
+    "serviceType": ["SEO Services", "App Development", "Workflow Automation"],
+    "areaServed": "Worldwide"
   }
-}</script>
-</head>
-  <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5R45LHS7"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+  </script>
+  
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #1f2937;
+      line-height: 1.6;
+    }
     
-    <div id="root"><!--ssr-outlet--></div>
-  </body>
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    .main-navigation a:hover {
+      background-color: #374151 !important;
+    }
+    
+    .static-content {
+      min-height: 500px;
+      padding: 2rem 0;
+    }
+    
+    .static-content h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 1rem;
+    }
+    
+    .static-content h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #6b7280;
+      margin-bottom: 2rem;
+    }
+    
+    .static-content h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1f2937;
+      margin: 2rem 0 1rem 0;
+    }
+    
+    .static-content h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #1f2937;
+      margin: 1.5rem 0 0.5rem 0;
+    }
+    
+    .static-content p {
+      margin-bottom: 1.5rem;
+      color: #374151;
+    }
+    
+    .static-content ul, .static-content ol {
+      margin-bottom: 1.5rem;
+      color: #374151;
+    }
+    
+    .static-content li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .static-content a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+    
+    .static-content a:hover {
+      text-decoration: underline;
+    }
+    
+    .footer {
+      background: #1a1a1a;
+      color: #e5e7eb;
+      padding: 2rem 0;
+      margin-top: 4rem;
+    }
+    
+    .footer a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+    
+    @media (max-width: 768px) {
+      .main-navigation {
+        padding: 0.5rem !important;
+      }
+      
+      .main-navigation div {
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+      }
+      
+      .static-content h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) - For users with JavaScript disabled -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5R45LHS7"
+      height="0" width="0" style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- =================================================================== -->
+  <!-- ENHANCED CRAWLER DETECTION WITH GTM TRACKING -->
+  <!-- Waits for GTM to load before detection -->
+  <!-- =================================================================== -->
+  <script>
+    // Ensure GTM is loaded before detection
+    (function() {
+      let attempts = 0;
+      const maxAttempts = 50; // 500ms max wait
+      
+      function checkAndDetect() {
+        attempts++;
+        
+        // Check if GTM is ready
+        if (window.dataLayer && window.dataLayer.length > 0) {
+          performDetection();
+        } else if (attempts < maxAttempts) {
+          setTimeout(checkAndDetect, 10);
+        } else {
+          console.warn('[GTM Detection] GTM not loaded after 500ms, proceeding anyway');
+          performDetection();
+        }
+      }
+      
+      function performDetection() {
+        const userAgent = navigator.userAgent.toLowerCase();
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        console.log('[GTM Detection] Detection starting (attempt ' + attempts + ')');
+        console.log('[GTM Detection] DataLayer:', window.dataLayer ? 'Ready' : 'Not ready');
+        console.log('[GTM Detection] User Agent:', userAgent);
+        
+        // Check for GTM debug/Tag Assistant
+        const isGTMTool = 
+          urlParams.has('gtm_debug') || 
+          urlParams.has('gtm_preview') ||
+          urlParams.has('gtm_cookies_win') ||
+          urlParams.has('tagassistant') ||
+          window.location.hash.includes('gtm') ||
+          document.referrer.includes('tagmanager.google.com');
+        
+        // Check for crawlers
+        const isCrawler = !isGTMTool && 
+          /bot|crawl|slurp|spider|bingbot|googlebot|yandex|baidu|twitterbot|facebookexternalhit|rogerbot|linkedinbot|embedly|quora link preview|showyoubot|outbrain|pinterest|developers.google.com/i.test(userAgent);
+        
+        // Determine visitor type
+        let visitorType = 'user';
+        let showStatic = false;
+        
+        if (isGTMTool) {
+          visitorType = 'gtm_tool';
+          console.log('🏷️ GTM Tool/Tag Assistant detected - showing React');
+        } else if (isCrawler) {
+          visitorType = 'crawler';
+          showStatic = true;
+          console.log('🤖 Crawler detected - showing static');
+        } else {
+          console.log('👤 Regular user - showing React');
+        }
+        
+        // Update dataLayer
+        if (window.dataLayer) {
+          window.dataLayer.push({
+            'event': 'visitor_classified',
+            'visitor_type': visitorType,
+            'render_mode': showStatic ? 'static' : 'react',
+            'user_agent': userAgent,
+            'is_gtm_tool': isGTMTool,
+            'detection_delay_ms': attempts * 10
+          });
+        }
+        
+        // Update visibility
+        const staticEl = document.getElementById('static-content');
+        const rootEl = document.getElementById('root');
+        
+        if (staticEl && rootEl) {
+          if (showStatic) {
+            staticEl.style.display = 'block';
+            rootEl.style.display = 'none';
+          } else {
+            staticEl.style.display = 'none';
+            rootEl.style.display = 'block';
+          }
+          console.log('[GTM Detection] Visibility set:', showStatic ? 'static' : 'react');
+        }
+      }
+      
+      // Start detection
+      checkAndDetect();
+    })();
+  </script>
+
+  <!-- STATIC CONTENT: Hidden by default, visible only to crawlers -->
+  <div id="static-content" style="display: none;">
+    
+<nav class="main-navigation" style="background: #1a1a1a; padding: 1rem; margin-bottom: 2rem;">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
+    <a href="/" style="color: #3b82f6; text-decoration: none; font-weight: bold; margin-right: 2rem;">Marden SEO</a>
+    <a href="/" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">Home</a>
+    <a href="/about" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">About</a>
+    <a href="/services" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">Services</a>
+    <a href="/services-pricing" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">Pricing</a>
+    <a href="/portfolio" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">Portfolio</a>
+    <a href="/blog" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">Blog</a>
+    <a href="/contact" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">Contact</a>
+    <a href="/app-building" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">App Development</a>
+    <a href="/workflow-automation" style="color: #e5e7eb; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">Automation</a>
+  </div>
+</nav>
+
+    
+    <div class="container">
+      <main class="static-content">
+        <h1>Custom App Development Services</h1>
+        <h2>Build powerful applications with React and modern web technologies</h2>
+        
+        
+      <section class="app-development-overview">
+        <h3>Professional App Development</h3>
+        <p>We build custom web applications using the latest technologies including React, TypeScript, and modern development frameworks. Our applications are designed for performance, scalability, and user experience.</p>
+      </section>
+      <section class="technologies">
+        <h3>Technologies We Use</h3>
+        <ul>
+          <li><strong>Frontend:</strong> React 18+, TypeScript, Next.js, Vite</li>
+          <li><strong>Styling:</strong> Tailwind CSS, Styled Components, Material-UI</li>
+          <li><strong>Backend:</strong> Node.js, Express, GraphQL, REST APIs</li>
+          <li><strong>Database:</strong> PostgreSQL, MongoDB, Supabase, Firebase</li>
+          <li><strong>Deployment:</strong> Vercel, Netlify, AWS, Docker containerization</li>
+        </ul>
+      </section>
+      <section class="app-types">
+        <h3>Types of Applications We Build</h3>
+        <div class="app-type">
+          <h4>Business Management Applications</h4>
+          <p>Custom CRM systems, project management tools, and business process applications tailored to your specific workflow requirements.</p>
+        </div>
+        <div class="app-type">
+          <h4>E-commerce Platforms</h4>
+          <p>Full-featured online stores with payment processing, inventory management, and SEO-optimized product catalogs.</p>
+        </div>
+        <div class="app-type">
+          <h4>Content Management Systems</h4>
+          <p>Custom CMS solutions that give you complete control over your content while maintaining SEO best practices.</p>
+        </div>
+        <div class="app-type">
+          <h4>Analytics & Reporting Dashboards</h4>
+          <p>Data visualization applications that help you make informed business decisions with real-time insights.</p>
+        </div>
+      </section>
+      <section class="development-process">
+        <h3>Our Development Process</h3>
+        <ol>
+          <li><strong>Discovery & Planning:</strong> Understanding your requirements and creating detailed specifications</li>
+          <li><strong>Design & Prototyping:</strong> User experience design and interactive prototypes</li>
+          <li><strong>Development:</strong> Agile development with regular progress updates</li>
+          <li><strong>Testing & QA:</strong> Comprehensive testing across devices and browsers</li>
+          <li><strong>Deployment & Support:</strong> Production deployment and ongoing maintenance</li>
+        </ol>
+      </section>
+      <section class="integration-section">
+        <h3>SEO-Optimized Applications</h3>
+        <p>All our applications are built with SEO in mind, featuring server-side rendering, optimized meta tags, structured data, and fast loading times that support your digital marketing goals.</p>
+        <p>Combine custom app development with our <a href="/services">SEO services</a> for a complete digital solution that drives results.</p>
+      </section>
+      <section class="cta-section">
+        <h3>Ready to Build Your Custom Application?</h3>
+        <p><a href="/contact">Contact us today</a> to discuss your app development project and get a custom quote, or <a href="/portfolio">view our portfolio</a> to see examples of our work.</p>
+      </section>
+    
+      </main>
+    </div>
+    
+    <footer class="footer">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+          <div>
+            <h4 style="color: #e5e7eb; margin-bottom: 1rem;">Marden SEO</h4>
+            <p style="color: #9ca3af;">Elevating your digital presence with data-driven SEO strategies and custom application development.</p>
+            <div style="margin-top: 1rem;">
+              <a href="https://github.com/Kr8thor" style="margin-right: 1rem;" aria-label="GitHub">GitHub</a>
+              <a href="mailto:hello@mardenseo.com" aria-label="Email">Email</a>
+            </div>
+          </div>
+          <div>
+            <h4 style="color: #e5e7eb; margin-bottom: 1rem;">Services</h4>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="margin-bottom: 0.5rem;"><a href="/services">SEO Services</a></li>
+              <li style="margin-bottom: 0.5rem;"><a href="/services-pricing">SEO Packages</a></li>
+              <li style="margin-bottom: 0.5rem;"><a href="/app-building">App Development</a></li>
+              <li style="margin-bottom: 0.5rem;"><a href="/workflow-automation">Workflow Automation</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="color: #e5e7eb; margin-bottom: 1rem;">Company</h4>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="margin-bottom: 0.5rem;"><a href="/">Home</a></li>
+              <li style="margin-bottom: 0.5rem;"><a href="/about">About Us</a></li>
+              <li style="margin-bottom: 0.5rem;"><a href="/portfolio">Portfolio</a></li>
+              <li style="margin-bottom: 0.5rem;"><a href="/blog">SEO Blog</a></li>
+              <li style="margin-bottom: 0.5rem;"><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="color: #e5e7eb; margin-bottom: 1rem;">Get Started</h4>
+            <p style="color: #9ca3af; margin-bottom: 1rem;">Ready to boost your rankings? Schedule a free SEO consultation.</p>
+            <a href="/contact" style="background: #3b82f6; color: white; padding: 0.5rem 1rem; border-radius: 0.375rem; text-decoration: none; display: inline-block; margin-bottom: 1rem;">Free SEO Audit</a>
+            <div style="font-size: 0.875rem; color: #9ca3af;">
+              <div style="margin-bottom: 0.5rem;">📧 hello@mardenseo.com</div>
+              <div style="margin-bottom: 0.5rem;">⏰ Response within 24 hours</div>
+              <div>🏢 Professional Services</div>
+            </div>
+          </div>
+        </div>
+        <div style="border-top: 1px solid #374151; margin-top: 2rem; padding-top: 2rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; font-size: 0.875rem; color: #9ca3af; margin-bottom: 2rem;">
+            <div>
+              <h4 style="font-weight: 600; color: #e5e7eb; margin-bottom: 0.5rem;">Business Information</h4>
+              <p>Marden SEO, LLC</p>
+              <p>Wyoming Registered Entity</p>
+              <p>Professional SEO & Development Services</p>
+            </div>
+            <div>
+              <h4 style="font-weight: 600; color: #e5e7eb; margin-bottom: 0.5rem;">Contact</h4>
+              <p>Email: hello@mardenseo.com</p>
+              <p>Business Hours: Mon-Fri 9AM-6PM MST</p>
+              <p>Response Time: Within 24 hours</p>
+            </div>
+            <div>
+              <h4 style="font-weight: 600; color: #e5e7eb; margin-bottom: 0.5rem;">Legal</h4>
+              <a href="/privacy-policy" style="display: block; margin-bottom: 0.25rem;">Privacy Policy</a>
+              <a href="/terms-of-service" style="display: block; margin-bottom: 0.25rem;">Terms of Service</a>
+              <a href="/refund-policy" style="display: block;">Refund Policy</a>
+            </div>
+            <div>
+              <h4 style="font-weight: 600; color: #e5e7eb; margin-bottom: 0.5rem;">Resources</h4>
+              <a href="/blog" style="display: block; margin-bottom: 0.25rem;">SEO Blog</a>
+              <a href="/portfolio" style="display: block; margin-bottom: 0.25rem;">Case Studies</a>
+              <a href="/services-pricing" style="display: block;">Pricing</a>
+            </div>
+          </div>
+          <div style="text-align: center; color: #9ca3af; font-size: 0.875rem;">
+            <p>&copy; 2025 Marden SEO, LLC. All rights reserved. | Wyoming Registered Entity | Professional SEO Services</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  
+  
+  <!-- REACT APPLICATION: Visible by default for users and Tag Assistant -->
+  <div id="root"></div>
+  
+  <!-- LOAD REACT APP FOR INTERACTIVE FEATURES -->
+  <script type="module" crossorigin src="/assets/main-CK2BspzK.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-CpWKCPmI.css">
+</body>
 </html>

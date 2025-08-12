@@ -28,6 +28,11 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // Environment variables configuration
+  define: {
+    'process.env': {},
+  },
+  envPrefix: 'REACT_APP_',
   // Ensure .htaccess is copied to dist folder
   publicDir: 'public',
   build: {

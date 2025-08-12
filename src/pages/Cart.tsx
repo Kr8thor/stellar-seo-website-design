@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useCart } from '@/contexts/CartContext';
 import { ShoppingCart, Plus, Minus, X, CreditCard, Filter, Search, Tag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -65,6 +66,34 @@ const Cart = () => {
     }
   };
 
+  const handleAddToCart = (service: any) => {
+    try {
+      if (!isInCart(service.id)) {
+        addToCart({
+          id: service.id,
+          name: service.name,
+          description: service.description,
+          price: service.price,
+          category: service.category,
+          recurring: service.recurring,
+          features: service.features,
+        });
+        
+        toast({
+          title: "Added to Cart!",
+          description: `${service.name} has been added to your cart.`,
+        });
+      }
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
+
   const handleApplyCoupon = () => {
     if (!couponCode.trim()) {
       toast({
@@ -75,18 +104,28 @@ const Cart = () => {
     }
 
     setIsApplyingCoupon(true);
-    const result = applyCoupon(couponCode);
     
-    if (result.success) {
+    try {
+      const result = applyCoupon(couponCode);
+      
+      if (result.success) {
+        toast({
+          title: "Coupon applied!",
+          description: result.message,
+        });
+        setCouponCode('');
+      } else {
+        toast({
+          title: "Invalid coupon",
+          description: result.message,
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error('Error applying coupon:', error);
       toast({
-        title: "Coupon applied!",
-        description: result.message,
-      });
-      setCouponCode('');
-    } else {
-      toast({
-        title: "Invalid coupon",
-        description: result.message,
+        title: "Error",
+        description: "Something went wrong applying the coupon.",
         variant: "destructive",
       });
     }
@@ -109,6 +148,7 @@ const Cart = () => {
             Choose from our comprehensive range of SEO, development, and automation services
           </p>
         </div>
+
         {/* Main Layout */}
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Services Catalog */}
@@ -176,6 +216,7 @@ const Cart = () => {
                       </li>
                     )}
                   </ul>
+
                   {service.timeline && (
                     <p className="text-sm text-gray-500 mb-4">
                       <strong>Timeline:</strong> {service.timeline}
@@ -185,19 +226,7 @@ const Cart = () => {
                   <Button
                     className="w-full"
                     variant={isInCart(service.id) ? "secondary" : "default"}
-                    onClick={() => {
-                      if (!isInCart(service.id)) {
-                        addToCart({
-                          id: service.id,
-                          name: service.name,
-                          description: service.description,
-                          price: service.price,
-                          category: service.category,
-                          recurring: service.recurring,
-                          features: service.features,
-                        });
-                      }
-                    }}
+                    onClick={() => handleAddToCart(service)}
                     disabled={isInCart(service.id)}
                   >
                     {isInCart(service.id) ? 'Added to Cart' : 'Add to Cart'}
@@ -331,13 +360,12 @@ const Cart = () => {
                     <Button 
                       className="w-full" 
                       size="lg"
-                      onClick={() => {
-                        // Stripe checkout will be integrated here
-                        alert('Stripe checkout integration coming soon!');
-                      }}
+                      asChild
                     >
-                      <CreditCard className="h-5 w-5 mr-2" />
-                      Proceed to Checkout
+                      <Link to="/checkout">
+                        <CreditCard className="h-5 w-5 mr-2" />
+                        Proceed to Checkout
+                      </Link>
                     </Button>
                     <Button 
                       variant="outline" 
@@ -345,6 +373,10 @@ const Cart = () => {
                       onClick={() => {
                         clearCart();
                         removeCoupon();
+                        toast({
+                          title: "Cart cleared",
+                          description: "All items have been removed from your cart.",
+                        });
                       }}
                     >
                       Clear Cart
@@ -359,7 +391,7 @@ const Cart = () => {
                   Not sure which services are right for you? Let's discuss your needs.
                 </p>
                 <Button variant="outline" size="sm" className="w-full" asChild>
-                  <a href="/contact">Schedule Consultation</a>
+                  <Link to="/contact">Schedule Consultation</Link>
                 </Button>
               </div>
             </div>

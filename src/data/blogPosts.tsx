@@ -661,4 +661,172 @@ export const blogPosts: BlogPostProps[] = [
       </React.Fragment>
     ),
   },
+  
+  // Core Web Vitals SEO Guide
+  {
+    id: 'core-web-vitals-seo-2025',
+    title: "Core Web Vitals 2025: The SEO Metrics That Actually Move the Needle",
+    category: "Technical SEO",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+    date: "August 1, 2025",
+    readTime: "12 min read",
+    author: "Leo Corbett",
+    excerpt: "Core Web Vitals aren't just metrics—they're the difference between a site that converts and one that hemorrhages users. Here's how to master LCP, FID, and CLS for SEO dominance.",
+    content: (
+      <React.Fragment>
+        <p className="text-xl leading-relaxed mb-8">
+          Core Web Vitals have evolved from "nice to have" metrics to the make-or-break factors that determine whether your site ranks—or tanks. In 2025, Google doesn't just care about your content; it obsesses over how fast users can actually access it.
+        </p>
+        
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-8 rounded-r-md">
+          <p className="italic font-medium text-blue-800">
+            Think of Core Web Vitals as your site's vital signs. If they're poor, your SEO is on life support.
+          </p>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4 border-b border-gray-200 pb-2">🚀 What Are Core Web Vitals Really Measuring?</h2>
+        <p className="mb-6">
+          Core Web Vitals focus on three critical aspects of user experience:
+        </p>
+        
+        <ul className="pl-6 mb-8 space-y-3 list-disc">
+          <li><strong>Largest Contentful Paint (LCP)</strong> - How fast your main content loads (should be under 2.5 seconds)</li>
+          <li><strong>First Input Delay (FID)</strong> - How quickly your site responds to user interactions (under 100 milliseconds)</li>
+          <li><strong>Cumulative Layout Shift (CLS)</strong> - How stable your layout is while loading (under 0.1)</li>
+        </ul>
+
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Website performance analytics dashboard" className="rounded-lg shadow-md my-8 w-full object-cover" />
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4 border-b border-gray-200 pb-2">⚡ Optimizing LCP: The Art of Lightning-Fast Loading</h2>
+        <p className="mb-6">
+          LCP measures when your largest content element becomes visible. Usually, that's your hero image, video, or main text block.
+        </p>
+
+        <p className="mb-4"><strong>LCP Optimization Tactics:</strong></p>
+        <ul className="pl-6 mb-8 space-y-2 list-disc">
+          <li>Optimize images with WebP format and proper compression</li>
+          <li>Implement lazy loading for below-the-fold content</li>
+          <li>Use a Content Delivery Network (CDN)</li>
+          <li>Minimize server response times</li>
+          <li>Remove render-blocking JavaScript and CSS</li>
+          <li>Preload critical resources with &lt;link rel="preload"&gt;</li>
+        </ul>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4 border-b border-gray-200 pb-2">⚡ Crushing FID: Making Your Site Responsive</h2>
+        <p className="mb-6">
+          FID measures the delay between when a user first interacts with your site and when the browser can actually respond.
+        </p>
+
+        <p className="mb-4"><strong>FID Improvement Strategies:</strong></p>
+        <ul className="pl-6 mb-8 space-y-2 list-disc">
+          <li>Break up long JavaScript tasks</li>
+          <li>Minimize third-party JavaScript</li>
+          <li>Use a web worker for heavy computations</li>
+          <li>Reduce JavaScript execution time</li>
+          <li>Implement code splitting</li>
+        </ul>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4 border-b border-gray-200 pb-2">🎯 Mastering CLS: Layout Stability</h2>
+        <p className="mb-6">
+          CLS measures visual stability. Nothing frustrates users more than clicking a button only to have it move at the last second.
+        </p>
+
+        <p className="mb-4"><strong>CLS Optimization Techniques:</strong></p>
+        <ul className="pl-6 mb-8 space-y-2 list-disc">
+          <li>Set size attributes on images and videos</li>
+          <li>Reserve space for ads and embeds</li>
+          <li>Avoid inserting content above existing content</li>
+          <li>Use CSS aspect ratio for responsive images</li>
+          <li>Preload fonts to prevent FOIT/FOUT</li>
+        </ul>
+
+        <div className="bg-green-50 border-l-4 border-green-500 p-4 my-8 rounded-r-md">
+          <p className="italic font-medium text-green-800">
+            Pro Tip: Use PageSpeed Insights and Chrome DevTools to identify and fix Core Web Vitals issues in real-time.
+          </p>
+        </div>
+      </React.Fragment>
+    ),
+  },
+
+  // Technical SEO Fundamentals
+  {
+    id: 'technical-seo-fundamentals-2025',
+    title: "Technical SEO Fundamentals: The Foundation That Makes or Breaks Rankings",
+    category: "Technical SEO",
+    image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+    date: "August 3, 2025",
+    readTime: "18 min read",
+    author: "Leo Corbett",
+    excerpt: "Technical SEO is the invisible foundation that either propels your site to the top of search results or keeps it buried in the depths of page 10. Master these fundamentals to build an unshakeable SEO foundation.",
+    content: (
+      <React.Fragment>
+        <p className="text-xl leading-relaxed mb-8">
+          Technical SEO is like the foundation of a house—you can't see it, but without it, everything else crumbles. While content marketers debate keyword density and backlink specialists chase domain authority, technical SEO quietly determines whether search engines can even find, crawl, and understand your site.
+        </p>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-4 border-b border-gray-200 pb-2">🔧 What Is Technical SEO?</h2>
+        <p className="mb-6">
+          Technical SEO optimizes your website's infrastructure to help search engines crawl, index, and understand your content more effectively. It's the behind-the-scenes work that makes everything else possible.
+        </p>
+
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-8 rounded-r-md">
+          <p className="italic font-medium text-blue-800">
+            Think of technical SEO as speaking Google's native language fluently—while your competitors are still struggling with basic phrases.
+          </p>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4 border-b border-gray-200 pb-2">🗺️ Site Architecture: Building Your SEO Foundation</h2>
+        <p className="mb-6">
+          A well-structured site architecture helps both users and search engines navigate your content efficiently.
+        </p>
+
+        <p className="mb-4"><strong>Essential Architecture Elements:</strong></p>
+        <ul className="pl-6 mb-8 space-y-2 list-disc">
+          <li><strong>Logical URL Structure:</strong> /category/subcategory/page-name</li>
+          <li><strong>Internal Linking:</strong> Connect related pages with descriptive anchor text</li>
+          <li><strong>Breadcrumbs:</strong> Help users and crawlers understand page hierarchy</li>
+          <li><strong>XML Sitemaps:</strong> Provide search engines with a roadmap</li>
+          <li><strong>Robots.txt:</strong> Control crawler access to different sections</li>
+        </ul>
+
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Website architecture diagram" className="rounded-lg shadow-md my-8 w-full object-cover" />
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4 border-b border-gray-200 pb-2">📱 Mobile-First Indexing Mastery</h2>
+        <p className="mb-6">
+          Google predominantly uses the mobile version of your site for indexing and ranking. Your mobile site isn't just a nice-to-have—it's your primary SEO asset.
+        </p>
+
+        <p className="mb-4"><strong>Mobile-First Optimization:</strong></p>
+        <ul className="pl-6 mb-8 space-y-2 list-disc">
+          <li>Responsive design that adapts to all screen sizes</li>
+          <li>Fast loading times on mobile networks</li>
+          <li>Touch-friendly navigation and buttons</li>
+          <li>Readable text without zooming</li>
+          <li>Properly sized images and media</li>
+        </ul>
+
+        <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4 border-b border-gray-200 pb-2">🚀 Page Speed Optimization</h2>
+        <p className="mb-6">
+          Page speed directly impacts user experience and search rankings. Slow sites don't just rank poorly—they bleed conversions.
+        </p>
+
+        <p className="mb-4"><strong>Speed Optimization Tactics:</strong></p>
+        <ul className="pl-6 mb-8 space-y-2 list-disc">
+          <li>Image optimization and compression</li>
+          <li>Minify CSS, JavaScript, and HTML</li>
+          <li>Enable browser caching</li>
+          <li>Use a Content Delivery Network (CDN)</li>
+          <li>Optimize server response times</li>
+          <li>Eliminate render-blocking resources</li>
+        </ul>
+
+        <div className="bg-green-50 border-l-4 border-green-500 p-4 my-8 rounded-r-md">
+          <p className="italic font-medium text-green-800">
+            Pro Tip: Focus on user experience first - fast, accessible, mobile-friendly sites naturally perform better in search results.
+          </p>
+        </div>
+      </React.Fragment>
+    ),
+  },
 ];

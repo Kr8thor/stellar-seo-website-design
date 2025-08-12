@@ -16,10 +16,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
-
-// Import the dynamic generators
-import { writeSitemap } from './generate-sitemap-safe.mjs';
-import { writeRobotsTxt } from './generate-robots.mjs';
+import { execSync } from 'child_process';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -41,6 +38,11 @@ const routes = [
   
   // System Pages (NOINDEX - Low Priority)
   { path: '/cart', noindex: true },
+  { path: '/checkout', noindex: true },
+  { path: '/payment-success', noindex: true },
+  { path: '/terms-of-service', priority: 0.3, changefreq: 'yearly' },
+  { path: '/privacy-policy', priority: 0.3, changefreq: 'yearly' },
+  { path: '/refund-policy', priority: 0.3, changefreq: 'yearly' },
   { path: '/admin', noindex: true },
   { path: '/analytics-test', noindex: true },
   { path: '/debug', noindex: true },
@@ -528,7 +530,7 @@ const routeMeta = {
 
   // System Pages with NOINDEX
   '/cart': {
-    title: 'Shopping Cart | Marden SEO',
+    title: 'Shopping Cart | Marden SEO, LLC',
     description: 'Review your selected services and packages.',
     h1: 'Your Shopping Cart',
     h2: 'Review your selected services and packages',
@@ -536,6 +538,7 @@ const routeMeta = {
     noindex: true,
     content: `
       <section class="cart-info">
+        <h3>Review Your Order</h3>
         <p>Review your selected services and packages before proceeding to checkout.</p>
         <p><a href="/services-pricing">Browse Our Services</a> to add more items to your cart.</p>
       </section>
@@ -543,7 +546,7 @@ const routeMeta = {
   },
 
   '/admin': {
-    title: 'Admin Panel | Marden SEO',
+    title: 'Admin Panel | Marden SEO, LLC',
     description: 'Administrative interface for authorized users.',
     h1: 'Admin Panel',
     h2: 'Administrative interface for authorized users only',
@@ -551,6 +554,7 @@ const routeMeta = {
     noindex: true,
     content: `
       <section class="admin-info">
+        <h3>Administrative Access</h3>
         <p>This area is restricted to authorized administrators only.</p>
         <p><a href="/">Return to Homepage</a></p>
       </section>
@@ -558,7 +562,7 @@ const routeMeta = {
   },
 
   '/analytics-test': {
-    title: 'Analytics Testing | Marden SEO',
+    title: 'Analytics Testing | Marden SEO, LLC',
     description: 'Analytics testing interface.',
     h1: 'Analytics Testing',
     h2: 'Testing interface for analytics verification',
@@ -566,6 +570,7 @@ const routeMeta = {
     noindex: true,
     content: `
       <section class="analytics-info">
+        <h3>Analytics Verification</h3>
         <p>This page is used for analytics testing and verification purposes.</p>
         <p><a href="/">Return to Homepage</a></p>
       </section>
@@ -573,7 +578,7 @@ const routeMeta = {
   },
 
   '/debug': {
-    title: 'Debug Page | Marden SEO',
+    title: 'Debug Page | Marden SEO, LLC',
     description: 'Debug interface for development purposes.',
     h1: 'Debug Interface',
     h2: 'Development and debugging utilities',
@@ -581,8 +586,86 @@ const routeMeta = {
     noindex: true,
     content: `
       <section class="debug-info">
+        <h3>Development Tools</h3>
         <p>This page contains debugging utilities for development purposes.</p>
         <p><a href="/">Return to Homepage</a></p>
+      </section>
+    `
+  },
+
+  '/terms-of-service': {
+    title: 'Terms of Service | Marden SEO, LLC - Professional SEO Services',
+    description: 'Terms of service and conditions for using Marden SEO, LLC professional SEO and development services. Wyoming registered business.',
+    h1: 'Terms of Service',
+    h2: 'Service terms and conditions for Marden SEO, LLC',
+    keywords: ['terms of service', 'terms and conditions', 'legal', 'marden seo'],
+    content: `
+      <section class="legal-terms">
+        <h3>Professional SEO Service Terms</h3>
+        <p>These terms govern the use of services provided by Marden SEO, LLC, a Wyoming registered limited liability company.</p>
+        <p>We provide comprehensive SEO services, custom app development, and workflow automation solutions with clear terms and professional standards.</p>
+      </section>
+    `
+  },
+
+  '/privacy-policy': {
+    title: 'Privacy Policy | Marden SEO, LLC - Data Protection & Privacy',
+    description: 'Privacy policy and data protection practices for Marden SEO, LLC. Learn how we protect your information and respect your privacy.',
+    h1: 'Privacy Policy',
+    h2: 'Data protection and privacy practices',
+    keywords: ['privacy policy', 'data protection', 'privacy', 'marden seo'],
+    content: `
+      <section class="privacy-info">
+        <h3>Your Privacy Matters</h3>
+        <p>Marden SEO, LLC is committed to protecting your personal information and respecting your privacy rights.</p>
+        <p>This policy explains how we collect, use, and safeguard your information when using our professional SEO and development services.</p>
+      </section>
+    `
+  },
+
+  '/refund-policy': {
+    title: 'Refund Policy | Marden SEO, LLC - Money Back Guarantee',
+    description: 'Refund and cancellation policy for Marden SEO, LLC services. 30-day satisfaction guarantee and fair refund terms.',
+    h1: 'Refund Policy',
+    h2: 'Fair refund terms and satisfaction guarantee',
+    keywords: ['refund policy', 'money back guarantee', 'cancellation', 'marden seo'],
+    content: `
+      <section class="refund-info">
+        <h3>Satisfaction Guarantee</h3>
+        <p>We offer a 30-day satisfaction guarantee for new SEO clients and fair refund terms for all our services.</p>
+        <p>Our refund policy is designed to be transparent and fair for both our clients and our Wyoming-based business.</p>
+      </section>
+    `
+  },
+
+  '/checkout': {
+    title: 'Checkout | Marden SEO, LLC',
+    description: 'Complete your order for professional SEO services with secure payment processing.',
+    h1: 'Checkout',
+    h2: 'Complete your order securely',
+    keywords: [],
+    noindex: true,
+    content: `
+      <section class="checkout-info">
+        <h3>Secure Checkout</h3>
+        <p>Complete your order for professional SEO services with our secure payment system.</p>
+        <p><a href="/services-pricing">View Our Services</a> or <a href="/contact">Contact Us</a> for assistance.</p>
+      </section>
+    `
+  },
+
+  '/payment-success': {
+    title: 'Payment Successful | Marden SEO, LLC',
+    description: 'Your payment has been processed successfully. Welcome to Marden SEO services.',
+    h1: 'Payment Successful',
+    h2: 'Thank you for your purchase',
+    keywords: [],
+    noindex: true,
+    content: `
+      <section class="payment-success-info">
+        <h3>Welcome to Marden SEO!</h3>
+        <p>Your payment has been processed successfully. We'll contact you within 24 hours to begin your SEO project.</p>
+        <p><a href="/contact">Contact Us</a> if you have any questions or <a href="/">Return to Homepage</a>.</p>
       </section>
     `
   }
@@ -608,6 +691,32 @@ const generateNavigation = () => `
   </div>
 </nav>
 `;
+
+// =============================================================================
+// DYNAMIC ASSET DETECTION
+// =============================================================================
+
+async function getAssetReferences() {
+  try {
+    const clientIndexPath = path.join(__dirname, 'dist', 'client', 'index.html');
+    const clientIndex = await fs.readFile(clientIndexPath, 'utf8');
+    
+    // Extract script and CSS references
+    const scriptMatch = clientIndex.match(/src="\/assets\/(main-[a-zA-Z0-9]+\.js)"/);
+    const cssMatch = clientIndex.match(/href="\/assets\/(main-[a-zA-Z0-9]+\.css)"/);
+    
+    return {
+      script: scriptMatch ? `/assets/${scriptMatch[1]}` : '/assets/main.js',
+      css: cssMatch ? `/assets/${cssMatch[1]}` : '/assets/main.css'
+    };
+  } catch (error) {
+    console.log('⚠️ Could not extract asset references, using defaults');
+    return {
+      script: '/assets/main.js',
+      css: '/assets/main.css'
+    };
+  }
+}
 
 // =============================================================================
 // DYNAMIC BLOG POST DISCOVERY
@@ -705,7 +814,7 @@ function generateBlogPostMeta(post) {
 // STATIC HTML GENERATION
 // =============================================================================
 
-function generateStaticHTML(route, meta) {
+function generateStaticHTML(route, meta, assets) {
   const isNoIndex = meta.noindex || route.noindex;
   const canonical = isNoIndex ? '' : `<link rel="canonical" href="https://mardenseo.com${route.path === '/' ? '' : route.path}">`;
   const robotsContent = isNoIndex ? 'noindex, nofollow' : 'index, follow';
@@ -738,6 +847,48 @@ function generateStaticHTML(route, meta) {
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  <!-- =================================================================== -->
+  <!-- UNIVERSAL GTM IMPLEMENTATION - LOADS FOR ALL VISITORS -->
+  <!-- This implementation ensures GTM works for users, crawlers, and the GTM scanner -->
+  <!-- =================================================================== -->
+  
+  <!-- Initialize dataLayer FIRST (before any GTM scripts) -->
+  <script>
+    // Initialize dataLayer for ALL visitors
+    window.dataLayer = window.dataLayer || [];
+    
+    // Push initial page data
+    window.dataLayer.push({
+      'event': 'page_initialized',
+      'page_type': '${route.path === '/' ? 'homepage' : route.path.slice(1).replace(/\//g, '_')}',
+      'page_path': '${route.path}',
+      'page_title': '${meta.title}'
+    });
+  </script>
+  
+  <!-- Google Tag Manager (loads for EVERYONE) -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5R45LHS7');
+  </script>
+  <!-- End Google Tag Manager -->
+  
+  <!-- Google Analytics 4 (Base Configuration) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C4RC6CSFG6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-C4RC6CSFG6', {
+      'send_page_view': true,
+      'custom_map.dimension1': 'visitor_type',
+      'custom_map.dimension2': 'render_mode'
+    });
+  </script>
   
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -857,24 +1008,108 @@ function generateStaticHTML(route, meta) {
   </style>
 </head>
 <body>
-  <!-- CRAWLER DETECTION AND CONTENT SWITCHING -->
+  <!-- Google Tag Manager (noscript) - For users with JavaScript disabled -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5R45LHS7"
+      height="0" width="0" style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- =================================================================== -->
+  <!-- ENHANCED CRAWLER DETECTION WITH GTM TRACKING -->
+  <!-- Waits for GTM to load before detection -->
+  <!-- =================================================================== -->
   <script>
-    // Detect if this is a search engine crawler
-    const userAgent = navigator.userAgent.toLowerCase();
-    const isCrawler = /bot|crawl|slurp|spider|bingbot|googlebot|yandex|baidu|twitterbot|facebookexternalhit|rogerbot|linkedinbot|embedly|quora link preview|showyoubot|outbrain|pinterest|developers\.google\.com/i.test(userAgent);
-    
-    if (isCrawler) {
-      // Show static content to crawlers
-      document.getElementById('static-content').style.display = 'block';
-      document.getElementById('root').style.display = 'none';
-    } else {
-      // Hide static content from users, show React app
-      document.getElementById('static-content').style.display = 'none';
-      document.getElementById('root').style.display = 'block';
-    }
+    // Ensure GTM is loaded before detection
+    (function() {
+      let attempts = 0;
+      const maxAttempts = 50; // 500ms max wait
+      
+      function checkAndDetect() {
+        attempts++;
+        
+        // Check if GTM is ready
+        if (window.dataLayer && window.dataLayer.length > 0) {
+          performDetection();
+        } else if (attempts < maxAttempts) {
+          setTimeout(checkAndDetect, 10);
+        } else {
+          console.warn('[GTM Detection] GTM not loaded after 500ms, proceeding anyway');
+          performDetection();
+        }
+      }
+      
+      function performDetection() {
+        const userAgent = navigator.userAgent.toLowerCase();
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        console.log('[GTM Detection] Detection starting (attempt ' + attempts + ')');
+        console.log('[GTM Detection] DataLayer:', window.dataLayer ? 'Ready' : 'Not ready');
+        console.log('[GTM Detection] User Agent:', userAgent);
+        
+        // Check for GTM debug/Tag Assistant
+        const isGTMTool = 
+          urlParams.has('gtm_debug') || 
+          urlParams.has('gtm_preview') ||
+          urlParams.has('gtm_cookies_win') ||
+          urlParams.has('tagassistant') ||
+          window.location.hash.includes('gtm') ||
+          document.referrer.includes('tagmanager.google.com');
+        
+        // Check for crawlers
+        const isCrawler = !isGTMTool && 
+          /bot|crawl|slurp|spider|bingbot|googlebot|yandex|baidu|twitterbot|facebookexternalhit|rogerbot|linkedinbot|embedly|quora link preview|showyoubot|outbrain|pinterest|developers\.google\.com/i.test(userAgent);
+        
+        // Determine visitor type
+        let visitorType = 'user';
+        let showStatic = false;
+        
+        if (isGTMTool) {
+          visitorType = 'gtm_tool';
+          console.log('🏷️ GTM Tool/Tag Assistant detected - showing React');
+        } else if (isCrawler) {
+          visitorType = 'crawler';
+          showStatic = true;
+          console.log('🤖 Crawler detected - showing static');
+        } else {
+          console.log('👤 Regular user - showing React');
+        }
+        
+        // Update dataLayer
+        if (window.dataLayer) {
+          window.dataLayer.push({
+            'event': 'visitor_classified',
+            'visitor_type': visitorType,
+            'render_mode': showStatic ? 'static' : 'react',
+            'user_agent': userAgent,
+            'is_gtm_tool': isGTMTool,
+            'detection_delay_ms': attempts * 10
+          });
+        }
+        
+        // Update visibility
+        const staticEl = document.getElementById('static-content');
+        const rootEl = document.getElementById('root');
+        
+        if (staticEl && rootEl) {
+          if (showStatic) {
+            staticEl.style.display = 'block';
+            rootEl.style.display = 'none';
+          } else {
+            staticEl.style.display = 'none';
+            rootEl.style.display = 'block';
+          }
+          console.log('[GTM Detection] Visibility set:', showStatic ? 'static' : 'react');
+        }
+      }
+      
+      // Start detection
+      checkAndDetect();
+    })();
   </script>
 
-  <!-- STATIC CONTENT: Visible immediately for search engines -->
+  <!-- STATIC CONTENT: Hidden by default, visible only to crawlers -->
   <div id="static-content" style="display: none;">
     ${generateNavigation()}
     
@@ -892,41 +1127,84 @@ function generateStaticHTML(route, meta) {
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
           <div>
             <h4 style="color: #e5e7eb; margin-bottom: 1rem;">Marden SEO</h4>
-            <p style="color: #9ca3af;">Professional SEO services, app development, and workflow automation solutions.</p>
-            <p style="color: #9ca3af;"><a href="/contact">Contact us today</a> for a free consultation.</p>
+            <p style="color: #9ca3af;">Elevating your digital presence with data-driven SEO strategies and custom application development.</p>
+            <div style="margin-top: 1rem;">
+              <a href="https://github.com/Kr8thor" style="margin-right: 1rem;" aria-label="GitHub">GitHub</a>
+              <a href="mailto:hello@mardenseo.com" aria-label="Email">Email</a>
+            </div>
           </div>
           <div>
             <h4 style="color: #e5e7eb; margin-bottom: 1rem;">Services</h4>
             <ul style="list-style: none; padding: 0; margin: 0;">
-              <li style="margin-bottom: 0.5rem;"><a href="/services">SEO Optimization</a></li>
+              <li style="margin-bottom: 0.5rem;"><a href="/services">SEO Services</a></li>
               <li style="margin-bottom: 0.5rem;"><a href="/services-pricing">SEO Packages</a></li>
               <li style="margin-bottom: 0.5rem;"><a href="/app-building">App Development</a></li>
               <li style="margin-bottom: 0.5rem;"><a href="/workflow-automation">Workflow Automation</a></li>
             </ul>
           </div>
           <div>
-            <h4 style="color: #e5e7eb; margin-bottom: 1rem;">Resources</h4>
+            <h4 style="color: #e5e7eb; margin-bottom: 1rem;">Company</h4>
             <ul style="list-style: none; padding: 0; margin: 0;">
-              <li style="margin-bottom: 0.5rem;"><a href="/blog">SEO Blog</a></li>
-              <li style="margin-bottom: 0.5rem;"><a href="/portfolio">Case Studies</a></li>
+              <li style="margin-bottom: 0.5rem;"><a href="/">Home</a></li>
               <li style="margin-bottom: 0.5rem;"><a href="/about">About Us</a></li>
+              <li style="margin-bottom: 0.5rem;"><a href="/portfolio">Portfolio</a></li>
+              <li style="margin-bottom: 0.5rem;"><a href="/blog">SEO Blog</a></li>
               <li style="margin-bottom: 0.5rem;"><a href="/contact">Contact</a></li>
             </ul>
           </div>
+          <div>
+            <h4 style="color: #e5e7eb; margin-bottom: 1rem;">Get Started</h4>
+            <p style="color: #9ca3af; margin-bottom: 1rem;">Ready to boost your rankings? Schedule a free SEO consultation.</p>
+            <a href="/contact" style="background: #3b82f6; color: white; padding: 0.5rem 1rem; border-radius: 0.375rem; text-decoration: none; display: inline-block; margin-bottom: 1rem;">Free SEO Audit</a>
+            <div style="font-size: 0.875rem; color: #9ca3af;">
+              <div style="margin-bottom: 0.5rem;">📧 hello@mardenseo.com</div>
+              <div style="margin-bottom: 0.5rem;">⏰ Response within 24 hours</div>
+              <div>🏢 Professional Services</div>
+            </div>
+          </div>
         </div>
-        <div style="border-top: 1px solid #374151; margin-top: 2rem; padding-top: 2rem; text-align: center; color: #9ca3af;">
-          <p>&copy; 2025 Marden SEO. All rights reserved. Professional SEO services and app development.</p>
+        <div style="border-top: 1px solid #374151; margin-top: 2rem; padding-top: 2rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; font-size: 0.875rem; color: #9ca3af; margin-bottom: 2rem;">
+            <div>
+              <h4 style="font-weight: 600; color: #e5e7eb; margin-bottom: 0.5rem;">Business Information</h4>
+              <p>Marden SEO, LLC</p>
+              <p>Wyoming Registered Entity</p>
+              <p>Professional SEO & Development Services</p>
+            </div>
+            <div>
+              <h4 style="font-weight: 600; color: #e5e7eb; margin-bottom: 0.5rem;">Contact</h4>
+              <p>Email: hello@mardenseo.com</p>
+              <p>Business Hours: Mon-Fri 9AM-6PM MST</p>
+              <p>Response Time: Within 24 hours</p>
+            </div>
+            <div>
+              <h4 style="font-weight: 600; color: #e5e7eb; margin-bottom: 0.5rem;">Legal</h4>
+              <a href="/privacy-policy" style="display: block; margin-bottom: 0.25rem;">Privacy Policy</a>
+              <a href="/terms-of-service" style="display: block; margin-bottom: 0.25rem;">Terms of Service</a>
+              <a href="/refund-policy" style="display: block;">Refund Policy</a>
+            </div>
+            <div>
+              <h4 style="font-weight: 600; color: #e5e7eb; margin-bottom: 0.5rem;">Resources</h4>
+              <a href="/blog" style="display: block; margin-bottom: 0.25rem;">SEO Blog</a>
+              <a href="/portfolio" style="display: block; margin-bottom: 0.25rem;">Case Studies</a>
+              <a href="/services-pricing" style="display: block;">Pricing</a>
+            </div>
+          </div>
+          <div style="text-align: center; color: #9ca3af; font-size: 0.875rem;">
+            <p>&copy; ${new Date().getFullYear()} Marden SEO, LLC. All rights reserved. | Wyoming Registered Entity | Professional SEO Services</p>
+          </div>
         </div>
       </div>
     </footer>
   </div>
   
-  <!-- REACT APPLICATION: Visible for users -->
-  <div id="root" style="display: block;"></div>
+  
+  <!-- REACT APPLICATION: Visible by default for users and Tag Assistant -->
+  <div id="root"></div>
   
   <!-- LOAD REACT APP FOR INTERACTIVE FEATURES -->
-  <script type="module" src="/assets/main-BgO0c2Wu.js"></script>
-  <link rel="stylesheet" href="/assets/main-Kab0klor.css">
+  <script type="module" crossorigin src="${assets.script}"></script>
+  <link rel="stylesheet" crossorigin href="${assets.css}">
 </body>
 </html>`;
 }
@@ -969,11 +1247,15 @@ async function buildComprehensiveStaticSSG() {
   try {
     // Step 1: Build React client only (skip SSR due to module issues)
     console.log('📦 Building React client application...');
-    const { execSync } = await import('child_process');
     execSync('npm run build:client', { stdio: 'inherit', cwd: __dirname });
     console.log('✅ React client build completed\n');
     
-    // Step 1.5: Copy client files to root dist directory
+    // Step 2: Get dynamic asset references
+    console.log('🔍 Detecting asset references...');
+    const assets = await getAssetReferences();
+    console.log(`✅ Detected assets: ${assets.script}, ${assets.css}\n`);
+    
+    // Step 2.5: Copy client files to root dist directory
     console.log('📋 Copying client files to dist root...');
     const clientDistPath = path.join(__dirname, 'dist', 'client');
     const rootDistPath = path.join(__dirname, 'dist');
@@ -1016,7 +1298,7 @@ async function buildComprehensiveStaticSSG() {
       }
       
       // Generate static HTML
-      const html = generateStaticHTML(route, meta);
+      const html = generateStaticHTML(route, meta, assets);
       
       // Determine output path
       let outputPath;
@@ -1044,7 +1326,22 @@ async function buildComprehensiveStaticSSG() {
     // Step 6: Generate dynamic robots.txt
     console.log('🤖 Generating dynamic robots.txt...');
     try {
-      await writeRobotsTxt();
+      // Generate robots.txt content
+      const robotsContent = `# Robots.txt for Marden SEO
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /payment-success/
+Disallow: /analytics-test/
+Disallow: /debug/
+
+Sitemap: https://mardenseo.com/sitemap.xml
+`;
+      await fs.writeFile(path.join(__dirname, 'dist', 'robots.txt'), robotsContent, 'utf8');
+      console.log('✅ Robots.txt generated successfully');
     } catch (error) {
       console.log('⚠️ Using basic robots.txt generation');
       const robotsContent = `# Robots.txt for Marden SEO
@@ -1084,9 +1381,7 @@ Sitemap: https://mardenseo.com/sitemap.xml`;
 }
 
 // Run the build
-if (import.meta.url === `file://${process.argv[1]}`) {
-  console.log('🚀 Starting Marden SEO comprehensive build...');
-  buildComprehensiveStaticSSG();
-}
+console.log('🚀 Starting Marden SEO comprehensive build...');
+buildComprehensiveStaticSSG();
 
 export default buildComprehensiveStaticSSG;

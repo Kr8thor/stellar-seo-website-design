@@ -15,14 +15,14 @@ const SecurityHeaders = () => {
       return;
     }
 
-    // Set minimal CSP that won't conflict with server
+    // Set minimal CSP that won't conflict with server and allows Stripe
     const cspContent = [
       "default-src 'self' 'unsafe-inline' 'unsafe-eval'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.gpteng.co",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://*.google-analytics.com https://*.google.com https://*.googleapis.com https://*.gstatic.com https://*.clarity.ms https://www.clarity.ms https://td.doubleclick.net https://cdn.jsdelivr.net https://unpkg.com https://js.stripe.com https://cdn.gpteng.co",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: https: blob:",
-      "connect-src 'self' https://cms.mardenseo.com https://*.supabase.co",
+      "connect-src 'self' https://cms.mardenseo.com https://*.supabase.co https://api.stripe.com https://*.stripe.com",
     ].join('; ');
 
     // Only set CSP if not already set by server

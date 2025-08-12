@@ -1,6 +1,15 @@
+// Enhanced Cart Context with Payment Integration
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { validateCoupon, Coupon } from '@/data/coupons';
+import { 
+  PaymentIntent, 
+  Subscription, 
+  PaymentMethod, 
+  Customer,
+  PaymentService
+} from '../types/payment';
 
+// Cart Item interface for internal cart operations
 export interface CartItem {
   id: string;
   name: string;
@@ -11,9 +20,26 @@ export interface CartItem {
   recurring?: 'monthly' | 'yearly' | 'one-time';
   features?: string[];
   customOptions?: Record<string, any>;
+  // Payment-related fields
+  stripePriceId?: string;
+  paymentType?: 'subscription' | 'one-time' | 'custom' | 'hourly';
+  customPrice?: number;
+  duration?: number;
+  serviceData?: PaymentService;
+}
+
+// Payment Cart Item for payment processing
+export interface PaymentCartItem {
+  service: PaymentService;
+  quantity: number;
+  customPrice?: number;
+  duration?: number;
+  selectedFeatures?: string[];
+  notes?: string;
 }
 
 interface CartContextType {
+  // Existing cart functionality
   items: CartItem[];
   addToCart: (item: Omit<CartItem, 'quantity'>) => void;
   removeFromCart: (id: string) => void;
@@ -27,6 +53,31 @@ interface CartContextType {
   applyCoupon: (code: string) => { success: boolean; message: string };
   removeCoupon: () => void;
   getFinalTotal: () => number;
+  
+  // New payment functionality
+  customer: Customer | null;
+  setCustomer: (customer: Customer | null) => void;
+  currentPaymentIntent: PaymentIntent | null;
+  setCurrentPaymentIntent: (intent: PaymentIntent | null) => void;
+  subscriptions: Subscription[];
+  setSubscriptions: (subscriptions: Subscription[]) => void;
+  paymentMethods: PaymentMethod[];
+  setPaymentMethods: (methods: PaymentMethod[]) => void;
+  paymentError: string | null;
+  setPaymentError: (error: string | null) => void;
+  isProcessingPayment: boolean;
+  setIsProcessingPayment: (isProcessing: boolean) => void;
+  
+  // Cart analysis for payments
+  getSubscriptionItems: () => CartItem[];
+  getOneTimeItems: () => CartItem[];
+  hasSubscriptionItems: () => boolean;
+  hasOneTimeItems: () => boolean;
+  getPaymentCartItems: () => PaymentCartItem[];
+  
+  // Utility functions
+  convertToPaymentService: (cartItem: CartItem) => PaymentService;
+  addServiceToCart: (service: PaymentService, customPrice?: number, duration?: number) => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -44,10 +95,31 @@ interface CartProviderProps {
 }
 
 export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
+  // Existing state with price correction for legacy cart items
   const [items, setItems] = useState<CartItem[]>(() => {
-    // Load cart from localStorage on mount
     const savedCart = localStorage.getItem('marden-seo-cart');
-    return savedCart ? JSON.parse(savedCart) : [];
+    if (savedCart) {
+      try {
+        const parsedCart = JSON.parse(savedCart);
+        // Fix any legacy cart items with incorrect pricing (cents instead of dollars)
+        const correctedCart = parsedCart.map((item: CartItem) => {
+          // If price is suspiciously high (likely in cents), convert to dollars
+          if (item.price > 10000) {
+            return {
+              ...item,
+              price: Math.round(item.price / 100),
+              customPrice: item.customPrice && item.customPrice > 10000 ? Math.round(item.customPrice / 100) : item.customPrice
+            };
+          }
+          return item;
+        });
+        return correctedCart;
+      } catch (error) {
+        console.error('Error parsing saved cart:', error);
+        return [];
+      }
+    }
+    return [];
   });
 
   const [appliedCoupon, setAppliedCoupon] = useState<Coupon | null>(() => {
@@ -56,21 +128,33 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   });
 
   const [couponDiscount, setCouponDiscount] = useState<number>(0);
+  
+  // New payment state
+  const [customer, setCustomer] = useState<Customer | null>(() => {
+    const savedCustomer = localStorage.getItem('marden-seo-customer');
+    return savedCustomer ? JSON.parse(savedCustomer) : null;
+  });
+  
+  const [currentPaymentIntent, setCurrentPaymentIntent] = useState<PaymentIntent | null>(null);
+  const [subscriptions, setSubscriptions] = useState<Subscription[]>([]);
+  const [paymentMethods, setPaymentMethods] = useState<PaymentMethod[]>([]);
+  const [paymentError, setPaymentError] = useState<string | null>(null);
+  const [isProcessingPayment, setIsProcessingPayment] = useState(false);
 
-  // Define helper functions before useEffect
+  // Existing helper functions
   const getCartTotal = () => {
     return items.reduce((total, item) => {
-      const itemTotal = item.price * item.quantity;
+      const itemPrice = item.customPrice || item.price;
+      const itemTotal = itemPrice * item.quantity * (item.duration || 1);
       return total + itemTotal;
     }, 0);
   };
 
-  // Save cart to localStorage whenever it changes
+  // Save state to localStorage
   useEffect(() => {
     localStorage.setItem('marden-seo-cart', JSON.stringify(items));
   }, [items]);
 
-  // Save coupon to localStorage whenever it changes
   useEffect(() => {
     if (appliedCoupon) {
       localStorage.setItem('marden-seo-coupon', JSON.stringify(appliedCoupon));
@@ -78,6 +162,14 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
       localStorage.removeItem('marden-seo-coupon');
     }
   }, [appliedCoupon]);
+
+  useEffect(() => {
+    if (customer) {
+      localStorage.setItem('marden-seo-customer', JSON.stringify(customer));
+    } else {
+      localStorage.removeItem('marden-seo-customer');
+    }
+  }, [customer]);
 
   // Recalculate discount when cart or coupon changes
   useEffect(() => {
@@ -87,25 +179,23 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
       if (validation.valid) {
         setCouponDiscount(validation.discount);
       } else {
-        // Remove invalid coupon
         setAppliedCoupon(null);
         setCouponDiscount(0);
       }
     }
   }, [items, appliedCoupon]);
 
+  // Existing cart functions
   const addToCart = (item: Omit<CartItem, 'quantity'>) => {
     setItems(currentItems => {
       const existingItem = currentItems.find(i => i.id === item.id);
       
       if (existingItem) {
-        // If item exists, increase quantity
         return currentItems.map(i =>
           i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
         );
       }
       
-      // Add new item with quantity 1
       return [...currentItems, { ...item, quantity: 1 }];
     });
   };
@@ -129,6 +219,8 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
 
   const clearCart = () => {
     setItems([]);
+    setCurrentPaymentIntent(null);
+    setPaymentError(null);
   };
 
   const getCartCount = () => {
@@ -162,7 +254,85 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     return Math.max(0, subtotal - couponDiscount);
   };
 
+  // New payment-related functions
+  const getSubscriptionItems = (): CartItem[] => {
+    return items.filter(item => 
+      item.paymentType === 'subscription' || 
+      item.recurring === 'monthly' || 
+      item.recurring === 'yearly'
+    );
+  };
+
+  const getOneTimeItems = (): CartItem[] => {
+    return items.filter(item => 
+      item.paymentType === 'one-time' || 
+      item.paymentType === 'custom' || 
+      item.paymentType === 'hourly' ||
+      item.recurring === 'one-time' ||
+      !item.recurring
+    );
+  };
+
+  const hasSubscriptionItems = (): boolean => {
+    return getSubscriptionItems().length > 0;
+  };
+
+  const hasOneTimeItems = (): boolean => {
+    return getOneTimeItems().length > 0;
+  };
+
+  const convertToPaymentService = (cartItem: CartItem): PaymentService => {
+    return {
+      id: cartItem.id,
+      name: cartItem.name,
+      description: cartItem.description,
+      type: cartItem.paymentType || 'one-time',
+      basePrice: (cartItem.customPrice || cartItem.price) * 100, // Convert dollars to cents
+      billingPeriod: cartItem.recurring === 'monthly' ? 'monthly' : cartItem.recurring === 'yearly' ? 'yearly' : undefined,
+      category: cartItem.category as any,
+      features: cartItem.features || [],
+      stripePriceId: cartItem.stripePriceId,
+      customPricing: cartItem.paymentType === 'custom' ? {
+        min: cartItem.price * 100, // Convert to cents
+        max: (cartItem.customPrice || cartItem.price) * 100, // Convert to cents
+        description: 'Custom pricing based on requirements'
+      } : undefined
+    };
+  };
+
+  const getPaymentCartItems = (): PaymentCartItem[] => {
+    return items.map(item => ({
+      service: convertToPaymentService(item),
+      quantity: item.quantity,
+      customPrice: item.customPrice,
+      duration: item.duration,
+      selectedFeatures: item.features,
+      notes: item.customOptions?.notes
+    }));
+  };
+
+  const addServiceToCart = (service: PaymentService, customPrice?: number, duration?: number) => {
+    const cartItem: Omit<CartItem, 'quantity'> = {
+      id: service.id,
+      name: service.name,
+      description: service.description,
+      price: Math.round(service.basePrice / 100), // Convert cents to dollars
+      category: service.category,
+      recurring: service.type === 'subscription' ? (service.billingPeriod || 'monthly') : 'one-time',
+      features: service.features,
+      stripePriceId: service.stripePriceId,
+      paymentType: service.type,
+      customPrice: customPrice ? Math.round(customPrice / 100) : undefined, // Convert if provided
+      duration,
+      serviceData: service,
+      customOptions: duration ? { duration } : undefined
+    };
+    
+    addToCart(cartItem);
+  };
+
   const value = {
+    // Existing cart functionality
     items,
     addToCart,
     removeFromCart,
@@ -176,6 +346,31 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     applyCoupon,
     removeCoupon,
     getFinalTotal,
+    
+    // New payment functionality
+    customer,
+    setCustomer,
+    currentPaymentIntent,
+    setCurrentPaymentIntent,
+    subscriptions,
+    setSubscriptions,
+    paymentMethods,
+    setPaymentMethods,
+    paymentError,
+    setPaymentError,
+    isProcessingPayment,
+    setIsProcessingPayment,
+    
+    // Cart analysis for payments
+    getSubscriptionItems,
+    getOneTimeItems,
+    hasSubscriptionItems,
+    hasOneTimeItems,
+    getPaymentCartItems,
+    
+    // Utility functions
+    convertToPaymentService,
+    addServiceToCart
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

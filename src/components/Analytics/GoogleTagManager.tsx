@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 // Google Tag Manager Configuration
 const GTM_ID = import.meta.env.VITE_GTM_ID || 'GTM-5R45LHS7';
@@ -10,35 +11,43 @@ declare global {
 }
 
 export const GoogleTagManager = () => {
-  useEffect(() => {
-    // Initialize GTM
-    if (typeof window !== 'undefined') {
-      // Initialize dataLayer
-      window.dataLayer = window.dataLayer || [];
-      
-      // Add GTM script to head
-      const script = document.createElement('script');
-      script.innerHTML = `
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','${GTM_ID}');
-      `;
-      document.head.appendChild(script);
+  const location = useLocation();
 
-      // Add GTM noscript to body
-      const noscript = document.createElement('noscript');
-      const iframe = document.createElement('iframe');
-      iframe.src = `https://www.googletagmanager.com/ns.html?id=${GTM_ID}`;
-      iframe.height = '0';
-      iframe.width = '0';
-      iframe.style.display = 'none';
-      iframe.style.visibility = 'hidden';
-      noscript.appendChild(iframe);
-      document.body.insertBefore(noscript, document.body.firstChild);
+  useEffect(() => {
+    // GTM is already loaded in the HTML template for all visitors
+    // This component now only handles React-specific events
+    
+    if (typeof window !== 'undefined' && window.dataLayer) {
+      // Track React app initialization
+      window.dataLayer.push({
+        'event': 'react_app_initialized',
+        'react_version': '18.3.1',
+        'app_type': 'spa',
+        'initial_path': location.pathname
+      });
     }
   }, []);
+
+  // Track route changes
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.dataLayer) {
+      // Push route change event to dataLayer
+      window.dataLayer.push({
+        'event': 'react_route_change',
+        'page_path': location.pathname,
+        'page_location': window.location.href,
+        'page_title': document.title
+      });
+
+      // Also track as a virtual pageview
+      window.dataLayer.push({
+        'event': 'virtual_pageview',
+        'virtual_page_path': location.pathname,
+        'virtual_page_title': document.title,
+        'virtual_page_location': window.location.href
+      });
+    }
+  }, [location]);
 
   return null;
 };
